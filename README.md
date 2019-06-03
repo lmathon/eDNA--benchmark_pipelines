@@ -1,7 +1,7 @@
 # benchmark_pipelines
 
 Assessment of metabarcoding data pipelines :
-The goal of this study is to compare the performance of sevveral bioinformatic tools to analyse fish eDNA data.
+The goal of this study is to compare the performance of several bioinformatic tools to analyse fish eDNA data, in oder to build the most efficient pipeline.
 Seven steps of the analysis were identified, from the assemble of paired-end reads to the taxonomic assignation.
 For each of these steps, different programs to compare were identified, as shown below :
 
