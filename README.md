@@ -7,9 +7,10 @@ For each of these steps, different programs to compare were identified, as shown
 
 ![pipeline_schema](schema_protocole.png)
 
+For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([Script_obitools_reference.sh](Script_obitools_reference.sh)). This pipeline is based on [OBItools](https://git.metabarcoding.org/obitools/obitools/wikis/home) a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
 
-# deuxieme chapitre
+# Installation
 
-## sous section
+# Directories
 
-[Script_obitools_reference.sh](Script_obitools_reference.sh) is the obitools reference pipeline used to standardize all the comparisons.
+
