@@ -57,12 +57,9 @@ cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences
 # Déréplication en séquences uniques
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
-# Supression des singletons
-all_sample_sequences_uniq_2="${all_sample_sequences_uniq/.fasta/.2.fasta}"
-obigrep -p 'count>=2' $all_sample_sequences_uniq > $all_sample_sequences_uniq_2
 # Assignation taxonomique
-all_sample_sequences_tag="${all_sample_sequences_uniq_2/.fasta/.tag.fasta}"
-ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_2 > $all_sample_sequences_tag
+all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
+ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
 # Supression des attributs inutiles dans l'entête des séquences
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
