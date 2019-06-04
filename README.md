@@ -9,7 +9,7 @@ For each of these steps, different programs to compare were identified, as shown
 
 For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([Script_obitools_reference.sh](Script_obitools_reference.sh)). This pipeline is based on [ObiTools](https://git.metabarcoding.org/obitools/obitools/wikis/home), a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
 
-The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2, Mothur, BARQUE and SLIM).
+The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2, Mothur, BARQUE, DADA2 and SLIM).
 
 # Dependencies
 
