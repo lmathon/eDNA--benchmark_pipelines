@@ -10,7 +10,7 @@ step=
 # Fichiers contenant les reads forward et reverse
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
-# Chemin vers le fichier 'tags.txt'
+# Chemin vers le fichier 'sample_description_file.txt'
 sample_description_file=
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
 refdb_dir=
