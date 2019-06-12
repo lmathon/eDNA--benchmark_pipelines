@@ -50,7 +50,7 @@ singularity pull --name 99_utils/images/obitools.img shub://Grelot/bioinfo_singu
 
 ## Reference database
 
-Download, uncrypt and unzip `reference_database` from our private [MEGA cloud](https://mega.nz/). The `reference_database` folder will be stored at [00_Input_data/reference_database](00_Input_data)
+Download, uncrypt and unzip `reference_database` from our [MEGA cloud](https://mega.nz/). The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data)
 ```
 bash 99_utils/mega_download/download_input_data.sh
 ```
