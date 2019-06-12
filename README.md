@@ -1,3 +1,5 @@
+ [![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/2878)
+
 # benchmark_pipelines
 
 Assessment of metabarcoding data pipelines :
@@ -22,25 +24,31 @@ The optimal pipeline obtained will be again compared to existant complete pipeli
 
 # Installation
 
+## Install from source code
+
 To install all the programs used in this stidy, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [ecoPrimers](https://git.metabarcoding.org/obitools/ecoprimers/), [ecoPCR](https://git.metabarcoding.org/obitools/ecopcr/), [VSEARCH](https://github.com/torognes/vsearch), [USEARCH](https://drive5.com/usearch/download.html), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [PANDAseq](https://github.com/neufeld/pandaseq), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [EA-util](https://github.com/ExpressionAnalysis/ea-utils/tree/master), [QIIME](http://qiime.org/install/install.html), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Flexbar](https://github.com/seqan/flexbar), [TagCleaner](https://sourceforge.net/projects/tagcleaner/files), [deML](https://github.com/grenaud/deml), [Tally](https://www.ebi.ac.uk/research/enright/software/kraken), [DADA2](https://benjjneb.github.io/dada2/dada-installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic), [SWARM](https://github.com/torognes/swarm), [Perseus](https://code.google.com/archive/p/ampliconnoise/), [CATCh](https://github.com/M-Mysara/CATCh), and [PROTAX](https://www.helsinki.fi/en/researchgroups/statistical-ecology/software#section-49869).
 
 The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install), [MOTHUR](https://github.com/mothur/mothur), [BARQUE](https://github.com/enormandeau/barque) and [SLIM](https://github.com/yoann-dufresne/SLIM).
+
+## Singularity containers
 
 Other possibility : all the programs have been installed in a [Singularity container](https://www.sylabs.io/docs/), which you can access here :
 
 First you need to install [Singularity](https://github.com/sylabs/singularity/blob/master/INSTALL.md).
 
-We provide ready to run versions of [Singularity containers](https://www.sylabs.io/) [![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/2878)
+We provide ready to run versions of [Singularity containers](https://www.sylabs.io/)
 
 Our complete collection of singularity recipes is available [here](https://github.com/Grelot/bioinfo_singularity_recipes).
 
-Download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [ecoPrimers](https://git.metabarcoding.org/obitools/ecoprimers/), [ecoPCR](https://git.metabarcoding.org/obitools/ecopcr/)container
+Download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [ecoPrimers](https://git.metabarcoding.org/obitools/ecoprimers/), [ecoPCR](https://git.metabarcoding.org/obitools/ecopcr/) container.
 ```
 singularity pull --name 99_utils/images/obitools.img shub://Grelot/bioinfo_singularity_recipes:obitools
 ```
 
 
-# Download input data
+# Data requirement
+
+## Reference database
 
 Download, uncrypt and unzip `reference_database` from our private [MEGA cloud](https://mega.nz/). The `reference_database` folder will be stored at [00_Input_data/reference_database](00_Input_data)
 ```
