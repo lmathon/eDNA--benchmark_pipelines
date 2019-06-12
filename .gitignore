@@ -1,5 +1,5 @@
-00_input_data/*
+00_Input_data/*
 99_utils/mega_download/mega_info.txt
-
+*zip
 
 !00_input_data/.gitkeep
