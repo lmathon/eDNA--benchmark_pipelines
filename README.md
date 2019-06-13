@@ -71,6 +71,17 @@ The `forward_reverse_reads` folder will be created at [00_Input_data/forward_rev
 The sample description file, containing the primers and the tags associated to each sample, is available [here](00_Input_data/sample_description_file.txt).
 
 
+# Performance measures
+
+To assess the efficiency of each program, we measure the time, % of CPU used and the memory used (among other metrics).
+
+Each time you test a different program for a given analysis step, you can record the memory usage of this command by running [record_memory_usage.sh](99_utils/record_memory_usage.sh) :
+
+```
+bash 99_utils/record_memory_usage.sh PID NUMBER_ITER TABLE_MEM
+```
+
+
 # Analysis steps
 
 ## 1 - Merging paired-end reads
