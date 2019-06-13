@@ -59,7 +59,7 @@ bash 99_utils/mega_download/download_input_data.sh
 
 The dataset used for this study, containing forward and reverse reads from 12S mitochondrial gene fragment of fish, has been simulated with [Grinder](https://sourceforge.net/projects/biogrinder/). For the full simulation protocole, please read the [README](grinder_simulations/README.md) in [grinder_simulations](grinder_simulations).
 
-The dataset is stored on MEGA. To dowload, uncrypt and unzip `forward_reverse_reads` from our [MEGA cloud], run :
+The dataset is stored on MEGA. To dowload, uncrypt and unzip `forward_reverse_reads` from our [MEGA cloud](https://mega.nz/), run :
 ```
 --
 ```
