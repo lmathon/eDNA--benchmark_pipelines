@@ -133,7 +133,7 @@ The script [last_step](Scripts/last_step.sh) organize the data in a table, and c
 
 # Outputs
 
-## Taxa/sample 
+## Taxa/sample tables
 
 The outputs of each pipeline tested can be found in [Outputs](Outputs), in the folder corresponding to the step tested, under the name of the program tested.
 For example, to find the results of the pipeline testing the program flash for merging reads : Outputs/01_merging/merging_flash.csv
