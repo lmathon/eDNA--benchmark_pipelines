@@ -84,45 +84,60 @@ bash 99_utils/record_memory_usage.sh PID NUMBER_ITER TABLE_MEM
 
 # Analysis steps
 
+For simplicity, each command of the pipeline are separated in folders corresponding to the steps, in [Scripts](Scripts). To build the pipeline, pick the scripts corresponding to the commands you want in the rigth folder. 
+
 ## 1 - Merging paired-end reads
 
 The first step consists in assembling forward and reverse reads of the sequences. We tested several assemblers, with no specific parameters.
 
-[01_merging](01_merging) contains the scripts to run each of these programs.
+[01_merging](Scripts/01_merging) contains the scripts to run each of these programs.
 
 ## 2 - Demultiplexing
 
 Once the reads assembled, the primers are removed (max. 2 mismatches allowed by primers). The tags are also removed (no mismatch allowed) and each read is assigned to the sample it comes from.
 
-[02_demultiplex](02_demultiplex) contains the scripts to run each programs used at this step.
+[02_demultiplex](Scripts/02_demultiplex) contains the scripts to run each programs used at this step.
 
 ## 3 - Dereplicating
 
 The reads are then dereplicated: identical reads are gathered in a unique read and the count is saved.
 
-All the scripts to run the different programs are in [03_dereplication](03_dereplication).
+All the scripts to run the different programs are in [03_dereplication](Scripts/03_dereplication).
 
 ## 4 - Quality filtering
 
 Reads are then checked for their quality : sequences longer than 20bp and with no ambiguous bases are kept.
 
-The scripts to run the different programs are in [04_quality-filter](04_quality-filter)
+The scripts to run the different programs are in [04_quality-filter](Scripts/04_quality-filter)
 
 ## 5 - PCR / Sequencing error removal
 
 Each program or pipeline offers different tools to remove PCR or sequencing errors. For ObiTools, the program obiclean keeps only the head sequences for each PCR replicate.
 
-The scripts for the different programs are in [05_error-removal](05_error-removal).
+The scripts for the different programs are in [05_error-removal](Scripts/05_error-removal).
 
 ## 6 - Chimera removal
 
 Several programs are specialized in identifying and removing chimeras. 
 
-[06_chimera-removal](06_chimera-removal) contains the scripts to run these programs.
+[06_chimera-removal](Scripts/06_chimera-removal) contains the scripts to run these programs.
 
 ## 7 - Taxonomic assignation
 
 The last step of the analysis is to assign every sequence to a taxa. In our case, we use a homemade reference database. To be assigned at the species level, the query sequence must be at least similar at 98% to the reference sequence.
 
-[07_taxonomic-assignation](07_taxonomic-assignation) contains the scripts to run the different assigning programs.
+[07_taxonomic-assignation](Scripts/07_taxonomic-assignation) contains the scripts to run the different assigning programs.
 
+
+The script [last_step](Scripts/last_step.sh) organize the data in a table, and can be run at the end of the pipeline.
+
+# Outputs
+
+## Taxa/sample 
+
+The outputs of each pipeline tested can be found in [Outputs](Outputs), in the folder corresponding to the step tested, under the name of the program tested.
+For example, to find the results of the pipeline testing the program flash for merging reads : Outputs/01_merging/merging_flash.csv
+
+## Time and memory reports
+
+Time and memory reports for each program compared are stored in [Reports](Reports), also sorted by step.
