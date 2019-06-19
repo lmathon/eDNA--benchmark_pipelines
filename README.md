@@ -40,9 +40,14 @@ We provide ready to run versions of [Singularity containers](https://www.sylabs.
 
 Our complete collection of singularity recipes is available [here](https://github.com/Grelot/bioinfo_singularity_recipes).
 
-Download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools) container :
+To download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools)'s container :
 ```
 singularity pull --name 99_utils/images/obitools.img shub://Grelot/bioinfo_singularity_recipes:obitools
+```
+
+To download container with vsearch, usearch, PEAR, FLASh, CASPER, cutadapt, fastq-multx, fastq-join, TAGcleaner, Reaper, SWARM, Flexbar, deML :
+```
+singularity pull --name ednatools.img shub://Grelot/bioinfo_singularity_recipes:ednatools
 ```
 
 
