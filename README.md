@@ -90,7 +90,7 @@ Each time you test a different program for a given analysis step, you can record
 ```
 This will give this output in the standard error file :
 
-![image_time]()
+![image_time](image_time.PNG)
 
 where :
 
