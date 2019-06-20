@@ -94,7 +94,7 @@ This will give this output in the standard error file :
 
 where :
 
-%elapsed = time in [hours:]minutes:seconds
+%elapsed = time in hours:minutes:seconds
 
 %CPU = percentage of CPU given to the job
 
