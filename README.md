@@ -75,12 +75,26 @@ The `forward_reverse_reads` folder will be created at [00_Input_data/forward_rev
 
 The sample description file, containing the primers and the tags associated to each sample, is available [here](00_Input_data/sample_description_file.txt).
 
+## Abundance data 
 
+Thanks to the simulated dataset, we know exactly the relative abundance of each species in each sample and replicate. These data can be found here [species_abundance_per_sample](grinder_simulations/Outputs/species_abundance_per_sample) and will be compared to the output of each pipeline tested to assess their efficiency.
+  
 # Performance measures
 
 To assess the efficiency of each program, we measure the time, % of CPU used and the memory used (among other metrics).
 
-Each time you test a different program for a given analysis step, you can record the memory usage of this command by running [record_memory_usage.sh](99_utils/record_memory_usage.sh) :
+Each time you test a different program for a given analysis step, you can record the memory usage of this command by running `time` in front of the command :
+
+```
+/usr/bin/time command [-options]
+```
+This will give this output in the standard error file :
+
+![image_time]()
+
+where %elapsed = time in [hours:]minutes:seconds; %CPU = percentage of CPU given to the job; %max = maximum memory used by the job in Kbytes.
+
+Or you can run [record_memory_usage.sh](99_utils/record_memory_usage.sh) that records the memory usage of the job :
 
 ```
 bash 99_utils/record_memory_usage.sh PID NUMBER_ITER TABLE_MEM
