@@ -83,7 +83,7 @@ Thanks to the simulated dataset, we know exactly the relative abundance of each 
 
 To assess the efficiency of each program, we measure the time, % of CPU used and the memory used (among other metrics).
 
-Each time you test a different program for a given analysis step, you can record the memory usage of this command by running `time` in front of the command :
+Each time you test a different program for a given analysis step, you can record the time, memory usage, and CPU usage of this command by running `time` in front of the command :
 
 ```
 /usr/bin/time command [-options]
@@ -92,7 +92,13 @@ This will give this output in the standard error file :
 
 ![image_time]()
 
-where %elapsed = time in [hours:]minutes:seconds; %CPU = percentage of CPU given to the job; %max = maximum memory used by the job in Kbytes.
+where :
+
+%elapsed = time in [hours:]minutes:seconds
+
+%CPU = percentage of CPU given to the job
+
+%max = maximum memory used by the job in Kbytes.
 
 Or you can run [record_memory_usage.sh](99_utils/record_memory_usage.sh) that records the memory usage of the job :
 
@@ -100,6 +106,8 @@ Or you can run [record_memory_usage.sh](99_utils/record_memory_usage.sh) that re
 bash 99_utils/record_memory_usage.sh PID NUMBER_ITER TABLE_MEM
 ```
 
+Other performance metrics will be calculated for each pipeline tested : accuracy and F-measure index will be calculated from the number of true positive, false positive and false negative outputted by each pipeline. 
+Relative abundances outputted by each pipeline are compared to the expected abundances ([species_abundance_per_sample](grinder_simulations/Outputs/species_abundance_per_sample)).
 
 # Analysis steps
 
