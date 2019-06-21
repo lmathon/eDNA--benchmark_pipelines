@@ -1,37 +1,37 @@
 #!/bin/bash
 ##Obitools
 
-# Chemin vers répertoire contenant les reads forward et reverse
+# Path to directory containing forward et reverse reads
 DATA_PATH=
-# Prefixe pour tous les fichiers générés
+# Prefix for all generated files
 pref=grinder_teleo1
-# Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
+# Prefix for the final table, containing the step and the program used (ex: merging_obitools) 
 step=
-# Fichiers contenant les reads forward et reverse
+# Files containing forward et reverse reads
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
-# Chemin vers le fichier 'sample_description_file.txt'
+# Path to the file 'sample_description_file.txt'
 sample_description_file=
-# Chemin vers le fichier 'db_sim_teleo1.fasta'
+# Path to the file 'db_sim_teleo1.fasta'
 refdb_dir=
-# Chemin vers les fichiers 'embl' de la base de référence
+# Path to the files 'embl' of the reference database
 base_dir=
-### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
+### Prefix of the reference database files must not contain "." or "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
-# Chemin vers les répertoires de sorties intermédiaires et finales
+# Path to intermediate and final output directories
 main_dir=
 fin_dir=
 
 
 ################################################################################################
 
-# Assemblage des reads forward et reverse
+# Merging of forward et reverse reads
 illuminapairedend -r $R2_fastq $R1_fastq > $main_dir/"$pref".fastq
-# Supression des reads non alignés
+# Removal of non-aligned reads
 obigrep -p 'mode!="joined"' $main_dir/"$pref".fastq > $main_dir/"$pref".ali.fastq
-# Assignation de chaque séquence à son échantillon
+# Assign each sequence to its sample
 ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".ali.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
-# Séparation du fichier global en un fichier par échantillon 
+# Split the file in smaller sample files 
 obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
@@ -40,27 +40,27 @@ for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
 do
 sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
-# Déréplication des reads en séquences uniques
+# Dereplication of reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
-# On garde les séquences de plus de 20pb sans bases ambigues
+# Keep only sequences longer than 20pb with no ambiguous bases
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
 echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
-# Supression des erreurs de PCR et séquençage (variants)
+# Removal of PCR and sequençing errors (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
 echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
-# Concatenation de tous les échantillons en un fichier
+# Concatenation of all samples in one file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences_clean
-# Déréplication en séquences uniques
+# Dereplication in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
-# Assignation taxonomique
+# Taxonomic assignation 
 all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
 ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
-# Supression des attributs inutiles dans l'entête des séquences
+# Removal of useless attributes in sequences headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
  --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
@@ -71,8 +71,8 @@ obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecoun
  --delete-tag=reverse_score --delete-tag=reverse_primer --delete-tag=reverse_match --delete-tag=reverse_tag \
  --delete-tag=forward_tag --delete-tag=forward_score --delete-tag=forward_primer --delete-tag=forward_match \
  --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single $all_sample_sequences_tag > $all_sample_sequences_ann
-# Tri des séquences par 'count'
+# Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
-# Création d'un tableau final
+# Create final table
 obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
