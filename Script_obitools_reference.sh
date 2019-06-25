@@ -42,13 +42,13 @@ sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 # Dereplication of reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
+echo "obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
 # Keep only sequences longer than 20pb with no ambiguous bases
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
+echo "obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
 # Removal of PCR and sequençing errors (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+echo "obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenation of all samples in one file
