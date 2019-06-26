@@ -14,6 +14,19 @@ Here we simulated 30 samples, with 12 replicates, containing between 18 and 83 s
 
 - one fasta file per sample containing the tags to be added to the sequences (12 different tags for the 12 replicates) : tags are sequences of 8 nucleotides, all tags are differing by 3 nucleotides. Tags are unique for each replicate of each samples, in order to assign each sequence to the sample and the replicate it comes from.
 
+## Grinder Environment
+
+Download the singularity container and use it as your environment bound to your current directory
+```
+singularity pull --name grinder.img shub://Grelot/bioinfo_singularity_recipes:grindermbb
+shell -B .:/simulations grinder.img
+## then into the container
+cd /simulations
+## check if grinder is working
+grinder -h
+```
+When you finished simulations, to leave this environnement simply type `exit`.
+
 ## Grinder command
 
 The grinder command is as follow :
