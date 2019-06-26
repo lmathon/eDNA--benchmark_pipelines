@@ -30,6 +30,13 @@ grinder -h
 ```
 When you finished simulations, to leave this environnement simply type `exit`.
 
+ALTERNATIVELY
+
+```
+singularity exec -B .:/simulations grinder.img
+```
+
+
 ## Grinder command
 
 The grinder command is as follow :
