@@ -1,5 +1,7 @@
 00_Input_data/*
 99_utils/mega_download/mega_info.txt
 *zip
-
+*img
+grinder_simulations/Outputs/sample*
 !00_input_data/.gitkeep
+
