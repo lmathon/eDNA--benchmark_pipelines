@@ -15,5 +15,6 @@ for ID_SAMPLE in `seq -w 1 $NB_SAMPLE`; do
 		grinder_simulations/Outputs/grinder_teleo1/paired_end_R2/sample"${ID_SAMPLE}"-"${ID_REPLICAT}"_R2.fastq.gz \
 		compress
 	done &
+
 done
 
