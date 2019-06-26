@@ -5,8 +5,10 @@ CORES=16
 NB_SAMPLE=30
 
 
-for ID_SAMPLE in `seq -w 1 $NB_SAMPLE`; 
-do echo "${ID_SAMPLE}" 
+for ID_SAMPLE in `seq -w 1 $NB_SAMPLE`; do
+
+((i=i%CORES)); ((i++==0)) && wait
+echo "Simulating sample${ID_SAMPLE}..." 
 ##  grinder command to run with input files into folder 'Inputs'
 grinder -rf grinder_simulations/Inputs/seq_grinder_simulations/Inputs/abund_sample"${ID_SAMPLE}".txt \
     -id 150 -rd 150 -fq 1 -ql 36 30 -mo FR \
@@ -16,4 +18,5 @@ grinder -rf grinder_simulations/Inputs/seq_grinder_simulations/Inputs/abund_samp
 
 ## commande à mettre en boucle pour les échantillons 01 à 30 : copier les fichiers ranks.txt de chaque échantillon dans un folder ranks
 cp grinder_simulations/Outputs/sample"${ID_SAMPLE}"/*ranks.txt grinder_simulations/Outputs/ranks/
+
 done
