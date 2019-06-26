@@ -23,7 +23,7 @@ grinder -rf grinder_simulations/Inputs/seq_sample01.fasta \
     -tr 90000 -nl 12 -di 0 -af grinder_simulations/Inputs/abund_sample01.txt \
     -id 150 -rd 150 -fq 1 -ql 36 30 -mo FR \
     -dc '-' -un 1 -md poly4 3e-3 3.3e-8 -mr 98 2 \
-    -hd Balzer -cp 1 -ck 0 -mi grinder_simulations/Inputs/tag_sample01.fasta \
+    -cp 1 -ck 0 -mi grinder_simulations/Inputs/tag_sample01.fasta \
     -bn sample01 -od grinder_simulations/Outputs/sample01/ 
 ```
 
@@ -56,8 +56,6 @@ options :
 -md	error production model (here Illumina errors)
 
 -mr	percentage of substitution and indels
-
--hd	homopolymers production model
 
 -ck	length of kmers for chimera production
 
