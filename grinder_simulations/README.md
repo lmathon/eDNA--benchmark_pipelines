@@ -16,9 +16,12 @@ Here we simulated 30 samples, with 12 replicates, containing between 18 and 83 s
 
 ## Grinder Environment
 
-Download the singularity container and use it as your environment bound to your current directory
+Download the singularity container and 
 ```
 singularity pull --name grinder.img shub://Grelot/bioinfo_singularity_recipes:grindermbb
+```
+ Spawn an interactive shell within the container bound to your current directory
+```
 shell -B .:/simulations grinder.img
 ## then into the container
 cd /simulations
