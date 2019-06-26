@@ -22,9 +22,9 @@ singularity pull --name grinder.img shub://Grelot/bioinfo_singularity_recipes:gr
 ```
  Spawn an interactive shell within the container bound to your current directory
 ```
-singularity shell -B .:/simulations grinder.img
+singularity shell -B .:/mnt grinder.img
 ## then into the container
-cd /simulations
+cd /mnt
 ## check if grinder is working
 grinder -h
 ```
