@@ -9,4 +9,4 @@ grinder -rf grinder_simulations/Inputs/seq_sample"${ID_SAMPLE}".fasta \
 
 
 ## commande à mettre en boucle pour les échantillons 01 à 30 : copier les fichiers ranks.txt de chaque échantillon dans un folder ranks
-cp grinder_simulations/Outputs/sample"${ID_SAMPLE}"/*ranks.txt grinder_simulations/Outputs/ranks/
+cp grinder_simulations/Outputs/sample"${ID_SAMPLE}"/*ranks.txt grinder_simulations/Outputs/species_abundance_per_sample/
