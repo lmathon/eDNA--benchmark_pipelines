@@ -53,23 +53,19 @@ singularity pull --name ednatools.img shub://Grelot/bioinfo_singularity_recipes:
 
 # Data requirement
 
-## Reference database
-
-Download, uncrypt and unzip `reference_database` from our [MEGA cloud](https://mega.nz/). The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data) :
-```
-bash 99_utils/mega_download/download_input_data.sh
-```
-
-## Input data
+## Input FASTQ files and Reference database
 
 The dataset used for this study, containing forward and reverse reads from 12S mitochondrial gene fragment of fish, has been simulated with [Grinder](https://sourceforge.net/projects/biogrinder/). For the full simulation protocole, please read the [README](grinder_simulations/README.md) in [grinder_simulations](grinder_simulations).
 
 The dataset is stored on MEGA. To dowload, uncrypt and unzip `forward_reverse_reads` from our [MEGA cloud](https://mega.nz/), run :
-```
---
-```
 
+```
+bash 99_utils/mega_download/download_input_data.sh
+```
 The `forward_reverse_reads` folder will be created at [00_Input_data/forward_reverse_reads](00_Input_data).
+
+The reference database needed for the taxonomic assignment step is also stored on MEGA and will be downloaded at the same time as teh input FASTQ files. The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data) :
+
 
 ## Sample description file
 
@@ -78,6 +74,8 @@ The sample description file, containing the primers and the tags associated to e
 ## Abundance data 
 
 Thanks to the simulated dataset, we know exactly the relative abundance of each species in each sample and replicate. These data can be found here [species_abundance_per_sample](grinder_simulations/Outputs/species_abundance_per_sample) and will be compared to the output of each pipeline tested to assess their efficiency.
+
+(Note that the input FASTQ files and the abundance data will change each time you run a grinder simulations. The files given here correspond to the grinder simulation made to obtain the data for our program comparison)
   
 # Performance measures
 
