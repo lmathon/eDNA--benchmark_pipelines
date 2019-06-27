@@ -10,7 +10,7 @@ for ID_SAMPLE in `seq -w 1 $NB_SAMPLE`; do
 	##  grinder command to run with input files into folder 'Inputs'
 	#bash grinder_simulations/simulation_grinder.sh "${ID_SAMPLE}" &
 	for ID_REPLICAT in `seq -w 1 $NB_REPLICAT`; do
-		bash deinterleave_fastq.sh < grinder_simulations/Outputs/sample"${ID_SAMPLE}"/sample-"${ID_REPLICAT}"-reads.fastq \
+		bash grinder_simulations/deinterleave_fastq.sh < grinder_simulations/Outputs/sample"${ID_SAMPLE}"/sample-"${ID_REPLICAT}"-reads.fastq \
 		grinder_simulations/Outputs/grinder_teleo1/paired_end_R1/sample"${ID_SAMPLE}"-"${ID_REPLICAT}"_R1.fastq \
 		grinder_simulations/Outputs/grinder_teleo1/paired_end_R2/sample"${ID_SAMPLE}"-"${ID_REPLICAT}"_R2.fastq \
 		compress
