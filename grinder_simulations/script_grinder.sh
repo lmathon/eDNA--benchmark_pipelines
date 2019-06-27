@@ -3,6 +3,7 @@
 CORES=16
 #### number of samples
 NB_SAMPLE=30
+#### number of replicats
 NB_REPLICAT=12
 
 for ID_SAMPLE in `seq -w 1 $NB_SAMPLE`; do

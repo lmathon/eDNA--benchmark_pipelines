@@ -16,7 +16,7 @@ Here we simulated 30 samples, with 12 replicates, containing between 18 and 83 s
 
 ## Grinder Environment
 
-Download the singularity container and 
+Download the singularity container to run grinder
 ```
 singularity pull --name grinder.img shub://Grelot/bioinfo_singularity_recipes:grindermbb
 ```
@@ -30,11 +30,25 @@ grinder -h
 ```
 When you finished simulations, to leave this environnement simply type `exit`.
 
-ALTERNATIVELY
+or alternatively to run a COMMAND using grinder
+```
+singularity exec -B .:/simulations grinder.img bash -c "cd /simulations ; COMMAND"
+```
+
+## Grinder simulations
+
+To simulate fastq.gz paired-end illumina metabarcoding data, simply run the commands in [main.sh](grinder_simulations/main.sh).
 
 ```
-singularity exec -B .:/simulations grinder.img
+bash grinder_simulations/main.sh
 ```
+parameters are stored in [script_grinder.sh](grinder_simulations/script_grinder.sh)
+
+variable    | description                           | default value
+------------|---------------------------------------|---------------
+CORES       | number of cores                       | 16
+NB_SAMPLE   | number of samples                     | 30
+NB_REPLICAT | number of replicats (for each sample) | 12
 
 
 ## Grinder command
