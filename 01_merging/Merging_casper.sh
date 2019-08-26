@@ -30,8 +30,8 @@ base_dir='/00_Input_data/reference_database'
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir='/01_Merging/Outputs/04_casper/main'
-fin_dir='/01_Merging/Outputs/04_casper/final'
+main_dir='/01_merging/Outputs/04_casper/main'
+fin_dir='/01_merging/Outputs/04_casper/final'
 
 ######################################################################################################
 
