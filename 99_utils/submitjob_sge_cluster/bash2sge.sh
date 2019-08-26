@@ -33,8 +33,11 @@ qsub_script="99_utils/submitjob_sge_cluster/qsub_scripts/"
 run_output="99_utils/submitjob_sge_cluster/qsub_outputs/"
 nom_bash_script=`echo $1 | cut -d "." -f 1`
 location_bash_script=`pwd`
-nom_qsub_script=$USER"_"$nom_bash_script"_"$(date +%Y%m%d-%H%M%S)
-sed -e "s/JOB_NAME/$nom_qsub_script/g" -e "s|OUT_FILE|$run_output/$nom_qsub_script\.out|g" -e "s|ERR_FILE|$run_output/$nom_qsub_script\.err|g" $template_script  > $qsub_script/temp_script.sh
+nom_qsub_script=`echo $USER"_"$nom_bash_script"_"$(date +%Y%m%d-%H%M%S) | sed -s '/\//_/g'`
+sed -e "s/JOB_NAME/$nom_qsub_script/g" \
+-e "s|OUT_FILE|$run_output/$nom_qsub_script\.out|g" \
+-e "s|ERR_FILE|$run_output/$nom_qsub_script\.err|g" \
+$template_script  > $qsub_script/temp_script.sh
 echo -e "bash $location_bash_script/$nom_bash_script.sh\n" >> $qsub_script/temp_script.sh
 mv $qsub_script/temp_script.sh $qsub_script/$nom_qsub_script".sh"
 echo $qsub_script/$nom_qsub_script".sh is ready to be qsubmitted."
