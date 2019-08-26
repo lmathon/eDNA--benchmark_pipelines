@@ -17,7 +17,7 @@
 # merge standard and error outputs
 #$ -j y
 # choose a parallel environment and run on 60 slots (use $PE_HOSTFILE)
-#$ -pe multithread60 16
+#$ -pe robin 16
 # Export all my environment variables into job runtime context
 #$ -V
 ###################
