@@ -7,7 +7,7 @@
 #$ -l h_rt=920:00:00
 # choose to run on a specific queue
 # (qconf -sql (to list queues) qconf -sq queue_name (to print informations on this queue))
-#$ -q cemeb20.q
+#$ -q mem.q
 # Get a mail when the job begins, ends or is suspended
 #$ -m ebs
 #$ -M me@mail.com
