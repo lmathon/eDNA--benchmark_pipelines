@@ -1,19 +1,19 @@
 #!/bin/bash
 ##Obitools
 
-illuminapairedend='singularity exec /home/lmathon/obitools.img illuminapairedend'
-obigrep='singularity exec /home/lmathon/obitools.img obigrep'
-cutadapt='singularity exec /home/lmathon/ednatools.img cutadapt'
-obisplit='singularity exec /home/lmathon/obitools.img obisplit'
-obiuniq='singularity exec /home/lmathon/obitools.img obiuniq'
-obiannotate='singularity exec /home/lmathon/obitools.img obiannotate'
-obiclean='singularity exec /home/lmathon/obitools.img obiclean'
-ecotag='singularity exec /home/lmathon/obitools.img ecotag'
-obisort='singularity exec /home/lmathon/obitools.img obisort'
-obitab='singularity exec /home/lmathon/obitools.img obitab'
+illuminapairedend='singularity exec /99_utils/images/obitools.img illuminapairedend'
+obigrep='singularity exec /99_utils/images/obitools.img obigrep'
+cutadapt='singularity exec /99_utils/images/ednatools.img cutadapt'
+obisplit='singularity exec /99_utils/images/obitools.img obisplit'
+obiuniq='singularity exec /99_utils/images/obitools.img obiuniq'
+obiannotate='singularity exec /99_utils/images/obitools.img obiannotate'
+obiclean='singularity exec /99_utils/images/obitools.img obiclean'
+ecotag='singularity exec /99_utils/images/obitools.img ecotag'
+obisort='singularity exec /99_utils/images/obitools.img obisort'
+obitab='singularity exec /99_utils/images/obitools.img obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='/home/lmathon/Comparaison_pipelines/01_In_silico/00_Inputs'
+DATA_PATH='/00_Input_data'
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
@@ -22,28 +22,28 @@ step=demultiplex_cutadapt
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
 # Chemin vers le fichier 'tags.fasta'
-Tags_F='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Tags_F.fasta'
-Tags_R='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Tags_R.fasta'
+Tags_F='/02_demultiplex/Tags_F.fasta'
+Tags_R='/02_demultiplex/Tags_R.fasta'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/db_sim_teleo1.fasta'
+refdb_dir='/00_Input_data/reference_database/db_sim_teleo1.fasta'
 # Chemin vers les fichiers 'embl' de la base de référence
-base_dir='/home/lmathon/reference_database'
+base_dir='/00_Input_data/reference_database'
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Outputs/01_cutadapt/main'
-fin_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Outputs/01_cutadapt/final'
+main_dir='/02_demultiplex/Outputs/01_cutadapt/main'
+fin_dir='/02_demultiplex/Outputs/01_cutadapt/final'
 
 
 ################################################################################################
 # Assignation de chaque séquence à son échantillon
 
-#/usr/bin/time singularity exec /home/lmathon/ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -x sample='{name}  ' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
-#/usr/bin/time singularity exec /home/lmathon/ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
+/usr/bin/time singularity exec /99_utils/images/ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -x sample='{name}  ' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
+/usr/bin/time singularity exec /99_utils/images/ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
 
 # Assemblage des reads forward et reverse
-#/usr/bin/time $illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
-# sed -i -e "s/_CONS/;/g" $maind_dir/"$pref".assigned.fastq
+/usr/bin/time $illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
+sed -i -e "s/_CONS/;/g" $maind_dir/"$pref".assigned.fastq
 # Supression des reads non alignés
 /usr/bin/time $obigrep -p 'mode!="joined"' --fasta-output $main_dir/"$pref".assigned.fastq.gz > $main_dir/"$pref".ali.assigned.fasta
 sed -i -e "s/sample/NN; sample/g" $main_dir/"$pref".ali.assigned.fasta
