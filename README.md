@@ -26,7 +26,7 @@ The optimal pipeline obtained will be again compared to existant complete pipeli
 
 ## Install from source code
 
-To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [USEARCH](https://drive5.com/usearch/download.html), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [PANDAseq](https://github.com/neufeld/pandaseq), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [fatsq-multx](https://github.com/brwnj/fastq-multx), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Flexbar](https://github.com/seqan/flexbar), [TagCleaner](https://sourceforge.net/projects/tagcleaner/files), [deML](https://github.com/grenaud/deml), [Tally](https://www.ebi.ac.uk/research/enright/software/kraken), [DADA2](https://benjjneb.github.io/dada2/dada-installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic), [SWARM](https://github.com/torognes/swarm), [Perseus](https://code.google.com/archive/p/ampliconnoise/), [CATCh](https://github.com/M-Mysara/CATCh), and [PROTAX](https://www.helsinki.fi/en/researchgroups/statistical-ecology/software#section-49869).
+To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [USEARCH](https://drive5.com/usearch/download.html), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [PANDAseq](https://github.com/neufeld/pandaseq), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Flexbar](https://github.com/seqan/flexbar), [TagCleaner](https://sourceforge.net/projects/tagcleaner/files), [Tally](https://www.ebi.ac.uk/research/enright/software/kraken), [DADA2](https://benjjneb.github.io/dada2/dada-installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic), [SWARM](https://github.com/torognes/swarm), [Perseus](https://code.google.com/archive/p/ampliconnoise/), [CATCh](https://github.com/M-Mysara/CATCh), and [PROTAX](https://www.helsinki.fi/en/researchgroups/statistical-ecology/software#section-49869).
 
 The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install), [MOTHUR](https://github.com/mothur/mothur), [BARQUE](https://github.com/enormandeau/barque) and [SLIM](https://github.com/yoann-dufresne/SLIM).
 
@@ -45,7 +45,7 @@ To download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing
 singularity pull --name 99_utils/images/obitools.img shub://Grelot/bioinfo_singularity_recipes:obitools
 ```
 
-To download container with vsearch, usearch, PEAR, FLASh, CASPER, cutadapt, fastq-multx, fastq-join, TAGcleaner, Reaper, SWARM, Flexbar, deML :
+To download container with vsearch, usearch, PEAR, FLASh, CASPER, cutadapt, fastq-join, TAGcleaner, Reaper, SWARM, Flexbar :
 ```
 singularity pull --name ednatools.img shub://Grelot/bioinfo_singularity_recipes:ednatools
 ```
@@ -109,60 +109,59 @@ Relative abundances outputted by each pipeline are compared to the expected abun
 
 # Analysis steps
 
-For simplicity, each command of the pipeline are separated in folders corresponding to the steps, in [Scripts](Scripts). To build the pipeline, pick the scripts corresponding to the commands you want in the rigth folder. 
+For simplicity, each pipelines are separated in folders corresponding to the steps, in [01_merging](01_merging), [02_demultiplex](02_demultiplex), [03_dereplication](03_dereplication), [04_quality-filter](04_quality-filter), [05_error-removal](05_error-removal), [06_chimera-removal](06_chimera-removal) and [07_taxonomic-assignation](07_taxonomic-assignation). 
 
 ## 1 - Merging paired-end reads
 
 The first step consists in assembling forward and reverse reads of the sequences. We tested several assemblers, with no specific parameters.
 
-[01_merging](Scripts/01_merging) contains the scripts to run each of these programs.
+[01_merging](01_merging) contains the scripts to run each of these programs.
 
 ## 2 - Demultiplexing
 
 Once the reads assembled, the primers are removed (max. 2 mismatches allowed by primers). The tags are also removed (no mismatch allowed) and each read is assigned to the sample it comes from.
 
-[02_demultiplex](Scripts/02_demultiplex) contains the scripts to run each programs used at this step.
+[02_demultiplex](02_demultiplex) contains the scripts to run each programs used at this step.
 
 ## 3 - Dereplicating
 
 The reads are then dereplicated: identical reads are gathered in a unique read and the count is saved.
 
-All the scripts to run the different programs are in [03_dereplication](Scripts/03_dereplication).
+All the scripts to run the different programs are in [03_dereplication](03_dereplication).
 
 ## 4 - Quality filtering
 
 Reads are then checked for their quality : sequences longer than 20bp and with no ambiguous bases are kept.
 
-The scripts to run the different programs are in [04_quality-filter](Scripts/04_quality-filter)
+The scripts to run the different programs are in [04_quality-filter](04_quality-filter)
 
 ## 5 - PCR / Sequencing error removal
 
 Each program or pipeline offers different tools to remove PCR or sequencing errors. For ObiTools, the program obiclean keeps only the head sequences for each PCR replicate.
 
-The scripts for the different programs are in [05_error-removal](Scripts/05_error-removal).
+The scripts for the different programs are in [05_error-removal](05_error-removal).
 
 ## 6 - Chimera removal
 
 Several programs are specialized in identifying and removing chimeras. 
 
-[06_chimera-removal](Scripts/06_chimera-removal) contains the scripts to run these programs.
+[06_chimera-removal](06_chimera-removal) contains the scripts to run these programs.
 
 ## 7 - Taxonomic assignation
 
 The last step of the analysis is to assign every sequence to a taxa. In our case, we use a homemade reference database. To be assigned at the species level, the query sequence must be at least similar at 98% to the reference sequence.
 
-[07_taxonomic-assignation](Scripts/07_taxonomic-assignation) contains the scripts to run the different assigning programs.
+[07_taxonomic-assignation](07_taxonomic-assignation) contains the scripts to run the different assigning programs.
 
-
-The script [last_step](Scripts/last_step.sh) organize the data in a table, and can be run at the end of the pipeline.
 
 # Outputs
 
 ## Taxa/sample tables
 
-The outputs of each pipeline tested can be found in [Outputs](Outputs), in the folder corresponding to the step tested, under the name of the program tested.
-For example, to find the results of the pipeline testing the program flash for merging reads : Outputs/01_merging/merging_flash.csv
+The outputs of each pipeline tested can be found in the `Outputs` folder, in the folder corresponding to the step tested, under the name of the program tested.
+The `main` folder contains all the intermediate files produced by the pipeline. The `final` folder contains the taxonomic table.
+For example, to find the results of the pipeline testing the program flash for merging reads : 01_merging/Outputs/02_flash/final/merging_flash.csv
 
 ## Time and memory reports
 
-Time and memory reports for each program compared are stored in [Reports](Reports), also sorted by step.
+Time and memory reports for each program compared are stored in the folder containing the scripts.
