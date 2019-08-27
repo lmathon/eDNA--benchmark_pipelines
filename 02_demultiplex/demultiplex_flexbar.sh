@@ -1,19 +1,19 @@
 #!/bin/bash
 ##Obitools
 
-illuminapairedend='singularity exec /99_utils/images/obitools.img illuminapairedend'
-obigrep='singularity exec /99_utils/images/obitools.img obigrep'
-flexbar='singularity exec /99_utils/images/ednatools.img flexbar'
-obisplit='singularity exec /99_utils/images/obitools.img obisplit'
-obiuniq='singularity exec /99_utils/images/obitools.img obiuniq'
-obiannotate='singularity exec /99_utils/images/obitools.img obiannotate'
-obiclean='singularity exec /99_utils/images/obitools.img obiclean'
-ecotag='singularity exec /99_utils/images/obitools.img ecotag'
-obisort='singularity exec /99_utils/images/obitools.img obisort'
-obitab='singularity exec /99_utils/images/obitools.img obitab'
+illuminapairedend='singularity exec 99_utils/images/obitools.img illuminapairedend'
+obigrep='singularity exec 99_utils/images/obitools.img obigrep'
+flexbar='singularity exec 99_utils/images/ednatools.img flexbar'
+obisplit='singularity exec 99_utils/images/obitools.img obisplit'
+obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
+obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
+obiclean='singularity exec 99_utils/images/obitools.img obiclean'
+ecotag='singularity exec 99_utils/images/obitools.img ecotag'
+obisort='singularity exec 99_utils/images/obitools.img obisort'
+obitab='singularity exec 99_utils/images/obitools.img obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='/00_Input_data'
+DATA_PATH='00_Input_data'
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
@@ -22,19 +22,19 @@ step=demultiplex_flexbar
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
 # Chemin vers les fichier 'Tags.fasta'
-Tags='/02_demultiplex/Tags.fasta'
+Tags='02_demultiplex/Tags.fasta'
 # chemin vers les primers
-Primer_F='/02_demultiplex/Primer_F.fasta'
-Primer_R='/02_demultiplex/Primer_R.fasta'
+Primer_F='02_demultiplex/Primer_F.fasta'
+Primer_R='02_demultiplex/Primer_R.fasta'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='/00_Input_data/reference_database/db_sim_teleo1.fasta'
+refdb_dir='00_Input_data/reference_database/db_sim_teleo1.fasta'
 # Chemin vers les fichiers 'embl' de la base de référence
-base_dir='/00_Input_data/reference_database'
+base_dir='00_Input_data/reference_database'
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir='/02_demultiplex/Outputs/02_flexbar/main'
-fin_dir='/02_demultiplex/Outputs/02_flexbar/final'
+main_dir='02_demultiplex/Outputs/02_flexbar/main'
+fin_dir='02_demultiplex/Outputs/02_flexbar/final'
 
 
 ################################################################################################

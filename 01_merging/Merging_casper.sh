@@ -1,19 +1,19 @@
 #!/bin/bash
 ##casper
 
-casper='singularity exec /99_utils/images/ednatools.img casper'
-ngsfilter='singularity exec /99_utils/images/obitools.img ngsfilter'
-obisplit='singularity exec /99_utils/images/obitools.img obisplit'
-obiuniq='singularity exec /99_utils/images/obitools.img obiuniq'
-obigrep='singularity exec /99_utils/images/obitools.img obigrep'
-obiannotate='singularity exec /99_utils/images/obitools.img obiannotate'
-obiclean='singularity exec /99_utils/images/obitools.img obiclean'
-ecotag='singularity exec /99_utils/images/obitools.img ecotag'
-obisort='singularity exec /99_utils/images/obitools.img obisort'
-obitab='singularity exec /99_utils/images/obitools.img obitab'
+casper='singularity exec 99_utils/images/ednatools.img casper'
+ngsfilter='singularity exec 99_utils/images/obitools.img ngsfilter'
+obisplit='singularity exec 99_utils/images/obitools.img obisplit'
+obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
+obigrep='singularity exec 99_utils/images/obitools.img obigrep'
+obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
+obiclean='singularity exec 99_utils/images/obitools.img obiclean'
+ecotag='singularity exec 99_utils/images/obitools.img ecotag'
+obisort='singularity exec 99_utils/images/obitools.img obisort'
+obitab='singularity exec 99_utils/images/obitools.img obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='/00_Input_data'
+DATA_PATH='00_Input_data'
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
@@ -22,16 +22,16 @@ step=merging_casper
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq.gz
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'
-sample_description_file='/00_Input_data/sample_description_file.txt'
+sample_description_file='00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='/00_Input_data/reference_database/db_sim_teleo1.fasta'
+refdb_dir='00_Input_data/reference_database/db_sim_teleo1.fasta'
 # Chemin vers les fichiers 'embl' de la base de référence
-base_dir='/00_Input_data/reference_database'
+base_dir='00_Input_data/reference_database'
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir='/01_merging/Outputs/04_casper/main'
-fin_dir='/01_merging/Outputs/04_casper/final'
+main_dir='01_merging/Outputs/04_casper/main'
+fin_dir='01_merging/Outputs/04_casper/final'
 
 ######################################################################################################
 
