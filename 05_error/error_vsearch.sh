@@ -1,21 +1,21 @@
 #!/bin/bash
 ##Obitools
 
-illuminapairedend='singularity exec /home/lmathon/obitools.img illuminapairedend'
-obigrep='singularity exec /home/lmathon/obitools.img obigrep'
-ngsfilter='singularity exec /home/lmathon/obitools.img ngsfilter'
-obisplit='singularity exec /home/lmathon/obitools.img obisplit'
-obiuniq='singularity exec /home/lmathon/obitools.img obiuniq'
-obiannotate='singularity exec /home/lmathon/obitools.img obiannotate'
-obiclean='singularity exec /home/lmathon/obitools.img obiclean'
-ecotag='singularity exec /home/lmathon/obitools.img ecotag'
-obisort='singularity exec /home/lmathon/obitools.img obisort'
-obitab='singularity exec /home/lmathon/obitools.img obitab'
-vsearch='singularity exec /home/lmathon/ednatools.img vsearch'
+illuminapairedend='singularity exec 99_utils/images/obitools.img illuminapairedend'
+obigrep='singularity exec 99_utils/images/obitools.img obigrep'
+ngsfilter='singularity exec 99_utils/images/obitools.img ngsfilter'
+obisplit='singularity exec 99_utils/images/obitools.img obisplit'
+obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
+obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
+obiclean='singularity exec 99_utils/images/obitools.img obiclean'
+ecotag='singularity exec 99_utils/images/obitools.img ecotag'
+obisort='singularity exec 99_utils/images/obitools.img obisort'
+obitab='singularity exec 99_utils/images/obitools.img obitab'
+vsearch='singularity exec 99_utils/images/ednatools.img vsearch'
 
 
 # Path to directory containing forward et reverse reads
-DATA_PATH='/home/lmathon/Comparaison_pipelines/01_In_silico/00_Inputs'
+DATA_PATH='00_Input_data'
 # Prefix for all generated files
 pref=grinder_teleo1
 # Prefix for the final table, containing the step and the program used (ex: merging_obitools)
@@ -24,26 +24,26 @@ step=error_vsearch
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
 # Path to the file 'sample_description_file.txt'
-sample_description_file='/home/lmathon/Comparaison_pipelines/01_In_silico/tags.txt'
+sample_description_file='00_Input_data/sample_description_file.txt'
 # Path to the file 'db_sim_teleo1.fasta'
-refdb_file='/home/lmathon/Comparaison_pipelines/01_In_silico/db_sim_teleo1.fasta'
+refdb_file='00_Input_data/reference_database/db_sim_teleo1.fasta'
 # Path to the files 'embl' of the reference database
-base_dir='/home/lmathon/reference_database'
+base_dir='00_Input_data/reference_database'
 ### Prefix of the reference database files must not contain "." or "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
 # Path to intermediate and final output directories
-main_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/05_error/Outputs/02_vsearch/main/'
-fin_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/05_error/Outputs/02_vsearch/final/'
+main_dir='05_error/Outputs/02_vsearch/main/'
+fin_dir='05_error/Outputs/02_vsearch/final/'
 
 
 ################################################################################################
 
-## Merging of forward et reverse reads
-#$illuminapairedend -r $R2_fastq $R1_fastq > $main_dir/"$pref".fastq
-## Removal of non-aligned reads
-#$obigrep -p 'mode!="joined"' $main_dir/"$pref".fastq > $main_dir/"$pref".ali.fastq
-## Assign each sequence to its sample
-#$ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".ali.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
+# Merging of forward et reverse reads
+$illuminapairedend -r $R2_fastq $R1_fastq > $main_dir/"$pref".fastq
+# Removal of non-aligned reads
+$obigrep -p 'mode!="joined"' $main_dir/"$pref".fastq > $main_dir/"$pref".ali.fastq
+# Assign each sequence to its sample
+$ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".ali.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 # Split the file in smaller sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta.gz
 

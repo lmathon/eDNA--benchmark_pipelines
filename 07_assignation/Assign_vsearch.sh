@@ -1,20 +1,20 @@
 #!/bin/bash
 ##Obitools
 
-illuminapairedend='singularity exec /home/lmathon/obitools.img illuminapairedend'
-obigrep='singularity exec /home/lmathon/obitools.img obigrep'
-ngsfilter='singularity exec /home/lmathon/obitools.img ngsfilter'
-obisplit='singularity exec /home/lmathon/obitools.img obisplit'
-obiuniq='singularity exec /home/lmathon/obitools.img obiuniq'
-obiannotate='singularity exec /home/lmathon/obitools.img obiannotate'
-obiclean='singularity exec /home/lmathon/obitools.img obiclean'
-ecotag='singularity exec /home/lmathon/obitools.img ecotag'
-obisort='singularity exec /home/lmathon/obitools.img obisort'
-obitab='singularity exec /home/lmathon/obitools.img obitab'
-vsearch='singularity exec /home/lmathon/ednatools.img vsearch'
+illuminapairedend='singularity exec 99_utils/images/obitools.img illuminapairedend'
+obigrep='singularity exec 99_utils/images/obitools.img obigrep'
+ngsfilter='singularity exec 99_utils/images/obitools.img ngsfilter'
+obisplit='singularity exec 99_utils/images/obitools.img obisplit'
+obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
+obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
+obiclean='singularity exec 99_utils/images/obitools.img obiclean'
+ecotag='singularity exec 99_utils/images/obitools.img ecotag'
+obisort='singularity exec 99_utils/images/obitools.img obisort'
+obitab='singularity exec 99_utils/images/obitools.img obitab'
+vsearch='singularity exec 99_utils/images/ednatools.img vsearch'
 
 # Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='/home/lmathon/Comparaison_pipelines/01_In_silico/00_Inputs'
+DATA_PATH='00_Input_data'
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
@@ -23,45 +23,45 @@ step=assign_vsearch
 R1_fastq="$DATA_PATH"/"$pref"_R1.fastq.gz
 R2_fastq="$DATA_PATH"/"$pref"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'
-sample_description_file='/home/lmathon/Comparaison_pipelines/01_In_silico/tags.txt'
+sample_description_file='00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/db_sim_teleo1.fasta'
+refdb_dir='00_Input_data/reference_database/db_sim_teleo1.fasta'
 # Chemin vers les fichiers 'embl' de la base de référence
-base_dir='/home/lmathon/reference_database'
+base_dir='00_Input_data/reference_database'
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/07_assignation/Outputs/01_vsearch/main'
-fin_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/07_assignation/Outputs/01_vsearch/final'
+main_dir='07_assignation/Outputs/01_vsearch/main'
+fin_dir='07_assignation/Outputs/01_vsearch/final'
 
 
 ################################################################################################
 
 # Assemblage des reads forward et reverse
-#/usr/bin/time $illuminapairedend -r $R2_fastq $R1_fastq > $main_dir/"$pref".fastq
+/usr/bin/time $illuminapairedend -r $R2_fastq $R1_fastq > $main_dir/"$pref".fastq
 # Supression des reads non alignés
-#/usr/bin/time $obigrep -p 'mode!="joined"' $main_dir/"$pref".fastq > $main_dir/"$pref".ali.fastq
+/usr/bin/time $obigrep -p 'mode!="joined"' $main_dir/"$pref".fastq > $main_dir/"$pref".ali.fastq
 # Assignation de chaque séquence à son échantillon
-#/usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".ali.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
+/usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".ali.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 # Séparation du fichier global en un fichier par échantillon 
-#$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta.gz
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta.gz
 
-#all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
-#echo "" > $all_samples_parallel_cmd_sh
-#for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
-#do
-#sample_sh="${sample/.fasta/_cmd.sh}"
-#echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
-## Déréplication des reads en séquences uniques
-#dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-#echo "/usr/bin/time $obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
-## On garde les séquences de plus de 20pb sans bases ambigues
-#good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-#echo "/usr/bin/time $obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
-## Supression des erreurs de PCR et séquençage (variants)
-#clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-#echo "/usr/bin/time $obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
-#done
+all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
+echo "" > $all_samples_parallel_cmd_sh
+for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
+do
+sample_sh="${sample/.fasta/_cmd.sh}"
+echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
+# Déréplication des reads en séquences uniques
+dereplicated_sample="${sample/.fasta/.uniq.fasta}"
+echo "/usr/bin/time $obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
+# On garde les séquences de plus de 20pb sans bases ambigues
+good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
+echo "/usr/bin/time $obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
+# Supression des erreurs de PCR et séquençage (variants)
+clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
+echo "/usr/bin/time $obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenation de tous les échantillons en un fichier
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
