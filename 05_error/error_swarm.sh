@@ -15,7 +15,7 @@ swarm='singularity exec 99_utils/images/ednatools.img swarm'
 
 
 # Path to directory containing forward et reverse reads
-DATA_PATH='00_Input_data'
+DATA_PATH='00_Input_data/forward_reverse_reads'
 # Prefix for all generated files
 pref=grinder_teleo1
 # Prefix for the final table, containing the step and the program used (ex: merging_obitools)

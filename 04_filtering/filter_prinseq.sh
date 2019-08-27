@@ -14,7 +14,7 @@ obisort='singularity exec 99_utils/images/obitools.img obisort'
 obitab='singularity exec 99_utils/images/obitools.img obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='00_Input_data'
+DATA_PATH='00_Input_data/forward_reverse_reads'
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
