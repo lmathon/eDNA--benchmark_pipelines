@@ -59,8 +59,8 @@ do
   good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
   echo "/usr/bin/time $prinseq -fasta "$dereplicated_sample" -min_len 20 -ns_max_n 0 -noniupac --out_format 1 -out_good "$good_sequence_sample >> $sample_sh
   # Supression des erreurs de PCR et séquençage (variants)
-  clean_sequence_sample="${good_sequence_sample/.fasta.fasta/.r005.clean.fasta}"
-  echo "$obiclean -r 0.05 -H "$good_sequence_sample".fasta > "$clean_sequence_sample >> $sample_sh
+  clean_sequence_sample="${good_sequence_sample/.fasta./.r005.clean.fasta}"
+  echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 #Concatenation de tous les échantillons en un fichier
