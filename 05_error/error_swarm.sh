@@ -1,17 +1,17 @@
 #!/bin/bash
 ##Obitools
 
-illuminapairedend='singularity exec 99_utils/images/obitools.img illuminapairedend'
-obigrep='singularity exec 99_utils/images/obitools.img obigrep'
-ngsfilter='singularity exec 99_utils/images/obitools.img ngsfilter'
-obisplit='singularity exec 99_utils/images/obitools.img obisplit'
-obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
-obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
-obiclean='singularity exec 99_utils/images/obitools.img obiclean'
-ecotag='singularity exec 99_utils/images/obitools.img ecotag'
-obisort='singularity exec 99_utils/images/obitools.img obisort'
-obitab='singularity exec 99_utils/images/obitools.img obitab'
-swarm='singularity exec 99_utils/images/ednatools.img swarm'
+illuminapairedend='singularity exec obitools.img illuminapairedend'
+obigrep='singularity exec obitools.img obigrep'
+ngsfilter='singularity exec obitools.img ngsfilter'
+obisplit='singularity exec obitools.img obisplit'
+obiuniq='singularity exec obitools.img obiuniq'
+obiannotate='singularity exec obitools.img obiannotate'
+obiclean='singularity exec obitools.img obiclean'
+ecotag='singularity exec obitools.img ecotag'
+obisort='singularity exec obitools.img obisort'
+obitab='singularity exec obitools.img obitab'
+swarm='singularity exec ednatools.img swarm'
 
 
 # Path to directory containing forward et reverse reads
@@ -61,7 +61,7 @@ do
   echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
   # Format fasta file to process sequence with swarm
   formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
-  echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
+  echo "$obiannotate -R 'count:size' "$good_sequence_sample" | python3 formate_header.py > "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
   echo " /usr/bin/time $swarm -z -f -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh

@@ -1,17 +1,17 @@
 #!/bin/bash
 ##vsearch
 
-illuminapairedend='singularity exec 99_utils/images/obitools.img illuminapairedend'
-obigrep='singularity exec 99_utils/images/obitools.img obigrep'
-ngsfilter='singularity exec 99_utils/images/obitools.img ngsfilter'
-obisplit='singularity exec 99_utils/images/obitools.img obisplit'
-obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
-prinseq='perl 99_utils/images/prinseq-lite-0.20.4/prinseq-lite.pl'
-obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
-obiclean='singularity exec 99_utils/images/obitools.img obiclean'
-ecotag='singularity exec 99_utils/images/obitools.img ecotag'
-obisort='singularity exec 99_utils/images/obitools.img obisort'
-obitab='singularity exec 99_utils/images/obitools.img obitab'
+illuminapairedend='singularity exec obitools.img illuminapairedend'
+obigrep='singularity exec obitools.img obigrep'
+ngsfilter='singularity exec obitools.img ngsfilter'
+obisplit='singularity exec obitools.img obisplit'
+obiuniq='singularity exec obitools.img obiuniq'
+prinseq='perl prinseq-lite-0.20.4/prinseq-lite.pl'
+obiannotate='singularity exec obitools.img obiannotate'
+obiclean='singularity exec obitools.img obiclean'
+ecotag='singularity exec obitools.img ecotag'
+obisort='singularity exec obitools.img obisort'
+obitab='singularity exec obitools.img obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
 DATA_PATH='00_Input_data/forward_reverse_reads'

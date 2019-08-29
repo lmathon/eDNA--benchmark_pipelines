@@ -1,16 +1,16 @@
 #!/bin/bash
 ##Obitools
 
-illuminapairedend='singularity exec 99_utils/images/obitools.img illuminapairedend'
-obigrep='singularity exec 99_utils/images/obitools.img obigrep'
-cutadapt='singularity exec 99_utils/images/ednatools.img cutadapt'
-obisplit='singularity exec 99_utils/images/obitools.img obisplit'
-obiuniq='singularity exec 99_utils/images/obitools.img obiuniq'
-obiannotate='singularity exec 99_utils/images/obitools.img obiannotate'
-obiclean='singularity exec 99_utils/images/obitools.img obiclean'
-ecotag='singularity exec 99_utils/images/obitools.img ecotag'
-obisort='singularity exec 99_utils/images/obitools.img obisort'
-obitab='singularity exec 99_utils/images/obitools.img obitab'
+illuminapairedend='singularity exec obitools.img illuminapairedend'
+obigrep='singularity exec obitools.img obigrep'
+cutadapt='singularity exec ednatools.img cutadapt'
+obisplit='singularity exec obitools.img obisplit'
+obiuniq='singularity exec obitools.img obiuniq'
+obiannotate='singularity exec obitools.img obiannotate'
+obiclean='singularity exec obitools.img obiclean'
+ecotag='singularity exec obitools.img ecotag'
+obisort='singularity exec obitools.img obisort'
+obitab='singularity exec obitools.img obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
 DATA_PATH='00_Input_data/forward_reverse_reads'
@@ -38,8 +38,8 @@ fin_dir='02_demultiplex/Outputs/01_cutadapt/final'
 ################################################################################################
 # Assignation de chaque séquence à son échantillon
 
-/usr/bin/time singularity exec /99_utils/images/ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -x sample='{name}  ' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
-/usr/bin/time singularity exec /99_utils/images/ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
+/usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -x sample='{name}  ' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
+/usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
 
 # Assemblage des reads forward et reverse
 /usr/bin/time $illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
