@@ -42,7 +42,7 @@ Our complete collection of singularity recipes is available [here](https://githu
 
 To download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools)'s container :
 ```
-singularity pull --name 99_utils/images/obitools.img shub://Grelot/bioinfo_singularity_recipes:obitools
+singularity pull --name obitools.img shub://Grelot/bioinfo_singularity_recipes:obitools
 ```
 
 To download container with vsearch, usearch, PEAR, FLASh, CASPER, cutadapt, fastq-join, TAGcleaner, Reaper, SWARM, Flexbar :
