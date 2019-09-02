@@ -1,34 +1,56 @@
 #!/bin/bash
-##Obitools
+###############################################################################
+## Codes for the paper:
+##   ..............
+##
+## Authors : GUERIN Pierre-Edouard, MATHON Laetitia
+## Montpellier 2019-2020
+## 
+###############################################################################
+## Usage:
+##    bash obitools_reference/total_obitools.sh
+##
+## Description:
+##  ..............    
+##
+##
+##
+###############################################################################
+## load config global variables
+source 98_infos/config.sh
 
-illuminapairedend='singularity exec /obitools.img illuminapairedend'
-obigrep='singularity exec obitools.img obigrep'
-ngsfilter='singularity exec obitools.img ngsfilter'
-obisplit='singularity exec obitools.img obisplit'
-obiuniq='singularity exec obitools.img obiuniq'
-obiannotate='singularity exec obitools.img obiannotate'
-obiclean='singularity exec obitools.img obiclean'
-ecotag='singularity exec obitools.img ecotag'
-obisort='singularity exec obitools.img obisort'
-obitab='singularity exec obitools.img obitab'
+## Singularity exec command
+SINGULARITY_EXEC_CMD="singularity exec"
+
+## Obitools
+illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"
+obigrep=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obigrep"
+ngsfilter=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ngsfilter"
+obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
+obiuniq=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiuniq"
+obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
+obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
+ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
+obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
+obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 
 # Chemin vers répertoire contenant les reads forward et reverse
 DATA_PATH='00_Input_data/forward_reverse_reads'
+## Path to reference database folder
+REFDB_PATH="00_Input_data/reference_database/"
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
 step=total_obitools
 # Fichiers contenant les reads forward et reverse
-R1_fastq="$DATA_PATH"/"$pref"_R1.fastq.gz
-R2_fastq="$DATA_PATH"/"$pref"_R2.fastq.gz
+R1_fastq=${DATA_PATH}"/"${pref}"_R1.fastq.gz"
+R2_fastq="${DATA_PATH}"/"${pref}"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'
 sample_description_file='00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='00_Input_data/reference_database/db_sim_teleo1.fasta'
-# Chemin vers les fichiers 'embl' de la base de référence
-base_dir='00_Input_data/reference_database'
-### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
-base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
+refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
+## Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
+base_pref=`ls ${REFDB_PATH}/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
 main_dir='obitools_reference/outputs_obitools/main'
 fin_dir='obitools_reference/outputs_obitools/final'
@@ -70,7 +92,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 /usr/bin/time $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
 # Assignation taxonomique
 all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
-/usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
+/usr/bin/time $ecotag -d "${REFDB_PATH}"/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
 # Supression des attributs inutiles dans l'entête des séquences
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
