@@ -19,8 +19,8 @@
 ## load config global variables
 source 98_infos/config.sh
 
-## Singularity exec command
-SINGULARITY_EXEC_CMD="singularity exec"
+## go to mount point into container
+cd $SING_MNT
 
 ## Obitools
 illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"

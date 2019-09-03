@@ -9,10 +9,18 @@
 ###############################################################################
 ## singularity containers path
 
+## Singularity mount point
+SING_MNT="/depot"
+
+## Singularity exec command
+SINGULARITY_EXEC_CMD="singularity exec -B .:"${SING_MNT}
+
 ## mbb
 EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
-#OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
-OBITOOLS_SIMG="obitools.simg"
+OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
+#OBITOOLS_SIMG="obitools.simg"
+
+
 
 ###############################################################################
 ## Input data
