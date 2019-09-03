@@ -1,0 +1,14 @@
+filename: "grinder_teleo1"
+sample_description_file: "00_Input_data/sample_description_file.txt"
+container:
+  ednatools: "/share/reservebenefit/utils/conteneurs/ednatools.simg"
+  obitools: "/share/reservebenefit/utils/conteneurs/obitools.simg"
+input_data:
+  reads: "00_Input_data/forward_reverse_reads"
+  refdb: "00_Input_data/reference_database"
+output_data:
+  demultiplex: "obitools_reference/outputs_obitools/demultiplex"
+
+illuminapairedend:
+  s_min : 40
+
