@@ -20,17 +20,18 @@
 source 98_infos/config.sh
 
 
+
 ## Obitools
-illuminapairedend="illuminapairedend"
-obigrep="obigrep"
-ngsfilter="ngsfilter"
-obisplit="obisplit"
-obiuniq="obiuniq"
-obiannotate="obiannotate"
-obiclean="obiclean"
-ecotag="ecotag"
-obisort="obisort"
-obitab="obitab"
+illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"
+obigrep=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obigrep"
+ngsfilter=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ngsfilter"
+obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
+obiuniq=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiuniq"
+obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
+obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
+ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
+obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
+obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 
 
 # Prefixe pour tous les fichiers générés
@@ -39,16 +40,16 @@ pref=grinder_teleo1
 step=total_obitools
 # Fichiers contenant les reads forward et reverse
 R1_fastq=${DATA_PATH}"/"${pref}"_R1.fastq.gz"
-R2_fastq=${DATA_PATH}"/"${pref}"_R2.fastq.gz"
+R2_fastq="${DATA_PATH}"/"${pref}"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'
-sample_description_file="00_Input_data/sample_description_file.txt"
+sample_description_file='00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
 ## Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls ${REFDB_PATH}/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir="obitools_reference/outputs_obitools/main"
-fin_dir="obitools_reference/outputs_obitools/final"
+main_dir='obitools_reference/outputs_obitools/main'
+fin_dir='obitools_reference/outputs_obitools/final'
 
 
 ################################################################################################

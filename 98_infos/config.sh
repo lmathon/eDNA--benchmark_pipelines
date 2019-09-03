@@ -9,15 +9,21 @@
 ###############################################################################
 ## singularity containers path
 
+## mbb
+EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
+OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
+
 ## Singularity mount point
 SING_MNT="/depot"
 
 ## Singularity exec command
-SINGULARITY_EXEC_CMD="singularity exec -B .:"${SING_MNT}
+#SINGULARITY_EXEC_CMD="singularity exec -B .:"${SING_MNT}
 
-## mbb
-EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
-OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
+COMD="illuminapairedend"
+SINGULARITY_EXEC_CMD="singularity exec -B .:${SING_MNT} ${OBITOOLS_SIMG}" 
+
+
+
 #OBITOOLS_SIMG="obitools.simg"
 
 
