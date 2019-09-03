@@ -7,7 +7,7 @@
 #$ -l h_rt=920:00:00
 # choose to run on a specific queue
 # (qconf -sql (to list queues) qconf -sq queue_name (to print informations on this queue))
-#$ -q mem.q
+#$ -q cemeb20.q
 # Get a mail when the job begins, ends or is suspended
 #$ -m ebs
 #$ -M me@mail.com
@@ -17,7 +17,7 @@
 # merge standard and error outputs
 #$ -j y
 # choose a parallel environment and run on 60 slots (use $PE_HOSTFILE)
-#$ -pe robin 16
+# -pe robin 16
 # Export all my environment variables into job runtime context
 #$ -V
 ###################
