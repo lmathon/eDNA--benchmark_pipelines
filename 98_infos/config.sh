@@ -11,7 +11,8 @@
 
 ## mbb
 EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
-OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
+#OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
+OBITOOLS_SIMG="obitools.simg"
 
 ###############################################################################
 ## Input data
