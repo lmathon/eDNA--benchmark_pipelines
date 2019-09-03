@@ -47,7 +47,7 @@ sample_description_file='00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
 ## Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
-base_pref=`ls '${REFDB_PATH}'/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
+base_pref=`ls ${REFDB_PATH}/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
 main_dir='obitools_reference/outputs_obitools/main'
 fin_dir='obitools_reference/outputs_obitools/final'
