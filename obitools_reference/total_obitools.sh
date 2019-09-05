@@ -13,7 +13,7 @@ obisort='singularity exec /share/reservebenefit/utils/conteneurs/obitools.simg o
 obitab='singularity exec /share/reservebenefit/utils/conteneurs/obitools.simg obitab'
 
 # Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='/share/reservebenefit/working/Input_data/Outputs/grinder_teleo1'
+DATA_PATH='/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/00_Input_data/grinder_teleo1'
 # Prefixe pour tous les fichiers générés
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
