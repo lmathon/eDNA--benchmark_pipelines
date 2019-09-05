@@ -13,6 +13,9 @@ if __name__ == "__main__":
             m_size = re.search(r"(?P<size>size=\S+);", str(line))
             if m_size is not None:
                 new_header.append(str(m_size.group('size')))
+            m_count = re.search(r"(?P<count>count=\S+);", str(line))
+            if m_count is not None:
+                new_header.append(str(m_count.group('count')))
             m_sample = re.search(r"(?P<sample>merged_sample=\{.+\});",str(line))
             if m_sample is not None:
                 new_header.append(str(m_sample.group('sample')).replace(" ", ""))
