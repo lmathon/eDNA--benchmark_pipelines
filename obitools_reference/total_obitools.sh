@@ -24,9 +24,9 @@ R2_fastq="$DATA_PATH"/"$pref"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'
 sample_description_file='/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='/share/reservebenefit/working/reference_database/db_sim_teleo1.fasta'
+refdb_dir='/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/00_Input_data/db_sim_teleo1.fasta'
 # Chemin vers les fichiers 'embl' de la base de référence
-base_dir='/share/reservebenefit/working/reference_database/'
+base_dir='/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/00_Input_data/reference_database/'
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
