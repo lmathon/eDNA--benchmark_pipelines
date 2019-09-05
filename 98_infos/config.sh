@@ -13,14 +13,11 @@
 EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
 OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
 
-## Singularity mount point
-SING_MNT="/depot"
 
 ## Singularity exec command
 #SINGULARITY_EXEC_CMD="singularity exec -B .:"${SING_MNT}
 
-COMD="illuminapairedend"
-SINGULARITY_EXEC_CMD="singularity exec -B .:${SING_MNT} ${OBITOOLS_SIMG}" 
+SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share" 
 
 
 
@@ -32,9 +29,13 @@ SINGULARITY_EXEC_CMD="singularity exec -B .:${SING_MNT} ${OBITOOLS_SIMG}"
 ## Input data
 
 ## path to folder of reads forward et reverse
-DATA_PATH='00_Input_data/forward_reverse_reads'
+#DATA_PATH=`pwd`"/00_Input_data/"
+DATA_PATH="/share/reservebenefit/working/Input_data/Outputs"
+
+
 ## path to reference database folder
-REFDB_PATH="00_Input_data/reference_database/"
+REFDB_PATH=`pwd`"/00_Input_data/reference_database/"
+
 
 
 ###############################################################################
