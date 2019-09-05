@@ -40,8 +40,8 @@ fin_dir='02_demultiplex/Outputs/02_flexbar/final'
 ################################################################################################
 # Assignation de chaque séquence à son échantillon
 
-/usr/bin/time $flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags --barcodes2 $Tags -bt 0 -o $main_dir/"$pref"
-#/usr/bin/time $flexbar --adapters $Primer_F --adapters2 $Primer_R -at 1 -o $main_dir/"$pref"
+/usr/bin/time $flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags --barcodes2 $Tags -bt 0 -t $main_dir/"$pref"
+#/usr/bin/time #$flexbar -r $main_dir/"$pref"_*_1* -p $main_dir/"$pref"_*_2* --adapters $Primer_F --adapters2 $Primer_R -at 1 -t $main_dir/"$pref"_assigned
 
 
 # Assemblage des reads forward et reverse

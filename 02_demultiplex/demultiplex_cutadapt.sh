@@ -42,10 +42,10 @@ fin_dir='02_demultiplex/Outputs/01_cutadapt/final'
 /usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
 
 # Assemblage des reads forward et reverse
-/usr/bin/time $illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
+$illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
 sed -i -e "s/_CONS/;/g" $maind_dir/"$pref".assigned.fastq
 # Supression des reads non alignés
-/usr/bin/time $obigrep -p 'mode!="joined"' --fasta-output $main_dir/"$pref".assigned.fastq.gz > $main_dir/"$pref".ali.assigned.fasta
+$obigrep -p 'mode!="joined"' --fasta-output $main_dir/"$pref".assigned.fastq.gz > $main_dir/"$pref".ali.assigned.fasta
 sed -i -e "s/sample/NN; sample/g" $main_dir/"$pref".ali.assigned.fasta
 # Séparation du fichier global en un fichier par échantillon 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
