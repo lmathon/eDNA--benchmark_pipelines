@@ -40,7 +40,7 @@ step=total_obitools
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'
-sample_description_file=${DATA_PATH}"sample_description_file.txt"
+sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
 # Chemin vers les fichiers 'embl' de la base de référence
@@ -110,4 +110,4 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Création d'un tableau final
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
-gzip $main_dir/*
+#gzip $main_dir/*

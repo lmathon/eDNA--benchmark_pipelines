@@ -31,10 +31,10 @@ SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share"
 ## path to folder of reads forward et reverse
 #DATA_PATH=`pwd`"/00_Input_data/"
 DATA_PATH="/share/reservebenefit/working/Input_data/Outputs"
-
+INPUT_DATA=`pwd`"/00_Input_data/"
 
 ## path to reference database folder
-REFDB_PATH=`pwd`"/00_Input_data/reference_database/"
+REFDB_PATH=`pwd`"/00_Input_data/reference_database"
 
 
 
