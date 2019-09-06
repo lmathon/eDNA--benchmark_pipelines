@@ -57,15 +57,15 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
 # On garde les séquences de plus de 20pb sans bases ambigues
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $flexbar --reads "$dereplicated_sample" --max-uncalled 0 --min-read-length 20 -o "$good_sequence_sample >> $sample_sh
+echo "/usr/bin/time $flexbar --reads "$dereplicated_sample" --max-uncalled 0 --min-read-length 20 -o -t "$good_sequence_sample >> $sample_sh
 # Supression des erreurs de PCR et séquençage (variants)
-clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+clean_sequence_sample="${good_sequence_sample/.fasta.fasta/.r005.clean.fasta}"
+echo "$obiclean -r 0.05 -H "$good_sequence_sample".fasta > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 #Concatenation de tous les échantillons en un fichier
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
-cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences_clean
+cat $main_dir/"$pref"_sample_*.uniq.l20.fasta > $all_sample_sequences_clean
 # Déréplication en séquences uniques
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
