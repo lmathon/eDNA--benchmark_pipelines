@@ -71,8 +71,8 @@
 70	Chlamydoselachus_anguineus	0.0288264150008648
 71	Alopias_pelagicus	0.0262058320007862
 72	Dasyatis_akajei	0.0262058320007862
-73	Anoxypristis_cuspidata	0.0259146560007774
-74	Ginglymostoma_cirratum	0.0259146560007774
+73	Ginglymostoma_cirratum	0.0259146560007774
+74	Anoxypristis_cuspidata	0.0259146560007774
 75	Sinobatis_borneensis	0.0192176100005765
 76	Squaliolus_aliae	0.0192176100005765
 77	Narcine_bancroftii	0.0151411480004542

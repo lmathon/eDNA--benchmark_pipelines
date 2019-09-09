@@ -7,10 +7,10 @@
 6	Parupeneus_chrysopleuron	6.4857054293186
 7	Biwia_zezera	4.32380361954573
 8	Pseudanthias_dispar	3.2428527146593
-9	Cyprinus_multitaeniata	2.16190180977287
-10	Alburnus_tarichi	2.16190180977287
-11	Symphysodon_aequifasciata	1.08095090488643
-12	Nessorhamphus_ingolfianus	1.08095090488643
+9	Alburnus_tarichi	2.16190180977287
+10	Cyprinus_multitaeniata	2.16190180977287
+11	Nessorhamphus_ingolfianus	1.08095090488643
+12	Symphysodon_aequifasciata	1.08095090488643
 13	Scoliodon_macrorhynchos	0.633730292268028
 14	Centropyge_woodheadi	0.487484840455626
 15	Ischikauia_steenackeri	0.374988338396269

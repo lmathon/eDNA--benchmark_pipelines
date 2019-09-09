@@ -9,8 +9,8 @@
 8	Pseudanthias_dispar	3.26353472279634
 9	Alburnus_tarichi	2.17568981519756
 10	Cyprinus_multitaeniata	2.17568981519756
-11	Nessorhamphus_ingolfianus	1.08784490759878
-12	Symphysodon_aequifasciata	1.08784490759878
+11	Symphysodon_aequifasciata	1.08784490759878
+12	Nessorhamphus_ingolfianus	1.08784490759878
 13	Centropyge_woodheadi	0.490593882501049
 14	Ischikauia_steenackeri	0.377379909197789
 15	Isurus_paucus	0.290292238179175
@@ -27,6 +27,6 @@
 26	Maccullochella_macquariensis	0.0161978942747407
 27	Lepidocephalus_macrochir	0.0124599188402383
 28	Nemipterus_japonicus	0.00958455220090603
-29	Scoliodon_macrorhynchos	0
-30	Hippocampus_reidi	0
+29	Hippocampus_reidi	0
+30	Scoliodon_macrorhynchos	0
 31	Cephalopholis_sonnerati	0
