@@ -1,54 +1,87 @@
 #!/bin/bash
-##Obitools
+#!/bin/bash
+###############################################################################
+## Codes for the paper:
+##   ..............
+##
+## Authors : GUERIN Pierre-Edouard, MATHON Laetitia
+## Montpellier 2019-2020
+## 
+###############################################################################
+## Usage:
+##    bash obitools_reference/total_obitools.sh
+##
+## Description:
+##  ..............    
+##
+##
+##
+###############################################################################
+## load config global variables
+source 98_infos/config.sh
 
-illuminapairedend='singularity exec obitools.img illuminapairedend'
-obigrep='singularity exec obitools.img obigrep'
-cutadapt='singularity exec ednatools.img cutadapt'
-obisplit='singularity exec obitools.img obisplit'
-obiuniq='singularity exec obitools.img obiuniq'
-obiannotate='singularity exec obitools.img obiannotate'
-obiclean='singularity exec obitools.img obiclean'
-ecotag='singularity exec obitools.img ecotag'
-obisort='singularity exec obitools.img obisort'
-obitab='singularity exec obitools.img obitab'
+## Obitools
+illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"
+obigrep=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obigrep"
+ngsfilter=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ngsfilter"
+obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
+obiuniq=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiuniq"
+obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
+obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
+ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
+obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
+obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
+## EDNAtools
+cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 
-# Chemin vers répertoire contenant les reads forward et reverse
-DATA_PATH='00_Input_data/forward_reverse_reads'
-# Prefixe pour tous les fichiers générés
-pref=grinder_teleo1
-# Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
-step=demultiplex_cutadapt
-# Fichiers contenant les reads forward et reverse
-R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
-R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
-# Chemin vers le fichier 'tags.fasta'
-Tags_F='02_demultiplex/Tags_F.fasta'
-Tags_R='02_demultiplex/Tags_R.fasta'
-# Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir='00_Input_data/reference_database/db_sim_teleo1.fasta'
-# Chemin vers les fichiers 'embl' de la base de référence
-base_dir='00_Input_data/reference_database'
-### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
+## Prefix of all generated files
+pref="grinder_teleo1"
+## Prefix of final table files
+step="demultiplex_cutadapt"
+## Path to forward and reverse fastq files
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
+## path to 'tags.fasta'
+Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
+Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
+## path to the file 'db_sim_teleo1.fasta'
+refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
+## Path to embl files of the reference database
+base_dir=${REFDB_PATH}
+### remove '.' and  '_' from the prefix files
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
-# Chemin vers les répertoires de sorties intermédiaires et finales
-main_dir='02_demultiplex/Outputs/01_cutadapt/main'
-fin_dir='02_demultiplex/Outputs/01_cutadapt/final'
+## path to outputs final and temporary (main)
+main_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/main"
+fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
 
 
 ################################################################################################
-# Assignation de chaque séquence à son échantillon
 
-/usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -x sample='{name}  ' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
-/usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
+## assign each sequence to a sample
+$cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R \
+-x sample="{name}  " -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
+--untrimmed-paired-output $main_dir/unassigned_R2.fastq \
+--untrimmed-output $main_dir/unassigned_R1.fastq \
+$R1_fastq $R2_fastq
 
-# Assemblage des reads forward et reverse
-$illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
-sed -i -e "s/_CONS/;/g" $maind_dir/"$pref".assigned.fastq
-# Supression des reads non alignés
-$obigrep -p 'mode!="joined"' --fasta-output $main_dir/"$pref".assigned.fastq.gz > $main_dir/"$pref".ali.assigned.fasta
-sed -i -e "s/sample/NN; sample/g" $main_dir/"$pref".ali.assigned.fasta
-# Séparation du fichier global en un fichier par échantillon 
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
+## ???
+$cutadapt --pair-adapters --pair-filter=both \
+-g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG \
+-e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq \
+--untrimmed-paired-output $main_dir/untrimmed_R2.fastq \
+--untrimmed-output $main_dir/untrimmed_R1.fastq \
+$main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq
+
+
+## forward and reverse reads assembly
+assembly=${main_dir}"/"${pref}".assigned.fastq"
+$illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > ${assembly}
+## Remove non-aligned reads
+assembly_ali="${assembly/.fastq/.ali.fastq}"
+$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+sed -i -e "s/sample/NN; sample/g" ${assembly_ali}
+# split global file into sample files
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh
