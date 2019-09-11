@@ -47,10 +47,8 @@ $obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fas
 
 # Assemblage des reads forward et reverse
 $illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
-sed -i -e "s/_CONS/;/g" $maind_dir/"$pref".assigned.fastq
 # Supression des reads non alignés
 $obigrep -p 'mode!="joined"' --fasta-output $main_dir/"$pref".assigned.fastq.gz > $main_dir/"$pref".ali.assigned.fasta
-sed -i -e "s/sample/NN; sample/g" $main_dir/"$pref".ali.assigned.fasta
 # Séparation du fichier global en un fichier par échantillon 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
 
