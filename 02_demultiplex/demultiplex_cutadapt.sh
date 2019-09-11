@@ -38,8 +38,12 @@ fin_dir='02_demultiplex/Outputs/01_cutadapt/final'
 ################################################################################################
 # Assignation de chaque séquence à son échantillon
 
-/usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -x sample='{name}  ' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
+/usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:#$Tags_R -y '; sample={name};' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq"
 /usr/bin/time singularity exec /ednatools.img bash -c "export LC_ALL=C.UTF-8 ; cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq"
+
+##Format file post cutadapt for obitools
+$obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
+$obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
 
 # Assemblage des reads forward et reverse
 $illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > $main_dir/"$pref".assigned.fastq
