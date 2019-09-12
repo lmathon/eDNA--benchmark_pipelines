@@ -1,5 +1,5 @@
 # Job name
-#$ -N JOB_NAME
+#$ -N job_JOB_NAME
 # Using current working directory (otherwise, you will have to use '#$ wd /path/to/run')
 #$ -cwd
 # job time limits (h_rt is required [s_rt == software time limit / h_rt == hardware time limit])
