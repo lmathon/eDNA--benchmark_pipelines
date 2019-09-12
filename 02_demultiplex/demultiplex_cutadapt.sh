@@ -88,7 +88,6 @@ $illuminapairedend -r $main_dir/R2.assigned3.fastq $main_dir/R1.assigned3.fastq 
 assembly_ali="${assembly/.fastq/.ali.fastq}"
 $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 
-sed -i -e "s/sample/NN; sample/g" ${assembly_ali}
 # split global file into sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
 
