@@ -60,7 +60,7 @@ fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
 
 ## assign each sequence to a sample
 $cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R \
--x sample="{name}  " -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
+-y sample="; sample={name};" -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
 --untrimmed-paired-output $main_dir/unassigned_R2.fastq \
 --untrimmed-output $main_dir/unassigned_R1.fastq \
 $R1_fastq $R2_fastq
@@ -73,13 +73,21 @@ $cutadapt --pair-adapters --pair-filter=both \
 --untrimmed-output $main_dir/untrimmed_R1.fastq \
 $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq
 
+##Format file post cutadapt for obitools
+$obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
+$obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
+sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
+sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
+
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".assigned.fastq"
-$illuminapairedend -r $main_dir/R2.assigned2.fastq $main_dir/R1.assigned2.fastq > ${assembly}
+$illuminapairedend -r $main_dir/R2.assigned3.fastq $main_dir/R1.assigned3.fastq > ${assembly}
+
 ## Remove non-aligned reads
 assembly_ali="${assembly/.fastq/.ali.fastq}"
 $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+
 sed -i -e "s/sample/NN; sample/g" ${assembly_ali}
 # split global file into sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
