@@ -35,11 +35,11 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 ## EDNAtools
 cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 
-## Prefix of all generated files
+## Prefix for all generated files
 pref="grinder_teleo1"
-## Prefix of final table files
+## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step="demultiplex_cutadapt"
-## Path to forward and reverse fastq files
+## Path to the directory containing forward and reverse reads
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'tags.fasta'
@@ -54,6 +54,10 @@ base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/main"
 fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
+
+#main_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Outputs/01_cutadapt/main'
+#fin_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Outputs/01_cutadapt/final'
+
 
 
 ################################################################################################
@@ -83,10 +87,13 @@ sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".assigned.fastq"
 $illuminapairedend -r $main_dir/R2.assigned3.fastq $main_dir/R1.assigned3.fastq > ${assembly}
+# Format header for obitools
+sed  -i -e "s/_CONS//g" ${assembly}
+sed  -i -e "s/_sample/_CONS sample/g" ${assembly}
 
-## Remove non-aligned reads
+## Discard non-aligned reads
 assembly_ali="${assembly/.fastq/.ali.fastq}"
-$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+$obigrep -p 'mode!="joined"' ${assembly} > ${assembly_ali}
 
 # split global file into sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
@@ -135,4 +142,4 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 ## Create final tab
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
-gzip $main_dir/*.fasta
+#gzip $main_dir/*.fasta
