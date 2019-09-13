@@ -98,7 +98,6 @@ $obigrep -p 'mode!="joined"' ${assembly} > ${assembly_ali}
 # split global file into sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
 
-
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh
 for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
