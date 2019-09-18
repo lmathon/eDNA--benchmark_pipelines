@@ -57,7 +57,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
 # On garde les séquences de plus de 20pb sans bases ambigues
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $cutadapt -m 20 -max_n 0 -o "$good_sequence_sample" "$dereplicated_sample >> $sample_sh
+echo "/usr/bin/time $cutadapt "$dereplicated_sample" -m 20 --max-n 0 -o "$good_sequence_sample >> $sample_sh
 # Supression des erreurs de PCR et séquençage (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
 echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh

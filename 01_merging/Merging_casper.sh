@@ -19,8 +19,8 @@ pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
 step=merging_casper
 # Fichiers contenant les reads forward et reverse
-R1_fastq="$DATA_PATH"/"$pref"_R1.fastq.gz
-R2_fastq="$DATA_PATH"/"$pref"_R2.fastq.gz
+R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
+R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
 # Chemin vers le fichier 'tags.txt'
 sample_description_file='00_Input_data/sample_description_file.txt'
 # Chemin vers le fichier 'db_sim_teleo1.fasta'

@@ -36,7 +36,7 @@ fin_dir='01_merging/Outputs/03_fastqjoin/final'
 ######################################################################################################
 
 ## Assemblage des reads forward et reverse
-/usr/bin/time -p $fastqjoin $R1_fastq $R2_fastq -m 10 -p 25 -o $main_dir/"$pref"_%.fastq
+/usr/bin/time $fastqjoin $R1_fastq $R2_fastq -m 10 -p 25 -o $main_dir/"$pref"_%.fastq
 
 ###################################################################################################################
 # Assignation de chaque séquence à son échantillon
