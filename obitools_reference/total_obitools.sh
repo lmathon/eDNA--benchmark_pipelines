@@ -36,7 +36,7 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 pref=grinder_teleo1
 # Prefixe du tableau final, contenant l'étape et le programme testé (ex: merging_obitools) 
 step=total_obitools
-# Fichiers contenant les reads forward et reverse
+## Path to forward and reverse fastq files
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 # Chemin vers le fichier 'tags.txt'

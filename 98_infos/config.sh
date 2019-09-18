@@ -20,6 +20,11 @@ OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
 SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share" 
 
 
+### home laetitia
+#SINGULARITY_EXEC_CMD="singularity exec"
+#OBITOOLS_SIMG="/home/lmathon/obitools.img"
+
+
 
 #OBITOOLS_SIMG="obitools.simg"
 
@@ -34,8 +39,13 @@ DATA_PATH="/share/reservebenefit/working/Input_data/Outputs"
 INPUT_DATA=`pwd`"/00_Input_data/"
 
 ## path to reference database folder
-REFDB_PATH=`pwd`"/00_Input_data/reference_database"
+REFDB_PATH="/share/reservebenefit/working/reference_database/"
 
 
+## home laetitia
+#REFDB_PATH="/home/lmathon/reference_database"
 
 ###############################################################################
+
+## number of available cores
+CORES=16
