@@ -71,7 +71,7 @@ assembly_ali="${assembly/.fastq/.ali.fastq}"
 ## Assign each sequence to a sample
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
-$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
+#$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
 ## Séparation du fichier global en un fichier par échantillon 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
@@ -88,7 +88,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "/usr/bin/time $vsearch --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --output "$dereplicated_sample > $sample_sh
 # Formatage des sorties vsearch en obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
-echo $container_python2"03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample > $sample_sh
+echo $container_python2" 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample > $sample_sh
 # On garde les séquences de plus de 20pb sans bases ambigues
 good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
 echo "$obigrep -s '^[ACGT]+$' -l 20 "$formated_sample" > "$good_sequence_sample >> $sample_sh
