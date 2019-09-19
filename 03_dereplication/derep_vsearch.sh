@@ -88,7 +88,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "/usr/bin/time $vsearch --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --output "$dereplicated_sample > $sample_sh
 # Formatage des sorties vsearch en obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
-echo "python2 vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample > $sample_sh
+echo $container_python2" vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample > $sample_sh
 # On garde les séquences de plus de 20pb sans bases ambigues
 good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
 echo "$obigrep -s '^[ACGT]+$' -l 20 "$formated_sample" > "$good_sequence_sample >> $sample_sh
@@ -105,7 +105,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 /usr/bin/time $vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
 # formatage des sorties vsearch pour obitools
 all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated.fasta}"
-python2 allvsearch_into_obifasta.py -i info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
+$container_python2 allvsearch_into_obifasta.py -i info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
 # Assignation taxonomique
 all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
 $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated > $all_sample_sequences_tag
