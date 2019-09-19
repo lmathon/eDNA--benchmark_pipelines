@@ -56,17 +56,18 @@ base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/03_dereplication/Outputs/01_vsearch/main"
 fin_dir=`pwd`"/03_dereplication/Outputs/01_vsearch/final"
-
+## sample description file
+sample_description_file='00_Input_data/sample_description_file.txt'
 
 
 ################################################################################################
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
+#$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
 ## Remove non-aligned reads
 assembly_ali="${assembly/.fastq/.ali.fastq}"
-$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+#$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 ## Assign each sequence to a sample
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
