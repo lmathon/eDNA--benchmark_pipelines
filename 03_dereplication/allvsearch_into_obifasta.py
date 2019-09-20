@@ -97,15 +97,16 @@ mes_records=[]
 for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_dna):
     seq_record_DescriptionSplit=str(seq_record.description.split(";"))
     #print seq_record_DescriptionSplit
-    vSeqId=seq_record_DescriptionSplit[0].split(" ")[0]
-    diSeqId= dicOfObinfo[vSeqId].id
-    diSeqSamples= dicOfObinfo[vSeqId].merged_sample
-    diSeqCount= str(dicOfObinfo[vSeqId].count)
-    local_id=diSeqId+"; count="+diSeqCount+"; merged_sample="+diSeqSamples
-    #print local_id
-    local_seq=str(repr(str(seq_record.seq.lower()))).replace("'","")
-    local_record=SeqRecord(Seq(local_seq,IUPAC.unambiguous_dna), id=local_id,description="")
-    mes_records.append(local_record)
+    if vSeqId in dicOfObinfo:
+        vSeqId=seq_record_DescriptionSplit[0].split(" ")[0]
+        diSeqId= dicOfObinfo[vSeqId].id
+        diSeqSamples= dicOfObinfo[vSeqId].merged_sample
+        diSeqCount= str(dicOfObinfo[vSeqId].count)
+        local_id=diSeqId+"; count="+diSeqCount+"; merged_sample="+diSeqSamples
+        #print local_id
+        local_seq=str(repr(str(seq_record.seq.lower()))).replace("'","")
+        local_record=SeqRecord(Seq(local_seq,IUPAC.unambiguous_dna), id=local_id,description="")
+        mes_records.append(local_record)
 SeqIO.write(mes_records, outputFile, "fasta")
 
 
