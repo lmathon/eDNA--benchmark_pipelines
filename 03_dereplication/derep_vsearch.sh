@@ -105,7 +105,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 /usr/bin/time $vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
 # formatage des sorties vsearch pour obitools
 all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated.fasta}"
-$container_python2 03_dereplication/allvsearch_into_obifasta.py -i info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
+$container_python2 03_dereplication/allvsearch_into_obifasta.py -i $main_dir/info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
 # Assignation taxonomique
 all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
 $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated > $all_sample_sequences_tag
