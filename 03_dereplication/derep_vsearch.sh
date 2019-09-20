@@ -83,24 +83,24 @@ for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
 do
 sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
-# Déréplication des reads en séquences uniques
+## Dereplicate reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo "/usr/bin/time $vsearch --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --output "$dereplicated_sample > $sample_sh
+echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --output "$dereplicated_sample > $sample_sh
 # Formatage des sorties vsearch en obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
-echo $container_python2" 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample > $sample_sh
-# On garde les séquences de plus de 20pb sans bases ambigues
+echo $container_python2" 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
+## Keep only sequences longer than 20pb with no N bases
 good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
-echo "$obigrep -s '^[ACGT]+$' -l 20 "$formated_sample" > "$good_sequence_sample >> $sample_sh
-# Supression des erreurs de PCR et séquençage (variants)
+echo $obigrep" -s '^[ACGT]+$' -l 20 "$formated_sample" > "$good_sequence_sample >> $sample_sh
+## Removal of PCR and sequencing errors (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+echo $obiclean" -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
-#Concatenation de tous les échantillons en un fichier
+## Concatenate all files into one main file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.formated.l20.r005.clean.fasta > $all_sample_sequences_clean
-# Déréplication en séquences uniques
+## Dereplicate in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 /usr/bin/time $vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
 # formatage des sorties vsearch pour obitools
