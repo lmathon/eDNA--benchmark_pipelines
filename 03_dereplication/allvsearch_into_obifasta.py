@@ -97,7 +97,7 @@ mes_records=[]
 for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_dna):
     seq_record_DescriptionSplit=str(seq_record.description.split(";"))
     #print seq_record_DescriptionSplit    
-    vSeqId=seq_record_DescriptionSplit[0].split(" ")[0]
+    vSeqId=str(seq_record_DescriptionSplit[0].split(" ")[0])
     if vSeqId in dicOfObinfo:
         diSeqId= dicOfObinfo[vSeqId].id
         diSeqSamples= dicOfObinfo[vSeqId].merged_sample
