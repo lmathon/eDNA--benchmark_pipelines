@@ -64,14 +64,14 @@ sample_description_file='00_Input_data/sample_description_file.txt'
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-#$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
+$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
 ## Remove non-aligned reads
 assembly_ali="${assembly/.fastq/.ali.fastq}"
-#$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 ## Assign each sequence to a sample
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
-#$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
+$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
 ## Séparation du fichier global en un fichier par échantillon 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
@@ -102,7 +102,7 @@ all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.formated.l20.r005.clean.fasta > $all_sample_sequences_clean
 ## Dereplicate in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
-/usr/bin/time $vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
+$vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
 # formatage des sorties vsearch pour obitools
 all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated.fasta}"
 $container_python2 03_dereplication/allvsearch_into_obifasta.py -i $main_dir/info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
@@ -127,3 +127,11 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
 #gzip $main_dir/*
+
+
+
+
+#derep="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.fasta"
+#dinfo="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/info_seq"
+
+#$container_python2 03_dereplication/allvsearch_into_obifasta.py -i $dinfo -f $derep -o test
