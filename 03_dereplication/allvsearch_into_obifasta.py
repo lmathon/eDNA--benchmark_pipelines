@@ -95,7 +95,7 @@ with open(infoSeqFile,'r') as readFile:
 # write again vsearch derep fasta files with new description including number of sequences and by sample for each unique sequence
 mes_records=[]
 for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_dna):
-    seq_record_DescriptionSplit=str(seq_record.description.split(";"))
+    seq_record_DescriptionSplit=seq_record.description.split(";")
     #print seq_record_DescriptionSplit    
     vSeqId=str(seq_record_DescriptionSplit[0].split(" ")[0])
     if vSeqId in dicOfObinfo:
@@ -103,7 +103,7 @@ for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_d
         diSeqSamples= dicOfObinfo[vSeqId].merged_sample
         diSeqCount= str(dicOfObinfo[vSeqId].count)
         local_id=diSeqId+"; count="+diSeqCount+"; merged_sample="+diSeqSamples
-        #print local_id
+        print local_id
         local_seq=str(repr(str(seq_record.seq.lower()))).replace("'","")
         local_record=SeqRecord(Seq(local_seq,IUPAC.unambiguous_dna), id=local_id,description="")
         mes_records.append(local_record)
