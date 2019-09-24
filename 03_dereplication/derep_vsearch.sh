@@ -32,7 +32,6 @@ ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 ## EDNAtools
-cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
@@ -40,13 +39,12 @@ container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 ## Prefix for all generated files
 pref="grinder_teleo1"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
-step="demultiplex_cutadapt"
+step="derep_vsearch"
 ## Path to the directory containing forward and reverse reads
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
-## path to 'tags.fasta'
-Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
-Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
+## path to 'sample_description_file.txt'
+sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 ## path to the file 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
 ## Path to embl files of the reference database
@@ -56,8 +54,6 @@ base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/03_dereplication/Outputs/01_vsearch/main"
 fin_dir=`pwd`"/03_dereplication/Outputs/01_vsearch/final"
-## sample description file
-sample_description_file='00_Input_data/sample_description_file.txt'
 
 
 ################################################################################################
