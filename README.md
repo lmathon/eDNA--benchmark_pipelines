@@ -26,7 +26,7 @@ The optimal pipeline obtained will be again compared to existant complete pipeli
 
 ## Install from source code
 
-To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [USEARCH](https://drive5.com/usearch/download.html), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [PANDAseq](https://github.com/neufeld/pandaseq), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Flexbar](https://github.com/seqan/flexbar), [TagCleaner](https://sourceforge.net/projects/tagcleaner/files), [Tally](https://www.ebi.ac.uk/research/enright/software/kraken), [DADA2](https://benjjneb.github.io/dada2/dada-installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [Trimmomatic](http://www.usadellab.org/cms/index.php?page=trimmomatic), [SWARM](https://github.com/torognes/swarm), [Perseus](https://code.google.com/archive/p/ampliconnoise/), [CATCh](https://github.com/M-Mysara/CATCh), and [PROTAX](https://www.helsinki.fi/en/researchgroups/statistical-ecology/software#section-49869).
+To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Flexbar](https://github.com/seqan/flexbar), [Tally](https://www.ebi.ac.uk/research/enright/software/kraken), [DADA2](https://benjjneb.github.io/dada2/dada-installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [CATCh](https://github.com/M-Mysara/CATCh), [SWARM](https://github.com/torognes/swarm), [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html) and [PROTAX](https://www.helsinki.fi/en/researchgroups/statistical-ecology/software#section-49869).
 
 The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install), [MOTHUR](https://github.com/mothur/mothur), [BARQUE](https://github.com/enormandeau/barque) and [SLIM](https://github.com/yoann-dufresne/SLIM).
 
@@ -42,12 +42,12 @@ Our complete collection of singularity recipes is available [here](https://githu
 
 To download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools)'s container :
 ```
-singularity pull --name obitools.img shub://Grelot/bioinfo_singularity_recipes:obitools
+singularity pull --name obitools.simg shub://Grelot/bioinfo_singularity_recipes:obitools
 ```
 
-To download container with vsearch, usearch, PEAR, FLASh, CASPER, cutadapt, fastq-join, TAGcleaner, Reaper, SWARM, Flexbar :
+To download container with vsearch, PEAR, FLASh, CASPER, cutadapt, fastq-join, Tally, Prinseq, usearch (sintax), SWARM, Flexbar :
 ```
-singularity pull --name ednatools.img shub://Grelot/bioinfo_singularity_recipes:ednatools
+singularity pull --name ednatools.simg shub://Grelot/bioinfo_singularity_recipes:ednatools
 ```
 
 
