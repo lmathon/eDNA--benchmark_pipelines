@@ -79,6 +79,6 @@ all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Assignation taxonomique
 #all_sample_sequences_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
-/usr/bin/time $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.8 --fasta_width 0 --top_hits_only --blast6out $fin_dir/"$step"
+/usr/bin/time $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.8 --fasta_width 0 --top_hits_only --blast6out $fin_dir/"$step".csv
 
 gzip $main_dir/*
