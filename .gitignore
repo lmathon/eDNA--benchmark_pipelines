@@ -1,7 +1,6 @@
 99_utils/mega_download/mega_info.txt
 99_utils/submitjob_sge_cluster/qsub_outputs/*.out
 99_utils/submitjob_sge_cluster/qsub_scripts/*.sh
-00_Input_data/*
 *zip
 *img
 grinder_simulations/Outputs/sample*

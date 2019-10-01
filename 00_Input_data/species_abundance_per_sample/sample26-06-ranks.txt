@@ -1,0 +1,19 @@
+# rank	seq_id	rel_abund_perc
+1	Alosa_aestivalis	5.56
+2	Triplophysa_wuweiensis	5.56
+3	Thymallus_burejensis	5.56
+4	Scleropages_jardinii	5.56
+5	Osteochilus_salsburyi	5.56
+6	Ranzania_laevis	5.56
+7	Scopelogadus_mizolepis	5.56
+8	Galaxias_sp._southern	5.56
+9	Biwia_zezera	5.56
+10	Rita_rita	5.56
+11	Semilabeo_obscurus	5.55
+12	Percina_macrolepida	5.55
+13	Epinephelus_latifasciatus	5.55
+14	Scaphirhynchus_albus	5.55
+15	Hippocampus_sindonis	5.55
+16	Alburnus_istanbulensis	5.55
+17	Chaunax_pictus	5.55
+18	Hucho_bleekeri	5.55
