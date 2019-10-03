@@ -77,13 +77,13 @@ sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 # Déréplication des reads en séquences uniques
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
+echo $obiuniq" -m sample "$sample" > "$dereplicated_sample > $sample_sh;
 # On garde les séquences de plus de 20pb sans bases ambigues
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
+echo $obigrep" -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
 # Supression des erreurs de PCR et séquençage (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+echo $obiclean" -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenation de tous les échantillons en un fichier
@@ -108,4 +108,4 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 #all_sample_sequences_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
 $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.8 --fasta_width 0 --top_hits_only --blast6out $fin_dir/"$step"
 
-gzip $main_dir/*
+#gzip $main_dir/*
