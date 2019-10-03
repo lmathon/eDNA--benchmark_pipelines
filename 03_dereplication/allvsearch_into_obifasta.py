@@ -82,6 +82,7 @@ with open(infoSeqFile,'r') as readFile:
                     seqSampleKey=merged_sample.items()[0][0]
                     seqSampleCount=merged_sample.items()[0][1]
                     seqSampleDic[seqSampleKey]=seqSampleCount
+                    break
             seqMergedSample=str(seqSampleDic)
             seqCountSum=0
             for i in seqSampleDic.items():
