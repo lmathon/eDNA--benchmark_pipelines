@@ -101,7 +101,7 @@ for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_d
         diSeqId= dicOfObinfo[vSeqId].id
         diSeqSamples= dicOfObinfo[vSeqId].merged_sample
         diSeqCount= str(dicOfObinfo[vSeqId].count)
-        local_id=diSeqId+"; count="+diSeqCount+"; merged_sample="+diSeqSamples
+        local_id=diSeqId+"; count="+diSeqCount+"; merged_sample="+diSeqSamples+";"
         print local_id
         local_seq=str(repr(str(seq_record.seq.lower()))).replace("'","")
         local_record=SeqRecord(Seq(local_seq,IUPAC.unambiguous_dna), id=local_id,description="")
