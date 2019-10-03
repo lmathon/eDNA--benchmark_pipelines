@@ -46,7 +46,7 @@ refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
 # Chemin vers les fichiers 'embl' de la base de référence
 base_dir=${REFDB_PATH}
 ### Les préfixes des fichiers de la base de ref ne doivent pas contenir "." ou "_"
-base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
+base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
 # Chemin vers les répertoires de sorties intermédiaires et finales
 main_dir=`pwd`"/obitools_reference/outputs_obitools/main"
 fin_dir=`pwd`"/obitools_reference/outputs_obitools/final"
