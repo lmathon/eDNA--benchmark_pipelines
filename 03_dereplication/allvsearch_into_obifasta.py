@@ -73,17 +73,16 @@ with open(infoSeqFile,'r') as readFile:
     for ligne in readFile.readlines():
         if ligne.startswith("S"):
             idSeq=str(ligne.split("\t")[8].split(";")[0].split(" ")[0])
-        if ligne.startswith("H"):
             seqSampleDic={}
-            for seqSample in ligne.split("\t")[8:]:
-                seqSampleSplit=seqSample.split(";")
-                for elem in seqSampleSplit:
-                    if "merged_sample" in elem:
-                        myCode=elem.replace(" ","")
-                        exec(myCode)
-                        seqSampleKey=merged_sample.items()[0][0]
-                        seqSampleCount=merged_sample.items()[0][1]
-                        seqSampleDic[seqSampleKey]=seqSampleCount
+        if not ligne.startswith("C"):            
+            for elem in ligne.split("\t")[8].split(";"):
+                if "merged_sample" in elem:
+                    myCode=elem.replace(" ","")
+                    exec(myCode)
+                    seqSampleKey=merged_sample.items()[0][0]
+                    seqSampleCount=merged_sample.items()[0][1]
+                    seqSampleDic[seqSampleKey]=seqSampleCount
+                    break
             seqMergedSample=str(seqSampleDic)
             seqCountSum=0
             for i in seqSampleDic.items():
