@@ -74,7 +74,7 @@ with open(infoSeqFile,'r') as readFile:
         if ligne.startswith("S"):
             idSeq=str(ligne.split("\t")[8].split(";")[0].split(" ")[0])
             seqSampleDic={}
-        if not ligne.startswith("C"):            
+        if not ligne.startswith("C"):
             for elem in ligne.split("\t")[8].split(";"):
                 if "merged_sample" in elem:
                     myCode=elem.replace(" ","")
@@ -106,6 +106,8 @@ for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_d
         local_seq=str(repr(str(seq_record.seq.lower()))).replace("'","")
         local_record=SeqRecord(Seq(local_seq,IUPAC.unambiguous_dna), id=local_id,description="")
         mes_records.append(local_record)
+        ## remove the key (we need only one sequence by key: the "seed" sequence)
+        del dicOfObinfo[vSeqId]
 SeqIO.write(mes_records, outputFile, "fasta")
 
 
