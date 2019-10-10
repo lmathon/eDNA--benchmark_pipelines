@@ -68,7 +68,7 @@ obitFastaFile = args.obifasta
 
 with open(vsearchFile,'r') as readFile:
     for ligne in readFile.readlines():
-        ligneSplit=ligne.split()
+        ligneSplit=ligne.split("\t")
         print ligneSplit
 
 
