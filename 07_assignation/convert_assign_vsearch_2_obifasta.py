@@ -16,7 +16,7 @@ output:
 
 usage:
 
-python2 convert_assign_vsearch_2_obifasta.py ..............
+python2 convert_assign_vsearch_2_obifasta.py -a assignvsearchfile -f obisortoutput -o output.obifasta
 
 """
 #===============================================================================
@@ -69,6 +69,6 @@ obitFastaFile = args.obifasta
 with open(vsearchFile,'r') as readFile:
     for ligne in readFile.readlines():
         ligneSplit=ligne.split()
-        print ligne
+        print ligneSplit
 
 
