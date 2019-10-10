@@ -46,7 +46,7 @@ R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 ## path to the file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
+refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
 ## Path to embl files of the reference database
 base_dir=${REFDB_PATH}
 ### remove '.' and  '_' from the prefix files
@@ -122,7 +122,15 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Création d'un tableau final
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
+################################################################################################
+
 #gzip $main_dir/*
+
+
+
+#all_sample_sequences_uniq_formated="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.formated.fasta"
+#all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
+#$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated > $all_sample_sequences_tag
 
 
 
@@ -130,4 +138,7 @@ $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 #derep="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.fasta"
 #dinfo="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/info_seq"
 
-#$container_python2 03_dereplication/allvsearch_into_obifasta.py -i $dinfo -f $derep -o test
+#all_sample_sequences_uniq_formated="${derep/.fasta/.formated.fasta}"
+
+
+#$container_python2 03_dereplication/allvsearch_into_obifasta.py -i $dinfo -f $derep -o $all_sample_sequences_uniq_formated
