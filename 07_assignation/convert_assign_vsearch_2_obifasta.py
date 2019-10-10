@@ -70,7 +70,7 @@ with open(vsearchFile,'r') as readFile:
     for ligne in readFile.readlines():
         if ligne.startswith(">"):
             ligneSplit=ligne[1:].split(";")
-            ligneSplit[0].replace(' ',';')
-            print ligneSplit
+            propreligne=ligneSplit[0].replace(' ',';')+ligneSplit[1:]
+            print propreligne
 
 
