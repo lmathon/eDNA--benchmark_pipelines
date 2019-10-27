@@ -67,7 +67,7 @@ $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
 $ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
-## Séparation du fichier global en un fichier par échantillon 
+## Split big file into one file per sample 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
 
