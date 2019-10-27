@@ -41,8 +41,8 @@ pref="grinder_teleo1"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step="derep_vsearch"
 ## Path to the directory containing forward and reverse reads
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 ## path to the file 'db_sim_teleo1.fasta'

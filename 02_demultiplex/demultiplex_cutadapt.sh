@@ -40,13 +40,13 @@ pref="grinder_teleo1"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step="demultiplex_cutadapt"
 ## Path to the directory containing forward and reverse reads
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
 Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
 Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
 ## path to the file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_sim_teleo1.fasta"
+refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
 ## Path to embl files of the reference database
 base_dir=${REFDB_PATH}
 ### remove '.' and  '_' from the prefix files
@@ -55,21 +55,18 @@ base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print
 main_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/main"
 fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
 
-#main_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Outputs/01_cutadapt/main'
-#fin_dir='/home/lmathon/Comparaison_pipelines/01_In_silico/02_demultiplex/Outputs/01_cutadapt/final'
-
 
 
 ################################################################################################
 
 ## assign each sequence to a sample
 $cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R \
--y sample="; sample={name};" -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
+-y '; sample={name};' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
 --untrimmed-paired-output $main_dir/unassigned_R2.fastq \
 --untrimmed-output $main_dir/unassigned_R1.fastq \
 $R1_fastq $R2_fastq
 
-## ???
+## Remove primers
 $cutadapt --pair-adapters --pair-filter=both \
 -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG \
 -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq \
@@ -82,7 +79,6 @@ $obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fas
 $obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
 sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
 sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
-
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".assigned.fastq"
@@ -141,4 +137,4 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 ## Create final tab
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
-#gzip $main_dir/*.fasta
+gzip $main_dir/*.fasta
