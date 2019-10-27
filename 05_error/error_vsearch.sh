@@ -1,51 +1,75 @@
 #!/bin/bash
-##Obitools
+###############################################################################
+## Codes for the paper:
+##   ..............
+##
+## Authors : GUERIN Pierre-Edouard, MATHON Laetitia
+## Montpellier 2019-2020
+## 
+###############################################################################
+## Usage:
+##    bash obitools_reference/total_obitools.sh
+##
+## Description:
+##  ..............    
+##
+##
+##
+###############################################################################
+## load config global variables
+source 98_infos/config.sh
 
-illuminapairedend='singularity exec obitools.img illuminapairedend'
-obigrep='singularity exec obitools.img obigrep'
-ngsfilter='singularity exec obitools.img ngsfilter'
-obisplit='singularity exec obitools.img obisplit'
-obiuniq='singularity exec obitools.img obiuniq'
-obiannotate='singularity exec obitools.img obiannotate'
-obiclean='singularity exec obitools.img obiclean'
-ecotag='singularity exec obitools.img ecotag'
-obisort='singularity exec obitools.img obisort'
-obitab='singularity exec obitools.img obitab'
-vsearch='singularity exec ednatools.img vsearch'
+
+## Obitools
+illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"
+obigrep=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obigrep"
+ngsfilter=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ngsfilter"
+obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
+obiuniq=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiuniq"
+obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
+obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
+ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
+obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
+obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
+## EDNAtools
+vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
+container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
 
-# Path to directory containing forward et reverse reads
-DATA_PATH='00_Input_data/forward_reverse_reads'
-# Prefix for all generated files
-pref=grinder_teleo1
-# Prefix for the final table, containing the step and the program used (ex: merging_obitools)
-step=error_vsearch
-# Files containing forward et reverse reads
-R1_fastq="$DATA_PATH"/"$pref"_R1.fastq
-R2_fastq="$DATA_PATH"/"$pref"_R2.fastq
-# Path to the file 'sample_description_file.txt'
-sample_description_file='00_Input_data/sample_description_file.txt'
-# Path to the file 'db_sim_teleo1.fasta'
-refdb_file='00_Input_data/reference_database/db_sim_teleo1.fasta'
-# Path to the files 'embl' of the reference database
-base_dir='00_Input_data/reference_database'
-### Prefix of the reference database files must not contain "." or "_"
-base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
-# Path to intermediate and final output directories
-main_dir='05_error/Outputs/02_vsearch/main/'
-fin_dir='05_error/Outputs/02_vsearch/final/'
+## Prefix for all generated files
+pref="grinder_teleo1"
+## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
+step="error_vsearch"
+## Path to the directory containing forward and reverse reads
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
+## path to 'sample_description_file.txt'
+sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
+## path to the file 'db_sim_teleo1.fasta'
+refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
+## Path to embl files of the reference database
+base_dir=${REFDB_PATH}
+### remove '.' and  '_' from the prefix files
+base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
+## path to outputs final and temporary (main)
+main_dir=`pwd`"/05_error/Outputs/02_vsearch/main"
+fin_dir=`pwd`"/05_error/Outputs/02_vsearch/final"
 
 
 ################################################################################################
 
-# Merging of forward et reverse reads
-$illuminapairedend -r $R2_fastq $R1_fastq > $main_dir/"$pref".fastq
-# Removal of non-aligned reads
-$obigrep -p 'mode!="joined"' $main_dir/"$pref".fastq > $main_dir/"$pref".ali.fastq
-# Assign each sequence to its sample
-$ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".ali.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
-# Split the file in smaller sample files
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta.gz
+## forward and reverse reads assembly
+assembly=${main_dir}"/"${pref}".fastq"
+$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
+## Remove non-aligned reads
+assembly_ali="${assembly/.fastq/.ali.fastq}"
+$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+## Assign each sequence to a sample
+identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
+unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
+$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
+## Split big file into one file per sample 
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh

@@ -41,21 +41,15 @@ vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 
 ## Prefix for all generated files
 pref="grinder_teleo1"
-# Chemin vers répertoire contenant les reads forward et reverse
-#DATA_PATH='00_Input_data/forward_reverse_reads'
-
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step=assign_vsearch
 ## Path to the directory containing forward and reverse reads
-R1_fastq="$DATA_PATH"/"$pref"/"$pref"_R1.fastq.gz
-R2_fastq="$DATA_PATH"/"$pref"/"$pref"_R2.fastq.gz
+R1_fastq="$DATA_PATH"/"$pref"/"$pref"_R1.fastq
+R2_fastq="$DATA_PATH"/"$pref"/"$pref"_R2.fastq
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
-
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
 refdb_dir=`pwd`"/07_assignation/db_teleo_vsearch.fasta"
-
-
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/07_assignation/Outputs/01_vsearch/main"
 fin_dir=`pwd`"/07_assignation/Outputs/01_vsearch/final"
@@ -85,24 +79,24 @@ for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
 do
 sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
-# Déréplication des reads en séquences uniques
+# Dereplication of reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo $obiuniq" -m sample "$sample" > "$dereplicated_sample > $sample_sh;
-# On garde les séquences de plus de 20pb sans bases ambigues
+# Keep only sequences longer than 20pb with no ambiguous bases
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
 echo $obigrep" -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
-# Supression des erreurs de PCR et séquençage (variants)
+# Removal of PCR and sequencing errors (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
 echo $obiclean" -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
-# Concatenation de tous les échantillons en un fichier
+# Concatenation of all samples in one file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences_clean
-# Déréplication en séquences uniques
+# Dereplication in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
-# Supression des attributs inutiles dans l'entête des séquences
+# Removal of useless attributes in sequences headers
 all_sample_sequences_ann="${all_sample_sequences_uniq/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
  --delete-tag=obiclean_cluster --delete-tag=obiclean_internalcount --delete-tag=obiclean_head  --delete-tag=obiclean_headcount \
@@ -111,10 +105,10 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
  --delete-tag=forward_primer --delete-tag=forward_match --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single --delete-tag=status \
  --delete-tag=direction --delete-tag=seq_a_insertion --delete-tag=seq_b_insertion --delete-tag=seq_a_deletion --delete-tag=seq_b_deletion \
  --delete-tag=ali_length --delete-tag=head_quality --delete-tag=seq_b_single $all_sample_sequences_uniq > $all_sample_sequences_ann
-# Tri des séquences par 'count'
+# Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
-# Assignation taxonomique
+# Taxonomic assignation
 all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.vsearch}"
 $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.8 --fasta_width 0 --top_hits_only --blast6out $all_sample_sequences_vsearch_tag
 ## convert vsearch assignation file into obifasta
@@ -125,4 +119,4 @@ $obitab -o $all_sample_sequences_vsearch_tag_obifasta > $fin_dir/"$step"
 
 ################################################################################################
 
-#gzip $main_dir/*
+gzip $main_dir/*
