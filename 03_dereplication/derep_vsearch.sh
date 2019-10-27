@@ -68,7 +68,7 @@ $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
 $ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
-## Séparation du fichier global en un fichier par échantillon 
+## Split big file into one file per sample 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
 ################################################################################################
@@ -82,7 +82,7 @@ echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 ## Dereplicate reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --output "$dereplicated_sample > $sample_sh
-# Formatage des sorties vsearch en obifasta
+# Formate vsearch output to obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
 echo $container_python2" 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
 ## Keep only sequences longer than 20pb with no N bases
@@ -99,13 +99,13 @@ cat $main_dir/"$pref"_sample_*.uniq.formated.l20.r005.clean.fasta > $all_sample_
 ## Dereplicate in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
-# formatage des sorties vsearch pour obitools
+# Formate vsearch output for obitools
 all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated.fasta}"
 $container_python2 03_dereplication/allvsearch_into_obifasta.py -i $main_dir/info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
-# Assignation taxonomique
+# Taxonomic assignation
 all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
 $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated > $all_sample_sequences_tag
-# Supression des attributs inutiles dans l'entête des séquences
+# Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
  --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
@@ -116,29 +116,12 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
  --delete-tag=reverse_score --delete-tag=reverse_primer --delete-tag=reverse_match --delete-tag=reverse_tag \
  --delete-tag=forward_tag --delete-tag=forward_score --delete-tag=forward_primer --delete-tag=forward_match \
  --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single $all_sample_sequences_tag > $all_sample_sequences_ann
-# Tri des séquences par 'count'
+# Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
-# Création d'un tableau final
+# Create the final table
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
 ################################################################################################
 
-#gzip $main_dir/*
-
-
-
-#all_sample_sequences_uniq_formated="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.formated.fasta"
-#all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
-#$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated > $all_sample_sequences_tag
-
-
-
-
-#derep="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.fasta"
-#dinfo="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/03_dereplication/Outputs/01_vsearch/main/info_seq"
-
-#all_sample_sequences_uniq_formated="${derep/.fasta/.formated.fasta}"
-
-
-#$container_python2 03_dereplication/allvsearch_into_obifasta.py -i $dinfo -f $derep -o $all_sample_sequences_uniq_formated
+gzip $main_dir/*
