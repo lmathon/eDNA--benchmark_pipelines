@@ -54,14 +54,11 @@ fin_dir=`pwd`"/01_merging/Outputs/05_pear/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $pear -f ${R1_fastq} -r ${R2_fastq} -v 10 -c 0 -n 0 -o > ${assembly}
+/usr/bin/time $pear -f $R1_fastq -r $R2_fastq -v 10 -c 0 -n 0 -o $main_dir/"$pref"
 ## Assign each sequence to a sample
-identified="${assembly/.fastq/.ali.assigned.fasta}"
-unidentified="${assembly/.fastq/_unidentified.fastq}"
-$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly} --fasta-output > ${identified}
+/usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".assembled.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 ## Split big file into one file per sample
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
 
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh

@@ -54,14 +54,12 @@ fin_dir=`pwd`"/01_merging/Outputs/02_flash/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $flash ${R1_fastq} ${R2_fastq} -m 10 -M 150 -x 0.25 -d $main_dir -o > ${assembly}
+/usr/bin/time $flash $R1_fastq $R2_fastq -m 10 -M 150 -x 0.25 -d $main_dir -o $pref
 ## Assign each sequence to a sample
-identified="${assembly/.extendedFrags.fastq/.ali.assigned.fasta}"
-unidentified="${assembly/.fastq/_unidentified.fastq}"
-$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly} --fasta-output > ${identified}
+/usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".extendedFrags.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 ## Split big file into one file per sample
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
+
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh

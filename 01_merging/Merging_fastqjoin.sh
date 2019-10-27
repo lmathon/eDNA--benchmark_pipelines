@@ -54,15 +54,12 @@ fin_dir=`pwd`"/01_merging/Outputs/03_fastqjoin/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-assembly=${main_dir}"/"${pref}"_%.fastq"
-/usr/bin/time $fastqjoin $R1_fastq $R2_fastq -m 10 -p 25 -o > ${assembly}
-
+/usr/bin/time $fastqjoin $R1_fastq $R2_fastq -m 10 -p 25 -o $main_dir/"$pref"_%.fastq
 ## Assign each sequence to a sample
-identified="${assembly/.fastq/.ali.assigned.fasta}"
-unidentified="${assembly/.fastq/_unidentified.fastq}"
-$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly} --fasta-output > ${identified}
+/usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref"_join.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 ## Split big file into one file per sample
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $main_dir/"$pref".ali.assigned.fasta
+
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh
