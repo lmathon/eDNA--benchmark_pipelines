@@ -105,6 +105,6 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Create the final table
-$obitab -o --output-field-separator=; $all_sample_sequences_sort > $fin_dir/"$step".csv
+$obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
 gzip $main_dir/*
