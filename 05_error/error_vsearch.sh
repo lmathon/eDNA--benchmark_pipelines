@@ -85,10 +85,10 @@ do
   echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
   # Format fasta file to process sequence with vsearch
   formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
-  echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
+  echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | $obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
-  echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --minsize 3 --unoise_alpha 2 --notrunclabels --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
+  echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --minsize 1 --unoise_alpha 2 --notrunclabels --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
   # Format vsearch fasta file to continue the pipeline process
   formated_clean_sequence_sample="${clean_sequence_sample/.fasta/.formated.fasta}"
   echo "$obiannotate -R 'size:count' "$clean_sequence_sample" > "$formated_clean_sequence_sample >> $sample_sh
@@ -102,7 +102,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
 # Taxonomic assignation
 all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
-$ecotag -d $base_dir/"${base_pref}" -R $refdb_file $all_sample_sequences_uniq > $all_sample_sequences_tag
+$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
 # Removal of useless attributes in sequences headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \

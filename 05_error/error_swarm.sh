@@ -85,7 +85,7 @@ do
   echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
   # Format fasta file to process sequence with swarm
   formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
-  echo "$obiannotate -S 'size:count' "$good_sequence_sample" | python3 formate_header.py > "$formated_sequence_sample >> $sample_sh
+  echo "$obiannotate -S 'size:count' "$good_sequence_sample" | $container_python2 /share/reservebenefit/working/lmathon/eDNA--benchmark_pipelines/05_error/formate_header.py > "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
   echo " /usr/bin/time $swarm -z -f -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh
@@ -103,7 +103,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
 # Taxonomic assignation
 all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
-$ecotag -d $base_dir/"${base_pref}" -R $refdb_file $all_sample_sequences_uniq > $all_sample_sequences_tag
+$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
 # Removal of useless attributes in sequences headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
