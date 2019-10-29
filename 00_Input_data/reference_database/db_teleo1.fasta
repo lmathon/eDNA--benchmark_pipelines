@@ -13328,3 +13328,158 @@ gaggcaagtcgtaa
 >AY264068 family_name=Pimelodidae; species_name=Zungaro zungaro; family=30998; taxid=238558; genus_name=Zungaro; rank=species; genus=238557; species=238558;      Zungaro zungaro 12S ribosomal RNA gene, partial sequence; mitochondrial
 cccctcatacattaaaactccaacaaacaattactaataccttaaccttcaacacgggga
 ggcaagtcgtaa
+>AP014537 family_name=Centrarchidae; species_name=Micropterus salmoides; family=8180; reverse_match=CTTCCGGTACACTTACCATG; taxid=27706; rank=species; forward_error=0; forward_tm=60.26; genus_name=Micropterus; seq_length_ori=16165; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=27705; reverse_error=0; species=27706; strand=D; Micropterus salmoides mitochondrial DNA, almost complete genome
+ccccaagcccaagaactttagtaattaaaaccatacaatcgcaaaggggaggcaagtcgt
+aa
+>HQ391896 family_name=Centrarchidae; species_name=Micropterus salmoides; family=8180; reverse_match=CTTCCGGTACACTTACCATG; taxid=489037; rank=subspecies; forward_error=0; forward_tm=60.26; genus_name=Micropterus; seq_length_ori=16486; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=27705; reverse_error=0; species=27706; strand=D; Micropterus salmoides salmoides mitochondrion, complete genome
+ccccaagcccaagaactttagtaattaaaaccatacaatcgcaaaggggaggcaagtcgt
+aa
+>DQ536425 family_name=Centrarchidae; species_name=Micropterus salmoides; family=8180; reverse_match=CTTCCGGTACACTTACCATG; taxid=27706; rank=species; forward_error=0; forward_tm=60.26; genus_name=Micropterus; seq_length_ori=16484; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=27705; reverse_error=0; species=27706; strand=D; Micropterus salmoides mitochondrion, complete genome
+ccccaagcccaagaactttagtaattaaaaccatacaatcgcaaaggggaggcaagtcgt
+aa
+>EU861053 family_name=Malacanthidae; species_name=Branchiostegus albus; family=30851; reverse_match=CTTCCGGTACACTTACCATG; taxid=545417; rank=species; forward_error=0; forward_tm=60.26; genus_name=Branchiostegus; seq_length_ori=16532; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=270561; reverse_error=0; species=545417; strand=D; Branchiostegus albus mitochondrion, complete genome
+cccctccgcccacttttattatatcttaatacccccatggcattaaggggaggcaagtcg
+taa
+>KX060617 family_name=Gastromyzontidae; species_name=Beaufortia kweichowensis; family=2509194; reverse_match=CTTCCGGTACACTTACCTTG; taxid=241442; rank=species; forward_error=0; forward_tm=60.26; genus_name=Beaufortia; seq_length_ori=16599; forward_match=ACACCGCCCGTCACTCT; reverse_tm=49.08; genus=210584; reverse_error=1; species=241442; strand=D; Beaufortia kweichowensis mitochondrion, complete genome
+cccctgttaaatagccaccaacgtaaataacaacaaagcaccaacaaggggaggcaagtc
+gtaa
+>AP011294 family_name=Gastromyzontidae; species_name=Beaufortia kweichowensis; family=2509194; reverse_match=CTTCCGGTACACTTACCATG; taxid=241442; rank=species; forward_error=0; forward_tm=60.26; genus_name=Beaufortia; seq_length_ori=16561; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=210584; reverse_error=0; species=241442; strand=D; Beaufortia kweichowensis mitochondrial DNA, complete genome
+cccctgtcaaacagcaacaaatgtaaataacaccaaagcaccgacgaggggaggcaagtc
+gtaa
+>KY352767 family_name=Gastromyzontidae; species_name=Beaufortia kweichowensis; family=2509194; reverse_match=CTTCCGGTACACTTACCATG; taxid=241442; rank=species; forward_error=0; forward_tm=60.26; genus_name=Beaufortia; seq_length_ori=16566; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=210584; reverse_error=0; species=241442; strand=D; Beaufortia kweichowensis voucher IHB400178 mitochondrion, complete genome
+cccctgtcaaacagcaacaaatgtaaataacaccaaagcaccgacgaggggaggcaagtc
+gtaa
+>AP005983 family_name=Pegasidae; species_name=Eurypegasus draconis; family=215337; reverse_match=CTTCCGGTACACTTACCATG; taxid=215339; rank=species; forward_error=0; forward_tm=60.26; genus_name=Eurypegasus; seq_length_ori=16015; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=215338; reverse_error=0; species=215339; strand=D; Eurypegasus draconis mitochondrial DNA, complete genome, except for D-loop
+ccctagtgtaacaccataagtctataaaaacaatccaacaaaaggggaggcaagtcgtaa
+>AP009613 family_name=Mormyridae; species_name=Cyphomyrus discorhynchus; family=31092; reverse_match=CTTCCGGTACACTTACCGTG; taxid=1194725; rank=species; forward_error=0; forward_tm=60.26; genus_name=Cyphomyrus; seq_length_ori=16688; forward_match=ACACCGCCCGTCACTCT; reverse_tm=51.38; genus=1194724; reverse_error=1; species=1194725; strand=D; Cyphomyrus discorhynchus mitochondrial DNA, complete genome
+ccactacaattatttttcacaggaaaataatcaccagccctgaaataaataatataatat
+tggtcttaccagtggagacaagtcgtaa
+>AP008927 family_name=Notopteridae; species_name=Xenomystus nigri; family=31091; reverse_match=CTTCCGGTACACTTACCATG; taxid=112162; rank=species; forward_error=1; forward_tm=52.21; genus_name=Xenomystus; seq_length_ori=16635; forward_match=ACACCGCCCGTCACCCT; reverse_tm=54.79; genus=112161; reverse_error=0; species=112162; strand=D; Xenomystus nigri mitochondrial DNA, complete genome
+ccgctaaatatttctgtaaagaatgcccccataaacacccccactacttaataaaacaca
+atcacccccagcggagacaagtcgtaa
+>AP009503 family_name=Notopteridae; species_name=Xenomystus nigri; family=31091; reverse_match=CTTCCGGTACACTTACCATG; taxid=112162; rank=species; forward_error=1; forward_tm=52.21; genus_name=Xenomystus; seq_length_ori=16635; forward_match=ACACCGCCCGTCACCCT; reverse_tm=54.79; genus=112161; reverse_error=0; species=112162; strand=D; Xenomystus nigri mitochondrial DNA, complete genome
+ccgctaaatatttctgtaaagaatgcccccataaacacccccactacttaataaaacaca
+atcacccccagcggagacaagtcgtaa
+>KT182474 family_name=Cyprinidae; species_name=Pseudaspius leptocephalus; family=7953; reverse_match=CTTCCGGTACACTTACCATG; taxid=263870; rank=species; forward_error=0; forward_tm=60.26; genus_name=Pseudaspius; seq_length_ori=16572; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=263869; reverse_error=0; species=263870; strand=D; Pseudaspius leptocephalus mitochondrion, complete genome
+cccctgtcatacagcgataaatgttcataacaccaaagcacggacaaggggaggcaagtc
+gtaa
+>AP009058 family_name=Cyprinidae; species_name=Pseudaspius leptocephalus; family=7953; reverse_match=CTTCCGGTACACTTACCATG; taxid=263870; rank=species; forward_error=0; forward_tm=60.26; genus_name=Pseudaspius; seq_length_ori=16604; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=263869; reverse_error=0; species=263870; strand=D; Pseudaspius leptocephalus mitochondrial DNA, complete genome
+cccctgtcaaatgcaacaaggatatataacaacaaagcgccgacgaggggaggcaagtcg
+taa
+>KX156764 family_name=Cottidae; species_name=Hemilepidotus gilberti; family=8092; reverse_match=CTTCCGGTACACTTACCATG; taxid=238838; rank=species; forward_error=0; forward_tm=60.26; genus_name=Hemilepidotus; seq_length_ori=16907; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=238837; reverse_error=0; species=238838; strand=D; Hemilepidotus gilberti mitochondrion, complete genome
+ccccaaaaccgcccactcagttaattaaaacctaataatcaaaaggggaggcaagtcgta
+a
+>LC126173 family_name=Cottidae; species_name=Hemilepidotus gilberti; family=8092; reverse_match=CTTCCGGTACACTTACCATG; taxid=238838; rank=species; forward_error=0; forward_tm=60.26; genus_name=Hemilepidotus; seq_length_ori=806; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=238837; reverse_error=0; species=238838; strand=D; Hemilepidotus gilberti mitochondrial genes for 12S ribosomal RNA, tRNA-Val, 16S ribosomal RNA, partial and complete sequence, isolate: 021
+ccccaaaaccgcccactcagttaattaaaacctaataatcaaaaggggaggcaagtcgta
+a
+>AP011306 family_name=Nemacheilidae; species_name=Schistura rupecula; family=278171; reverse_match=CTTCCGGTACACTTACCATG; taxid=643349; rank=species; forward_error=0; forward_tm=60.26; genus_name=Schistura; seq_length_ori=15649; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=143399; reverse_error=0; species=643349; strand=D; Schistura rupecula mitochondrial DNA, complete genome, except for D-loop
+cccctgtcgcacagcaacaaatgtccataacacctaagcactgacaaggggaggcaagtc
+gtaa
+>HQ167669 family_name=Salmonidae; species_name=Salvelinus fontinalis; family=8015; reverse_match=CTTCCGGTACACTTACCATG; taxid=8038; rank=species; forward_error=0; forward_tm=60.26; genus_name=Salvelinus; seq_length_ori=947; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8033; reverse_error=0; species=8038; strand=D; Salvelinus fontinalis voucher Sf001 12S ribosomal RNA gene, partial sequence; mitochondrial
+ccccaagtttaatttatccttctaactaagaagttaaccaaacaaaggggaggcaagtcg
+taa
+>AF154850 family_name=Salmonidae; species_name=Salvelinus fontinalis; family=8015; reverse_match=CTTCCGGTACACTTACCATG; taxid=8038; rank=species; forward_error=0; forward_tm=60.26; genus_name=Salvelinus; seq_length_ori=16624; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8033; reverse_error=0; species=8038; strand=D; Salvelinus fontinalis mitochondrion complete genome
+ccccaagtttaatttatccttctaactaagaagttaaccaaacaaaggggaggcaagtcg
+taa
+>MF621737 family_name=Salmonidae; species_name=Salvelinus fontinalis; family=8015; reverse_match=CTTCCGGTACACTTACCATG; taxid=8038; rank=species; forward_error=0; forward_tm=60.26; genus_name=Salvelinus; seq_length_ori=16623; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8033; reverse_error=0; species=8038; strand=D; Salvelinus fontinalis voucher NEFC_F16-129 mitochondrion, complete genome
+ccccaagtttaatttatccttctaactaagaagttaaccaaacaaaggggaggcaagtcg
+taa
+>MF621738 family_name=Salmonidae; species_name=Salvelinus fontinalis; family=8015; reverse_match=CTTCCGGTACACTTACCATG; taxid=8038; rank=species; forward_error=0; forward_tm=60.26; genus_name=Salvelinus; seq_length_ori=16623; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8033; reverse_error=0; species=8038; strand=D; Salvelinus fontinalis voucher NEFC_F16-139 mitochondrion, complete genome
+ccccaagtttaatttatccttctaactaagaagttaaccaaacaaaggggaggcaagtcg
+taa
+>MF621739 family_name=Salmonidae; species_name=Salvelinus fontinalis; family=8015; reverse_match=CTTCCGGTACACTTACCATG; taxid=8038; rank=species; forward_error=0; forward_tm=60.26; genus_name=Salvelinus; seq_length_ori=16623; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8033; reverse_error=0; species=8038; strand=D; Salvelinus fontinalis voucher NEFC_F16-317 mitochondrion, complete genome
+ccccaagtttaatttatccttctaactaagaagttaaccaaacaaaggggaggcaagtcg
+taa
+>KY798503 family_name=Salmonidae; species_name=Salvelinus fontinalis; family=8015; reverse_match=CTTCCGGTACACTTACCATG; taxid=8038; rank=species; forward_error=0; forward_tm=60.26; genus_name=Salvelinus; seq_length_ori=1078; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8033; reverse_error=0; species=8038; strand=D; Salvelinus fontinalis isolate CES071 tRNA-Phe gene, partial sequence; 12S ribosomal RNA and tRNA-Val genes, complete sequence; and 16S ribosomal RNA gene, partial sequence; mitochondrial
+ccccaagtttaatttatccttctaactaagaagttaaccaaacaaaggggaggcaagtcg
+taa
+>MG171194 family_name=Cyprinidae; species_name=Oreinus molesworthi; family=7953; reverse_match=CTTCCGGTACACTTACCGTG; taxid=343538; rank=species; forward_error=0; forward_tm=60.26; genus_name=Oreinus; seq_length_ori=16585; forward_match=ACACCGCCCGTCACTCT; reverse_tm=51.38; genus=1764115; reverse_error=1; species=343538; strand=D; Oreinus molesworthi mitochondrion, complete genome
+cccctgtctaaacgcatcaaaaatacctaatatattagcactgacaaggggaggcaagtc
+gtaa
+>MG554420 family_name=Balitoridae; species_name=Sinogastromyzon szechuanensis; family=98924; reverse_match=CTTCCGGTACACTTACCATG; taxid=278182; rank=species; forward_error=0; forward_tm=60.26; genus_name=Sinogastromyzon; seq_length_ori=16565; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=241450; reverse_error=0; species=278182; strand=D; Sinogastromyzon szechuanensis mitochondrion, complete genome
+cccctgtcaaatagcaacaaatgtatttaacaccaaagcaccgacaaggggaggcaagtc
+gtaa
+>KY352772 family_name=Balitoridae; species_name=Sinogastromyzon szechuanensis; family=98924; reverse_match=CTTCCGGTACACTTACCATG; taxid=278182; rank=species; forward_error=0; forward_tm=60.26; genus_name=Sinogastromyzon; seq_length_ori=16565; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=241450; reverse_error=0; species=278182; strand=D; Sinogastromyzon szechuanensis voucher IHB1004169 mitochondrion, complete genome
+cccctgtcaaatagcaacaaatgtatttaacaccaaagcaccgacaaggggaggcaagtc
+gtaa
+>HM106494 family_name=Salangidae; species_name=Protosalanx chinensis; family=182234; reverse_match=CTTCCGGTACACTTACCATG; taxid=240822; rank=species; forward_error=1; forward_tm=53.38; genus_name=Protosalanx; seq_length_ori=16889; forward_match=ATACCGCCCGTCACTCT; reverse_tm=54.79; genus=182236; reverse_error=0; species=240822; strand=D; Protosalanx chinensis mitochondrial sequence
+ctccgaattcacttaatctggttcttaacaagacaaccgaacaaaggggaggcaagtcgt
+aa
+>KP306787 family_name=Salangidae; species_name=Protosalanx chinensis; family=182234; reverse_match=CTTCCGGTACACTTACCATG; taxid=240822; rank=species; forward_error=1; forward_tm=53.38; genus_name=Protosalanx; seq_length_ori=16866; forward_match=ATACCGCCCGTCACTCT; reverse_tm=54.79; genus=182236; reverse_error=0; species=240822; strand=D; UNVERIFIED: Protosalanx chinensis mitochondrion sequence
+ctccgaattcacttaatctggttcttaacaagacaaccgaacaaaggggaggcaagtcgt
+aa
+>KT601092 family_name=Gobiidae; species_name=Tridentiger obscurus; family=8220; reverse_match=CTTCCGGTACACTTACCATG; taxid=55556; rank=species; forward_error=0; forward_tm=60.26; genus_name=Tridentiger; seq_length_ori=16503; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=55552; reverse_error=0; species=55556; strand=D; Tridentiger obscurus mitochondrion, complete genome
+ccccaaaatagtaggcaaattttaaataaacaaaatcctagacaaaggggaggcaagtcg
+taa
+>AB022901 family_name=Gobiidae; species_name=Tridentiger obscurus; family=8220; reverse_match=CTTCCGGTACACTTACCATG; taxid=55556; rank=species; forward_error=0; forward_tm=60.26; genus_name=Tridentiger; seq_length_ori=715; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=55552; reverse_error=0; species=55556; strand=D; Tridentiger obscurus mitochondrial genes for 12S rRNA, tRNA-Val, partial sequence
+ccccaaaatagtaggcaaattttaaataaacaaaatcctagacaaaggggaggcaagtcg
+taa
+>MF663787 family_name=Gobiidae; species_name=Tridentiger obscurus; family=8220; reverse_match=CTTCCGGTACACTTACCATG; taxid=55556; rank=species; forward_error=0; forward_tm=60.26; genus_name=Tridentiger; seq_length_ori=16501; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=55552; reverse_error=0; species=55556; strand=D; Tridentiger obscurus mitochondrion, complete genome
+ccccaaaatagtaggcaaattttaaataaacaaaatcctagacaaaggggaggcaagtcg
+taa
+>AP009575 family_name=Alepocephalidae; species_name=Alepocephalus umbriceps; family=134615; reverse_match=CTTCCGGTACACTTACCATG; taxid=492028; rank=species; forward_error=0; forward_tm=60.26; genus_name=Alepocephalus; seq_length_ori=16640; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=134617; reverse_error=0; species=492028; strand=D; Alepocephalus umbriceps mitochondrial DNA, complete genome
+ccccgaaccccaacctttaaaagtaaataacaaaattaactcaccaaggggaggcaagtc
+gtaa
+>DQ996312 family_name=Berycidae; species_name=Beryx splendens; family=88661; reverse_match=CTTCCGGTACACTTACCATG; taxid=88663; rank=species; forward_error=0; forward_tm=60.26; genus_name=Beryx; seq_length_ori=16529; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=88662; reverse_error=0; species=88663; strand=D; Beryx splendens mitochondrion, complete sequence
+ctccaagcttattattctttataactaaaacagtacccattgcaaaggggaggcaagtcg
+taa
+>AP002939 family_name=Berycidae; species_name=Beryx splendens; family=88661; reverse_match=CTTCCGGTACACTTACCATG; taxid=88663; rank=species; forward_error=0; forward_tm=60.26; genus_name=Beryx; seq_length_ori=16529; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=88662; reverse_error=0; species=88663; strand=D; Beryx splendens mitochondrial DNA, complete genome
+ctccaagcttattattctttataactaaaacagtacccattgcaaaggggaggcaagtcg
+taa
+>HE961975 family_name=Cichlidae; species_name=Tropheus moorii; family=8113; reverse_match=CTTCCGGTACACTTACCATG; taxid=8150; rank=species; forward_error=0; forward_tm=60.26; genus_name=Tropheus; seq_length_ori=16590; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=8145; reverse_error=0; species=8150; strand=D; Tropheus moorii complete mitochondrial genome
+ccccaagccaacaacatcctataaataatatattttaccggtaaaggggaggcaagtcgt
+aa
+>KT601095 family_name=Bagridae; species_name=Pseudobagrus koreanus; family=31013; reverse_match=CTTCCGGTACACTTACCATG; taxid=78880; rank=species; forward_error=0; forward_tm=60.26; genus_name=Pseudobagrus; seq_length_ori=16532; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=78872; reverse_error=0; species=78880; strand=D; Pseudobagrus koreanus mitochondrion, complete genome
+ccccacatttataactacccaatatataataaaacacataattacacggggaggcaagtc
+gtaa
+>MG570416 family_name=Cyprinidae; species_name=Rhinichthys obtusus; family=7953; reverse_match=CTTCCGGTACACTTACCATG; taxid=407093; rank=species; forward_error=0; forward_tm=60.26; genus_name=Rhinichthys; seq_length_ori=16650; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=67555; reverse_error=0; species=407093; strand=D; Rhinichthys obtusus voucher NEFC F16-300 mitochondrion, complete genome
+cccctgtcaaagtgcaataaagctacctaacatcatagcagtgacaaggggaggcaagtc
+gtaa
+>MG570417 family_name=Cyprinidae; species_name=Rhinichthys obtusus; family=7953; reverse_match=CTTCCGGTACACTTACCATG; taxid=407093; rank=species; forward_error=0; forward_tm=60.26; genus_name=Rhinichthys; seq_length_ori=16650; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=67555; reverse_error=0; species=407093; strand=D; Rhinichthys obtusus voucher NEFC F16-301 mitochondrion, complete genome
+cccctgtcaaagtgcaataaagctacctaacatcatagcagtgacaaggggaggcaagtc
+gtaa
+>KT215609 family_name=Cichlidae; species_name=Symphysodon haraldi; family=8113; reverse_match=CTTCCGGTACACTTACCATG; taxid=350779; rank=species; forward_error=0; forward_tm=60.26; genus_name=Symphysodon; seq_length_ori=16543; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=74132; reverse_error=0; species=350779; strand=D; Symphysodon haraldi mitochondrion, complete genome
+ccccaagccgactctttaaaatacataatacacttttaggaacaaggggaggcaagtcgt
+aa
+>MF459673 family_name=Cyprinidae; species_name=Gymnocypris chui; family=7953; reverse_match=CTTCCGGTACACTTACCATG; taxid=1778599; rank=species; forward_error=0; forward_tm=60.26; genus_name=Gymnocypris; seq_length_ori=16646; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=75347; reverse_error=0; species=1778599; strand=D; Gymnocypris chui mitochondrion, complete genome
+cccccgtcaaaacgcatctaagataaataacataatagcactgacaaggggaggcaagtc
+gtaa
+>MH378782 family_name=Sebastidae; species_name=Sebastes minor; family=274692; reverse_match=CTTCCGGTACCCTTACCATG; taxid=214483; rank=species; forward_error=0; forward_tm=60.26; genus_name=Sebastes; seq_length_ori=16850; forward_match=ACACCGCCCGTCACTCT; reverse_tm=46.24; genus=34820; reverse_error=1; species=214483; strand=D; Sebastes minor isolate D14GJAC mitochondrion, complete genome
+ccccaagcctatcactttaaataattaaaaacccaaaaatcgcggaggggaggcaagtcg
+taa
+>KJ834059 family_name=Sebastidae; species_name=Sebastes minor; family=274692; reverse_match=CTTCCGGTACCCTTACCATG; taxid=214483; rank=species; forward_error=0; forward_tm=60.26; genus_name=Sebastes; seq_length_ori=16408; forward_match=ACACCGCCCGTCACTCT; reverse_tm=46.24; genus=34820; reverse_error=1; species=214483; strand=D; Sebastes minor mitochondrion, complete genome
+ccccaagcctatcactttaaataattaaaaacccaaaaatcgcggaggggaggcaagtcg
+taa
+>KU215670 family_name=Osphronemidae; species_name=Macropodus erythropterus; family=270602; reverse_match=CTTCCGGTACACTTACCATG; taxid=585568; rank=species; forward_error=0; forward_tm=60.26; genus_name=Macropodus; seq_length_ori=16495; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=158450; reverse_error=0; species=585568; strand=D; Macropodus erythropterus mitochondrion, complete genome
+ccccaagctattaattacaaaatacttaaaacatgacaactgcaaaggggaggcaagtcg
+taa
+>KY938883 family_name=Syngnathidae; species_name=Hippocampus sindonis; family=72045; reverse_match=CTTCCGGTACGCTTACCATG; taxid=240657; rank=species; forward_error=0; forward_tm=60.26; genus_name=Hippocampus; seq_length_ori=16500; forward_match=ACACCGCCCGTCACTCT; reverse_tm=51.49; genus=72046; reverse_error=1; species=240657; strand=D; Hippocampus sindonis mitochondrion, complete genome
+ccctaaaaacacttaaaactaattaaaccaaaatattaaataaggggaggcaagtcgtaa
+>KT167543 family_name=Syngnathidae; species_name=Hippocampus sindonis; family=72045; reverse_match=CTTCCGGTACGCTTACCATG; taxid=240657; rank=species; forward_error=0; forward_tm=60.26; genus_name=Hippocampus; seq_length_ori=696; forward_match=ACACCGCCCGTCACTCT; reverse_tm=51.49; genus=72046; reverse_error=1; species=240657; strand=D; Hippocampus sindonis isolate FAKU 137339 12S ribosomal RNA gene, partial sequence; mitochondrial
+ccctaaaaacacttaaaactaattaaaccaaaatattaaataaggggaggcaagtcgtaa
+>KT167544 family_name=Syngnathidae; species_name=Hippocampus sindonis; family=72045; reverse_match=CTTCCGGTACGCTTACCATG; taxid=240657; rank=species; forward_error=0; forward_tm=60.26; genus_name=Hippocampus; seq_length_ori=696; forward_match=ACACCGCCCGTCACTCT; reverse_tm=51.49; genus=72046; reverse_error=1; species=240657; strand=D; Hippocampus sindonis isolate FAKU 137340 12S ribosomal RNA gene, partial sequence; mitochondrial
+ccctaaaaacacttaaaactaattaaaccaaaatattaaataaggggaggcaagtcgtaa
+>MH085693 family_name=Scombridae; species_name=Auxis thazard; family=8224; reverse_match=CTTCCGGTACACTTACCATG; taxid=13353; rank=species; forward_error=0; forward_tm=60.26; genus_name=Auxis; seq_length_ori=631; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=13352; reverse_error=0; species=13353; strand=D; Auxis thazard isolate ma35 12S ribosomal RNA gene, partial sequence; tRNA-Val gene, complete sequence; and 16S ribosomal RNA gene, partial sequence; mitochondrial
+ccccaagcttatcattacacatatataaaacgctctaactgcgaaggggaggcaagtcgt
+aa
+>KP259551 family_name=Scombridae; species_name=Auxis thazard; family=8224; reverse_match=CTTCCGGTACACTTACCATG; taxid=13353; rank=species; forward_error=0; forward_tm=60.26; genus_name=Auxis; seq_length_ori=16509; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=13352; reverse_error=0; species=13353; strand=D; Auxis thazard voucher ECSFRI-BDJ01 mitochondrion, complete genome
+ccccaagcttatcattacacatatataaaacgctctaactgcgaaggggaggcaagtcgt
+aa
+>AB105447 family_name=Scombridae; species_name=Auxis thazard; family=8224; reverse_match=CTTCCGGTACACTTACCATG; taxid=13353; rank=species; forward_error=0; forward_tm=60.26; genus_name=Auxis; seq_length_ori=16506; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=13352; reverse_error=0; species=13353; strand=D; Auxis thazard mitochondrial DNA, complete genome
+ccccaagcttatcattacacatatataaaacgctctaactgcgaaggggaggcaagtcgt
+aa
+>MH190806 family_name=Scombridae; species_name=Auxis thazard; family=8224; reverse_match=CTTCCGGTACACTTACCATG; taxid=13353; rank=species; forward_error=0; forward_tm=60.26; genus_name=Auxis; seq_length_ori=631; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=13352; reverse_error=0; species=13353; strand=D; Auxis thazard isolate ma35 12S ribosomal RNA gene, partial sequence; tRNA-Val gene, complete sequence; and 16S ribosomal RNA gene, partial sequence; mitochondrial
+ccccaagcttatcattacacatatataaaacgctctaactgcgaaggggaggcaagtcgt
+aa
+>KY352773 family_name=Balitoridae; species_name=Sinogastromyzon tonkinensis; family=98924; reverse_match=CTTCCGGTACACTTACCATG; taxid=1173514; rank=species; forward_error=0; forward_tm=60.26; genus_name=Sinogastromyzon; seq_length_ori=16567; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=241450; reverse_error=0; species=1173514; strand=D; Sinogastromyzon tonkinensis voucher IHB20120974 mitochondrion, complete genome
+cccctgtcaaacagcaacaaatgtatttaacaccaaagcaccgacaaggggaggcaagtc
+gtaa
+>MF101791 family_name=Acipenseridae; species_name=Scaphirhynchus suttkusi; family=7900; reverse_match=CTTCCGGTACACTTACCATG; taxid=36179; rank=species; forward_error=0; forward_tm=60.26; genus_name=Scaphirhynchus; seq_length_ori=16495; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=7909; reverse_error=0; species=36179; strand=D; Scaphirhynchus suttkusi isolate NFWFLI40148 mitochondrion, complete genome
+cctcaaagggacgccctaagtacataaatctataacccaaacaagaggaggcaagtcgta
+a
+>MF101792 family_name=Acipenseridae; species_name=Scaphirhynchus suttkusi; family=7900; reverse_match=CTTCCGGTACACTTACCATG; taxid=36179; rank=species; forward_error=0; forward_tm=60.26; genus_name=Scaphirhynchus; seq_length_ori=16495; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=7909; reverse_error=0; species=36179; strand=D; Scaphirhynchus suttkusi isolate NFWFLH10433 mitochondrion, complete genome
+cctcaaagggacgccctaagtacataaatctataacccaaacaagaggaggcaagtcgta
+a
+>AF125603 family_name=Acipenseridae; species_name=Scaphirhynchus suttkusi; family=7900; reverse_match=CTTCCGGTACACTTACCATG; taxid=36179; rank=species; forward_error=0; forward_tm=60.26; genus_name=Scaphirhynchus; seq_length_ori=961; forward_match=ACACCGCCCGTCACTCT; reverse_tm=54.79; genus=7909; reverse_error=0; species=36179; strand=D; Scaphirhynchus suttkusi 12S ribosomal RNA gene, complete sequence; mitochondrial
+cctcaaagggacgccctaagtacataaatctataacccaaacaagaggaggcaagtcgta
+a
