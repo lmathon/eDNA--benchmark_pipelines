@@ -105,7 +105,7 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
  --delete-tag=ali_length --delete-tag=head_quality --delete-tag=seq_b_single $all_sample_sequences_uniq > $all_sample_sequences_ann
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
-$obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
+$obisort -k count --uppercase -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Taxonomic assignation
 #all_sample_sequences_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
 /usr/bin/time $usearch -sintax $all_sample_sequences_sort -db $refdb_dir -sintax_cutoff 0.8 -strand plus -tabbedout $fin_dir/"$step".csv

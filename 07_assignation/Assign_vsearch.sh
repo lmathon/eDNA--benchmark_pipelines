@@ -115,7 +115,7 @@ $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notruncla
 all_sample_sequences_vsearch_tag_obifasta="${all_sample_sequences_vsearch_tag/.vsearch/.vsearch.fasta}"
 $container_python2 07_assignation/convert_assign_vsearch_2_obifasta.py -f $all_sample_sequences_sort -a $all_sample_sequences_vsearch_tag -o $all_sample_sequences_vsearch_tag_obifasta
 ## Create final table
-$obitab -o $all_sample_sequences_vsearch_tag_obifasta > $fin_dir/"$step"
+$obitab -o $all_sample_sequences_vsearch_tag_obifasta > $fin_dir/"$step".csv
 
 ################################################################################################
 
