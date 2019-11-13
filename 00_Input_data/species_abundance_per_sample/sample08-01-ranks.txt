@@ -43,8 +43,8 @@
 42	Agonostomus_monticola	0.264096554007923
 43	Diaphus_splendidus	0.230028972006901
 44	Ambassis_gymnocephalus	0.217217232006516
-45	Cataetyx_rubrirostris	0.213140769006394
-46	Aldrovandia_affinis	0.213140769006394
+45	Aldrovandia_affinis	0.213140769006394
+46	Cataetyx_rubrirostris	0.213140769006394
 47	Hypomesus_nipponensis	0.20032902900601
 48	Gymnarchus_niloticus	0.194796686005844
 49	Doederleinia_berycoides	0.174705548005241
@@ -73,12 +73,12 @@
 72	Dasyatis_akajei	0.0262058320007862
 73	Anoxypristis_cuspidata	0.0259146560007774
 74	Ginglymostoma_cirratum	0.0259146560007774
-75	Squaliolus_aliae	0.0192176100005765
-76	Sinobatis_borneensis	0.0192176100005765
+75	Sinobatis_borneensis	0.0192176100005765
+76	Squaliolus_aliae	0.0192176100005765
 77	Narcine_bancroftii	0.0151411480004542
 78	Erpetoichthys_calabaricus	0.0101911570003057
 79	Neoceratodus_forsteri	0.00873527700026205
-80	Lepidosiren_paradoxa	0.00786175000023585
-81	Latimeria_chalumnae	0.00786175000023585
+80	Latimeria_chalumnae	0.00786175000023585
+81	Lepidosiren_paradoxa	0.00786175000023585
 82	Eptatretus_burgeri	0.00757057400022711
 83	Eudontomyzon_morii	0.00727939800021838

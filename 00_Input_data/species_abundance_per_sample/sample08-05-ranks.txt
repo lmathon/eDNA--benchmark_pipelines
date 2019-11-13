@@ -69,8 +69,8 @@
 68	Callorhinchus_callorynchus	0.0320293510009609
 69	Heterodontus_francisci	0.0299911190008997
 70	Chlamydoselachus_anguineus	0.0288264150008648
-71	Alopias_pelagicus	0.0262058320007862
-72	Dasyatis_akajei	0.0262058320007862
+71	Dasyatis_akajei	0.0262058320007862
+72	Alopias_pelagicus	0.0262058320007862
 73	Anoxypristis_cuspidata	0.0259146560007774
 74	Ginglymostoma_cirratum	0.0259146560007774
 75	Squaliolus_aliae	0.0192176100005765

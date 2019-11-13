@@ -38,8 +38,8 @@
 37	Ethmalosa_fimbriata	0.12445028398631
 38	Fundulus_grandis	0.118246016986993
 39	Labiobarbus_leptocheilus	0.0992682619890805
-40	Huigobio_chenhsienensis	0.0864947719904856
-41	Phoxinus_semotilus	0.0864947719904856
+40	Phoxinus_semotilus	0.0864947719904856
+41	Huigobio_chenhsienensis	0.0864947719904856
 42	Galaxias_truttaceus	0.0751811099917301
 43	Hypentelium_nigricans	0.0645973609928943
 44	Sigmops_gracilis	0.057663180993657
