@@ -69,18 +69,18 @@ with open(vsearchFile,'r') as readFile:
                 infoTag=elemSplit[0]
                 infoVal=elemSplit[1]
                 if infoTag == "merged_sample":
-                    infoline+=infoTag+"="+infoVal+";"
+                    infoline+=infoTag+"="+infoVal+"; "
                 elif infoTag == "family_name":
-                    infoline+=infoTag+"="+infoVal+";"
+                    infoline+=infoTag+"="+infoVal+"; "
                 elif infoTag == "genus_name":
-                    infoline+=infoTag+"="+infoVal+";"
+                    infoline+=infoTag+"="+infoVal+"; "
                 elif infoTag == "species_name":
-                    infoline+=infoTag+"="+infoVal+";"
+                    infoline+=infoTag+"="+infoVal+"; "
                 elif infoTag == "rank":
-                    infoline+=infoTag+"="+infoVal+";"
+                    infoline+=infoTag+"="+infoVal+"; "
                 else:
                     infoline=infoline
-        infoline=ligneSplit[0]+";"+infoline
+        infoline=ligneSplit[0]+"; "+infoline
         #print infoline
         dicOfseq[ligneSplit[0].split(" ")[0]]=infoline
 
