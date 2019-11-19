@@ -119,4 +119,3 @@ $obitab -o $all_sample_sequences_vsearch_tag_obifasta > $fin_dir/"$step".csv
 
 ################################################################################################
 
-gzip $main_dir/*
