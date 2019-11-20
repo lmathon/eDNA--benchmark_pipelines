@@ -46,7 +46,6 @@ parser.add_argument("-a","--vsearch_assignation",type=str)
 parser.add_argument("-f","--obifasta", type=str)
 
 
-
 #===============================================================================
 #MAIN
 #===============================================================================
@@ -56,30 +55,40 @@ vsearchFile = args.vsearch_assignation
 outputFile = args.output
 obitFastaFile = args.obifasta
 
-##  read vsearch assignement --blast6out
 dicOfseq={}
-with open(vsearchFile,'r') as readFile:
-    pair=0;
-    for ligne in readFile.readlines():
-        if pair !=1:
-            ligneSplit=ligne.split(";")
-            ## edit ID tax best match
-            bestmatch=ligneSplit[3].replace(" ","")
-            ligneSplit[3]="best_match={'db_teleo1': '"+bestmatch+"'}"
-            ## edit best_identity
-            best_identity=ligneSplit[-1].split()[0]
-            ligneSplit[-1]="{'db_teleo1': "+best_identity+"}"
-            lignePropre="; ".join(str(elem) for elem in ligneSplit[0:])+";"
-            dicOfseq[ligneSplit[0].split(" ")[0]]=lignePropre
-            pair=1
-        else:
-            pair=0
 
-print dicOfseq
+##  read vsearch assignement --blast6out
+with open(vsearchFile,'r') as readFile:
+    for ligne in readFile.readlines():     
+        ligneSplit=ligne.split(";")
+        #print ligneSplit
+        infoline=""
+        for elem in ligneSplit[1:]:           
+            elemSplit=elem.split("=")
+            if len(elemSplit) > 1:
+                infoTag=elemSplit[0].replace(" ","")
+                infoVal=elemSplit[1]
+                if infoTag == "merged_sample":
+                    infoline+=infoTag+"="+infoVal+"; "
+                elif infoTag == "family_name":
+                    infoline+=infoTag+"="+infoVal+"; "
+                elif infoTag == "genus_name":
+                    infoline+=infoTag+"="+infoVal+"; "
+                elif infoTag == "species_name":
+                    infoline+=infoTag+"="+infoVal+"; "
+                elif infoTag == "rank":
+                    infoline+=infoTag+"="+infoVal+"; "
+                else:
+                    infoline=infoline
+        infoline=ligneSplit[0]+"; "+infoline
+        #print infoline
+        dicOfseq[ligneSplit[0].split(" ")[0]]=infoline
+
+
 
 mes_records=[]
 for seq_record in SeqIO.parse(obitFastaFile, "fasta", alphabet=IUPAC.unambiguous_dna):
-    seq_record_DescriptionSplit=seq_record.description.split(";")     
+    seq_record_DescriptionSplit=seq_record.description.split(";")
     vSeqId=str(seq_record_DescriptionSplit[0].split(" ")[0])    
     if vSeqId in dicOfseq:
         print vSeqId
