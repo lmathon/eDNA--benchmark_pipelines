@@ -8,6 +8,7 @@ refdb_dir=`pwd`"/07_assignation/db_teleo_sintax.fasta"
 
 all_sample_sequences_sort="07_assignation/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.fasta"
 
+all_sample_sequence_sort="07_assignation/test/02_sintax/grinder_teleo1_all_sample_clean.uniq.ann.sort.fasta"
 
 ASSIGNED=`pwd`"/07_assignation/test/02_sintax/assigned_sintax.csv"
 

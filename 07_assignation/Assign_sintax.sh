@@ -117,3 +117,5 @@ all_sample_sequences_sintax_ann_fas="${all_sample_sequences_sintax_ann/.csv/.fas
 $container_python2 07_assignation/convert_assign_sintax_2_obifasta.py -f $all_sample_sequences_sort -s $all_sample_sequences_sintax_ann -o $all_sample_sequences_sintax_ann_fas
 ## Create final table
 $obitab -o $all_sample_sequences_sintax_ann_fas > $fin_dir/"$step".csv
+
+################################################################################################
