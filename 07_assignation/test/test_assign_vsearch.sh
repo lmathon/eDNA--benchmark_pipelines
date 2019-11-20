@@ -1,6 +1,8 @@
 source 98_infos/config.sh
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
+obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
+
 
 refdb_dir=`pwd`"/07_assignation/db_teleo_vsearch.fasta"
 all_sample_sequences_sort=`pwd`"/07_assignation/test/01_vsearch/grinder_teleo1_all_sample_clean.uniq.ann.sort.fasta"
@@ -22,4 +24,6 @@ $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notruncla
 
 $container_python2 07_assignation/convert_assign_vsearch_2_obifasta.py -f $all_sample_sequences_sort -a $ASSIGNED -o $PREFINI
 
-$obitab -o $PREFINI > $fin_dir/"$step".csv
+$obitab -o $PREFINI > test.csv
+
+
