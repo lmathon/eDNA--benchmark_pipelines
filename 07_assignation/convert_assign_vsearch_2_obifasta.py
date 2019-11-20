@@ -98,4 +98,5 @@ for seq_record in SeqIO.parse(obitFastaFile, "fasta", alphabet=IUPAC.unambiguous
         mes_records.append(local_record)
         ## remove the key (we need only one sequence by key: the "seed" sequence)
         del dicOfseq[vSeqId]
+
 SeqIO.write(mes_records, outputFile, "fasta")
