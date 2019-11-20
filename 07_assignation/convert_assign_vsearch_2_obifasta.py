@@ -66,7 +66,7 @@ with open(vsearchFile,'r') as readFile:
         for elem in ligneSplit[1:]:           
             elemSplit=elem.split("=")
             if len(elemSplit) > 1:
-                infoTag=elemSplit[0]
+                infoTag=elemSplit[0].replace(" ","")
                 infoVal=elemSplit[1]
                 if infoTag == "merged_sample":
                     infoline+=infoTag+"="+infoVal+"; "
