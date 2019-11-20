@@ -88,8 +88,8 @@ sed  -i -e "s/_CONS//g" ${assembly}
 sed  -i -e "s/_sample/_CONS sample/g" ${assembly}
 
 ## Discard non-aligned reads
-assembly_ali="${assembly/.fastq/.ali.fastq}"
-$obigrep -p 'mode!="joined"' ${assembly} > ${assembly_ali}
+assembly_ali="${assembly/.fastq/.ali.fasta}"
+$obigrep -p 'mode!="joined"' ${assembly} --fasta-output > ${assembly_ali}
 
 # split global file into sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
