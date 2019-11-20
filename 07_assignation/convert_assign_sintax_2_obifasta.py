@@ -23,6 +23,7 @@ python2 convert_assign_vsearch_2_obifasta.py -s assignsintaxfile -f obisortoutpu
 #===============================================================================
 #MODULES
 #===============================================================================
+import re
 import argparse
 import os
 import Bio
