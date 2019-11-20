@@ -96,7 +96,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 /usr/bin/time $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
 # Removal of useless attributes in sequences headers
 all_sample_sequences_ann="${all_sample_sequences_uniq/.fasta/.ann.fasta}"
-$obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
+$obiannotate --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
  --delete-tag=obiclean_cluster --delete-tag=obiclean_internalcount --delete-tag=obiclean_head  --delete-tag=obiclean_headcount \
  --delete-tag=id_status --delete-tag=rank_by_db --delete-tag=obiclean_status --delete-tag=seq_length_ori --delete-tag=sminL --delete-tag=sminR \
  --delete-tag=reverse_score --delete-tag=reverse_primer --delete-tag=reverse_match --delete-tag=reverse_tag --delete-tag=forward_tag --delete-tag=forward_score \
@@ -109,5 +109,3 @@ $obisort -k count --uppercase -r $all_sample_sequences_ann > $all_sample_sequenc
 # Taxonomic assignation
 #all_sample_sequences_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
 /usr/bin/time $usearch -sintax $all_sample_sequences_sort -db $refdb_dir -sintax_cutoff 0.8 -strand plus -tabbedout $fin_dir/"$step".csv
-
-gzip $main_dir/*
