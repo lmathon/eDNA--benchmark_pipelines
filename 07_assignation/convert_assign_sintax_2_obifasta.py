@@ -56,7 +56,7 @@ parser.add_argument("-f","--obifasta", type=str)
 args = parser.parse_args()
 sintaxFile = args.sintax_assignation
 outputFile = args.output
-obitFastaFile = args.obifasta
+obiFastaFile = args.obifasta
 
 
 #sintaxFile="07_assignation/test/02_sintax/assigned_sintax.csv"
