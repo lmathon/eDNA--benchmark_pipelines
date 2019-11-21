@@ -32,7 +32,7 @@ ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 ## EDNAtools
-prinseq=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" prinseq"
+prinseq=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" perl prinseq-lite-0.20.4/prinseq-lite.pl"
 container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
 
@@ -113,5 +113,3 @@ all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Create the final table
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
-
-gzip $main_dir/*
