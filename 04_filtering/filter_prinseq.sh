@@ -81,11 +81,12 @@ do
   dereplicated_sample="${sample/.fasta/.uniq.fasta}"
   echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
   # Keep only sequences longer than 20pb with no N bases
-  good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
+  ### be careful! prinseq will add .fasta as suffix output
+  good_sequence_sample="${dereplicated_sample/.fasta/.l20}"
   echo "/usr/bin/time $prinseq -fasta "$dereplicated_sample" -min_len 20 -ns_max_n 0 -noniupac --out_format 1 -out_good "$good_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants)
-  clean_sequence_sample="${good_sequence_sample/.fasta./.r005.clean.fasta}"
-  echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+  clean_sequence_sample="${good_sequence_sample}".r005.clean.fasta
+  echo "$obiclean -r 0.05 -H "$good_sequence_sample".fasta > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenate all files into one main file
