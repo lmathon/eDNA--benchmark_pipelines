@@ -77,9 +77,9 @@ for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
 do
 sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
-# Déréplication des reads en séquences uniques
+# Dereplicate sequences with tally
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo "/usr/bin/time $tally -i "$sample" --fasta-in --fasta-out -o "$dereplicated_sample > $sample_sh;
+echo "$tally -i "$sample" --fasta-in --fasta-out -o "$dereplicated_sample > $sample_sh;
 # On garde les séquences de plus de 20pb sans bases ambigues
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
 echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
