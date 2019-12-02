@@ -4,3 +4,6 @@ ALL_SAMPLE_SEQ_UNIQ=$(pwd)/03_dereplication/test/01_vsearch/grinder_teleo1_all_s
 
 
 $tally --fasta-in --fasta-out -i ${ALL_SAMPLE_SEQ_UNIQ} -o test
+
+$obigrep -s '^[ACGT]+$' -l 20 test > test20
+
