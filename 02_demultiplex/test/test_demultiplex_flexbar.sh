@@ -10,11 +10,23 @@ R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
 Tags=`pwd`"/02_demultiplex/Tags.fasta"
 
+Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
+Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
+Primer_F=`pwd`"/02_demultiplex/Primer_F.fasta"
+Primer_R=`pwd`"/02_demultiplex/Primer_R.fasta"
+
+## flexbar - flexible barcode and adapter removal
+
+
+########## cette commande marche...
+$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
+
+######## non
+$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags_F --barcodes2 $Tags_R -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
 $flexbar -r $R1_fastq -p $R2_fastq --barcodes2 $Tags -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
 
-
-$flexbar -r $R1_fastq --barcodes $Tags -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref"
-
+## remove adapters
+$flexbar -r $R1_fastq -p $R2_fastq --adapters $Primer_F --adapters2 $Primer_R -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
 
 ## clean
 rm 02_demultiplex/test/02_flexbar/*
