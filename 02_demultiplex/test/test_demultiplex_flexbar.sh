@@ -10,7 +10,7 @@ R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
 Tags=`pwd`"/02_demultiplex/Tags.fasta"
 
-$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags --barcodes2 $Tags -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref"
+$flexbar -r $R1_fastq -p $R2_fastq --barcodes2 $Tags -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
 
 
 $flexbar -r $R1_fastq --barcodes $Tags -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref"
