@@ -104,7 +104,7 @@ all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated
 $container_python2 03_dereplication/allvsearch_into_obifasta.py -i $main_dir/info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
 # Taxonomic assignation
 all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
-$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated > $all_sample_sequences_tag
+$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated -m 0.98 > $all_sample_sequences_tag
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \

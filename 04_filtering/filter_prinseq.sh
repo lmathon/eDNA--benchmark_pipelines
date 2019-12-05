@@ -97,7 +97,7 @@ all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
 # Taxonomic assignation
 all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
-$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq > $all_sample_sequences_tag
+$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq -m 0.98 > $all_sample_sequences_tag
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
