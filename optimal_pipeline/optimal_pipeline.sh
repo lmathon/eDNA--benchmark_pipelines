@@ -8,7 +8,7 @@
 ## 
 ###############################################################################
 ## Usage:
-##    bash obitools_reference/total_obitools.sh
+##    bash optimal_pipeline/optimal_pipeline.sh
 ##
 ## Description:
 ##  ..............    
@@ -35,7 +35,7 @@ cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 # Prefix for all generated files
 pref=grinder_teleo1
 # Prefix of the final table 
-step=merging_vsearch
+step=optimal_pipeline
 # Path to forward and reverse fastq files
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
@@ -48,8 +48,8 @@ base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
 # Path to intermediate and final folders
-main_dir=`pwd`"/01_merging/Outputs/01_vsearch/main"
-fin_dir=`pwd`"/01_merging/Outputs/01_vsearch/final"
+main_dir=`pwd`"/optimal_pipeline/Outputs/main"
+fin_dir=`pwd`"/optimal_pipeline/Outputs/final"
 
 
 ###################################################################################################################
