@@ -9,9 +9,9 @@ For each of these steps, different programs to compare were identified, as shown
 
 ![pipeline_schema](schema_protocole.PNG)
 
-For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([Script_obitools_reference.sh](Script_obitools_reference.sh)). This pipeline is based on [ObiTools](https://git.metabarcoding.org/obitools/obitools/wikis/home), a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
+For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([obitools_reference](obitools_reference/total_obitools.sh)). This pipeline is based on [Obitools](https://git.metabarcoding.org/obitools/obitools/wikis/home), a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
 
-The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2, Mothur, BARQUE, DADA2 and SLIM).
+The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2 and BARQUE).
 
 # Dependencies
 
@@ -26,9 +26,9 @@ The optimal pipeline obtained will be again compared to existant complete pipeli
 
 ## Install from source code
 
-To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Flexbar](https://github.com/seqan/flexbar), [Tally](https://www.ebi.ac.uk/research/enright/software/kraken), [DADA2](https://benjjneb.github.io/dada2/dada-installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [CATCh](https://github.com/M-Mysara/CATCh), [SWARM](https://github.com/torognes/swarm), [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html) and [PROTAX](https://www.helsinki.fi/en/researchgroups/statistical-ecology/software#section-49869).
+To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/)), [SWARM](https://github.com/torognes/swarm) and [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html).
 
-The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install), [MOTHUR](https://github.com/mothur/mothur), [BARQUE](https://github.com/enormandeau/barque) and [SLIM](https://github.com/yoann-dufresne/SLIM).
+The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install) and [BARQUE](https://github.com/enormandeau/barque).
 
 ## Singularity containers
 
@@ -64,7 +64,7 @@ bash 99_utils/mega_download/download_input_data.sh
 ```
 The `forward_reverse_reads` folder will be created at [00_Input_data/forward_reverse_reads](00_Input_data).
 
-The reference database needed for the taxonomic assignment step is also stored on MEGA and will be downloaded at the same time as teh input FASTQ files. The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data) :
+The reference database needed for the taxonomic assignment step is also stored on MEGA and will be downloaded at the same time as the input FASTQ files. The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data) :
 
 
 ## Sample description file
@@ -75,11 +75,11 @@ The sample description file, containing the primers and the tags associated to e
 
 Thanks to the simulated dataset, we know exactly the relative abundance of each species in each sample and replicate. These data can be found here [species_abundance_per_sample](grinder_simulations/Outputs/species_abundance_per_sample) and will be compared to the output of each pipeline tested to assess their efficiency.
 
-(Note that the input FASTQ files and the abundance data will change each time you run a grinder simulations. The files given here correspond to the grinder simulation made to obtain the data for our program comparison)
+(Note that the input FASTQ files and the abundance data will change each time you run a grinder simulation. The files given here correspond to the grinder simulation made to obtain the data for our program comparison)
   
 # Performance measures
 
-To assess the efficiency of each program, we measure the time, % of CPU used and the memory used (among other metrics).
+To assess the efficiency of each program, we measure the execution time (among other metrics).
 
 Each time you test a different program for a given analysis step, you can record the time, memory usage, and CPU usage of this command by running `time` in front of the command :
 
@@ -94,18 +94,17 @@ where :
 
 %elapsed = time in hours:minutes:seconds
 
-%CPU = percentage of CPU given to the job
 
-%max = maximum memory used by the job in Kbytes.
+Other performance metrics will be calculated for each pipeline tested : sensitivity and F-measure index will be calculated from the number of true positive, false positive and false negative outputted by each pipeline. 
+Relative abundances outputted by each pipeline are compared to the expected abundances ([species_abundance_per_sample](00_Input_data/species_abundance_per_sample)).
 
-Or you can run [record_memory_usage.sh](99_utils/record_memory_usage.sh) that records the memory usage of the job :
+To run any script, run this command line :
 
 ```
-bash 99_utils/record_memory_usage.sh PID NUMBER_ITER TABLE_MEM
+bash 99_utils/submitjob_sge_cluster/bash2sge.sh SCRIPT.sh
+qsub
 ```
 
-Other performance metrics will be calculated for each pipeline tested : accuracy and F-measure index will be calculated from the number of true positive, false positive and false negative outputted by each pipeline. 
-Relative abundances outputted by each pipeline are compared to the expected abundances ([species_abundance_per_sample](grinder_simulations/Outputs/species_abundance_per_sample)).
 
 # Analysis steps
 
@@ -164,4 +163,8 @@ For example, to find the results of the pipeline testing the program flash for m
 
 ## Time and memory reports
 
-Time and memory reports for each program compared are stored in the folder containing the scripts.
+Time reports for each program compared are stored [here](99_utils/submitjob_sge_cluster/qsub_outputs).
+
+# Optimal pipeline
+
+The optimal pipeline built with the most performant program from each step is [here](optimal_pipeline/optimal_pipeline.sh)
