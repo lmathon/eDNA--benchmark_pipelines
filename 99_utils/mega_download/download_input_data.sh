@@ -32,7 +32,9 @@ fi
 echo "#########################################################################"
 ###############################################################################
 ## download fastq.gz files
-URL="https://mega.nz/#"'!'"JXJSCAaa"'!'"uDWGamyHfEJkYt6BorxDetpu18EcRnmIyjzREJlOuXM"
+#URL="https://mega.nz/#"'!'"JXJSCAaa"'!'"uDWGamyHfEJkYt6BorxDetpu18EcRnmIyjzREJlOuXM"
+URL="https://mega.nz/#"'!'"AS4XASKL"'!'"dTkQOMgfrOPmEIjzMEQgzB7YO5_M7uD5E3lLSjdNmGw"
+
 FOLDER=00_Input_data/forward_reverse_reads
 
 if [[ -d "$FOLDER" ]]; then
