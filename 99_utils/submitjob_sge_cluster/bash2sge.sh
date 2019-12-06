@@ -38,8 +38,8 @@ sed -e "s/JOB_NAME/$nom_qsub_script/g" \
 -e "s|OUT_FILE|$run_output/$nom_qsub_script\.out|g" \
 -e "s|ERR_FILE|$run_output/$nom_qsub_script\.err|g" \
 $template_script  > $qsub_script/temp_script.sh
-echo -e "cd "$(pwd)"\n" >> $qsub_script/temp_script.sh
-echo -e "bash $location_bash_script/$nom_bash_script.sh" >> $qsub_script/temp_script.sh
+echo -e "cd "$(pwd) >> $qsub_script/temp_script.sh
+echo -e "bash $location_bash_script/$nom_bash_script.sh\n" >> $qsub_script/temp_script.sh
 mv $qsub_script/temp_script.sh $qsub_script/$nom_qsub_script".sh"
 echo $qsub_script/$nom_qsub_script".sh is ready to be qsubmitted."
 #qsub $qsub_script/$nom_qsub_script".sh"
