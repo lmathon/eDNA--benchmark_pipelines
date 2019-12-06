@@ -26,7 +26,7 @@ The optimal pipeline obtained will be again compared to existant complete pipeli
 
 ## Install from source code
 
-To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/)), [SWARM](https://github.com/torognes/swarm) and [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html).
+To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [SWARM](https://github.com/torognes/swarm) and [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html).
 
 The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install) and [BARQUE](https://github.com/enormandeau/barque).
 
