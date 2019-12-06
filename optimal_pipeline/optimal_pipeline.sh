@@ -54,8 +54,8 @@ fin_dir=`pwd`"/optimal_pipeline/Outputs/final"
 ###################################################################################################################
 
 ## path to 'tags.fasta'
-Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
-Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
+Tags_F=`pwd`"/optimal_pipeline/Tags_F.fasta"
+Tags_R=`pwd`"/optimal_pipeline/Tags_R.fasta"
 ## assign each sequence to a sample
 $cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R -y '; sample={name};' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq
 
