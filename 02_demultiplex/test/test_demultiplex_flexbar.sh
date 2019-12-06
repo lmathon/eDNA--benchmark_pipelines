@@ -19,10 +19,7 @@ Primer_R=`pwd`"/02_demultiplex/Primer_R.fasta"
 
 
 ## demultiplexing
-$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
-
-
-
+$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags -t 02_demultiplex/test/02_flexbar_adapter/"$pref" -n 4
 
 
 ######## cimetiere des commandes non fonctionnelles 
@@ -32,7 +29,16 @@ $flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags -t 02_demultiplex/test/02_fl
 #$flexbar -p $R2_fastq --barcodes2 $Tags -t 02_demultiplex/test2/02_flexbar/"$pref" -n 4
 
 ## remove adapters
+for pair1 in `ls 02_demultiplex/test/02_flexbar/*_1.fastq` ;
+do 
+pair2="${pair1/_1.fastq/_2.fastq}"
+echo $flexbar" -r "$pair1" -p "$pair2" --adapters "$Primer_F" --adapters2 "$Primer_R" -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref
+done
+
 $flexbar -r $R1_fastq -p $R2_fastq --adapters $Primer_F --adapters2 $Primer_R -bt 0 -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
+
+
+$flexbar -r 02_demultiplex/test/flexbar_singlebarcode/grinder_teleo1_barcode_S1-01_1.fastq -p 02_demultiplex/test/flexbar_singlebarcode/grinder_teleo1_barcode_S1-01_2.fastq -a $Primer_F -a2 $Primer_R
 
 ## clean
 rm 02_demultiplex/test/02_flexbar/*
