@@ -33,9 +33,9 @@ vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 
 # Prefix for all generated files
-pref=grinder_teleo1
+pref="grinder_teleo1"
 # Prefix of the final table 
-step=optimal_pipeline
+step="optimal_pipeline"
 # Path to forward and reverse fastq files
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
@@ -51,9 +51,11 @@ base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print
 main_dir=`pwd`"/optimal_pipeline/Outputs/main"
 fin_dir=`pwd`"/optimal_pipeline/Outputs/final"
 
-
 ###################################################################################################################
 
+## path to 'tags.fasta'
+Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
+Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
 ## assign each sequence to a sample
 $cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R -y '; sample={name};' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq
 
@@ -116,5 +118,5 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Create the final table
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
-gzip $main_dir/*
+#gzip $main_dir/*
 
