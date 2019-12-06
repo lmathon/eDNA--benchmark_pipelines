@@ -117,3 +117,4 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
 gzip $main_dir/*
+
