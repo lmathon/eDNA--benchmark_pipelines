@@ -57,10 +57,10 @@ fin_dir=`pwd`"/optimal_pipeline/Outputs/final"
 Tags_F=`pwd`"/optimal_pipeline/Tags_F.fasta"
 Tags_R=`pwd`"/optimal_pipeline/Tags_R.fasta"
 ## assign each sequence to a sample
-$cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R -y '; sample={name};' -e 0 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq
+$cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R -y '; sample={name};' -e 0 -j 16 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq
 
 ## Remove primers
-$cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq
+$cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG -e 0.12 -j 16 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq --untrimmed-paired-output $main_dir/untrimmed_R2.fastq --untrimmed-output $main_dir/untrimmed_R1.fastq $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq
 
 ##Format file post cutadapt for obitools
 $obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
@@ -86,7 +86,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "/usr/bin/time $obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
 # Keep sequences longuer than 20bp without ambiguous bases
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $vsearch --fastx_filter "$dereplicated_sample" --notrunclabels --fastq_maxns 0 --fastq_minlen 20 --fastaout "$good_sequence_sample >> $sample_sh
+echo "/usr/bin/time $cutadapt "$dereplicated_sample" -m 20 --max-n 0 -j 16 -o "$good_sequence_sample >> $sample_sh
 # Removal of PCR and sequencing errors
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
 echo "/usr/bin/time $obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
