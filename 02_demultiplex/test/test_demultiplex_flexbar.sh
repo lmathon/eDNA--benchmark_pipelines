@@ -19,7 +19,7 @@ Primer_R=`pwd`"/02_demultiplex/Primer_R.fasta"
 
 
 ## demultiplexing
-$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags -t 02_demultiplex/test/02_flexbar/"$pref" -n 4
+$flexbar -r $R1_fastq -p $R2_fastq --barcodes $Tags -t 02_demultiplex/test/02_flexbar_adapter/"$pref" -n 4
 
 
 ######## cimetiere des commandes non fonctionnelles 
