@@ -64,8 +64,6 @@ $cutadapt --pair-adapters --pair-filter=both -g assigned=^ACACCGCCCGTCACTCT -G a
 ##Format file post cutadapt for obitools
 $obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
 $obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
-sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
-sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fasta"
