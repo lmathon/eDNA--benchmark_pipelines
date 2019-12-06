@@ -39,8 +39,9 @@ step="optimal_pipeline"
 # Path to forward and reverse fastq files
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
-# Path to file 'sample_description_file.txt'
-sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
+## path to 'tags.fasta'
+Tags_F=`pwd`"/optimal_pipeline/Tags_F.fasta"
+Tags_R=`pwd`"/optimal_pipeline/Tags_R.fasta"
 # Path to file 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
 # Path to all files 'embl' of the reference database
@@ -53,9 +54,7 @@ fin_dir=`pwd`"/optimal_pipeline/Outputs/final"
 
 ###################################################################################################################
 
-## path to 'tags.fasta'
-Tags_F=`pwd`"/optimal_pipeline/Tags_F.fasta"
-Tags_R=`pwd`"/optimal_pipeline/Tags_R.fasta"
+
 ## assign each sequence to a sample
 $cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R -y '; sample={name};' -e 0 -j 16 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq --untrimmed-paired-output $main_dir/unassigned_R2.fastq --untrimmed-output $main_dir/unassigned_R1.fastq $R1_fastq $R2_fastq
 
@@ -69,8 +68,8 @@ sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
 sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
 
 ## forward and reverse reads assembly
-assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $vsearch --fastq_mergepairs $main_dir/R1.assigned3.fastq --reverse $main_dir/R2.assigned3.fastq --fastq_allowmergestagger  --fastqout ${assembly}
+assembly=${main_dir}"/"${pref}".fasta"
+/usr/bin/time $vsearch --fastq_mergepairs $main_dir/R1.assigned3.fastq --reverse $main_dir/R2.assigned3.fastq --fastq_allowmergestagger  --fastaout ${assembly}
 
 ## Split big file into one file per sample
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly}
