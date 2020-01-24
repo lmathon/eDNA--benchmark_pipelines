@@ -88,7 +88,7 @@ do
   echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | $obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
-  echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --minsize 1 --unoise_alpha 2 --notrunclabels --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
+  echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --minsize 1 --unoise_alpha 2 --notrunclabels --minseqlength 20 --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
   # Format vsearch fasta file to continue the pipeline process
   formated_clean_sequence_sample="${clean_sequence_sample/.fasta/.formated.fasta}"
   echo "$obiannotate -R 'size:count' "$clean_sequence_sample" > "$formated_clean_sequence_sample >> $sample_sh

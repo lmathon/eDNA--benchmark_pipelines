@@ -81,7 +81,7 @@ sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 ## Dereplicate reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --output "$dereplicated_sample > $sample_sh
+echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --minseqlength 20 --output "$dereplicated_sample > $sample_sh
 # Formate vsearch output to obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
 echo "$container_python2 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
@@ -98,7 +98,7 @@ all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.formated.l20.r005.clean.fasta > $all_sample_sequences_clean
 ## Dereplicate in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
-$vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --output $all_sample_sequences_uniq
+$vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --minseqlength 20 --output $all_sample_sequences_uniq
 # Formate vsearch output for obitools
 all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated.fasta}"
 $container_python2 03_dereplication/allvsearch_into_obifasta.py -i $main_dir/info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated

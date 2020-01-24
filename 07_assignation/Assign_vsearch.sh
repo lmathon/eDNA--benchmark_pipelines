@@ -110,7 +110,7 @@ all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Taxonomic assignation
 all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.vsearch}"
-$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.98 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag
+$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.98 --fasta_width 0 --minseqlength 20 --maxaccepts 20 --maxrejects 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag
 ## convert vsearch assignation file into obifasta
 all_sample_sequences_vsearch_tag_obifasta="${all_sample_sequences_vsearch_tag/.vsearch/.vsearch.fasta}"
 $container_python2 07_assignation/convert_assign_vsearch_2_obifasta.py -f $all_sample_sequences_sort -a $all_sample_sequences_vsearch_tag -o $all_sample_sequences_vsearch_tag_obifasta
