@@ -96,15 +96,9 @@ parallel < $all_samples_parallel_cmd_sh
 ## Concatenate all files into one main file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.formated.l20.r005.clean.fasta > $all_sample_sequences_clean
-## Dereplicate in unique sequences
-all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
-$vsearch --derep_fulllength $all_sample_sequences_clean --sizeout --uc $main_dir/info_seq --fasta_width 0 --notrunclabels --minseqlength 20 --output $all_sample_sequences_uniq
-# Formate vsearch output for obitools
-all_sample_sequences_uniq_formated="${all_sample_sequences_uniq/.fasta/.formated.fasta}"
-$container_python2 03_dereplication/allvsearch_into_obifasta.py -i $main_dir/info_seq -f $all_sample_sequences_uniq -o $all_sample_sequences_uniq_formated
 # Taxonomic assignation
-all_sample_sequences_tag="${all_sample_sequences_uniq_formated/.fasta/.tag.fasta}"
-$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq_formated -m 0.98 > $all_sample_sequences_tag
+all_sample_sequences_tag="${all_sample_sequences_clean/.fasta/.tag.fasta}"
+$ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_clean -m 0.98 > $all_sample_sequences_tag
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
