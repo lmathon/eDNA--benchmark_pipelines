@@ -86,17 +86,17 @@ do
   # Format fasta file to process sequence with vsearch
   formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
   echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | $obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
+  echo "sed -i 's/; size/;size/g' "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
-  echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --minsize 1 --unoise_alpha 2 --notrunclabels --minseqlength 20 --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
+  echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --sizein --sizeout --minsize 1 --unoise_alpha 2 --notrunclabels --minseqlength 20 --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
   # Format vsearch fasta file to continue the pipeline process
-  formated_clean_sequence_sample="${clean_sequence_sample/.fasta/.formated.fasta}"
-  echo "$obiannotate -R 'size:count' "$clean_sequence_sample" > "$formated_clean_sequence_sample >> $sample_sh
+  echo "sed -i 's/;size/count/g' "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenation of all samples in one file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
-cat $main_dir/"$pref"_sample_*.uniq.l20.formated.clean.formated.fasta > $all_sample_sequences_clean
+cat $main_dir/"$pref"_sample_*.uniq.l20.formated.clean.fasta > $all_sample_sequences_clean
 # Dereplication in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq

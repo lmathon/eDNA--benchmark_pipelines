@@ -58,15 +58,15 @@ fin_dir=`pwd`"/07_assignation/Outputs/01_vsearch/final"
 ################################################################################################
 
 ## forward and reverse reads assembly
-#assembly=${main_dir}"/"${pref}".fastq"
-#$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
+assembly=${main_dir}"/"${pref}".fastq"
+$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
 ## Remove non-aligned reads
-#assembly_ali="${assembly/.fastq/.ali.fastq}"
-#$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+assembly_ali="${assembly/.fastq/.ali.fastq}"
+$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 ## Assign each sequence to a sample
-#identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
-#unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
-#$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
+identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
+unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
+$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
 ## Split big file into one file per sample 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
@@ -108,9 +108,10 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
+sed -i 's/ count/;size/g' $all_sample_sequences_sort
 # Taxonomic assignation
 all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.vsearch}"
-$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --notrunclabels --id 0.98 --fasta_width 0 --minseqlength 20 --maxaccepts 20 --maxrejects 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag
+$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir  --sizein --sizeout --qmask none --dbmask none --notrunclabels --id 0.98 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## convert vsearch assignation file into obifasta
 all_sample_sequences_vsearch_tag_obifasta="${all_sample_sequences_vsearch_tag/.vsearch/.vsearch.fasta}"
 $container_python2 07_assignation/convert_assign_vsearch_2_obifasta.py -f $all_sample_sequences_sort -a $all_sample_sequences_vsearch_tag -o $all_sample_sequences_vsearch_tag_obifasta
