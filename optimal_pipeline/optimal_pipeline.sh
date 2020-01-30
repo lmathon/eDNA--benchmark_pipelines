@@ -69,6 +69,9 @@ $obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fas
 assembly=${main_dir}"/"${pref}".fasta"
 /usr/bin/time $vsearch --fastq_mergepairs $main_dir/R1.assigned3.fastq --reverse $main_dir/R2.assigned3.fastq --fastq_allowmergestagger  --fastaout ${assembly}
 
+## Format file for obitools
+sed  -i -e "s/_sample/ sample/g" ${assembly}
+
 ## Split big file into one file per sample
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly}
 
@@ -80,24 +83,30 @@ sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 # Dereplicate reads into unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo "/usr/bin/time $obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
+echo /usr/bin/time $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --relabel_keep --minseqlength 20 --output "$dereplicated_sample > $sample_sh
+# Formate vsearch output to obifasta
+formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
+echo "$container_python2 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
 # Keep sequences longuer than 20bp without ambiguous bases
-good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $cutadapt "$dereplicated_sample" -m 20 --max-n 0 -j 16 -o "$good_sequence_sample >> $sample_sh
-# Removal of PCR and sequencing errors
-clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-echo "/usr/bin/time $obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
+echo "/usr/bin/time $flexbar --reads "$dereplicated_sample" --max-uncalled 0 --min-read-length 20 -n 16 -o -t "$good_sequence_sample >> $sample_sh
+# Format fasta file to process sequence with vsearch
+formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
+echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | $obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
+echo "sed -i 's/; size/;size/g' "$formated_sequence_sample >> $sample_sh
+# Removal of PCR and sequencing errors (variants) with swarm
+clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
+echo "/usr/bin/time $vsearch --cluster_unoise "$formated_sequence_sample" --sizein --sizeout --minsize 1 --unoise_alpha 2 --notrunclabels --minseqlength 20 --threads 16 --relabel_keep --centroids  "$clean_sequence_sample >> $sample_sh
+# Format vsearch fasta file to continue the pipeline process
+echo "sed -i 's/;size/count/g' "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenation of all samples into one file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
-cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences_clean
-# Dereplication into unique sequences
-all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
-/usr/bin/time $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
+cat $main_dir/"$pref"_sample_*.uniq.formated.l20.formated.clean.fasta > $all_sample_sequences_clean
 # Taxonomic assignation
-all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
-/usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq -m 0.98 > $all_sample_sequences_tag
+all_sample_sequences_tag="${all_sample_sequences_clean/.fasta/.tag.fasta}"
+/usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_clean -m 0.98 > $all_sample_sequences_tag
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
