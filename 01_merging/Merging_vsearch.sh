@@ -55,7 +55,7 @@ fin_dir=`pwd`"/01_merging/Outputs/01_vsearch/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $vsearch --fastq_mergepairs ${R1_fastq} --reverse ${R2_fastq} --fastq_allowmergestagger  --fastqout ${assembly}
+/usr/bin/time $vsearch --fastq_mergepairs ${R1_fastq} --reverse ${R2_fastq} --threads 16 --fastq_allowmergestagger  --fastqout ${assembly}
 
 ## Assign each sequence to a sample
 identified="${assembly/.fastq/.ali.assigned.fasta}"
