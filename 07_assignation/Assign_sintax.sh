@@ -112,10 +112,7 @@ awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $0}}' $all_sample_seque
 ## Taxonomic assignation
 all_sample_sequences_sintax_ann="${all_sample_sequences_sort/.fasta/.sintax_ann.csv}"
 $usearch -sintax $all_sample_sequences_sort_uppercase -db $refdb_dir -sintax_cutoff 0.98 -threads 16 -strand plus -tabbedout $all_sample_sequences_sintax_ann
-## convert usearch output to obifasta
-all_sample_sequences_sintax_ann_fas="${all_sample_sequences_sintax_ann/.csv/.fasta}"
-$container_python2 07_assignation/convert_assign_sintax_2_obifasta.py -f $all_sample_sequences_sort -s $all_sample_sequences_sintax_ann -o $all_sample_sequences_sintax_ann_fas
 ## Create final table
-$obitab -o $all_sample_sequences_sintax_ann_fas > $fin_dir/"$step".csv
+ python3 07_assignation/sintax2obitab.py -s $all_sample_sequences_sintax_ann -o $fin_dir/"$step".csv
 
 ################################################################################################

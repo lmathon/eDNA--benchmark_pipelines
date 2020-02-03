@@ -104,11 +104,8 @@ parallel < $all_samples_parallel_cmd_sh
 # Concatenation of all samples into one file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.formated.l20.formated.clean.fasta > $all_sample_sequences_clean
-# Taxonomic assignation
-all_sample_sequences_tag="${all_sample_sequences_clean/.fasta/.tag.fasta}"
-/usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_clean -m 0.98 > $all_sample_sequences_tag
 # Removal of unnecessary attributes in sequence headers
-all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
+all_sample_sequences_ann="${all_sample_sequences_clean/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
  --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
  --delete-tag=obiclean_cluster --delete-tag=obiclean_internalcount \
@@ -117,12 +114,17 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
  --delete-tag=seq_length_ori --delete-tag=sminL --delete-tag=sminR \
  --delete-tag=reverse_score --delete-tag=reverse_primer --delete-tag=reverse_match --delete-tag=reverse_tag \
  --delete-tag=forward_tag --delete-tag=forward_score --delete-tag=forward_primer --delete-tag=forward_match \
- --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single $all_sample_sequences_tag > $all_sample_sequences_ann
+ --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single $all_sample_sequences_clean > $all_sample_sequences_ann
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
-# Create the final table
-$obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
+# Taxonomic assignation
+all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
+$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
+## Create final table
+sed -i 's/ count=/; count=/g' $all_sample_sequences_vsearch_tag
+python3 07_assignation/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/"$pref".csv
+
 
 #gzip $main_dir/*
 

@@ -109,13 +109,11 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Taxonomic assignation
-all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.vsearch}"
+all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
 $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
-## convert vsearch assignation file into obifasta
-all_sample_sequences_vsearch_tag_obifasta="${all_sample_sequences_vsearch_tag/.vsearch/.vsearch.fasta}"
-$container_python2 07_assignation/convert_assign_vsearch_2_obifasta.py -f $all_sample_sequences_sort -a $all_sample_sequences_vsearch_tag -o $all_sample_sequences_vsearch_tag_obifasta
 ## Create final table
-$obitab -o $all_sample_sequences_vsearch_tag_obifasta > $fin_dir/"$step".csv
+sed -i 's/ count=/; count=/g' $all_sample_sequences_vsearch_tag
+python3 07_assignation/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/"$pref".csv
 
 ################################################################################################
 
