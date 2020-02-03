@@ -13,7 +13,7 @@ convert output from SINTAX assignation to obitab
 
 input:
 
-- 
+- output from sintax assignation command
 
 
 output:
@@ -21,11 +21,12 @@ output:
 - output.tsv: a tsv file with this header:
 "id definition count family_name genus_name species_name sample*"
 where sample* is a list of all known samples labels
-Each line is a line from assign_vsearch.fasta
+Each line is a line from grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta
+
 
 usage:
 
-python3 sintax2obitab.py -a assign_vsearch.fasta -o output.tsv
+python3 sintax2obitab.py -s 07_assignation/test/grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta -o output.tsv
 
 """
 #===============================================================================
@@ -64,7 +65,7 @@ class Ligne:
 
 parser = argparse.ArgumentParser('convert fasta to obiconvert format')
 parser.add_argument("-o","--output",type=str)
-parser.add_argument("-a","--vsearch_assignation",type=str)
+parser.add_argument("-s","--sintax_assignation",type=str)
 
 
 
@@ -73,42 +74,46 @@ parser.add_argument("-a","--vsearch_assignation",type=str)
 #===============================================================================
 
 args = parser.parse_args()
-vsearchFile = args.vsearch_assignation
+sintaxFile = args.sintax_assignation
 outputFile = args.output
 
 
-#vsearchFile="07_assignation/test/assign_vsearch.fasta"
+#sintaxFile="07_assignation/test/grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta"
 #outputFile="07_assignation/test/tabfin.tsv"
 
 
 listOfLignes = []
-##  read vsearch assignement --blast6out
-with open(vsearchFile,'r') as readFile:
+
+with open(sintaxFile,'r') as readFile:
     for ligne in readFile.readlines():     
         ligneSplit=ligne.split(";")
         thisLigne= Ligne("NA","NA","NA","NA","NA","NA","NA")
+        thisLigne.id_ligne=ligneSplit[0].split(" ")[0]
+        thisLigne.count=ligneSplit[0].split(" ")[1].split("=")[1]
+        #print(ligneSplit)
         for elem in ligneSplit[1:]:
             thisLigne.id_ligne=str(ligneSplit[0])
-            elemSplit=elem.split("=")
-            if len(elemSplit) > 1:
-                infoTag=elemSplit[0].replace(" ","")
-                infoVal=elemSplit[1]
-                if infoTag == "merged_sample":
-                    exec(elem.replace("\t"," ").replace(" ",""))
-                    thisLigne.merged_sample=merged_sample
-                elif infoTag == "family_name":
-                    thisLigne.family_name=infoVal
-                elif infoTag == "genus_name":
-                    thisLigne.genus_name=infoVal
-                elif infoTag == "species_name":
-                    thisLigne.species_name=infoVal
-                elif infoTag == "count":
-                    thisLigne.count=infoVal
-                else:
-                    thisLigne.definition="."
-                thisLigne.definition="."
+            if "=" in elem:
+                elemSplit=elem.split("=")
+                if len(elemSplit) > 1:
+                    infoTag=elemSplit[0].replace(" ","")
+                    infoVal=elemSplit[1]
+                    if infoTag == "merged_sample":
+                        exec(elem.replace("\t"," ").replace(" ",""))
+                        thisLigne.merged_sample=merged_sample
+                    else:
+                        thisLigne.definition="."
+            else:
+                elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
+                for elemf in elemFormat:
+                    if elemf[0] =='f':
+                        thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
+                    elif elemf[0] == 'g':
+                        thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
+                    else:
+                        thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
         listOfLignes.append(thisLigne)
-        
+
 ## get all keys of sample from merged_sample dic
 all_keys = list(set().union(*(d.merged_sample.keys() for d in listOfLignes)))
 
@@ -116,6 +121,7 @@ all_keys = list(set().union(*(d.merged_sample.keys() for d in listOfLignes)))
 ## add zero value to each missing keys into merged_sample dic for each line
 for ligne in listOfLignes:
     ligne.fill_missing_keys(all_keys) 
+
 
 ## write the final table
 sourceFile= open(outputFile,"w+")
@@ -126,5 +132,3 @@ for ligne in listOfLignes:
     print(ligne.id_ligne,ligne.definition,ligne.count,ligne.family_name,ligne.genus_name,ligne.species_name,*[ligne.merged_sample[key] for key in all_keys ],sep="\t",file=sourceFile)
 
 sourceFile.close()
-
-
