@@ -19,18 +19,15 @@
 ## load config global variables
 source 98_infos/config.sh
 
-illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"
-obigrep=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obigrep"
-ngsfilter=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ngsfilter"
+
 obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
-obiuniq=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiuniq"
 obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
-obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
-ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
+flexbar=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" flexbar"
+container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
 # Prefix for all generated files
 pref="grinder_teleo1"
@@ -43,7 +40,7 @@ R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 Tags_F=`pwd`"/optimal_pipeline/Tags_F.fasta"
 Tags_R=`pwd`"/optimal_pipeline/Tags_R.fasta"
 # Path to file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
+refdb_dir=${REFDB_PATH}"/db_teleo_vsearch.fasta"
 # Path to all files 'embl' of the reference database
 base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
@@ -89,10 +86,10 @@ formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
 echo "$container_python2 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
 # Keep sequences longuer than 20bp without ambiguous bases
 good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $flexbar --reads "$dereplicated_sample" --max-uncalled 0 --min-read-length 20 -n 16 -o -t "$good_sequence_sample >> $sample_sh
+echo "/usr/bin/time $flexbar --reads "$formated_sample" --max-uncalled 0 --min-read-length 20 -n 16 -o -t "$good_sequence_sample >> $sample_sh
 # Format fasta file to process sequence with vsearch
-formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
-echo "$obiannotate -R 'count:size'  "$good_sequence_sample" | $obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
+formated_sequence_sample="${good_sequence_sample/.fasta.fasta/.formated.fasta}"
+echo "$obiannotate -R 'count:size'  "$good_sequence_sample".fasta | $obiannotate -k size -k merged_sample > "$formated_sequence_sample >> $sample_sh
 echo "sed -i 's/; size/;size/g' "$formated_sequence_sample >> $sample_sh
 # Removal of PCR and sequencing errors (variants) with swarm
 clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
@@ -103,7 +100,7 @@ done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenation of all samples into one file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
-cat $main_dir/"$pref"_sample_*.uniq.formated.l20.formated.clean.fasta > $all_sample_sequences_clean
+cat $main_dir/"$pref"_sample_*.uniq.formated.l20.clean.fasta > $all_sample_sequences_clean
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_clean/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
@@ -122,9 +119,8 @@ $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
 $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
-sed -i 's/ count=/; count=/g' $all_sample_sequences_vsearch_tag
-python3 07_assignation/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/"$pref".csv
+sed -i 's/ merged_sample=/; merged_sample=/g' $all_sample_sequences_vsearch_tag
+python3 07_assignation/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/opt_pipeline.csv
 
 
 #gzip $main_dir/*
-
