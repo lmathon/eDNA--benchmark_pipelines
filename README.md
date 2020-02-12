@@ -93,9 +93,9 @@ This will give this output in the standard error file :
 where :
 
 %elapsed = time in hours:minutes:seconds
+%user = time in seconds
 
-
-Other performance metrics will be calculated for each pipeline tested : sensitivity and F-measure index will be calculated from the number of true positive, false positive and false negative outputted by each pipeline. 
+Other performance metrics will be calculated for each pipeline tested : sensitivity and F-measure index will be calculated from the number of true positive, false positive and false negative output by each pipeline. 
 Relative abundances outputted by each pipeline are compared to the expected abundances ([species_abundance_per_sample](00_Input_data/species_abundance_per_sample)).
 
 To run any script, run this command line :
@@ -165,6 +165,6 @@ For example, to find the results of the pipeline testing the program flash for m
 
 Time reports for each program compared are stored [here](99_utils/submitjob_sge_cluster/qsub_outputs).
 
-# Optimal pipeline
+# Optimized pipeline
 
-The optimal pipeline built with the most performant program from each step is [here](optimal_pipeline/optimal_pipeline.sh)
+The optimized pipeline built with the most performant program from each step is [here](optimized_pipeline/optimized_pipeline.sh)
