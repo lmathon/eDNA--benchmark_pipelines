@@ -93,6 +93,7 @@ This will give this output in the standard error file :
 where :
 
 %elapsed = time in hours:minutes:seconds
+
 %user = time in seconds
 
 Other performance metrics will be calculated for each pipeline tested : sensitivity and F-measure index will be calculated from the number of true positive, false positive and false negative output by each pipeline. 
