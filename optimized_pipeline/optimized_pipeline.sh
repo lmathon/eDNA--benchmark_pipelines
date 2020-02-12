@@ -46,8 +46,8 @@ base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
 # Path to intermediate and final folders
-main_dir=`pwd`"/optimal_pipeline/Outputs/main"
-fin_dir=`pwd`"/optimal_pipeline/Outputs/final"
+main_dir=`pwd`"/optimized_pipeline/Outputs/main"
+fin_dir=`pwd`"/optimized_pipeline/Outputs/final"
 
 ###################################################################################################################
 
@@ -83,7 +83,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo /usr/bin/time $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --relabel_keep --minseqlength 20 --output "$dereplicated_sample > $sample_sh
 # Formate vsearch output to obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
-echo "$container_python2 optimal_pipeline/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
+echo "$container_python2 optimized_pipeline/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
 # Keep sequences longuer than 20bp without ambiguous bases
 good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
 echo "/usr/bin/time $flexbar --reads "$formated_sample" --max-uncalled 0 --min-read-length 20 -n 16 -o -t "$good_sequence_sample >> $sample_sh
@@ -120,7 +120,7 @@ all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}
 $vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
 sed -i 's/ merged_sample=/; merged_sample=/g' $all_sample_sequences_vsearch_tag
-python3 optimal_pipeline/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/opt_pipeline.csv
+python3 optimized_pipeline/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/opt_pipeline.csv
 
 
 #gzip $main_dir/*
