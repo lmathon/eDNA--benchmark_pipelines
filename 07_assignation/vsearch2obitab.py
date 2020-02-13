@@ -79,7 +79,7 @@ outputFile = args.output
 #vsearchFile="07_assignation/test/assign_vsearch.fasta"
 #outputFile="07_assignation/test/tabfin.tsv"
 
-vsearchFile= "07_assignation/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.uniqid.tag.fasta"
+#vsearchFile= "07_assignation/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.uniqid.tag.fasta"
 
 
 listOfLignes = []
