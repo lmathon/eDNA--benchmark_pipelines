@@ -8,7 +8,7 @@
 ## 
 ###############################################################################
 ## Usage:
-##    bash optimal_pipeline/optimal_pipeline.sh
+##    bash optimized_pipeline/optimized_pipeline.sh
 ##
 ## Description:
 ##  ..............    
@@ -23,7 +23,6 @@ source 98_infos/config.sh
 obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
 obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
-obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 flexbar=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" flexbar"
@@ -115,9 +114,12 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
+# unique ID for each sequence
+all_sample_sequences_uniqid="${all_sample_sequences_sort/.fasta/.uniqid.fasta}"
+python3 07_assignation/unique_id_obifasta.py $all_sample_sequences_sort > $all_sample_sequences_uniqid
 # Taxonomic assignation
-all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
-$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
+all_sample_sequences_vsearch_tag="${all_sample_sequences_uniqid/.fasta/.tag.fasta}"
+$vsearch --usearch_global $all_sample_sequences_uniqid --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
 sed -i 's/ merged_sample=/; merged_sample=/g' $all_sample_sequences_vsearch_tag
 python3 optimized_pipeline/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/opt_pipeline.csv

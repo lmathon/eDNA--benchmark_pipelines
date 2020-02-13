@@ -30,13 +30,9 @@ obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
 obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
 ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
-obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
-
-container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
-
-
 
 ## EDNAtools
+container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 
 ## Prefix for all generated files
