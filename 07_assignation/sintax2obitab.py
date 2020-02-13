@@ -81,7 +81,7 @@ outputFile = args.output
 #sintaxFile="07_assignation/test/grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta"
 #outputFile="07_assignation/test/tabfin.tsv"
 
-sintaxFile="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/07_assignation/Outputs/02_sintax/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.sintax_ann.csv"
+#sintaxFile="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/07_assignation/Outputs/02_sintax/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.sintax_ann.csv"
 
 listOfLignes = []
 listOfIds = []
@@ -94,8 +94,7 @@ with open(sintaxFile,'r') as readFile:
         if thisLigne.id_ligne not in listOfIds:
             listOfIds.append(thisLigne.id_ligne)
             thisLigne.count=ligneSplit[0].split(" ")[1].split("=")[1]        
-            for elem in ligneSplit[1:]:
-                thisLigne.id_ligne=str(ligneSplit[0])
+            for elem in ligneSplit[1:]:                
                 if "=" in elem:
                     elemSplit=elem.split("=")
                     if len(elemSplit) > 1:
@@ -115,20 +114,22 @@ with open(sintaxFile,'r') as readFile:
                             thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
                         else:
                             thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
-                listOfLignes.append(thisLigne)
+            listOfLignes.append(thisLigne)
         else:
+            print("non")
             for i in range(len(listOfLignes)):
                 if listOfLignes[i].id_ligne == thisLigne.id_ligne:
+                    thisligne.definition="r"
                     for elem in ligneSplit[1:]:
                         if "=" not in elem:
                             elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
                             for elemf in elemFormat:
                                 if elemf[0] =='f':
-                                    listOfLignes[i]=thisLigne.family_name+","+elemf.split(':')[1].split('(')[0] #family
+                                    listOfLignes[i].family_name=thisLigne.family_name+","+elemf.split(':')[1].split('(')[0] #family
                                 elif elemf[0] == 'g':
-                                    listOfLignes[i]=thisLigne.genus_name+","+elemf.split(':')[1].split('(')[0] #genus
+                                    listOfLignes[i].genus_name=thisLigne.genus_name+","+elemf.split(':')[1].split('(')[0] #genus
                                 else:
-                                    listOfLignes[i]=thisLigne.species_name+","+elemf.split(':')[1].split('(')[0] #species
+                                    listOfLignes[i].species_name=thisLigne.species_name+","+elemf.split(':')[1].split('(')[0] #species
 
 
 ## get all keys of sample from merged_sample dic
@@ -143,7 +144,7 @@ for ligne in listOfLignes:
 ## write the final table
 sourceFile= open(outputFile,"w+")
 ### write header
-print("id","definition","count","family_name","genus_name","species_name",*[key for key in all_keys],sep="\t",file=sourceFile)
+print("id","definition","count","family_name","genus_name","species_name", *[key for key in all_keys],sep="\t",file=sourceFile)
 ### write line content
 for ligne in listOfLignes:
     print(ligne.id_ligne,ligne.definition,ligne.count,ligne.family_name,ligne.genus_name,ligne.species_name,*[ligne.merged_sample[key] for key in all_keys ],sep="\t",file=sourceFile)
