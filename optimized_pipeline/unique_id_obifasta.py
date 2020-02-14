@@ -35,7 +35,7 @@ with open(obifasta,'r') as readFile:
         if ligne[0] == ">":
             ligneSplit=ligne.split(";")
             current_id=ligneSplit[0]
-            new_id=">"+str(counterid)+" "+current_id.split(" ")[1]
+            new_id=">"+str(counterid)+" "+" ".join(current_id.split(" ")[1:])
             ligneSplit[0]=new_id
             print(*[elem for elem in ligneSplit],sep=";",end='')
             counterid+=1

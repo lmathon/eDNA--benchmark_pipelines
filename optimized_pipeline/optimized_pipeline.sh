@@ -30,14 +30,12 @@ container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
 # Prefix for all generated files
 pref="grinder_teleo1"
-# Prefix of the final table 
-step="optimal_pipeline"
 # Path to forward and reverse fastq files
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
-Tags_F=`pwd`"/optimal_pipeline/Tags_F.fasta"
-Tags_R=`pwd`"/optimal_pipeline/Tags_R.fasta"
+Tags_F=`pwd`"/optimized_pipeline/Tags_F.fasta"
+Tags_R=`pwd`"/optimized_pipeline/Tags_R.fasta"
 # Path to file 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_teleo_vsearch.fasta"
 # Path to all files 'embl' of the reference database
