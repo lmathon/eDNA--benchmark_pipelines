@@ -40,12 +40,14 @@ We provide ready to run versions of [Singularity containers](https://www.sylabs.
 
 Our complete collection of singularity recipes is available [here](https://github.com/Grelot/bioinfo_singularity_recipes).
 
-To download [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools)'s container :
+Download containers in `99_utils/containers/` :
+
+* [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools)'s container :
 ```
 singularity pull --name obitools.simg shub://Grelot/bioinfo_singularity_recipes:obitools
 ```
 
-To download container with vsearch, PEAR, FLASh, CASPER, cutadapt, fastq-join, Tally, Prinseq, usearch (sintax), SWARM, Flexbar :
+* container with vsearch, PEAR, FLASh, CASPER, cutadapt, fastq-join, Tally, Prinseq, usearch (sintax), SWARM, Flexbar, Python2 :
 ```
 singularity pull --name ednatools.simg shub://Grelot/bioinfo_singularity_recipes:ednatools
 ```
@@ -109,7 +111,7 @@ qsub
 
 # Analysis steps
 
-For simplicity, each pipelines are separated in folders corresponding to the steps, in [01_merging](01_merging), [02_demultiplex](02_demultiplex), [03_dereplication](03_dereplication), [04_quality-filter](04_quality-filter), [05_error-removal](05_error-removal), [06_chimera-removal](06_chimera-removal) and [07_taxonomic-assignation](07_taxonomic-assignation). 
+For simplicity, each pipelines are separated in folders corresponding to the steps, in [01_merging](01_merging), [02_demultiplex](02_demultiplex), [03_dereplication](03_dereplication), [04_filtering](04_filtering), [05_error](05_error) and [06_assignation](06_assignation). 
 
 ## 1 - Merging paired-end reads
 
@@ -133,25 +135,19 @@ All the scripts to run the different programs are in [03_dereplication](03_derep
 
 Reads are then checked for their quality : sequences longer than 20bp and with no ambiguous bases are kept.
 
-The scripts to run the different programs are in [04_quality-filter](04_quality-filter)
+The scripts to run the different programs are in [04_filtering](04_filtering)
 
 ## 5 - PCR / Sequencing error removal
 
 Each program or pipeline offers different tools to remove PCR or sequencing errors. For ObiTools, the program obiclean keeps only the head sequences for each PCR replicate.
 
-The scripts for the different programs are in [05_error-removal](05_error-removal).
+The scripts for the different programs are in [05_error](05_error).
 
-## 6 - Chimera removal
-
-Several programs are specialized in identifying and removing chimeras. 
-
-[06_chimera-removal](06_chimera-removal) contains the scripts to run these programs.
-
-## 7 - Taxonomic assignation
+## 6 - Taxonomic assignation
 
 The last step of the analysis is to assign every sequence to a taxa. In our case, we use a homemade reference database. To be assigned at the species level, the query sequence must be at least similar at 98% to the reference sequence.
 
-[07_taxonomic-assignation](07_taxonomic-assignation) contains the scripts to run the different assigning programs.
+[06_assignation](06_assignation) contains the scripts to run the different assigning programs.
 
 
 # Outputs

@@ -42,4 +42,4 @@ echo -e "cd "$(pwd) >> $qsub_script/temp_script.sh
 echo -e "bash $location_bash_script/$nom_bash_script.sh\n" >> $qsub_script/temp_script.sh
 mv $qsub_script/temp_script.sh $qsub_script/$nom_qsub_script".sh"
 echo $qsub_script/$nom_qsub_script".sh is ready to be qsubmitted."
-#qsub $qsub_script/$nom_qsub_script".sh"
+

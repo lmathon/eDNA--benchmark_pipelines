@@ -26,7 +26,7 @@ Each line is a line from grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase
 
 usage:
 
-python3 sintax2obitab.py -s 07_assignation/test/grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta -o output.tsv
+python3 sintax2obitab.py -s 06_assignation/Outputs/02_sintax/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta -o output.tsv
 
 """
 #===============================================================================
@@ -77,11 +77,6 @@ args = parser.parse_args()
 sintaxFile = args.sintax_assignation
 outputFile = args.output
 
-
-#sintaxFile="07_assignation/test/grinder_teleo1_all_sample_clean.uniq.ann.sort.uppercase.tag.fasta"
-#outputFile="07_assignation/test/tabfin.tsv"
-
-#sintaxFile="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/07_assignation/Outputs/02_sintax/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.sintax_ann.csv"
 
 listOfLignes = []
 listOfIds = []

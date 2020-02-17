@@ -27,7 +27,6 @@ import sys
 obifasta = sys.argv[1]
 
 
-#obifasta="07_assignation/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.fasta"
 
 counterid=1
 with open(obifasta,'r') as readFile:
