@@ -95,8 +95,9 @@ with open(vsearchFile,'r') as readFile:
         if thisLigne.id_ligne not in listOfIds:
             listOfIds.append(thisLigne.id_ligne)
             newId=1
-            thisCount=ligneSplit[0].split("=")[1]
-            thisLigne.count=thisCount
+            if "count" in ligneSplit[0]:
+                thisCount=ligneSplit[0].split("=")[1]
+                thisLigne.count=thisCount
             for elem in ligneSplit[1:]:            
                 elemSplit=elem.split("=")
                 if len(elemSplit) > 1:
@@ -105,6 +106,8 @@ with open(vsearchFile,'r') as readFile:
                     if infoTag == "merged_sample":
                         exec(elem.replace("\t"," ").replace(" ",""))
                         thisLigne.merged_sample=merged_sample
+                    elif infoTag == "count":
+                        thisLigne.count=ligneSplit[0].split("=")[1]
                     elif infoTag == "family_name":
                         thisLigne.family_name=infoVal
                     elif infoTag == "genus_name":
