@@ -80,7 +80,7 @@ outputFile = args.output
 #outputFile="07_assignation/test/tabfin.tsv"
 
 #vsearchFile= "07_assignation/Outputs/01_vsearch/main/grinder_teleo1_all_sample_clean.uniq.ann.sort.uniqid.tag.fasta"
-
+vsearchFile="/share/reservebenefit/working/pierre/eDNA--benchmark_pipelines/optimized_pipeline/Outputs/main/grinder_teleo1_all_sample_clean.ann.sort.uniqid.tag.preformat.fasta"
 
 listOfLignes = []
 listOfIds = []
@@ -88,7 +88,7 @@ newId=1 # 1 -> this Id is new 0 -> this Id is already known
 
 ##  read vsearch assignement --blast6out
 with open(vsearchFile,'r') as readFile:
-    for ligne in readFile.readlines():     
+    for ligne in readFile.readlines():
         ligneSplit=ligne.split(";")
         thisLigne= Ligne("NA","NA","NA","NA","NA","NA","NA")
         thisLigne.id_ligne=str(ligneSplit[0].split(" ")[0].replace(">",""))
@@ -98,7 +98,7 @@ with open(vsearchFile,'r') as readFile:
             if "count" in ligneSplit[0]:
                 thisCount=ligneSplit[0].split("=")[1]
                 thisLigne.count=thisCount
-            for elem in ligneSplit[1:]:            
+            for elem in ligneSplit[1:]:
                 elemSplit=elem.split("=")
                 if len(elemSplit) > 1:
                     infoTag=elemSplit[0].replace(" ","")
@@ -107,7 +107,7 @@ with open(vsearchFile,'r') as readFile:
                         exec(elem.replace("\t"," ").replace(" ",""))
                         thisLigne.merged_sample=merged_sample
                     elif infoTag == "count":
-                        thisLigne.count=ligneSplit[0].split("=")[1]
+                        thisLigne.count=infoVal
                     elif infoTag == "family_name":
                         thisLigne.family_name=infoVal
                     elif infoTag == "genus_name":

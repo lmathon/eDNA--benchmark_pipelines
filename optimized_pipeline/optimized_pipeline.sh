@@ -119,8 +119,10 @@ python3 optimized_pipeline/unique_id_obifasta.py $all_sample_sequences_sort > $a
 all_sample_sequences_vsearch_tag="${all_sample_sequences_uniqid/.fasta/.tag.fasta}"
 $vsearch --usearch_global $all_sample_sequences_uniqid --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
-sed -i 's/ merged_sample=/; merged_sample=/g' $all_sample_sequences_vsearch_tag
-python3 optimized_pipeline/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/opt_pipeline.csv
+### preformat
+all_sample_sequences_vsearch_preformat="${all_sample_sequences_vsearch_tag/.fasta/.preformat.fasta}"
+tr "\t" ";" < $all_sample_sequences_vsearch_tag | sed 's/ merged_sample=/; merged_sample=/g' > $all_sample_sequences_vsearch_preformat
+python3 optimized_pipeline/vsearch2obitab.py -a $all_sample_sequences_vsearch_preformat -o $fin_dir/opt_pipeline.csv
 
 
 #gzip $main_dir/*
