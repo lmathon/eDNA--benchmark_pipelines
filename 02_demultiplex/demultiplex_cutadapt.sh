@@ -61,7 +61,7 @@ fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
 
 ## assign each sequence to a sample
 $cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R \
--y '; sample={name};' -e 0 -j 16 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
+-y '; sample={name};' -e 0 -j 1 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
 --untrimmed-paired-output $main_dir/unassigned_R2.fastq \
 --untrimmed-output $main_dir/unassigned_R1.fastq \
 $R1_fastq $R2_fastq
@@ -69,7 +69,7 @@ $R1_fastq $R2_fastq
 ## Remove primers
 $cutadapt --pair-adapters --pair-filter=both \
 -g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG \
--e 0.12 -j 16 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq \
+-e 0.12 -j 1 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq \
 --untrimmed-paired-output $main_dir/untrimmed_R2.fastq \
 --untrimmed-output $main_dir/untrimmed_R1.fastq \
 $main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq

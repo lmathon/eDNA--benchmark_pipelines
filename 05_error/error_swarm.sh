@@ -88,7 +88,7 @@ do
   echo "$obiannotate -S 'size:count' "$good_sequence_sample" | $container_python2 /share/reservebenefit/working/lmathon/eDNA--benchmark_pipelines/05_error/formate_header.py > "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
-  echo " /usr/bin/time $swarm -z -f -t 16 -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh
+  echo " /usr/bin/time $swarm -z -f -t 1 -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh
   echo "sed -i 's/;/; /g' "$clean_sequence_sample >> $sample_sh
   echo "sed -i 's/:/: /g' "$clean_sequence_sample >> $sample_sh
   echo "sed -i 's/SUB;/SUB/g' "$clean_sequence_sample >> $sample_sh

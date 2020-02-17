@@ -82,7 +82,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
 # Keep only sequences longer than 20pb with no N bases
 good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $vsearch --fastx_filter "$dereplicated_sample" --notrunclabels --threads 16 --fastq_maxns 0 --fastq_minlen 20 --fastaout "$good_sequence_sample >> $sample_sh
+echo "/usr/bin/time $vsearch --fastx_filter "$dereplicated_sample" --notrunclabels --threads 1 --fastq_maxns 0 --fastq_minlen 20 --fastaout "$good_sequence_sample >> $sample_sh
 # Removal of PCR and sequencing errors (variants)
 clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
 echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
