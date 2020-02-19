@@ -28,7 +28,7 @@ DATA_PATH="/00_Input_data/forward_reverse_reads/"
 INPUT_DATA=`pwd`"/00_Input_data/"
 
 ## path to reference database folder
-REFDB_PATH=`pwd`"/00_Input_data/reference_database/"
+REFDB_PATH=`pwd`"/00_Input_data/reference_database"
 
 
 ###############################################################################
