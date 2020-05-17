@@ -54,7 +54,7 @@ fin_dir=`pwd`"/01_merging/Outputs/02_flash/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-/usr/bin/time $flash $R1_fastq $R2_fastq -t 1 -m 10 -M 150 -x 0.25 -d $main_dir -o $pref
+/usr/bin/time $flash $R1_fastq $R2_fastq -t 16 -m 10 -M 150 -x 0.25 -d $main_dir -o $pref
 ## Assign each sequence to a sample
 /usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".extendedFrags.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 ## Split big file into one file per sample

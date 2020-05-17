@@ -66,7 +66,7 @@ bash 99_utils/mega_download/download_input_data.sh
 ```
 The `forward_reverse_reads` folder will be created at [00_Input_data/forward_reverse_reads](00_Input_data).
 
-The reference database needed for the taxonomic assignment step is also stored on MEGA and will be downloaded at the same time as the input FASTQ files. The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data) :
+The reference database needed for the taxonomic assignment step is also stored on MEGA and will be downloaded at the same time as the input FASTQ files. The `reference_database` folder will be created at [00_Input_data/reference_database](00_Input_data).
 
 
 ## Sample description file
@@ -75,7 +75,7 @@ The sample description file, containing the primers and the tags associated to e
 
 ## Abundance data 
 
-Thanks to the simulated dataset, we know exactly the relative abundance of each species in each sample and replicate. These data can be found here [species_abundance_per_sample](grinder_simulations/Outputs/species_abundance_per_sample) and will be compared to the output of each pipeline tested to assess their efficiency.
+Thanks to the simulated dataset, we know exactly the relative abundance of each species in each sample and replicate. These data can be found [here](00_Input_data/species_abundance_per_sample) and will be compared to the output of each pipeline tested to assess their efficiency.
 
 (Note that the input FASTQ files and the abundance data will change each time you run a grinder simulation. The files given here correspond to the grinder simulation made to obtain the data for our program comparison)
   

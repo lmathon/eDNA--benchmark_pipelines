@@ -114,7 +114,7 @@ all_sample_sequences_sort_uppercase="${all_sample_sequences_uniqid/.fasta/.upper
 awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $0}}' $all_sample_sequences_uniqid > $all_sample_sequences_sort_uppercase
 ## Taxonomic assignation
 all_sample_sequences_sintax_ann="${all_sample_sequences_sort/.fasta/.sintax_ann.csv}"
-$usearch -sintax $all_sample_sequences_sort_uppercase -db $refdb_dir -sintax_cutoff 0.98 -threads 1 -strand plus -tabbedout $all_sample_sequences_sintax_ann
+$usearch -sintax $all_sample_sequences_sort_uppercase -db $refdb_dir -sintax_cutoff 0.98 -threads 16 -strand plus -tabbedout $all_sample_sequences_sintax_ann
 ## Create final table
 python3 06_assignation/sintax2obitab.py -s $all_sample_sequences_sintax_ann -o $fin_dir/"$step".csv
 

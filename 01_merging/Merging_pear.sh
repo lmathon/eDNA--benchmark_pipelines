@@ -54,7 +54,7 @@ fin_dir=`pwd`"/01_merging/Outputs/05_pear/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-/usr/bin/time $pear -f $R1_fastq -r $R2_fastq -v 10 -c 0 -n 0 -j 1 -o $main_dir/"$pref"
+/usr/bin/time $pear -f $R1_fastq -r $R2_fastq -v 10 -c 0 -n 0 -j 16 -o $main_dir/"$pref"
 ## Assign each sequence to a sample
 /usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".assembled.fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 ## Split big file into one file per sample
