@@ -32,7 +32,7 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 casper=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" casper"
 
 # Prefix for all generated files
-pref=grinder_teleo1
+pref=Banyuls
 # Prefix of the final table 
 step=merging_casper
 # Path to forward and reverse fastq files

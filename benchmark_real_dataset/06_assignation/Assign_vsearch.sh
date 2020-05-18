@@ -36,7 +36,7 @@ container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 
 ## Prefix for all generated files
-pref="grinder_teleo1"
+pref="Banyuls"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step=assign_vsearch
 ## Path to the directory containing forward and reverse reads

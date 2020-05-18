@@ -37,7 +37,7 @@ container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
 
 ## Prefix for all generated files
-pref="grinder_teleo1"
+pref="Banyuls"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step="error_vsearch"
 ## Path to the directory containing forward and reverse reads
@@ -52,8 +52,8 @@ base_dir=${REFDB_PATH}
 ### remove '.' and  '_' from the prefix files
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 ## path to outputs final and temporary (main)
-main_dir=`pwd`"/05_error/Outputs/02_vsearch/main"
-fin_dir=`pwd`"/05_error/Outputs/02_vsearch/final"
+main_dir=`pwd`"/benchmark_real_dataset/05_error/Outputs/02_vsearch/main"
+fin_dir=`pwd`"/benchmark_real_dataset/05_error/Outputs/02_vsearch/final"
 
 
 ################################################################################################

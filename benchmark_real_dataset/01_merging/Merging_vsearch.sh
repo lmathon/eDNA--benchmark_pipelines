@@ -32,7 +32,7 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 
 # Prefix for all generated files
-pref=grinder_teleo1
+pref=Banyuls
 # Prefix of the final table 
 step=merging_vsearch
 # Path to forward and reverse fastq files

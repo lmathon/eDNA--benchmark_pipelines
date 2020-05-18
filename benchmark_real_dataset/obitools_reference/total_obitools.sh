@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#!/bin/bash
 ###############################################################################
 ## Codes for the paper:
 ##   ..............
@@ -29,13 +31,12 @@ obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
 ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
-ngmerge=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" ngmerge"
 
 # Prefix for all generated files
 pref=Banyuls
 # Prefix of the final table 
-step=merging_ngmerge
-# Path to forward and reverse fastq files
+step=total_obitools
+## Path to forward and reverse fastq files
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 # Path to file 'sample_description_file.txt'
@@ -47,23 +48,25 @@ base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
 # Path to intermediate and final folders
-main_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/06_ngmerge/main"
-fin_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/06_ngmerge/final"
+main_dir=`pwd`"/benchmark_real_dataset/obitools_reference/outputs_obitools/main"
+fin_dir=`pwd`"/benchmark_real_dataset/obitools_reference/outputs_obitools/final"
 
 
-###################################################################################################################
-
+################################################################################################
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $ngmerge -1 ${R1_fastq} -2 ${R2_fastq} -o ${assembly}
-
+/usr/bin/time $illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
+## Remove non-aligned reads
+assembly_ali="${assembly/.fastq/.ali.fastq}"
+/usr/bin/time $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 ## Assign each sequence to a sample
-identified="${assembly/.fastq/.ali.assigned.fasta}"
-unidentified="${assembly/.fastq/_unidentified.fastq}"
-$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly} --fasta-output > ${identified}
-## Split big file into one file per sample
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
+identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
+unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
+/usr/bin/time $ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
+## Split big file into one file per sample 
+/usr/bin/time $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
+################################################################################################
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh
 for sample in `ls $main_dir/"$pref"_sample_*.fasta`;
@@ -92,7 +95,7 @@ all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
 /usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq -m 0.98 > $all_sample_sequences_tag
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
-$obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
+/usr/bin/time $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
  --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
  --delete-tag=obiclean_cluster --delete-tag=obiclean_internalcount \
  --delete-tag=obiclean_head  --delete-tag=obiclean_headcount \
@@ -103,8 +106,8 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
  --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single $all_sample_sequences_tag > $all_sample_sequences_ann
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
-$obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
+/usr/bin/time $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # Create the final table
-$obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
+/usr/bin/time $obitab -o $all_sample_sequences_sort > $fin_dir/"$step".csv
 
 gzip $main_dir/*

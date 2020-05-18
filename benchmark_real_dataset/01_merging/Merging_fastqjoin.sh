@@ -32,7 +32,7 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 fastqjoin=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" fastq-join"
 
 # Prefix for all generated files
-pref=grinder_teleo1
+pref=Banyuls
 # Prefix of the final table 
 step=merging_fastqjoin
 # Path to forward and reverse fastq files

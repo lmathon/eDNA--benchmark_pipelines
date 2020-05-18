@@ -32,7 +32,7 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 flash=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" flash"
 
 # Prefix for all generated files
-pref=grinder_teleo1
+pref=Banyuls
 # Prefix of the final table 
 step=merging_flash
 # Path to forward and reverse fastq files

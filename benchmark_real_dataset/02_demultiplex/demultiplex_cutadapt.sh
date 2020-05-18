@@ -36,15 +36,15 @@ obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
 cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
 
 ## Prefix for all generated files
-pref="grinder_teleo1"
+pref=Banyuls
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step="demultiplex_cutadapt"
 ## Path to the directory containing forward and reverse reads
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
-Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
-Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
+Tags_F=`pwd`"/benchmark_real_dataset/02_demultiplex/Tags_F.fasta"
+Tags_R=`pwd`"/benchmark_real_dataset/02_demultiplex/Tags_R.fasta"
 ## path to the file 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
 ## Path to embl files of the reference database
