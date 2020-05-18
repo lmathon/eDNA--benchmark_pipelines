@@ -47,8 +47,8 @@ base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//g' | awk -F/ '{print $NF}' | uniq`
 # Path to intermediate and final folders
-main_dir=`pwd`"/01_merging/Outputs/02_flash/main"
-fin_dir=`pwd`"/01_merging/Outputs/02_flash/final"
+main_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/02_flash/main"
+fin_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/02_flash/final"
 
 
 ###################################################################################################################

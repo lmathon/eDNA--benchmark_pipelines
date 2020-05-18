@@ -51,8 +51,8 @@ sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
 refdb_dir=`pwd`"/06_assignation/db_teleo_sintax.fasta"
 ## path to outputs final and temporary (main)
-main_dir=`pwd`"/06_assignation/Outputs/02_sintax/main"
-fin_dir=`pwd`"/06_assignation/Outputs/02_sintax/final"
+main_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/02_sintax/main"
+fin_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/02_sintax/final"
 
 
 ################################################################################################

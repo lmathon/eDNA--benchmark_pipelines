@@ -52,8 +52,8 @@ base_dir=${REFDB_PATH}
 ### remove '.' and  '_' from the prefix files
 base_pref=`ls $base_dir/*sdx | sed 's/_[0-9][0-9][0-9].sdx//'g | awk -F/ '{print $NF}' | uniq`
 ## path to outputs final and temporary (main)
-main_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/main"
-fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
+main_dir=`pwd`"/benchmark_real_dataset/02_demultiplex/Outputs/01_cutadapt/main"
+fin_dir=`pwd`"/benchmark_real_dataset/02_demultiplex/Outputs/01_cutadapt/final"
 
 
 
