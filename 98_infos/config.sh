@@ -10,8 +10,8 @@
 ## singularity containers path
 
 ## mbb
-EDNATOOLS_SIMG="/99_utils/containers/ednatools.simg"
-OBITOOLS_SIMG="/99_utils/containers/obitools.simg"
+#EDNATOOLS_SIMG="/99_utils/containers/ednatools.simg"
+#OBITOOLS_SIMG="/99_utils/containers/obitools.simg"
 
 
 ## Singularity exec command
@@ -22,8 +22,8 @@ SINGULARITY_EXEC_CMD="singularity exec "
 ## Input data
 
 ## path to folder of reads forward et reverse
-DATA_PATH="/00_Input_data/forward_reverse_reads/"
-
+#DATA_PATH="/00_Input_data/forward_reverse_reads/"
+DATA_PATH="/share/reservebenefit/working/Input_data/Outputs/"
 
 INPUT_DATA=`pwd`"/00_Input_data/"
 
