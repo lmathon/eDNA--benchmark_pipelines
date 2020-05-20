@@ -34,4 +34,4 @@ REFDB_PATH=`pwd`"/benchmark_real_dataset/00_Input_data/reference_database"
 ###############################################################################
 
 ## number of available cores
-CORES=1
+CORES=16

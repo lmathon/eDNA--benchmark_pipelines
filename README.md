@@ -3,8 +3,8 @@
 # benchmark_pipelines
 
 Assessment of metabarcoding data pipelines :
-The goal of this study is to compare the performance of several bioinformatic tools to analyze fish eDNA data, in order to build the most efficient pipeline.
-Seven steps of the analysis were identified, from the assembly of paired-end reads to the taxonomic assignation.
+The goal of this study is to compare the performance of several bioinformatic tools to analyze fish eDNA data.
+Six steps of the analysis were identified, from the assembly of paired-end reads to the taxonomic assignation.
 For each of these steps, different programs to compare were identified, as shown below :
 
 ![pipeline_schema](schema_protocole.PNG)
@@ -12,6 +12,8 @@ For each of these steps, different programs to compare were identified, as shown
 For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([obitools_reference](obitools_reference/total_obitools.sh)). This pipeline is based on [Obitools](https://git.metabarcoding.org/obitools/obitools/wikis/home), a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
 
 The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2 and BARQUE).
+
+The comparison is made on simulated data, to be able to assess the performance of each program to retrieve the samples taxonomic composition. The comparison is also verified on a real dataset, composed of samples from Banyuls reserve, France.
 
 # Dependencies
 
@@ -26,7 +28,7 @@ The optimal pipeline obtained will be again compared to existant complete pipeli
 
 ## Install from source code
 
-To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [SWARM](https://github.com/torognes/swarm) and [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html).
+To install all the programs used in this study, please follow the instructions on their installation pages : [ObiTools](https://pythonhosted.org/OBITools/welcome.html#installing-the-obitools), [VSEARCH](https://github.com/torognes/vsearch), [PEAR](http://www.exelixis-lab.org/web/software/pear), [FLASH](https://sourceforge.net/projects/flashpage/files), [CASPER](http://best.snu.ac.kr/casper/index.php?name=manual), [fastq-join](https://github.com/brwnj/fastq-join), [NGmerge](https://github.com/jsh58/NGmerge), [fastp](https://github.com/OpenGene/fastp), [cutadapt](https://cutadapt.readthedocs.io/en/stable/installation.html), [Prinseq](https://sourceforge.net/projects/prinseq/files/), [SWARM](https://github.com/torognes/swarm) and [SINTAX](https://www.drive5.com/usearch/manual/cmd_sintax.html).
 
 The installation guidelines for the complete pipelines can be found here : [QIIME2](https://docs.qiime2.org/2019.4/install) and [BARQUE](https://github.com/enormandeau/barque).
 
@@ -164,4 +166,8 @@ Time reports for each program compared are stored [here](99_utils/submitjob_sge_
 
 # Optimized pipeline
 
-The optimized pipeline built with the most performant program from each step is [here](optimized_pipeline/optimized_pipeline.sh)
+The most performant programs for each step were assembled into a pipeline, and compared to the other complete pipelines.
+
+# Real dataset
+
+The comparison adapted fro a real dataset can be found in [benchmark_real_dataset](benchmark_real_dataset), and is built with the same structure as with simulated data.
