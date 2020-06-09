@@ -29,7 +29,7 @@ obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
 ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
-ngmerge=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" ngmerge"
+ngmerge=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" NGmerge"
 
 # Prefix for all generated files
 pref=grinder_teleo1
