@@ -55,7 +55,7 @@ fin_dir=`pwd`"/01_merging/Outputs/06_ngmerge/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $ngmerge -1 ${R1_fastq} -2 ${R2_fastq} -m 10 -p 25 -n 1 -o ${assembly}
+/usr/bin/time $ngmerge -1 ${R1_fastq} -2 ${R2_fastq} -m 10 -p 0.25 -n 1 -o ${assembly}
 
 ## Assign each sequence to a sample
 identified="${assembly/.fastq/.ali.assigned.fasta}"
