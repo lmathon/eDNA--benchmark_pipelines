@@ -41,12 +41,12 @@ pref="Banyuls"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step="filter_vsearch"
 ## Path to the directory containing forward and reverse reads
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 ## path to the file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
+refdb_dir=${REFDB_PATH}"/db_banyuls.fasta"
 ## Path to embl files of the reference database
 base_dir=${REFDB_PATH}
 ### remove '.' and  '_' from the prefix files

@@ -9,13 +9,18 @@
 ###############################################################################
 ## singularity containers path
 
-## mbb
+## public
 #EDNATOOLS_SIMG="/99_utils/containers/ednatools.simg"
 #OBITOOLS_SIMG="/99_utils/containers/obitools.simg"
+#SINGULARITY_EXEC_CMD="singularity exec"
+
+## mbb
+EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
+OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
 
 
 ## Singularity exec command
-SINGULARITY_EXEC_CMD="singularity exec " 
+SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share" 
 
 
 ###############################################################################
@@ -25,11 +30,11 @@ SINGULARITY_EXEC_CMD="singularity exec "
 #DATA_PATH="/00_Input_data/forward_reverse_reads/"
 DATA_PATH="/share/reservebenefit/working/Input_data/"
 
-INPUT_DATA=`pwd`"/benchmark_real_dataset/00_Input_data/"
+INPUT_DATA=`pwd`"/00_Input_data/"
 
 ## path to reference database folder
-REFDB_PATH=`pwd`"/benchmark_real_dataset/00_Input_data/reference_database"
-
+#REFDB_PATH=`pwd`"/00_Input_data/reference_database"
+REFDB_PATH="/share/reservebenefit/working/reference_database/"
 
 ###############################################################################
 

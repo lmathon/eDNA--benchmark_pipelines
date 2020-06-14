@@ -44,12 +44,12 @@ pref="Banyuls"
 ## Prefix of the final table, including the step and the program tested (ie: merging_obitools)
 step=assign_sintax
 ## Path to the directory containing forward and reverse reads
-R1_fastq="$DATA_PATH"/"$pref"/"$pref"_R1.fastq
-R2_fastq="$DATA_PATH"/"$pref"/"$pref"_R2.fastq
+R1_fastq="$DATA_PATH"/"$pref"/"$pref"_R1.fastq.gz
+R2_fastq="$DATA_PATH"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir=`pwd`"/06_assignation/db_teleo_sintax.fasta"
+refdb_dir=`pwd`"/06_assignation/db_banyuls_sintax.fasta"
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/02_sintax/main"
 fin_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/02_sintax/final"

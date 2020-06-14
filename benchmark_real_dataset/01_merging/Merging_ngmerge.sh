@@ -29,19 +29,19 @@ obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
 ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 obitab=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obitab"
-ngmerge=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" ngmerge"
+ngmerge=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" NGmerge"
 
 # Prefix for all generated files
 pref=Banyuls
 # Prefix of the final table 
 step=merging_ngmerge
 # Path to forward and reverse fastq files
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 # Path to file 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Path to file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
+refdb_dir=${REFDB_PATH}"/db_banyuls.fasta"
 # Path to all files 'embl' of the reference database
 base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
@@ -55,7 +55,7 @@ fin_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/06_ngmerge/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $ngmerge -1 ${R1_fastq} -2 ${R2_fastq} -m 10 -p 25 -n 16 -o ${assembly}
+/usr/bin/time $ngmerge -1 ${R1_fastq} -2 ${R2_fastq} -m 10 -p 0.25 -n 16 -o ${assembly}
 
 ## Assign each sequence to a sample
 identified="${assembly/.fastq/.ali.assigned.fasta}"

@@ -36,12 +36,12 @@ pref=Banyuls
 # Prefix of the final table 
 step=merging_fastp
 # Path to forward and reverse fastq files
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 # Path to file 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Path to file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
+refdb_dir=${REFDB_PATH}"/db_banyuls.fasta"
 # Path to all files 'embl' of the reference database
 base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
@@ -55,7 +55,7 @@ fin_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/07_fastp/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $fastp -i ${R1_fastq} -I ${R2_fastq} --merge --overlap_len_require 10 --overlap_diff_limit 15 --overlap_diff_limit_percent 25 -w 16 --merged_out ${assembly}
+/usr/bin/time $fastp -i ${R1_fastq} -I ${R2_fastq} --merge --overlap_len_require 10 --overlap_diff_limit 15 --overlap_diff_percent_limit 25 -w 16 --merged_out ${assembly}
 
 ## Assign each sequence to a sample
 identified="${assembly/.fastq/.ali.assigned.fasta}"

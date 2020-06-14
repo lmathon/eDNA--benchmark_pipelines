@@ -9,13 +9,19 @@
 ###############################################################################
 ## singularity containers path
 
-## mbb
+## public
 #EDNATOOLS_SIMG="/99_utils/containers/ednatools.simg"
 #OBITOOLS_SIMG="/99_utils/containers/obitools.simg"
+#SINGULARITY_EXEC_CMD="singularity exec"
+
+## mbb
+EDNATOOLS_SIMG="/share/reservebenefit/utils/conteneurs/ednatools.simg"
+OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
 
 
 ## Singularity exec command
-SINGULARITY_EXEC_CMD="singularity exec " 
+SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share" 
+
 
 
 ###############################################################################

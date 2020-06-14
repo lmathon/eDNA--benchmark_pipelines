@@ -55,7 +55,7 @@ fin_dir=`pwd`"/01_merging/Outputs/07_fastp/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fastq"
-/usr/bin/time $fastp -i ${R1_fastq} -I ${R2_fastq} --merge --overlap_len_require 10 --overlap_diff_limit 15 --overlap_diff_oercent_limit 25 -w 1 --merged_out ${assembly}
+/usr/bin/time $fastp -i ${R1_fastq} -I ${R2_fastq} --merge --overlap_len_require 10 --overlap_diff_limit 15 --overlap_diff_percent_limit 25 -w 1 --merged_out ${assembly}
 
 ## Assign each sequence to a sample
 identified="${assembly/.fastq/.ali.assigned.fasta}"
