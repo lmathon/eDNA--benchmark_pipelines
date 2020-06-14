@@ -17,7 +17,7 @@
 ##
 ###############################################################################
 ## load config global variables
-source 98_infos/config.sh
+source benchmark_real_dataset/98_infos/config.sh
 
 illuminapairedend=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" illuminapairedend"
 obigrep=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obigrep"
