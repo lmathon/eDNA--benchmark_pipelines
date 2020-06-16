@@ -43,8 +43,7 @@ step="demultiplex_cutadapt"
 R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
 R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
-Tags_F=`pwd`"/02_demultiplex/Tags_F.fasta"
-Tags_R=`pwd`"/02_demultiplex/Tags_R.fasta"
+Tags=`pwd`"/02_demultiplex/Tags.fasta"
 ## path to the file 'db_sim_teleo1.fasta'
 refdb_dir=${REFDB_PATH}"/db_teleo1.fasta"
 ## Path to embl files of the reference database
@@ -58,41 +57,40 @@ fin_dir=`pwd`"/02_demultiplex/Outputs/01_cutadapt/final"
 
 
 ################################################################################################
+## forward and reverse reads assembly
+assembly=${main_dir}"/"${pref}".fastq"
+$illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
+## Remove non-aligned reads
+assembly_ali="${assembly/.fastq/.ali.fastq}"
+$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+
 
 ## assign each sequence to a sample
-$cutadapt --pair-adapters --pair-filter=both -g file:$Tags_F -G file:$Tags_R \
--y '; sample={name};' -e 0 -j 1 -O 8 -o $main_dir/R1.assigned.fastq -p $main_dir/R2.assigned.fastq \
---untrimmed-paired-output $main_dir/unassigned_R2.fastq \
---untrimmed-output $main_dir/unassigned_R1.fastq \
-$R1_fastq $R2_fastq
-
+identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
+unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
+/usr/bin/time $cutadapt -g file:$Tags -y '; sample={name};' -e 0 -j 1 -O 8 -o ${identified} \
+--untrimmed-output ${unidentified} ${assembly_ali}
 ## Remove primers
-$cutadapt --pair-adapters --pair-filter=both \
--g assigned=^ACACCGCCCGTCACTCT -G assigned=^CTTCCGGTACACTTACCATG \
--e 0.12 -j 1 -O 15 -o $main_dir/R1.assigned2.fastq -p $main_dir/R2.assigned2.fastq \
---untrimmed-paired-output $main_dir/untrimmed_R2.fastq \
---untrimmed-output $main_dir/untrimmed_R1.fastq \
-$main_dir/R1.assigned.fastq $main_dir/R2.assigned.fastq
+trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
+untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
+/usr/bin/time $cutadapt -g "acaccgcccgtcactct...catggtaagtgtaccggaag" \
+-e 0.12 -j 1 -O 15 -o ${trimmed} --untrimmed-output ${untrimmed}\
+${identified}
+
 
 ##Format file post cutadapt for obitools
-$obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
-$obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
-sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
-sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
+#$obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
+#$obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
+#sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
+#sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
 
-## forward and reverse reads assembly
-assembly=${main_dir}"/"${pref}".assigned.fastq"
-$illuminapairedend -r $main_dir/R2.assigned3.fastq $main_dir/R1.assigned3.fastq > ${assembly}
+
 # Format header for obitools
-sed  -i -e "s/_CONS//g" ${assembly}
-sed  -i -e "s/_sample/_CONS sample/g" ${assembly}
-
-## Discard non-aligned reads
-assembly_ali="${assembly/.fastq/.ali.fasta}"
-$obigrep -p 'mode!="joined"' ${assembly} --fasta-output > ${assembly_ali}
+#sed  -i -e "s/_CONS//g" ${assembly}
+#sed  -i -e "s/_sample/_CONS sample/g" ${assembly}
 
 # split global file into sample files
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${assembly_ali}
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${trimmed}
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh
