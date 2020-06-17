@@ -65,7 +65,7 @@ assembly_ali="${assembly/.fastq/.ali.fastq}"
 $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 # Keep only sequences longer than 20pb with no N bases
 filtered="${assembly_ali/.ali.fastq/.ali.l20.fastq}"
-/usr/bin/time $fastp -i ${assembly_ali} -n 0 -l 20 -q 0 -u 100 -w 1 -o ${filtered}
+/usr/bin/time $fastp -i ${assembly_ali} -n 0 -l 20 -q 0 -u 100 -w 16 -o ${filtered}
 ## Assign each sequence to a sample
 identified="${filtered/.l20.fastq/.l20.assigned.fasta}"
 unidentified="${filtered/.l20.fastq/_unidentified.fastq}"

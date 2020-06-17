@@ -68,7 +68,7 @@ $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 ## assign each sequence to a sample
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
-/usr/bin/time $cutadapt -g file:$Tags -y '; sample={name};' -e 0 -j 1 -O 8 -o ${identified} \
+/usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 1 -O 8 -o ${identified} \
 --untrimmed-output ${unidentified} ${assembly_ali}
 ## Remove primers
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
@@ -76,18 +76,6 @@ untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
 /usr/bin/time $cutadapt -g "acaccgcccgtcactct...catggtaagtgtaccggaag" \
 -e 0.12 -j 1 -O 15 -o ${trimmed} --untrimmed-output ${untrimmed}\
 ${identified}
-
-
-##Format file post cutadapt for obitools
-#$obiannotate $main_dir/R1.assigned2.fastq -k sample > $main_dir/R1.assigned3.fastq
-#$obiannotate $main_dir/R2.assigned2.fastq -k sample > $main_dir/R2.assigned3.fastq
-#sed  -i -e "s/ sample/_sample/g" $main_dir/R1.assigned3.fastq
-#sed  -i -e "s/ sample/_sample/g" $main_dir/R2.assigned3.fastq
-
-
-# Format header for obitools
-#sed  -i -e "s/_CONS//g" ${assembly}
-#sed  -i -e "s/_sample/_CONS sample/g" ${assembly}
 
 # split global file into sample files
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${trimmed}
