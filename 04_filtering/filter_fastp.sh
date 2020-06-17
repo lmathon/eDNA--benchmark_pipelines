@@ -64,10 +64,13 @@ $illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
 ## Remove non-aligned reads
 assembly_ali="${assembly/.fastq/.ali.fastq}"
 $obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+# Keep only sequences longer than 20pb with no N bases
+filtered="${assembly_ali/.ali.fastq/.ali.l20.fastq}"
+/usr/bin/time $fastp -i ${assembly_ali} -n 0 -l 20 -q 0 -u 100 -w 1 -o ${filtered}
 ## Assign each sequence to a sample
-identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
-unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
-$ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
+identified="${filtered/.l20.fastq/.l20.assigned.fasta}"
+unidentified="${filtered/.l20.fastq/_unidentified.fastq}"
+$ngsfilter -t ${sample_description_file} -u ${unidentified} ${filtered} --fasta-output > ${identified}
 ## Split big file into one file per sample 
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
@@ -80,17 +83,14 @@ echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 # Dereplicate reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo "$obiuniq -m sample "$sample" > "$dereplicated_sample > $sample_sh;
-# Keep only sequences longer than 20pb with no N bases
-good_sequence_sample="${dereplicated_sample/.fasta/.l20.fasta}"
-echo "/usr/bin/time $fastp -i "$dereplicated_sample" -n 0 -l 20 -w 1 -o "$good_sequence_sample >> $sample_sh
 # Removal of PCR and sequencing errors (variants)
-clean_sequence_sample="${good_sequence_sample/.fasta/.r005.clean.fasta}"
-echo "$obiclean -r 0.05 -H "$good_sequence_sample" > "$clean_sequence_sample >> $sample_sh
+clean_sequence_sample="${dereplicated_sample/.fasta/.r005.clean.fasta}"
+echo "$obiclean -r 0.05 -H "$dereplicated_sample" > "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
 # Concatenate all files into one main file
 all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
-cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences_clean
+cat $main_dir/"$pref"_sample_*.uniq.r005.clean.fasta > $all_sample_sequences_clean
 # Dereplicate in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
