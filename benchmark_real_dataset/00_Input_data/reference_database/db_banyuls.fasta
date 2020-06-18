@@ -1,416 +1,617 @@
->EB001 family_name=Torpedinidae; genus_name=Torpedo; species_name=Torpedo marmorata;
-CCTCAAACTTGAAAATTTACTTACATAAAAAATTACAAACATAAGAGGAGGCAAGTCGTAA
->EB003mf family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena elongata;
-CCCCAAAAACATCAACCAATGTACATAAAAACTAAGAACTACAGAGGGGAGGCAAGTCGTAA
->EB004 family_name=Sparidae; genus_name=Pagellus; species_name=Pagellus acarne;
-CCCCGAAACCTTAACTTTACATTAACTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCGTAA
->EB005 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus tinca;
-CCCCGAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB006 family_name=Sparidae; genus_name=Sparus; species_name=Sparus aurata;
-CCCCGAGACCTTAACTTACATTAACTAAAATGCCAGAATCATAGAGGGGAGGCAAGTCGTAA
->EB007 family_name=Scophthalmidae; genus_name=Lepidorhombus; species_name=Lepidorhombus boscii;
-CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGTAA
->EB008 family_name=Mugilidae; genus_name=Liza; species_name=Liza sp;
-CCCCGAAATAAGAATCTCTTATATCTAATTATACACAAAAATATAAGGGGAGGCAAGTCGTAA
->EB009 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger;
-CCCCAAACGACCAATAATCATAATTAATACAACACCAAATACTAAGGGGAGGTAAGTCGTAA
->EB010 family_name=Mugilidae; genus_name=Chelon; species_name=Liza ramada;
-CCCCGAAATAATGAATTTCTTATATCTAATTACCCACATAAATATAAGGGGAGGCAAGTCGTAA
->EB012 family_name=Serranidae; genus_name=Serranus; species_name=Serranus cabrilla;
-CCCCAAACCCTTACAAATACTTTTATATAAAGCCCTATAGTTCACAAGGGGAGGCAAGTCGTAA
->EB013 family_name=Sparidae; genus_name=Dentex; species_name=Dentex dentex;
-CCCCGAAACTTTACCAAAACATTAATTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCGTAA
->EB014 family_name=Mullidae; genus_name=Mullus; species_name=Mullus surmuletus;
-CCCCGAATCAGTCTCTGACAAGTAATTAACACCTTGACGCCGTAGAGGGGAGGCAAGTCGTAA
->EB015 family_name=Triglidae; genus_name=Trigla; species_name=Trigla lyra;
-CCCCAAGCTTACAAATTAATTAATTAAAACCCTAAGATTGCAAAGGGGAGGCAAGTCGTAA
->EB017 family_name=Mullidae; genus_name=Mullus; species_name=Mullus surmuletus;
-CCCCGAATCAGTCTCTGACAAGTAATTAACACCTTGACGCCGTAGAGGGGAGGCAAGTCGTAA
->EB019 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus sargus;
-CCCCGAGACTTTTAATTTACATTAACTAAGATGCCAAAATCACAGAGGGGAGGCAAGTCGTAA
->EB022 family_name=Labridae; genus_name=Coris; species_name=Coris julis;
-CCCCGAGCTAAACTTTATTCTATTACTAATAAACCAAAACTGTAAAGGGGAGGCAAGTCGTAA
->EB024 family_name=Blenniidae; genus_name=Salaria; species_name=Salaria pavo;
+>EB001 family_name=Torpedinidae; genus_name=Torpedo; species_name=Torpedo marmorata; taxid=7788;
+CCTCAAACTTGAAAATTTACTTACATAAAAAATTACAAACATAAGAGGAGGCAAGTCGTA
+A
+>EB003mf family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena elongata; taxid=432168;
+CCCCAAAAACATCAACCAATGTACATAAAAACTAAGAACTACAGAGGGGAGGCAAGTCGT
+AA
+>EB004 family_name=Sparidae; genus_name=Pagellus; species_name=Pagellus acarne; taxid=98817;
+CCCCGAAACCTTAACTTTACATTAACTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB005 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus tinca; taxid=202600;
+CCCCGAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB006 family_name=Sparidae; genus_name=Sparus; species_name=Sparus aurata; taxid=8175;
+CCCCGAGACCTTAACTTACATTAACTAAAATGCCAGAATCATAGAGGGGAGGCAAGTCGT
+AA
+>EB007 family_name=Scophthalmidae; genus_name=Lepidorhombus; species_name=Lepidorhombus boscii; taxid=179372;
+CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGT
+AA
+>EB008 family_name=Mugilidae; genus_name=Liza; species_name=Liza sp; taxid=30803;
+CCCCGAAATAAGAATCTCTTATATCTAATTATACACAAAAATATAAGGGGAGGCAAGTCG
+TAA
+>EB009 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger; taxid 85417;
+CCCCAAACGACCAATAATCATAATTAATACAACACCAAATACTAAGGGGAGGTAAGTCGT
+AA
+>EB010 family_name=Mugilidae; genus_name=Chelon; species_name=Liza ramada; taxid=30804;
+CCCCGAAATAATGAATTTCTTATATCTAATTACCCACATAAATATAAGGGGAGGCAAGTC
+GTAA
+>EB012 family_name=Serranidae; genus_name=Serranus; species_name=Serranus cabrilla; taxid=94953;
+CCCCAAACCCTTACAAATACTTTTATATAAAGCCCTATAGTTCACAAGGGGAGGCAAGTC
+GTAA
+>EB013 family_name=Sparidae; genus_name=Dentex; species_name=Dentex dentex; taxid=94951;
+CCCCGAAACTTTACCAAAACATTAATTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB014 family_name=Mullidae; genus_name=Mullus; species_name=Mullus surmuletus; taxid=87757;
+CCCCGAATCAGTCTCTGACAAGTAATTAACACCTTGACGCCGTAGAGGGGAGGCAAGTCG
+TAA
+>EB015 family_name=Triglidae; genus_name=Trigla; species_name=Trigla lyra; taxid=430084;
+CCCCAAGCTTACAAATTAATTAATTAAAACCCTAAGATTGCAAAGGGGAGGCAAGTCGTA
+A
+>EB017 family_name=Mullidae; genus_name=Mullus; species_name=Mullus surmuletus; taxid=87757;
+CCCCGAATCAGTCTCTGACAAGTAATTAACACCTTGACGCCGTAGAGGGGAGGCAAGTCG
+TAA
+>EB019 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus sargus; taxid=169288;
+CCCCGAGACTTTTAATTTACATTAACTAAGATGCCAAAATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB022 family_name=Labridae; genus_name=Coris; species_name=Coris julis; taxid=317481;
+CCCCGAGCTAAACTTTATTCTATTACTAATAAACCAAAACTGTAAAGGGGAGGCAAGTCG
+TAA
+>EB024 family_name=Blenniidae; genus_name=Salaria; species_name=Salaria pavo; taxid=152553;
 CTCTTAGCTAAATGTAAGCCCATGCTTACTTAATATCAAGGGAGGCAAGTCGTAA
->EB026 family_name=Serranidae; genus_name=Serranus; species_name=Serranus cabrilla;
-CCCCAAACCCTTACAAATACTTTTATATAAAGCCCTATAGTTCACAAGGGGAGGCAAGTCGTAA
->EB030 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus rostratus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB031total family_name=Blenniidae; genus_name=Aidablennius; species_name=Aidablennius sphynx;
-CCGCGAAAATACACCCCTTACATAATTAATTAGATAAAAAAACAGAGCGGAGGAAAGTCGTAA
->EB034 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB035 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus puntazzo;
-CCCCGAGACTTCAAATTTACATTAACTAAAATGCCAAGATCACAGAGGGGAGGCAAGTCGTAA
->EB036 family_name=Sparidae; genus_name=Sarpa; species_name=Sarpa salpa;
-CCCCAAAGCCTTAACTTTACATTAACTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCGTAA
->EB037 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB038 family_name=Soleidae; genus_name=Pegusa; species_name=Pegusa nasuta;
-CTCCTGTATAACCTTATTTTTGTACATAACACCTAAACCATAACCGAGGAGAGAAAAGTCGTAA
->EB039 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena porcus;
-CCCCAAAACCATCGATCAACATACGTAAAAAATCAGAGCTACAAAGGGGAGGCAAGTCGTAA
->EB040 family_name=Lophiidae; genus_name=Lophius; species_name=Lophius budegassa;
-CCCCAAGCTAACGACTAAATATAATTAAATCACAATAACTGCAAAGGGGAGGCAAGTCGTAA
->EB041 family_name=Blenniidae; genus_name=Blennius; species_name=Blennius ocellaris;
-CCCCAAGCTAAACAACCTAAATAATTAATTAATTTAACCAGCAAAGGGGAGGCAAGTCGTAA
->EB042 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB043 family_name=Scophthalmidae; genus_name=Scophthalmus; species_name=Scophtalmus maximus;
-CCCCGAGCTACAAAGTCGACATAACTAAATACCCATTACTGCAAAGGGGAGGAAAGTCGTAA
->EB044 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB045total family_name=Sparidae; genus_name=Lithognathus; species_name=Lithognathus mormyrus;
-CCCCGAGACCTCAATTTACATTAACTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCGTAA
->EB046 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus draco;
-CTCCAAGCCCGATGACTTTAACATAATTAAAACCTAAAATTAGCAAAGGGGGGACAAGTCGTAA
->EB047 family_name=Tripterygiidae; genus_name=Tripterygion; species_name=Tripterygion tripteronotum;
-CCCCTAACTTGTTCAGTAACTTAACTTAAAAAATTAAATTTATGAAGGGGAGGCAAGTCGTAA
->EB048 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus mediterraneus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB049 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena scrofa;
-CCCCAAAAACATCAACCAATGTACATAAAAACTAAGAGCTACAGAGGGGAGGCAAGTCGTAA
->EB051 family_name=Sparidae; genus_name=Pagellus; species_name=Pagellus erythrinus;
-CCCCGAAACTTTAATAAAACATTAATTAAAATGCCAAAATCCTAGAGGGGAGGCAAGTCGTAA
->EB052 family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna;
-CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTAA
->EB053 family_name=Scophthalmidae; genus_name=Scophthalmus; species_name=Scophthalmus rhombus;
-CCCCAAGCTACAAAGTCGACATAACTAAAACCTCATTATTGCAAAGGGGAGGAAAGTCGTAA
->EB054 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB055 family_name=Scophthalmidae; genus_name=Lepidorhombus; species_name=Lepidorhombus boscii;
-CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGTAA
->EB056 family_name=Merlucciidae; genus_name=Merluccius; species_name=Merluccius merluccius;
-CCCCAAATAATTATAAATATTACCTAAAATGTTTTACCAACCAAGGGGAGGCAAGTCGTAA
->EB057 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus typhle;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB058 family_name=Haemulidae; genus_name=Pomadasys; species_name=Pomadasys incisus;
-CCCCCAATGCCCATGAATCTTGATGCATAAATCCTACAATTATAAAGGGGAGGCAAGTCGTAA
->EB059 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus puntazzo;
-CCCCGAGACTTCAAATTTACATTAACTAAAATGCCAAGATCACAGAGGGGAGGCAAGTCGTAA
->EB060 family_name=Carangidae; genus_name=Trachurus; species_name=Trachurus mediterraneus;
-CCCCAAGCTCCTGGACCCTAATCCTACTTAAACCCTAACAAATGCGAAGGAGAGGAAAGTCGTAA
->EB061 family_name=Gobiidae; genus_name=Zosterisessor; species_name=Zosterisessor ophiocephalus;
-CCCCGATGAACCCTAGTAAGATAAATAATAACGCAGCAGACACTAAGGGGAGGTAAGTCGTAA
->EB062 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus annularis;
-CCCCGAGACTTAAAACTTACATTAATTAAAATGCCAAAATCGCAGAGGGGAGGCAAGTCGTAA
->EB063 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB064 family_name=Rajidae; genus_name=Raja; species_name=Raja asterias;
-CCTCAACTTACATCACTCCATTTTATAAATAACTTTTTATCACAAGAGGAGGCAAGTCGTAA
->EB065 family_name=Sparidae; genus_name=Oblada; species_name=Oblada melanura;
-CCCCAAGACCTTTAATTAACATTAACTAAAATGCCAAAATCTCAGAGGGGAGGCAAGTCGTAA
->EB066 family_name=Scombridae; genus_name=Sarda; species_name=Sarda sarda;
-CCCCAAGCTTATCAATACATATATCTAAAACGCTTTAACCGCGAAGGGGAGGCAAGTCGTAA
->EB067 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus sargus;
-CCCCGAGACTTTTAATTTACATTAACTAAGATGCCAAAATCACAGAGGGGAGGCAAGTCGTAA
->EB069 family_name=Sciaenidae; genus_name=Umbrina; species_name=Umbrina canariensis;
-CCCCAAACTAATTAAATTCAATTAAATAAAACCCCATCACAGTGAAGGGGAGGCAAGTCGTAA
->EB073 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger;
-CCCCAAACGACCAATAATCATAATTAATATAACACCAAATACTAAGGGGAGGTAAGTCGTAA
->EB074 family_name=Sparidae; genus_name=Spondyliosoma; species_name=Spondyliosoma cantharus;
-CCCCGAAACCTCGACCTTGCATTAACTAAAATACTAGAATCATAGAGGGGAGGCAAGTCGTAA
->EB076mf family_name=Bothidae; genus_name=Bothus; species_name=Bothus podas;
-CACCAAGCCCCTAGATAACTGTAACTAACCCGCTTCTATGTAGCAAAGGGGAGGAAAGTCGTAA
->EB077 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus melops;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB080 family_name=Lophiidae; genus_name=Lophius; species_name=Lophius budegassa;
-CCCCAAGCTAACGACTAAATATAATTAAATCACAATAACTGCAAAGGGGAGGCAAGTCGTAA
->EB083 family_name=Muraenidae; genus_name=Muraena; species_name=Muraena helena;
-CCTCGAGAACCGAAATGACAATACATAAAAACTTAGGAAAATAGAGAGGAGGCAAGTCGTAA
->EB084 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara flexuosa;
-CCCCGAAACCTCAACTTAAAATTAATTAAAATGCTAGAATCATAGAGGGGAGGCAAGTCGTAA
->EB085 family_name=Serranidae; genus_name=Epinephelus; species_name=Epinephelus marginatus;
-CCCCAAATATACCCTAACACTTTAACTTTAAAAACTTTACATCAGCAAAGGGGAGGCAAGTCGTAA
->EB086 family_name=Triglidae; genus_name=Trigla; species_name=Trigla lyra;
-CCCCAAGCTTACAAATTAATTAATTAAAACCCTAAGATTGCAAAGGGGAGGCAAGTCGTAA
->EB087total family_name=Cepolidae; genus_name=Cepola; species_name=Cepola macrophthalma;
-CCCCAAGCATAAATGTGCTCATAAATAATAACTGATACCTGCAAAGGGGAGGCAAGTCGTAA
->EB088total family_name=Ophidiidae; genus_name=Ophidion; species_name=Ophidion sp;
-CTCCTAAAATACCGGCTATATAACTTAATACATACACACGTTTAAAGGGGAGGAAAGTCGTAA
->EB089 family_name=Serranidae; genus_name=Serranus; species_name=Serranus scriba;
-CCCCAAACTTATACAAATATTTTATATAAAACCCTACAATTTCTAAGGGGAGGCAAGTCGTAA
->EB091 family_name=Scophthalmidae; genus_name=Lepidorhombus; species_name=Lepidorhombus boscii;
-CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGTAA
->EB092 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus bailloni;
-CCCCGAGTCTATGAATTATCATACCTAATACACTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB094 family_name=Carangidae; genus_name=Trachurus; species_name=Trachurus mediterraneus;
-CCCCAAGCTCCTGGACCCTAATCCTACTTAAACCCTAACAAATGCGAAGGAGAGGAAAGTCGTAA
->EB095 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra;
-CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCGTAA
->EB097 family_name=Synodontidae; genus_name=Synodus; species_name=Synodus saurus;
+>EB026 family_name=Serranidae; genus_name=Serranus; species_name=Serranus cabrilla; taxid=94953;
+CCCCAAACCCTTACAAATACTTTTATATAAAGCCCTATAGTTCACAAGGGGAGGCAAGTC
+GTAA
+>EB030 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus rostratus; taxid=171737;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB031total family_name=Blenniidae; genus_name=Aidablennius; species_name=Aidablennius sphynx; taxid=195073;
+CCGCGAAAATACACCCCTTACATAATTAATTAGATAAAAAAACAGAGCGGAGGAAAGTCG
+TAA
+>EB034 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus; taxid=202605;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB035 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus puntazzo; taxid=48915;
+CCCCGAGACTTCAAATTTACATTAACTAAAATGCCAAGATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB036 family_name=Sparidae; genus_name=Sarpa; species_name=Sarpa salpa; taxid=87759;
+CCCCAAAGCCTTAACTTTACATTAACTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB037 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula; taxid=202587;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB038 family_name=Soleidae; genus_name=Pegusa; species_name=Pegusa nasuta; taxid=1003804;
+CTCCTGTATAACCTTATTTTTGTACATAACACCTAAACCATAACCGAGGAGAGAAAAGTC
+GTAA
+>EB039 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena porcus; taxid=338887;
+CCCCAAAACCATCGATCAACATACGTAAAAAATCAGAGCTACAAAGGGGAGGCAAGTCGT
+AA
+>EB040 family_name=Lophiidae; genus_name=Lophius; species_name=Lophius budegassa; taxid=191678;
+CCCCAAGCTAACGACTAAATATAATTAAATCACAATAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB041 family_name=Blenniidae; genus_name=Blennius; species_name=Blennius ocellaris; taxid=195075;
+CCCCAAGCTAAACAACCTAAATAATTAATTAATTTAACCAGCAAAGGGGAGGCAAGTCGT
+AA
+>EB042 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula; taxid=202587;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB043 family_name=Scophthalmidae; genus_name=Scophthalmus; species_name=Scophtalmus maximus; taxid=52904;
+CCCCGAGCTACAAAGTCGACATAACTAAATACCCATTACTGCAAAGGGGAGGAAAGTCGT
+AA
+>EB044 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus; taxid=202605;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB045total family_name=Sparidae; genus_name=Lithognathus; species_name=Lithognathus mormyrus; taxid=50591;
+CCCCGAGACCTCAATTTACATTAACTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCGT
+AA
+>EB046 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus draco; taxid=56737;
+CTCCAAGCCCGATGACTTTAACATAATTAAAACCTAAAATTAGCAAAGGGGGGACAAGTC
+GTAA
+>EB047 family_name=Tripterygiidae; genus_name=Tripterygion; species_name=Tripterygion tripteronotum; taxid=152555;
+CCCCTAACTTGTTCAGTAACTTAACTTAAAAAATTAAATTTATGAAGGGGAGGCAAGTCG
+TAA
+>EB048 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus mediterraneus; taxid=202598;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB049 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena scrofa; taxid=210004;
+CCCCAAAAACATCAACCAATGTACATAAAAACTAAGAGCTACAGAGGGGAGGCAAGTCGT
+AA
+>EB051 family_name=Sparidae; genus_name=Pagellus; species_name=Pagellus erythrinus; taxid=50593;
+CCCCGAAACTTTAATAAAACATTAATTAAAATGCCAAAATCCTAGAGGGGAGGCAAGTCG
+TAA
+>EB052 family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna; taxid=985092;
+CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB053 family_name=Scophthalmidae; genus_name=Scophthalmus; species_name=Scophthalmus rhombus; taxid=65125;
+CCCCAAGCTACAAAGTCGACATAACTAAAACCTCATTATTGCAAAGGGGAGGAAAGTCGT
+AA
+>EB054 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula; taxid=202587;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB055 family_name=Scophthalmidae; genus_name=Lepidorhombus; species_name=Lepidorhombus boscii; taxid=179372;
+CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGT
+AA
+>EB056 family_name=Merlucciidae; genus_name=Merluccius; species_name=Merluccius merluccius; taxid=8063;
+CCCCAAATAATTATAAATATTACCTAAAATGTTTTACCAACCAAGGGGAGGCAAGTCGTA
+A
+>EB057 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus typhle; taxid=161592;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB058 family_name=Haemulidae; genus_name=Pomadasys; species_name=Pomadasys incisus; taxid=349656;
+CCCCCAATGCCCATGAATCTTGATGCATAAATCCTACAATTATAAAGGGGAGGCAAGTCG
+TAA
+>EB059 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus puntazzo; taxid=48915;
+CCCCGAGACTTCAAATTTACATTAACTAAAATGCCAAGATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB060 family_name=Carangidae; genus_name=Trachurus; species_name=Trachurus mediterraneus; taxid=189388;
+CCCCAAGCTCCTGGACCCTAATCCTACTTAAACCCTAACAAATGCGAAGGAGAGGAAAGT
+CGTAA
+>EB061 family_name=Gobiidae; genus_name=Zosterisessor; species_name=Zosterisessor ophiocephalus; taxid=85428;
+CCCCGATGAACCCTAGTAAGATAAATAATAACGCAGCAGACACTAAGGGGAGGTAAGTCG
+TAA
+>EB062 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus annularis; taxid=48913;
+CCCCGAGACTTAAAACTTACATTAATTAAAATGCCAAAATCGCAGAGGGGAGGCAAGTCG
+TAA
+>EB063 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus; taxid=202605;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB064 family_name=Rajidae; genus_name=Raja; species_name=Raja asterias; taxid=182852;
+CCTCAACTTACATCACTCCATTTTATAAATAACTTTTTATCACAAGAGGAGGCAAGTCGT
+AA
+>EB065 family_name=Sparidae; genus_name=Oblada; species_name=Oblada melanura; taxid=98825;
+CCCCAAGACCTTTAATTAACATTAACTAAAATGCCAAAATCTCAGAGGGGAGGCAAGTCG
+TAA
+>EB066 family_name=Scombridae; genus_name=Sarda; species_name=Sarda sarda; taxid=327740;
+CCCCAAGCTTATCAATACATATATCTAAAACGCTTTAACCGCGAAGGGGAGGCAAGTCGT
+AA
+>EB067 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus sargus; taxid=169288;
+CCCCGAGACTTTTAATTTACATTAACTAAGATGCCAAAATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB069 family_name=Sciaenidae; genus_name=Umbrina; species_name=Umbrina canariensis; taxid=146147;
+CCCCAAACTAATTAAATTCAATTAAATAAAACCCCATCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB073 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger; taxid 85417;
+CCCCAAACGACCAATAATCATAATTAATATAACACCAAATACTAAGGGGAGGTAAGTCGT
+AA
+>EB074 family_name=Sparidae; genus_name=Spondyliosoma; species_name=Spondyliosoma cantharus; taxid=50595;
+CCCCGAAACCTCGACCTTGCATTAACTAAAATACTAGAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB076mf family_name=Bothidae; genus_name=Bothus; species_name=Bothus podas; taxid=147829;
+CACCAAGCCCCTAGATAACTGTAACTAACCCGCTTCTATGTAGCAAAGGGGAGGAAAGTC
+GTAA
+>EB077 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus melops; taxid=171736;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB080 family_name=Lophiidae; genus_name=Lophius; species_name=Lophius budegassa; taxid=191678;
+CCCCAAGCTAACGACTAAATATAATTAAATCACAATAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB083 family_name=Muraenidae; genus_name=Muraena; species_name=Muraena helena; taxid=46662;
+CCTCGAGAACCGAAATGACAATACATAAAAACTTAGGAAAATAGAGAGGAGGCAAGTCGT
+AA
+>EB084 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara flexuosa; taxid=458843;
+CCCCGAAACCTCAACTTAAAATTAATTAAAATGCTAGAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB085 family_name=Serranidae; genus_name=Epinephelus; species_name=Epinephelus marginatus; taxid=179535;
+CCCCAAATATACCCTAACACTTTAACTTTAAAAACTTTACATCAGCAAAGGGGAGGCAAG
+TCGTAA
+>EB086 family_name=Triglidae; genus_name=Trigla; species_name=Trigla lyra; taxid=430084;
+CCCCAAGCTTACAAATTAATTAATTAAAACCCTAAGATTGCAAAGGGGAGGCAAGTCGTA
+A
+>EB087total family_name=Cepolidae; genus_name=Cepola; species_name=Cepola macrophthalma; taxid=334382;
+CCCCAAGCATAAATGTGCTCATAAATAATAACTGATACCTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB088total family_name=Ophidiidae; genus_name=Ophidion; species_name=Ophidion sp; taxid=210590;
+CTCCTAAAATACCGGCTATATAACTTAATACATACACACGTTTAAAGGGGAGGAAAGTCG
+TAA
+>EB089 family_name=Serranidae; genus_name=Serranus; species_name=Serranus scriba; taxid=349661;
+CCCCAAACTTATACAAATATTTTATATAAAACCCTACAATTTCTAAGGGGAGGCAAGTCG
+TAA
+>EB091 family_name=Scophthalmidae; genus_name=Lepidorhombus; species_name=Lepidorhombus boscii; taxid=179372;
+CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGT
+AA
+>EB092 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus bailloni; taxid=191725;
+CCCCGAGTCTATGAATTATCATACCTAATACACTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB094 family_name=Carangidae; genus_name=Trachurus; species_name=Trachurus mediterraneus; taxid=189388;
+CCCCAAGCTCCTGGACCCTAATCCTACTTAAACCCTAACAAATGCGAAGGAGAGGAAAGT
+CGTAA
+>EB095 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra; taxid=1586296;
+CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB097 family_name=Synodontidae; genus_name=Synodus; species_name=Synodus saurus; taxid=81392;
 CCCCAACTACTTAATCCATTATATAAAGAAAGAAAATAAAAAGGGGAGGCAAGTCGTAA
->EB098 family_name=Lophiidae; genus_name=Lophius; species_name=Lophius piscatorius;
-CCCCAAGCTAACGACTAAATATAACTAAATCATAATAACTGCAAAGGGGAGGCAAGTCGTAA
->EB099 family_name=Carangidae; genus_name=Trachurus; species_name=Trachurus mediterraneus;
-CCCCAAGCTCCTGGACCCTAATCCTACTTAAACCCTAACAAATGCGAAGGAGAGGAAAGTCGTAA
->EB100 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius gattorugine;
-CCCCAAGCGTAACACTAATATACCTAATCTGCTAAAACAGCAAAGGGGAGGCAAGTCGTAA
->EB101 family_name=Labridae; genus_name=Thalassoma; species_name=Thalassoma pavo;
-CCCCGAGCTAATTATGCACATTACTAATAAACAAAACTTGCAAAGGGGAGGCAAGTCGTAA
->EB102 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius cruentatus;
-CCCCGATGAACCCAATACAATAAATAATGAAATCGCAAACACTATAGGGGAGATAAGTCGTAA
->EB103 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara maena;
-CCCCGAGACTTCGACTTAAAATTAACTAAAATGCCAAGATTATAGAGGGGAGGCAAGTCGTAA
->EB104mf family_name=Sphyraenidae; genus_name=Sphyraena; species_name=Sphyraena sphyraena;
-CCCCCAGTCTACCAACTCCCCCTTAAATAAAGTGTCAATCTTGCAAAGGGGAGGAAAGTCGTAA
->EB105 family_name=Sparidae; genus_name=Dentex; species_name=Dentex dentex;
-CCCCGAAACTTTACCAAAACATTAATTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCGTAA
->EB106 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena scrofa;
-CCCCAAAAACATCAACCAATGTACATAAAAACTAAGAGCTACAGAGGGGAGGCAAGTCGTAA
->EB107 family_name=Blenniidae; genus_name=Salaria; species_name=Salaria pavo;
+>EB098 family_name=Lophiidae; genus_name=Lophius; species_name=Lophius piscatorius; taxid=8074;
+CCCCAAGCTAACGACTAAATATAACTAAATCATAATAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB099 family_name=Carangidae; genus_name=Trachurus; species_name=Trachurus mediterraneus; taxid=189388;
+CCCCAAGCTCCTGGACCCTAATCCTACTTAAACCCTAACAAATGCGAAGGAGAGGAAAGT
+CGTAA
+>EB100 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius gattorugine; taxid=171871;
+CCCCAAGCGTAACACTAATATACCTAATCTGCTAAAACAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB101 family_name=Labridae; genus_name=Thalassoma; species_name=Thalassoma pavo; taxid=202603;
+CCCCGAGCTAATTATGCACATTACTAATAAACAAAACTTGCAAAGGGGAGGCAAGTCGTA
+A
+>EB102 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius cruentatus; taxid=441897;
+CCCCGATGAACCCAATACAATAAATAATGAAATCGCAAACACTATAGGGGAGATAAGTCG
+TAA
+>EB103 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara maena; taxid=98823;
+CCCCGAGACTTCGACTTAAAATTAACTAAAATGCCAAGATTATAGAGGGGAGGCAAGTCG
+TAA
+>EB104mf family_name=Sphyraenidae; genus_name=Sphyraena; species_name=Sphyraena sphyraena; taxid=443726;
+CCCCCAGTCTACCAACTCCCCCTTAAATAAAGTGTCAATCTTGCAAAGGGGAGGAAAGTC
+GTAA
+>EB105 family_name=Sparidae; genus_name=Dentex; species_name=Dentex dentex; taxid=94951;
+CCCCGAAACTTTACCAAAACATTAATTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB106 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena scrofa; taxid=210004;
+CCCCAAAAACATCAACCAATGTACATAAAAACTAAGAGCTACAGAGGGGAGGCAAGTCGT
+AA
+>EB107 family_name=Blenniidae; genus_name=Salaria; species_name=Salaria pavo; taxid=152553;
 CTCTTAGCTAAATGTAAGCCCATGCTTACTTAATATCAAGGGAGGCAAGTCGTAA
->EB109mf family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna;
-CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTAA
->EB111mf family_name=Soleidae; genus_name=Pegusa; species_name=Pegusa nasuta;
-CTCCTGTATAACCTTATTTTTGTACATAACACCTAAACCATAACCGAGGAGAGGAAAGTCGTAA
->EB112total family_name=Sparidae; genus_name=Boops; species_name=Boops boops;
-CCCCAAAACCCTAACTTTACATTAACTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCGTAA
->EB113mf family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena notata;
-CCCCGAAAACATCGACAAATCTACTTAAAAAACTAGAACCACAGAGGGGAGGCAAGTCGTAA
->EB115mf family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus typhle;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB117total family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna;
-CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTAA
->EB118total family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra;
-CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCGTAA
->EB121 family_name=Uranoscopidae; genus_name=Uranoscopus; species_name=Uranoscopus scaber;
-CCCCAAGACTAGCAAATAGATTTTTCTAAACCACCAATATAGCAGAGGGGAGGCAAGTCGTAA
->EB126 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus sp cfr taenionotus;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB127 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus abaster;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB128 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus abaster;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB130 family_name=Gobiidae; genus_name=Zosterisessor; species_name=Zosterisessor ophiocephalus;
-CCCCGATGAACCCTAGTAAGATAAATAATAACGCAGCAGACACTAAGGGGAGGTAAGTCGTAA
->EB131 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger;
-CCCCAAACGACCAATAATCATAATTAATATAACACCAAATACTAAGGGGAGGTAAGTCGTAA
->EB132 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB133 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB134 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus vulgaris;
-CCCCGAGACTTTAAATCTACATTAATTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCGTAA
->EB135 family_name=Sparidae; genus_name=Sparus; species_name=Sparus aurata;
-CCCCGAGACCTTAACTTACATTAACTAAAATGCCAGAATCATAGAGGGGAGGCAAGTCGTAA
->EB136 family_name=Atherinidae; genus_name=Atherina; species_name=Atherina boyeri;
-CCCCAAGCCACCTTACCACTATAATTAAAAAAATTTATAAGCAAAGGGGAGGCAAGTCGTAA
->EB137 family_name=Scyliorhinidae; genus_name=Scyliorhinus; species_name=Scyliorhinus canicula;
-CCTCAATAAATACACTTATTTTTATAAAAATTTTACCAAAACAAGAGGAGGCAAGTCGTAA
->EB138 family_name=Sparidae; genus_name=Pagellus; species_name=Pagellus erythrinus;
-CCCCGAAACTTTAATAAAACATTAATTAAAATGCCAAAATCCTAGAGGGGAGGCAAGTCGTAA
->EB139 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus vulgaris;
-CCCCGAGACTTTAAATCTACATTAATTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCGTAA
->EB141 family_name=Uranoscopidae; genus_name=Uranoscopus; species_name=Uranoscopus scaber;
-CCCCAAGACTAGCAAATAGATTTTTCTAAACCACCAATATAGCAGAGGGGAGGCAAGTCGTAA
->EB142 family_name=Sciaenidae; genus_name=Umbrina; species_name=Umbrina canariensis;
-CCCCAAACTAATTAAATTCAATTAAATAAAACCCCATCACAGTGAAGGGGAGGCAAGTCGTAA
->EB144 family_name=Scombridae; genus_name=Scomber; species_name=Scomber scombrus;
-CTCCAAGCTCACCCACCCATTCAACATAACTAATTACCCATAAACTGCAAAGGAGAGGCAAGTCGTAA
->EB146 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus tinca;
-CCCCGAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB147 family_name=Tripterygiidae; genus_name=Tripterygion; species_name=Tripterygion tripteronotum;
-CCCCTAACTTGTTCAGTAACTTAACTTAAAAAATTAAATTTATGAAGGGGAGGCAAGTCGTAA
->EB148 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius buchichi;
-CCCCGATGGACCTAGTAATATAATTAATAACGCAAAAGACACTAAGGGGAGGTAAGTCGTAA
->EB149 family_name=Tripterygiidae; genus_name=Tripterygion; species_name=Tripterygion delaisi;
-CCCCAAACCTGTTCAAAAGCTTAACTTAAAAAATTAGATTAATAAAGGGGAGGCAAGTCGTAA
->EB150 family_name=Serranidae; genus_name=Serranus; species_name=Serranus cabrilla;
-CCCCAAACCCTTACAAATACTTTTATATAAAGCCCTATAGTTCACAAGGGGAGGCAAGTCGTAA
->EB151 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus rostratus;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB152 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena porcus;
-CCCCAAAACCATCGATCAACATACGTAAAAAATCAGAGCTACAAAGGGGAGGCAAGTCGTAA
->EB153 family_name=Triglidae; genus_name=NA; species_name=Trigloporus lastoviza;
-CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGCAAAGGGGAGGCAAGTCGTAA
->EB154 family_name=Gadidae; genus_name=Trisopterus; species_name=Trisopterus capelanus;
-CTCCTAATAAACCCTAAATATTACCTAAAATGCTTTTTATCACAAGGGGAGGCAAGTCGTAA
->EB155 family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna;
-CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTAA
->EB157 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus roissali;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB158 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis;
-CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGTAA
->EB159 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius pilicornis;
-CCCCAAGCGACACATTAACATAAATAATCAAGCTAAACAGCAAAGGGGAGGCAAGTCGTAA
->EB16 family_name=Mullidae; genus_name=Mullus; species_name=Mullus barbatus;
-CCCCGAATTAGTCCTGATGAGTAATTAACACCTTGACGCCACAGAGGGGAGGCAAGTCGTAA
->EB160 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius pilicornis;
-CCCCAAGCGACACATTAACATAAATAATCAAGCTAAACAGCAAAGGGGAGGCAAGTCGTAA
->EB161 family_name=Labridae; genus_name=Coris; species_name=Coris julis;
-CCCCGAGCTAAACTTTATTCTATTACTAATAAACCAAAACTGTAAAGGGGAGGCAAGTCGTAA
->EB162 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus ocellatus;
+>EB109mf family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna; taxid=985092;
+CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB111mf family_name=Soleidae; genus_name=Pegusa; species_name=Pegusa nasuta; taxid=1003804;
+CTCCTGTATAACCTTATTTTTGTACATAACACCTAAACCATAACCGAGGAGAGGAAAGTC
+GTAA
+>EB112total family_name=Sparidae; genus_name=Boops; species_name=Boops boops; taxid=36219;
+CCCCAAAACCCTAACTTTACATTAACTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB113mf family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena notata; taxid=210003;
+CCCCGAAAACATCGACAAATCTACTTAAAAAACTAGAACCACAGAGGGGAGGCAAGTCGT
+AA
+>EB115mf family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus typhle; taxid=161592;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB117total family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna; taxid=985092;
+CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB118total family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra; taxid=1586296;
+CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB121 family_name=Uranoscopidae; genus_name=Uranoscopus; species_name=Uranoscopus scaber; taxid=210005;
+CCCCAAGACTAGCAAATAGATTTTTCTAAACCACCAATATAGCAGAGGGGAGGCAAGTCG
+TAA
+>EB126 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus sp cfr taenionotus; taxid=161591;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB127 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus abaster; taxid=161583;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB128 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus abaster; taxid=161583;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB130 family_name=Gobiidae; genus_name=Zosterisessor; species_name=Zosterisessor ophiocephalus; taxid=85428;
+CCCCGATGAACCCTAGTAAGATAAATAATAACGCAGCAGACACTAAGGGGAGGTAAGTCG
+TAA
+>EB131 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger; taxid 85417;
+CCCCAAACGACCAATAATCATAATTAATATAACACCAAATACTAAGGGGAGGTAAGTCGT
+AA
+>EB132 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus; taxid=202605;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB133 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus cinereus; taxid=202605;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB134 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus vulgaris; taxid=87756;
+CCCCGAGACTTTAAATCTACATTAATTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB135 family_name=Sparidae; genus_name=Sparus; species_name=Sparus aurata; taxid=8175;
+CCCCGAGACCTTAACTTACATTAACTAAAATGCCAGAATCATAGAGGGGAGGCAAGTCGT
+AA
+>EB136 family_name=Atherinidae; genus_name=Atherina; species_name=Atherina boyeri; taxid=1482992;
+CCCCAAGCCACCTTACCACTATAATTAAAAAAATTTATAAGCAAAGGGGAGGCAAGTCGT
+AA
+>EB137 family_name=Scyliorhinidae; genus_name=Scyliorhinus; species_name=Scyliorhinus canicula; taxid=7830;
+CCTCAATAAATACACTTATTTTTATAAAAATTTTACCAAAACAAGAGGAGGCAAGTCGTA
+A
+>EB138 family_name=Sparidae; genus_name=Pagellus; species_name=Pagellus erythrinus; taxid=50593;
+CCCCGAAACTTTAATAAAACATTAATTAAAATGCCAAAATCCTAGAGGGGAGGCAAGTCG
+TAA
+>EB139 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus vulgaris; taxid=87756;
+CCCCGAGACTTTAAATCTACATTAATTAAAATGCCAAAATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB141 family_name=Uranoscopidae; genus_name=Uranoscopus; species_name=Uranoscopus scaber; taxid=210005;
+CCCCAAGACTAGCAAATAGATTTTTCTAAACCACCAATATAGCAGAGGGGAGGCAAGTCG
+TAA
+>EB142 family_name=Sciaenidae; genus_name=Umbrina; species_name=Umbrina canariensis; taxid=146147;
+CCCCAAACTAATTAAATTCAATTAAATAAAACCCCATCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB144 family_name=Scombridae; genus_name=Scomber; species_name=Scomber scombrus; taxid=13677;
+CTCCAAGCTCACCCACCCATTCAACATAACTAATTACCCATAAACTGCAAAGGAGAGGCA
+AGTCGTAA
+>EB146 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus tinca; taxid=202600;
+CCCCGAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB147 family_name=Tripterygiidae; genus_name=Tripterygion; species_name=Tripterygion tripteronotum; taxid=152555;
+CCCCTAACTTGTTCAGTAACTTAACTTAAAAAATTAAATTTATGAAGGGGAGGCAAGTCG
+TAA
+>EB148 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius bucchichi; taxid=85416;
+CCCCGATGGACCTAGTAATATAATTAATAACGCAAAAGACACTAAGGGGAGGTAAGTCGT
+AA
+>EB149 family_name=Tripterygiidae; genus_name=Tripterygion; species_name=Tripterygion delaisi; taxid=259078;
+CCCCAAACCTGTTCAAAAGCTTAACTTAAAAAATTAGATTAATAAAGGGGAGGCAAGTCG
+TAA
+>EB150 family_name=Serranidae; genus_name=Serranus; species_name=Serranus cabrilla; taxid=94953;
+CCCCAAACCCTTACAAATACTTTTATATAAAGCCCTATAGTTCACAAGGGGAGGCAAGTC
+GTAA
+>EB151 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus rostratus; taxid=171737;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB152 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena porcus; taxid=338887;
+CCCCAAAACCATCGATCAACATACGTAAAAAATCAGAGCTACAAAGGGGAGGCAAGTCGT
+AA
+>EB153 family_name=Triglidae; genus_name=NA; species_name=Trigloporus lastoviza; taxid=426095;
+CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB154 family_name=Gadidae; genus_name=Trisopterus; species_name=Trisopterus capelanus; taxid=1526409;
+CTCCTAATAAACCCTAAATATTACCTAAAATGCTTTTTATCACAAGGGGAGGCAAGTCGT
+AA
+>EB155 family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys lucerna; taxid=985092;
+CCCCAAGCTCACAAATTAATTAATTAAAACCCTAAAATCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB157 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus roissali; taxid=191726;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB158 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis; taxid=997968;
+CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB159 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius pilicornis; taxid=195081;
+CCCCAAGCGACACATTAACATAAATAATCAAGCTAAACAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB16 family_name=Mullidae; genus_name=Mullus; species_name=Mullus barbatus; taxid=430080;
+CCCCGAATTAGTCCTGATGAGTAATTAACACCTTGACGCCACAGAGGGGAGGCAAGTCGT
+AA
+>EB160 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius pilicornis; taxid=195081;
+CCCCAAGCGACACATTAACATAAATAATCAAGCTAAACAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB161 family_name=Labridae; genus_name=Coris; species_name=Coris julis; taxid=317481;
+CCCCGAGCTAAACTTTATTCTATTACTAATAAACCAAAACTGTAAAGGGGAGGCAAGTCG
+TAA
+>EB162 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus ocellatus; taxid=130472;
 CCCCGAGTCTATGAATTAACATATCTAATACGCTAAAACTGCAAAGGGGAGGCAAGTCGT
->EB163 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus roissali;
-CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGTAA
->EB165 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara maena;
-CCCCGAGACTTCGACTTAAAATTAACTAAAATGCCAAGATTATAGAGGGGAGGCAAGTCGTAA
->EB166 family_name=Clupeidae; genus_name=Sardina; species_name=Sardina pilchardus;
-CCCCAACAACTACCTATAAAAATGTAACTAACACAATATTCGCCGCAAGGGGAGGCAAGTCGTAA
->EB167 family_name=Rajidae; genus_name=Raja; species_name=Raja asterias;
-CCTCAACTTACATCACTCCATTTTATAAATAACTTTTTATCACAAGAGGAGGCAAGTCGTAA
->EB171 family_name=Soleidae; genus_name=Solea; species_name=Solea senegalensis;
-CTCCTGTATTTACCTCATCTTACGTATATAACACCACGTTCAAATCGAGGAGAGGAAAGTCGTAA
->EB172 family_name=Soleidae; genus_name=Solea; species_name=Solea solea;
-CTCCTGAATTTACCTTATTTTATGTATATAACACCACATCCAAATAGAGGAGAGGAAAGTCGTAA
->EB173 family_name=Soleidae; genus_name=Pegusa; species_name=Pegusa nasuta;
-CTCCTGTATAACCTTATTTTTGTACATAACACCTAAACCATAACCGAGGAGAGAAAAGTCGTAA
->EB174 family_name=Mugilidae; genus_name=Chelon; species_name=Liza aurata;
-CCCCGAAATAAGAATCTCTTATACCTAATTACCCACACAAACATAAGGGGAGGCAAGTCGTAA
->EB175 family_name=Triglidae; genus_name=NA; species_name=Chelidonichtys obscurus;
-CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGCAAAGGGGAGGCAAGTCGTAA
->EB176 family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichtys obscurus;
-CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGAAAAGGGGAGGCAAGTCGTAA
->EB177 family_name=Haemulidae; genus_name=Pomadasys; species_name=Pomadasys incisus;
-CCCCCAATGCCCATGAATCTTGATGCATAAATCCTACAATTATAAAGGGGAGGCAAGTCGTAA
->EB178 family_name=Scophthalmidae; genus_name=Scophthalmus; species_name=Scophthalmus rhombus;
-CCCCAAGCTACAAAGTCGACATAACTAAAACCTCATTATTGCAAAGGGGAGGAAAGTCGTAA
->EB179 family_name=Serranidae; genus_name=Serranus; species_name=Serranus hepatus;
-CCCCAAGCCTATATTAATATTTTTACATAAAAGTCTACAATTTTTAAGGGGAGGCAAGTCGTAA
->EB180 family_name=Serranidae; genus_name=Serranus; species_name=Serranus hepatus;
-CCCCAAGCCTATATTAATATTTTTACATAAAAGTCTACAATTTTTAAGGGGAGGCAAGTCGTAA
->EB181 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena notata;
-CCCCGAAAACATCGACAAATCTACTTAAAAAACTAGAACCACAGAGGGGAGGCAAGTCGTAA
->EB182 family_name=Triglidae; genus_name=Trigla; species_name=Trigla lyra;
-CCCCAAGCTCACAAATTAATTAATTAAAACCCTAGAATCGCAAAGGGGAGGCAAGTCGTAA
->EB183 family_name=Phycidae; genus_name=Phycis; species_name=Phycis blennoides;
-CTCCAAATAACACCCCCCCCCCCCTTCCTAAAAACAGAGATTAAGAAGGAAAGGCAAGTCGTAA
->EB185 family_name=Congridae; genus_name=Conger; species_name=Conger conger;
-CCTCATGGCACTTAAATGACTTAATTCTATAAACACTTAATTTAGCCAACAGAGGGGGCAAGTCGTAA
->EB186 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara flexuosa;
-CCCCGAAACCTCAACTTAAAATTAATTAAAATGCTAGAAWTCATAGAGGGGAGGCAAGTCGTAA
->EB187 family_name=Gadidae; genus_name=Trisopterus; species_name=Trisopterus capelanus;
-CTCCTAATAAACCCTAAATATTACCTAAAATGCTTTTTATCACAAGGGGAGGCAAGTCGTAA
->EB188 family_name=Gadidae; genus_name=Trisopterus; species_name=Trisopterus capelanus;
-CTCCTAATAAACCCTAAATATTACCTAAAATGCTTTTTATCACAAGGGGAGGCAAGTCGTAA
->EB189 family_name=Triglidae; genus_name=NA; species_name=Trigloporus lastoviza;
-CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGCAAAGGGGAGGCAAGTCGTAA
->EB190 family_name=Sparidae; genus_name=Dentex; species_name=Dentex dentex;
-CCCCGAAACTTTACCAAAACATTAATTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCGTAA
->EB191 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius geniporus;
-CCCCCACAGACTACAAGGATAACTAATAACATAATAAATACTAAGGGGAGGTAAGTCGTAA
->EB192 family_name=Carangidae; genus_name=Seriola; species_name=Seriola dumerili;
-CCCCGAGCTCCCCGGACCACCTTTAACTAAAGCCCTACAACTGCAAAGGAGAGGAAAGTCGTAA
->EB193 family_name=Carangidae; genus_name=Seriola; species_name=Seriola dumerili;
-CCCCGAGCTCCCCGGACCACCTTTAACTAAAGCCCTACAACTGCAAAGGAGAGGAAAGTCGTAA
->EB194 family_name=Sparidae; genus_name=Spondyliosoma; species_name=Spondyliosoma cantharus;
-CCCCGAAACCTCGACCTTGCATTAACTAAAATACTAGAATCATAGAGGGGAGGCAAGTCGTAA
->EB195 family_name=Sparidae; genus_name=Spondyliosoma; species_name=Spondyliosoma cantharus;
-CCCCGAAACCTCGACCTTGCATTAACTAAAATACTAGAATCATAGAGGGGAGGCAAGTCGTAA
->EB196 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis;
-CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGTAA
->EB197 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis;
-CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGTAA
->EB198 family_name=Labridae; genus_name=Labrus; species_name=Labrus viridis;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB199 family_name=Serranidae; genus_name=Epinephelus; species_name=Epinephelus marginatus;
-CCCCAAATATACCCTAACACTTTAACTTTAAAAACTTTACATCAGCAAAGGGGAGGCAAGTCGTAA
->EB200 family_name=Clupeidae; genus_name=Sardinella; species_name=Sardinella aurita;
-CCCCAACAGCATAACAACTAGTTATTTAACCCAAGAACAGCTACAAGGGGAGGCAAGTCGTAA
->EB201 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB202 family_name=Syngnathidae; genus_name=Hippocampus; species_name=Hippocampus guttulatus;
-CCCCAATAACATAACTACAATTAATTAAAACCTAAATGAAATACAAGGGGAGGCAAGTCGTAA
->EB203 family_name=Syngnathidae; genus_name=Hippocampus; species_name=Hippocampus guttulatus;
-CCCCAATAACATAACTACAATTAATTAAAACCTAAATGAAATACAAGGGGAGGCAAGTCGTAA
->EB204 family_name=Exocoetidae; genus_name=Cheilopogon; species_name=Cheilopogon heterurus;
-CCCCAAAACCCCTAAAAAGACTAAATAAAACCATTAATCTAATAAAGGGGAGGCAAGTCGTAA
->EB205 family_name=Syngnathidae; genus_name=Hippocampus; species_name=Hippocampus guttulatus;
-CCCCAATAACATAACTACAATTAATTAAAACCTAAATGAAATACAAGGGGAGGCAAGTCGTAA
->EB207 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra;
-CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCGTAA
->EB208 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra;
-CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCGTAA
->EB209 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra;
-CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCGTAA
->EB210 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus sp cfr taenionotus;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB211 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus sp cfr taenionotus;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB212 family_name=Sebastidae; genus_name=Helicolenus; species_name=Helicolenus dactylopterus;
-CCCCAAGCTTACCACTTTTAATAATTAAAAACCCAAAAATCGCGGAGGGGAGGCAAGTCGTAA
->EB213 family_name=Uranoscopidae; genus_name=Uranoscopus; species_name=Uranoscopus scaber;
-CCCCAAGACTAGCAAATAGATTTTTCTAAACCACCAATATAGCAGAGGGGAGGCAAGTCGTAA
->EB214 family_name=Macrouridae; genus_name=Coelorinchus; species_name=Coelorinchus caelorhincus;
+>EB163 family_name=Labridae; genus_name=Symphodus; species_name=Symphodus roissali; taxid=191726;
+CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB165 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara maena; taxid=98823;
+CCCCGAGACTTCGACTTAAAATTAACTAAAATGCCAAGATTATAGAGGGGAGGCAAGTCG
+TAA
+>EB166 family_name=Clupeidae; genus_name=Sardina; species_name=Sardina pilchardus; taxid=27697;
+CCCCAACAACTACCTATAAAAATGTAACTAACACAATATTCGCCGCAAGGGGAGGCAAGT
+CGTAA
+>EB167 family_name=Rajidae; genus_name=Raja; species_name=Raja asterias; taxid=182852;
+CCTCAACTTACATCACTCCATTTTATAAATAACTTTTTATCACAAGAGGAGGCAAGTCGT
+AA
+>EB171 family_name=Soleidae; genus_name=Solea; species_name=Solea senegalensis; taxid=28829;
+CTCCTGTATTTACCTCATCTTACGTATATAACACCACGTTCAAATCGAGGAGAGGAAAGT
+CGTAA
+>EB172 family_name=Soleidae; genus_name=Solea; species_name=Solea solea; taxid=90069;
+CTCCTGAATTTACCTTATTTTATGTATATAACACCACATCCAAATAGAGGAGAGGAAAGT
+CGTAA
+>EB173 family_name=Soleidae; genus_name=Pegusa; species_name=Pegusa nasuta; taxid=1003804;
+CTCCTGTATAACCTTATTTTTGTACATAACACCTAAACCATAACCGAGGAGAGAAAAGTC
+GTAA
+>EB174 family_name=Mugilidae; genus_name=Chelon; species_name=Liza aurata; taxid=48191;
+CCCCGAAATAAGAATCTCTTATACCTAATTACCCACACAAACATAAGGGGAGGCAAGTCG
+TAA
+>EB175 family_name=Triglidae; genus_name=NA; species_name=Chelidonichthys obscurus; taxid=349663;
+CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB176 family_name=Triglidae; genus_name=Chelidonichthys; species_name=Chelidonichthys obscurus; taxid=349663;
+CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGAAAAGGGGAGGCAAGTCGTA
+A
+>EB177 family_name=Haemulidae; genus_name=Pomadasys; species_name=Pomadasys incisus; taxid=349656;
+CCCCCAATGCCCATGAATCTTGATGCATAAATCCTACAATTATAAAGGGGAGGCAAGTCG
+TAA
+>EB178 family_name=Scophthalmidae; genus_name=Scophthalmus; species_name=Scophthalmus rhombus; taxid=65125;
+CCCCAAGCTACAAAGTCGACATAACTAAAACCTCATTATTGCAAAGGGGAGGAAAGTCGT
+AA
+>EB179 family_name=Serranidae; genus_name=Serranus; species_name=Serranus hepatus; taxid=357812;
+CCCCAAGCCTATATTAATATTTTTACATAAAAGTCTACAATTTTTAAGGGGAGGCAAGTC
+GTAA
+>EB180 family_name=Serranidae; genus_name=Serranus; species_name=Serranus hepatus; taxid=357812;
+CCCCAAGCCTATATTAATATTTTTACATAAAAGTCTACAATTTTTAAGGGGAGGCAAGTC
+GTAA
+>EB181 family_name=Scorpaenidae; genus_name=Scorpaena; species_name=Scorpaena notata; taxid=210003;
+CCCCGAAAACATCGACAAATCTACTTAAAAAACTAGAACCACAGAGGGGAGGCAAGTCGT
+AA
+>EB182 family_name=Triglidae; genus_name=Trigla; species_name=Trigla lyra; taxid=430084;
+CCCCAAGCTCACAAATTAATTAATTAAAACCCTAGAATCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB183 family_name=Phycidae; genus_name=Phycis; species_name=Phycis blennoides; taxid=163115;
+CTCCAAATAACACCCCCCCCCCCCTTCCTAAAAACAGAGATTAAGAAGGAAAGGCAAGTC
+GTAA
+>EB185 family_name=Congridae; genus_name=Conger; species_name=Conger conger; taxid=7943;
+CCTCATGGCACTTAAATGACTTAATTCTATAAACACTTAATTTAGCCAACAGAGGGGGCA
+AGTCGTAA
+>EB186 family_name=Centracanthidae; genus_name=Spicara; species_name=Spicara flexuosa; taxid=458843;
+CCCCGAAACCTCAACTTAAAATTAATTAAAATGCTAGAAWTCATAGAGGGGAGGCAAGTC
+GTAA
+>EB187 family_name=Gadidae; genus_name=Trisopterus; species_name=Trisopterus capelanus; taxid=1526409;
+CTCCTAATAAACCCTAAATATTACCTAAAATGCTTTTTATCACAAGGGGAGGCAAGTCGT
+AA
+>EB188 family_name=Gadidae; genus_name=Trisopterus; species_name=Trisopterus capelanus; taxid=1526409;
+CTCCTAATAAACCCTAAATATTACCTAAAATGCTTTTTATCACAAGGGGAGGCAAGTCGT
+AA
+>EB189 family_name=Triglidae; genus_name=NA; species_name=Trigloporus lastoviza; taxid=426095;
+CCCCAAGCTCACAAATTAATTAACTAAAACCCTAAGGTCGCAAAGGGGAGGCAAGTCGTA
+A
+>EB190 family_name=Sparidae; genus_name=Dentex; species_name=Dentex dentex; taxid=94951;
+CCCCGAAACTTTACCAAAACATTAATTAAAATGCCAAAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB191 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius geniporus; taxid=579944;
+CCCCCACAGACTACAAGGATAACTAATAACATAATAAATACTAAGGGGAGGTAAGTCGTA
+A
+>EB192 family_name=Carangidae; genus_name=Seriola; species_name=Seriola dumerili; taxid=41447;
+CCCCGAGCTCCCCGGACCACCTTTAACTAAAGCCCTACAACTGCAAAGGAGAGGAAAGTC
+GTAA
+>EB193 family_name=Carangidae; genus_name=Seriola; species_name=Seriola dumerili; taxid=41447;
+CCCCGAGCTCCCCGGACCACCTTTAACTAAAGCCCTACAACTGCAAAGGAGAGGAAAGTC
+GTAA
+>EB194 family_name=Sparidae; genus_name=Spondyliosoma; species_name=Spondyliosoma cantharus; taxid=50595;
+CCCCGAAACCTCGACCTTGCATTAACTAAAATACTAGAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB195 family_name=Sparidae; genus_name=Spondyliosoma; species_name=Spondyliosoma cantharus; taxid=50595;
+CCCCGAAACCTCGACCTTGCATTAACTAAAATACTAGAATCATAGAGGGGAGGCAAGTCG
+TAA
+>EB196 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis; taxid=997968;
+CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB197 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis; taxid=997968;
+CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB198 family_name=Labridae; genus_name=Labrus; species_name=Labrus viridis; taxid=202588;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB199 family_name=Serranidae; genus_name=Epinephelus; species_name=Epinephelus marginatus; taxid=179535;
+CCCCAAATATACCCTAACACTTTAACTTTAAAAACTTTACATCAGCAAAGGGGAGGCAAG
+TCGTAA
+>EB200 family_name=Clupeidae; genus_name=Sardinella; species_name=Sardinella aurita; taxid=196071;
+CCCCAACAGCATAACAACTAGTTATTTAACCCAAGAACAGCTACAAGGGGAGGCAAGTCG
+TAA
+>EB201 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula; taxid=202587;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB202 family_name=Syngnathidae; genus_name=Hippocampus; species_name=Hippocampus guttulatus; taxid=109282;
+CCCCAATAACATAACTACAATTAATTAAAACCTAAATGAAATACAAGGGGAGGCAAGTCG
+TAA
+>EB203 family_name=Syngnathidae; genus_name=Hippocampus; species_name=Hippocampus guttulatus; taxid=109282;
+CCCCAATAACATAACTACAATTAATTAAAACCTAAATGAAATACAAGGGGAGGCAAGTCG
+TAA
+>EB204 family_name=Exocoetidae; genus_name=Cheilopogon; species_name=Cheilopogon heterurus; taxid=546515;
+CCCCAAAACCCCTAAAAAGACTAAATAAAACCATTAATCTAATAAAGGGGAGGCAAGTCG
+TAA
+>EB205 family_name=Syngnathidae; genus_name=Hippocampus; species_name=Hippocampus guttulatus; taxid=109282;
+CCCCAATAACATAACTACAATTAATTAAAACCTAAATGAAATACAAGGGGAGGCAAGTCG
+TAA
+>EB207 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra; taxid=1586296;
+CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB208 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra; taxid=1586296;
+CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB209 family_name=Sciaenidae; genus_name=Sciaena; species_name=Sciaena umbra; taxid=1586296;
+CCCCAAACTAATTGAATTCAATTAAATAAAAACCCACCACAGTGAAGGGGAGGCAAGTCG
+TAA
+>EB210 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus sp cfr taenionotus; taxid=161591;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB211 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus sp cfr taenionotus; taxid=161591;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB212 family_name=Sebastidae; genus_name=Helicolenus; species_name=Helicolenus dactylopterus; taxid=349675;
+CCCCAAGCTTACCACTTTTAATAATTAAAAACCCAAAAATCGCGGAGGGGAGGCAAGTCG
+TAA
+>EB213 family_name=Uranoscopidae; genus_name=Uranoscopus; species_name=Uranoscopus scaber; taxid=210005;
+CCCCAAGACTAGCAAATAGATTTTTCTAAACCACCAATATAGCAGAGGGGAGGCAAGTCG
+TAA
+>EB214 family_name=Macrouridae; genus_name=Coelorinchus; species_name=Coelorinchus caelorhincus; taxid=630657;
 CCCCAAAATAACCCCTTTATTCATAATAACTTAAATAAAATAAGGGGAGGTAAGTCGTAA
->EB215 family_name=Macrouridae; genus_name=Coelorinchus; species_name=Coelorinchus caelorhincus;
+>EB215 family_name=Macrouridae; genus_name=Coelorinchus; species_name=Coelorinchus caelorhincus; taxid=630657;
 CCCCAAAATAACCCCTTTATTCATAATAACTTAAATAAAATAAGGGGAGGTAAGTCGTAA
->EB217 family_name=Callionymidae; genus_name=Synchiropus; species_name=Synchiropus phaeton;
-CTCCAAATAACAACATTTAACTACTTAAAATGACAAAACCTTTATTACCCGGAGAGACAAGTCGTAA
->EB218 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius incognitus;
-CCCCAAGCGAAATACACCTATAACTAATCAGATAAAACAGCAAAGGGGAGGCAAGTCGTAA
->EB219 family_name=Merlucciidae; genus_name=Merluccius; species_name=Merluccius merluccius;
-CCCCAAATAATTATAAATATTACCTAAAATGTTTTACCAACCAAGGGGAGGCAAGTCGTAA
->EB220 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus araneus;
-CTCCAAGCCCAATAAACTTGACATAATTAAAACCTAAAATCAGCAAAGGGGGGACAAGTCGTAA
->EB221 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus radiatus;
-CTCCAAGCCCGATGACTTTAACATAAATAAAACCTAAAATTAGCGAAGGGGGGACAAGTCGTAA
->EB223 family_name=Carcharhinidae; genus_name=Prionace; species_name=Prionace glauca;
-CCTCAAAATAATTTACCCTTTTTCATAAATACATTTCTCCAACAAGAGGAGGCAAGTCGTAA
->EB224 family_name=Labridae; genus_name=Labrus; species_name=Labrus viridis;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB225 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus araneus;
-CTCCAAGCCCAATAAACTTGACATAATTAAAACCTAAAATCAGCAAAGGGGGGACAAGTCGTAA
->EB226 family_name=Balistidae; genus_name=Balistes; species_name=Balistes capriscus;
-CCCCAAGCTTCCTTTAACTTAATAACTAATATATTAACCCTGCTAAGGGGAGGCAAGTCGTAA
->EB227 family_name=Clupeidae; genus_name=Alosa; species_name=Alosa fallax;
-CCCCAACAACCGCCCACACCAAGGTAAATAACACAATACCCGTCACAAGGGGAGGCAAGTCGTAA
->EB228 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger;
-CCCCGAACGACCAATAATCATAATTAATATAACACCAAATACTAAGGGGAGGTAAGTCGTAA
->EB229 family_name=Callionymidae; genus_name=Callionymus; species_name=Callionymus maculatus;
-CCCCGCCCAATTAAATTTAACAGATCCCTAAAACATCTTTATTACCTCAGGGGAGGTAAGTCGTAA
->EB23 family_name=Congridae; genus_name=Conger; species_name=Conger conger;
-CCTCATGGCACTTAAATGACTTAATTCTATAAACACTTAATTTAGCCAACAGAGGGGGCAAGTCGTAA
->EB230 family_name=Chimaeridae; genus_name=Chimaera; species_name=Chimaera monstrosa;
+>EB217 family_name=Callionymidae; genus_name=Synchiropus; species_name=Synchiropus phaeton; taxid=1176751;
+CTCCAAATAACAACATTTAACTACTTAAAATGACAAAACCTTTATTACCCGGAGAGACAA
+GTCGTAA
+>EB218 family_name=Blenniidae; genus_name=Parablennius; species_name=Parablennius incognitus; taxid=152546;
+CCCCAAGCGAAATACACCTATAACTAATCAGATAAAACAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB219 family_name=Merlucciidae; genus_name=Merluccius; species_name=Merluccius merluccius; taxid=8063;
+CCCCAAATAATTATAAATATTACCTAAAATGTTTTACCAACCAAGGGGAGGCAAGTCGTA
+A
+>EB220 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus araneus; taxid=1426793;
+CTCCAAGCCCAATAAACTTGACATAATTAAAACCTAAAATCAGCAAAGGGGGGACAAGTC
+GTAA
+>EB221 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus radiatus; taxid=349662;
+CTCCAAGCCCGATGACTTTAACATAAATAAAACCTAAAATTAGCGAAGGGGGGACAAGTC
+GTAA
+>EB223 family_name=Carcharhinidae; genus_name=Prionace; species_name=Prionace glauca; taxid=7815;
+CCTCAAAATAATTTACCCTTTTTCATAAATACATTTCTCCAACAAGAGGAGGCAAGTCGT
+AA
+>EB224 family_name=Labridae; genus_name=Labrus; species_name=Labrus viridis; taxid=202588;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB225 family_name=Trachinidae; genus_name=Trachinus; species_name=Trachinus araneus; taxid=1426793;
+CTCCAAGCCCAATAAACTTGACATAATTAAAACCTAAAATCAGCAAAGGGGGGACAAGTC
+GTAA
+>EB226 family_name=Balistidae; genus_name=Balistes; species_name=Balistes capriscus; taxid=303685;
+CCCCAAGCTTCCTTTAACTTAATAACTAATATATTAACCCTGCTAAGGGGAGGCAAGTCG
+TAA
+>EB227 family_name=Clupeidae; genus_name=Alosa; species_name=Alosa fallax; taxid=278165;
+CCCCAACAACCGCCCACACCAAGGTAAATAACACAATACCCGTCACAAGGGGAGGCAAGT
+CGTAA
+>EB228 family_name=Gobiidae; genus_name=Gobius; species_name=Gobius niger; taxid 85417;
+CCCCGAACGACCAATAATCATAATTAATATAACACCAAATACTAAGGGGAGGTAAGTCGT
+AA
+>EB229 family_name=Callionymidae; genus_name=Callionymus; species_name=Callionymus maculatus; taxid=508551;
+CCCCGCCCAATTAAATTTAACAGATCCCTAAAACATCTTTATTACCTCAGGGGAGGTAAG
+TCGTAA
+>EB23 family_name=Congridae; genus_name=Conger; species_name=Conger conger; taxid=7943;
+CCTCATGGCACTTAAATGACTTAATTCTATAAACACTTAATTTAGCCAACAGAGGGGGCA
+AGTCGTAA
+>EB230 family_name=Chimaeridae; genus_name=Chimaera; species_name=Chimaera monstrosa; taxid=7871;
 CCTCAACAAGATAATTAAATTTATAATAAAAAACTCCTAACAAGAGGAGGCAAGTCGTAA
->EB231 family_name=Scyliorhinidae; genus_name=Galeus; species_name=Galeus melastomus;
-CCTCAAATAAATTTCATCCATTTATATAAAATAATTAACTTATAAAGAGGAGGCAAGTCGTAA
->EB232 family_name=Scyliorhinidae; genus_name=Galeus; species_name=Galeus melastomus;
-CCTCAAATAAATTTCATCCGTTTATATAAAATAATTAACTTATAAAGAGGAGGCAAGTCGTAA
->EB235 family_name=Centriscidae; genus_name=Macroramphosus; species_name=Macrorhamphosus scolopax;
-CCCCAGACTACTAACTTTAATAACTAATACCTTAAGATCTCTAAGGGGAGGCAAGTCGTAA
->EB236 family_name=Caproidae; genus_name=Capros; species_name=Capros aper;
-CCCCGAGCAAAATAACTCAAATTACTAAAACACTAAAACTGTAAAGGGGAGGCAAGTCGTAA
->EB238 family_name=Callionymidae; genus_name=Synchiropus; species_name=Synchiropus phaeton;
-CTCCAAATAACAACATTTAACTACTTAAAATGACAAAACCTTTATTACCCGGAGAGACAAGTCGTAA
->EB239 family_name=Callionymidae; genus_name=Synchiropus; species_name=Synchiropus phaeton;
-CTCCAAATAACAACATTTAACTACTTAAAATGACAAAACCTTTATTACCCGGAGAGACAAGTCGTAA
->EB240 family_name=Sebastidae; genus_name=Helicolenus; species_name=Helicolenus dactylopterus;
-CCCCAAGCTTACCACTTTTAATAATTAAAAACCCAAAAATCGCGGAGGGGAGGCAAGTCGTAA
->EB241 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula;
-CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGTAA
->EB242 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus typhle rondeleti;
-CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTAA
->EB243 family_name=Blenniidae; genus_name=Lipophrys; species_name=Lipophrys trigloides;
-CCCCGAGCTAACAACTTTTATAATTAATTAATCACCACAGCAAAGGGGAGGCAAGTCGTAA
->EB244 family_name=Blenniidae; genus_name=Lipophrys; species_name=Lipophrys trigloides;
-CCCCGAGCTAACAACTTTTATAATTAATTAATCACCACAGCAAAGGGGAGGCAAGTCGTAA
->EB245 family_name=Xiphiidae; genus_name=Xiphias; species_name=Xiphias gladius;
-CCCCGAGCCCTAAACTCACTTAACTAAAACCCTATAATTGCGAAGGGGAGGAAAGTCGTAA
->EB246 family_name=Soleidae; genus_name=Solea; species_name=Solea senegalensis;
-CTCCTGTATTTACCCCATCTCGCGTATATAACATCACGTTCAAATCGAGGAGAGGAAAGTCGTAA
->EB247 family_name=Siganidae; genus_name=Siganus; species_name=Siganus rivulatus;
-CCCCGAGCTTACAAACTCAACTAACTAAAACCTAACAACTGCAAAGGGGAGGCAAGTCGTAA
->EB249 family_name=Siganidae; genus_name=Siganus; species_name=Siganus rivulatus;
-CCCCGAGCTTACAAACTCAACTAACTAAAACCTAACAACTGCAAAGGGGAGGCAAGTCGTAA
->EB250 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis;
-CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGTAA
->EB251 family_name=Apogonidae; genus_name=Apogon; species_name=Apogon imberbis;
-CCCCAAGTTAAAACCCTAGTATTAATTAAACATTAAAACCTACAAAGGGGAGGCAAGTCGTAA
->EB252 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus;
-CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGTAA
->EB253 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus;
-CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGTAA
->EB254 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus;
-CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGTAA
->EB255 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus;
-CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGTAA
->EB256 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus puntazzo;
-CCCCGAGACTTCAAATTTACATTAACTAAAATGCCAAGATCACAGAGGGGAGGCAAGTCGTAA
->EB257 family_name=Belonidae; genus_name=Belone; species_name=Belone belone;
-CCCCAAGCGACAAATTAAAATAATTAATAAACCAAACAAGCAAAGGGGAGGCAAGTCGTAA
->EB258 family_name=Labridae; genus_name=Sparisoma; species_name=Sparisoma cretense;
-CCCCAAGCAGTCAATTTACCCTGTTCCTAAAAGCTAAACTAACGCTGAGGGGAGGCAAGTCGTAA
->EB96 family_name=Citharidae; genus_name=Citharus; species_name=Citharus linguatula;
-CCCCGAACCTTAATATAAAAATACCTAATAATTAACCCAGCGGAAAGGGGAGGAAAGTCGTAA
+>EB231 family_name=Scyliorhinidae; genus_name=Galeus; species_name=Galeus melastomus; taxid=77914;
+CCTCAAATAAATTTCATCCATTTATATAAAATAATTAACTTATAAAGAGGAGGCAAGTCG
+TAA
+>EB232 family_name=Scyliorhinidae; genus_name=Galeus; species_name=Galeus melastomus; taxid=77914;
+CCTCAAATAAATTTCATCCGTTTATATAAAATAATTAACTTATAAAGAGGAGGCAAGTCG
+TAA
+>EB235 family_name=Centriscidae; genus_name=Macroramphosus; species_name=Macroramphosus scolopax; taxid=206124;
+CCCCAGACTACTAACTTTAATAACTAATACCTTAAGATCTCTAAGGGGAGGCAAGTCGTA
+A
+>EB236 family_name=Caproidae; genus_name=Capros; species_name=Capros aper; taxid=206100;
+CCCCGAGCAAAATAACTCAAATTACTAAAACACTAAAACTGTAAAGGGGAGGCAAGTCGT
+AA
+>EB238 family_name=Callionymidae; genus_name=Synchiropus; species_name=Synchiropus phaeton; taxid=1176751;
+CTCCAAATAACAACATTTAACTACTTAAAATGACAAAACCTTTATTACCCGGAGAGACAA
+GTCGTAA
+>EB239 family_name=Callionymidae; genus_name=Synchiropus; species_name=Synchiropus phaeton; taxid=1176751;
+CTCCAAATAACAACATTTAACTACTTAAAATGACAAAACCTTTATTACCCGGAGAGACAA
+GTCGTAA
+>EB240 family_name=Sebastidae; genus_name=Helicolenus; species_name=Helicolenus dactylopterus; taxid=349675;
+CCCCAAGCTTACCACTTTTAATAATTAAAAACCCAAAAATCGCGGAGGGGAGGCAAGTCG
+TAA
+>EB241 family_name=Labridae; genus_name=Labrus; species_name=Labrus merula; taxid=202587;
+CCCCGAGCTTACGTATCTTAATACTTAATGCCTTATAATTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB242 family_name=Syngnathidae; genus_name=Syngnathus; species_name=Syngnathus typhle rondeleti; taxid=161592;
+CCCCTAATATCTCATAAATTTAAGTAAAACACCTGAAAAATTAAGGGGAGGCAAGTCGTA
+A
+>EB243 family_name=Blenniidae; genus_name=Lipophrys; species_name=Lipophrys trigloides; taxid=122551;
+CCCCGAGCTAACAACTTTTATAATTAATTAATCACCACAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB244 family_name=Blenniidae; genus_name=Lipophrys; species_name=Lipophrys trigloides; taxid=122551;
+CCCCGAGCTAACAACTTTTATAATTAATTAATCACCACAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB245 family_name=Xiphiidae; genus_name=Xiphias; species_name=Xiphias gladius; taxid=8245;
+CCCCGAGCCCTAAACTCACTTAACTAAAACCCTATAATTGCGAAGGGGAGGAAAGTCGTA
+A
+>EB246 family_name=Soleidae; genus_name=Solea; species_name=Solea senegalensis; taxid=28829;
+CTCCTGTATTTACCCCATCTCGCGTATATAACATCACGTTCAAATCGAGGAGAGGAAAGT
+CGTAA
+>EB247 family_name=Siganidae; genus_name=Siganus; species_name=Siganus rivulatus; taxid=216359;
+CCCCGAGCTTACAAACTCAACTAACTAAAACCTAACAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB249 family_name=Siganidae; genus_name=Siganus; species_name=Siganus rivulatus; taxid=216359;
+CCCCGAGCTTACAAACTCAACTAACTAAAACCTAACAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB250 family_name=Pomacentridae; genus_name=Chromis; species_name=Chromis chromis; taxid=997968;
+CCCCGAGCTAACAAAAACTCATTCCTAAAAACCTACATCTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB251 family_name=Apogonidae; genus_name=Apogon; species_name=Apogon imberbis; taxid=357811;
+CCCCAAGTTAAAACCCTAGTATTAATTAAACATTAAAACCTACAAAGGGGAGGCAAGTCG
+TAA
+>EB252 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus; taxid=226939;
+CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB253 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus; taxid=226939;
+CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB254 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus; taxid=226939;
+CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB255 family_name=Siganidae; genus_name=Siganus; species_name=Siganus luridus; taxid=226939;
+CCCCGAGCTTACAAACTCAACTAACTAAAACCCAACAACTGCAAAGGGGAGGCAAGTCGT
+AA
+>EB256 family_name=Sparidae; genus_name=Diplodus; species_name=Diplodus puntazzo; taxid=48915;
+CCCCGAGACTTCAAATTTACATTAACTAAAATGCCAAGATCACAGAGGGGAGGCAAGTCG
+TAA
+>EB257 family_name=Belonidae; genus_name=Belone; species_name=Belone belone; taxid=129037;
+CCCCAAGCGACAAATTAAAATAATTAATAAACCAAACAAGCAAAGGGGAGGCAAGTCGTA
+A
+>EB258 family_name=Labridae; genus_name=Sparisoma; species_name=Sparisoma cretense; taxid=69664;
+CCCCAAGCAGTCAATTTACCCTGTTCCTAAAAGCTAAACTAACGCTGAGGGGAGGCAAGT
+CGTAA
+>EB96 family_name=Citharidae; genus_name=Citharus; species_name=Citharus linguatula; taxid=206151;
+CCCCGAACCTTAATATAAAAATACCTAATAATTAACCCAGCGGAAAGGGGAGGAAAGTCG
+TAA

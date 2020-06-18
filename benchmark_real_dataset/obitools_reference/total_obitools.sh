@@ -64,7 +64,7 @@ identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
 /usr/bin/time $ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly_ali} --fasta-output > ${identified}
 ## Split big file into one file per sample 
-/usr/bin/time $obisplit -p $main_dir/"$pref"_ -t sample --fasta ${identified}
+/usr/bin/time $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
 
 ################################################################################################
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
