@@ -54,12 +54,12 @@ fin_dir=`pwd`"/benchmark_real_dataset/01_merging/Outputs/06_ngmerge/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-assembly=${main_dir}"/"${pref}".fastq"
+assembly=${main_dir}"/"${pref}".fastq.gz"
 /usr/bin/time $ngmerge -1 ${R1_fastq} -2 ${R2_fastq} -m 10 -p 0.25 -n 16 -o ${assembly}
 
 ## Assign each sequence to a sample
-identified="${assembly/.fastq/.ali.assigned.fasta}"
-unidentified="${assembly/.fastq/_unidentified.fastq}"
+identified="${assembly/.fastq.gz/.ali.assigned.fasta}"
+unidentified="${assembly/.fastq.gz/_unidentified.fastq}"
 $ngsfilter -t ${sample_description_file} -u ${unidentified} ${assembly} --fasta-output > ${identified}
 ## Split big file into one file per sample
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${identified}
