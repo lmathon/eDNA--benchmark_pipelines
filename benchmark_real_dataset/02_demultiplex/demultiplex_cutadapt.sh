@@ -74,7 +74,7 @@ unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
 untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
 /usr/bin/time $cutadapt -g "acaccgcccgtcactct...catggtaagtgtaccggaag" \
--e 0.12 -j 16 -O 15 -o ${trimmed} --untrimmed-output ${untrimmed}\
+-e 0.12 -j 16 -O 15 -o ${trimmed} --untrimmed-output ${untrimmed} \
 ${identified}
 
 # split global file into sample files

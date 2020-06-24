@@ -36,8 +36,8 @@ pref=Banyuls
 # Prefix of the final table 
 step=merging_casper
 # Path to forward and reverse fastq files
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 # Path to file 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Path to file 'db_sim_teleo1.fasta'
