@@ -54,7 +54,7 @@ fin_dir=`pwd`"/01_merging/Outputs/04_casper/final"
 ###################################################################################################################
 
 ## forward and reverse reads assembly
-/usr/bin/time $casper $R1_fastq $R2_fastq -t 1 -j -o $main_dir/"$pref"
+/usr/bin/time $casper $R1_fastq $R2_fastq -t 1 -w 10 -g 0.25 -j -o $main_dir/"$pref"
 ## Assign each sequence to a sample
 /usr/bin/time $ngsfilter -t $sample_description_file -u $main_dir/"$pref"_unidentified.fastq $main_dir/"$pref".fastq --fasta-output > $main_dir/"$pref".ali.assigned.fasta
 ## Split big file into one file per sample
