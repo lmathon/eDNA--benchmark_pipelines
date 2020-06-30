@@ -1,617 +1,617 @@
->Torpedo_marmorata taxid=7788;
+>.EB001 Torpedo_marmorata taxid=7788;
 cctcaaacttgaaaatttacttacataaaaaattacaaacataagaggaggcaagtcgta
 a
->Scorpaena_elongata taxid=432168;
+>.EB003mf Scorpaena_elongata taxid=432168;
 ccccaaaaacatcaaccaatgtacataaaaactaagaactacagaggggaggcaagtcgt
 aa
->Pagellus_acarne taxid=98817;
+>.EB004 Pagellus_acarne taxid=98817;
 ccccgaaaccttaactttacattaactaaaatgccaaaatcatagaggggaggcaagtcg
 taa
->Symphodus_tinca taxid=202600;
+>.EB005 Symphodus_tinca taxid=202600;
 ccccgagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Sparus_aurata taxid=8175;
+>.EB006 Sparus_aurata taxid=8175;
 ccccgagaccttaacttacattaactaaaatgccagaatcatagaggggaggcaagtcgt
 aa
->Lepidorhombus_boscii taxid=179372;
+>.EB007 Lepidorhombus_boscii taxid=179372;
 ccccgagctacaaagtcaatataactaaaaccctattactgcaaaggggaggaaagtcgt
 aa
->Liza_sp taxid=30803;
+>.EB008 Liza taxid=30803;
 ccccgaaataagaatctcttatatctaattatacacaaaaatataaggggaggcaagtcg
 taa
->Gobius_niger taxid 85417;
+>.EB009 Gobius_niger taxid=85417;
 ccccaaacgaccaataatcataattaatacaacaccaaatactaaggggaggtaagtcgt
 aa
->Liza_ramada taxid=30804;
+>.EB010 Chelon_ramada taxid=30804;
 ccccgaaataatgaatttcttatatctaattacccacataaatataaggggaggcaagtc
 gtaa
->Serranus_cabrilla taxid=94953;
+>.EB012 Serranus_cabrilla taxid=94953;
 ccccaaacccttacaaatacttttatataaagccctatagttcacaaggggaggcaagtc
 gtaa
->Dentex_dentex taxid=94951;
+>.EB013 Dentex_dentex taxid=94951;
 ccccgaaactttaccaaaacattaattaaaatgccaaaatcatagaggggaggcaagtcg
 taa
->Mullus_surmuletus taxid=87757;
+>.EB014 Mullus_surmuletus taxid=87757;
 ccccgaatcagtctctgacaagtaattaacaccttgacgccgtagaggggaggcaagtcg
 taa
->Trigla_lyra taxid=430084;
+>.EB015 Trigla_lyra taxid=430084;
 ccccaagcttacaaattaattaattaaaaccctaagattgcaaaggggaggcaagtcgta
 a
->Mullus_surmuletus taxid=87757;
+>.EB017 Mullus_surmuletus taxid=87757;
 ccccgaatcagtctctgacaagtaattaacaccttgacgccgtagaggggaggcaagtcg
 taa
->Diplodus_sargus taxid=169288;
+>.EB019 Diplodus_sargus taxid=38941;
 ccccgagacttttaatttacattaactaagatgccaaaatcacagaggggaggcaagtcg
 taa
->Coris_julis taxid=317481;
+>.EB022 Coris_julis taxid=126330;
 ccccgagctaaactttattctattactaataaaccaaaactgtaaaggggaggcaagtcg
 taa
->Salaria_pavo taxid=152553;
+>.EB024 Salaria_pavo taxid=152553;
 ctcttagctaaatgtaagcccatgcttacttaatatcaagggaggcaagtcgtaa
->Serranus_cabrilla taxid=94953;
+>.EB026 Serranus_cabrilla taxid=94953;
 ccccaaacccttacaaatacttttatataaagccctatagttcacaaggggaggcaagtc
 gtaa
->Symphodus_rostratus taxid=171737;
+>.EB030 Symphodus_rostratus taxid=171737;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Aidablennius_sphynx taxid=195073;
+>.EB031total Aidablennius_sphynx taxid=195073;
 ccgcgaaaatacaccccttacataattaattagataaaaaaacagagcggaggaaagtcg
 taa
->Symphodus_cinereus taxid=202605;
+>.EB034 Symphodus_cinereus taxid=191724;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Diplodus_puntazzo taxid=48915;
+>.EB035 Diplodus_puntazzo taxid=48915;
 ccccgagacttcaaatttacattaactaaaatgccaagatcacagaggggaggcaagtcg
 taa
->Sarpa_salpa taxid=87759;
+>.EB036 Sarpa_salpa taxid=87759;
 ccccaaagccttaactttacattaactaaaatgccaaaatcacagaggggaggcaagtcg
 taa
->Labrus_merula taxid=202587;
+>.EB037 Labrus_merula taxid=202587;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Pegusa_nasuta taxid=1003804;
+>.EB038 Pegusa_nasuta taxid=1003804;
 ctcctgtataaccttatttttgtacataacacctaaaccataaccgaggagagaaaagtc
 gtaa
->Scorpaena_porcus taxid=338887;
+>.EB039 Scorpaena_porcus taxid=338887;
 ccccaaaaccatcgatcaacatacgtaaaaaatcagagctacaaaggggaggcaagtcgt
 aa
->Lophius_budegassa taxid=191678;
+>.EB040 Lophius_budegassa taxid=191678;
 ccccaagctaacgactaaatataattaaatcacaataactgcaaaggggaggcaagtcgt
 aa
->Blennius_ocellaris taxid=195075;
+>.EB041 Blennius_ocellaris taxid=195075;
 ccccaagctaaacaacctaaataattaattaatttaaccagcaaaggggaggcaagtcgt
 aa
->Labrus_merula taxid=202587;
+>.EB042 Labrus_merula taxid=202587;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Scophtalmus_maximus taxid=52904;
+>.EB043 Scophthalmus_maximus taxid=52904;
 ccccgagctacaaagtcgacataactaaatacccattactgcaaaggggaggaaagtcgt
 aa
->Symphodus_cinereus taxid=202605;
+>.EB044 Symphodus_cinereus taxid=191724;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Lithognathus_mormyrus taxid=50591;
+>.EB045total Lithognathus_mormyrus taxid=50591;
 ccccgagacctcaatttacattaactaaaatgccaaaatcacagaggggaggcaagtcgt
 aa
->Trachinus_draco taxid=56737;
+>.EB046 Trachinus_draco taxid=56737;
 ctccaagcccgatgactttaacataattaaaacctaaaattagcaaaggggggacaagtc
 gtaa
->Tripterygion_tripteronotum taxid=152555;
+>.EB047 Tripterygion_tripteronotum taxid=152555;
 cccctaacttgttcagtaacttaacttaaaaaattaaatttatgaaggggaggcaagtcg
 taa
->Symphodus_mediterraneus taxid=202598;
+>.EB048 Symphodus_mediterraneus taxid=202598;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Scorpaena_scrofa taxid=210004;
+>.EB049 Scorpaena_scrofa taxid=210004;
 ccccaaaaacatcaaccaatgtacataaaaactaagagctacagaggggaggcaagtcgt
 aa
->Pagellus_erythrinus taxid=50593;
+>.EB051 Pagellus_erythrinus taxid=50593;
 ccccgaaactttaataaaacattaattaaaatgccaaaatcctagaggggaggcaagtcg
 taa
->Chelidonichthys_lucerna taxid=985092;
+>.EB052 Chelidonichthys_lucerna taxid=2576622;
 ccccaagctcacaaattaattaattaaaaccctaaaatcgcaaaggggaggcaagtcgta
 a
->Scophthalmus_rhombus taxid=65125;
+>.EB053 Scophthalmus_rhombus taxid=65125;
 ccccaagctacaaagtcgacataactaaaacctcattattgcaaaggggaggaaagtcgt
 aa
->Labrus_merula taxid=202587;
+>.EB054 Labrus_merula taxid=202587;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Lepidorhombus_boscii taxid=179372;
+>.EB055 Lepidorhombus_boscii taxid=179372;
 ccccgagctacaaagtcaatataactaaaaccctattactgcaaaggggaggaaagtcgt
 aa
->Merluccius_merluccius taxid=8063;
+>.EB056 Merluccius_merluccius taxid=8063;
 ccccaaataattataaatattacctaaaatgttttaccaaccaaggggaggcaagtcgta
 a
->Syngnathus_typhle taxid=161592;
+>.EB057 Syngnathus_typhle taxid=161592;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Pomadasys_incisus taxid=349656;
+>.EB058 Pomadasys_incisus taxid=349656;
 cccccaatgcccatgaatcttgatgcataaatcctacaattataaaggggaggcaagtcg
 taa
->Diplodus_puntazzo taxid=48915;
+>.EB059 Diplodus_puntazzo taxid=48915;
 ccccgagacttcaaatttacattaactaaaatgccaagatcacagaggggaggcaagtcg
 taa
->Trachurus_mediterraneus taxid=189388;
+>.EB060 Trachurus_mediterraneus taxid=189388;
 ccccaagctcctggaccctaatcctacttaaaccctaacaaatgcgaaggagaggaaagt
 cgtaa
->Zosterisessor_ophiocephalus taxid=85428;
+>.EB061 Zosterisessor_ophiocephalus taxid=85428;
 ccccgatgaaccctagtaagataaataataacgcagcagacactaaggggaggtaagtcg
 taa
->Diplodus_annularis taxid=48913;
+>.EB062 Diplodus_annularis taxid=48913;
 ccccgagacttaaaacttacattaattaaaatgccaaaatcgcagaggggaggcaagtcg
 taa
->Symphodus_cinereus taxid=202605;
+>.EB063 Symphodus_cinereus taxid=191724;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Raja_asterias taxid=182852;
+>.EB064 Raja_asterias taxid=182852;
 cctcaacttacatcactccattttataaataactttttatcacaagaggaggcaagtcgt
 aa
->Oblada_melanura taxid=98825;
+>.EB065 Oblada_melanura taxid=98825;
 ccccaagacctttaattaacattaactaaaatgccaaaatctcagaggggaggcaagtcg
 taa
->Sarda_sarda taxid=327740;
+>.EB066 Sarda_sarda taxid=8232;
 ccccaagcttatcaatacatatatctaaaacgctttaaccgcgaaggggaggcaagtcgt
 aa
->Diplodus_sargus taxid=169288;
+>.EB067 Diplodus_sargus taxid=38941;
 ccccgagacttttaatttacattaactaagatgccaaaatcacagaggggaggcaagtcg
 taa
->Umbrina_canariensis taxid=146147;
+>.EB069 Umbrina_canariensis taxid=146147;
 ccccaaactaattaaattcaattaaataaaaccccatcacagtgaaggggaggcaagtcg
 taa
->Gobius_niger taxid 85417;
+>.EB073 Gobius_niger taxid=85417;
 ccccaaacgaccaataatcataattaatataacaccaaatactaaggggaggtaagtcgt
 aa
->Spondyliosoma_cantharus taxid=50595;
+>.EB074 Spondyliosoma_cantharus taxid=50595;
 ccccgaaacctcgaccttgcattaactaaaatactagaatcatagaggggaggcaagtcg
 taa
->Bothus_podas taxid=147829;
+>.EB076mf Bothus_podas taxid=147829;
 caccaagcccctagataactgtaactaacccgcttctatgtagcaaaggggaggaaagtc
 gtaa
->Symphodus_melops taxid=171736;
+>.EB077 Symphodus_melops taxid=171736;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Lophius_budegassa taxid=191678;
+>.EB080 Lophius_budegassa taxid=191678;
 ccccaagctaacgactaaatataattaaatcacaataactgcaaaggggaggcaagtcgt
 aa
->Muraena_helena taxid=46662;
+>.EB083 Muraena_helena taxid=46662;
 cctcgagaaccgaaatgacaatacataaaaacttaggaaaatagagaggaggcaagtcgt
 aa
->Spicara_flexuosa taxid=458843;
+>.EB084 Spicara_flexuosa taxid=458843;
 ccccgaaacctcaacttaaaattaattaaaatgctagaatcatagaggggaggcaagtcg
 taa
->Epinephelus_marginatus taxid=179535;
+>.EB085 Epinephelus_marginatus taxid=179535;
 ccccaaatataccctaacactttaactttaaaaactttacatcagcaaaggggaggcaag
 tcgtaa
->Trigla_lyra taxid=430084;
+>.EB086 Trigla_lyra taxid=430084;
 ccccaagcttacaaattaattaattaaaaccctaagattgcaaaggggaggcaagtcgta
 a
->Cepola_macrophthalma taxid=334382;
+>.EB087total Cepola_macrophthalma taxid=334382;
 ccccaagcataaatgtgctcataaataataactgatacctgcaaaggggaggcaagtcgt
 aa
->Ophidion_sp taxid=210590;
+>.EB088total Ophidion taxid=210590;
 ctcctaaaataccggctatataacttaatacatacacacgtttaaaggggaggaaagtcg
 taa
->Serranus_scriba taxid=349661;
+>.EB089 Serranus_scriba taxid=349661;
 ccccaaacttatacaaatattttatataaaaccctacaatttctaaggggaggcaagtcg
 taa
->Lepidorhombus_boscii taxid=179372;
+>.EB091 Lepidorhombus_boscii taxid=179372;
 ccccgagctacaaagtcaatataactaaaaccctattactgcaaaggggaggaaagtcgt
 aa
->Symphodus_bailloni taxid=191725;
+>.EB092 Symphodus_bailloni taxid=191725;
 ccccgagtctatgaattatcatacctaatacactaaaactgcaaaggggaggcaagtcgt
 aa
->Trachurus_mediterraneus taxid=189388;
+>.EB094 Trachurus_mediterraneus taxid=189388;
 ccccaagctcctggaccctaatcctacttaaaccctaacaaatgcgaaggagaggaaagt
 cgtaa
->Sciaena_umbra taxid=1586296;
+>.EB095 Sciaena_umbra taxid=1586296;
 ccccaaactaattgaattcaattaaataaaaacccaccacagtgaaggggaggcaagtcg
 taa
->Synodus_saurus taxid=81392;
+>.EB097 Synodus_saurus taxid=81392;
 ccccaactacttaatccattatataaagaaagaaaataaaaaggggaggcaagtcgtaa
->Lophius_piscatorius taxid=8074;
+>.EB098 Lophius_piscatorius taxid=8074;
 ccccaagctaacgactaaatataactaaatcataataactgcaaaggggaggcaagtcgt
 aa
->Trachurus_mediterraneus taxid=189388;
+>.EB099 Trachurus_mediterraneus taxid=189388;
 ccccaagctcctggaccctaatcctacttaaaccctaacaaatgcgaaggagaggaaagt
 cgtaa
->Parablennius_gattorugine taxid=171871;
+>.EB100 Parablennius_gattorugine taxid=171871;
 ccccaagcgtaacactaatatacctaatctgctaaaacagcaaaggggaggcaagtcgta
 a
->Thalassoma_pavo taxid=202603;
+>.EB101 Thalassoma_pavo taxid=202603;
 ccccgagctaattatgcacattactaataaacaaaacttgcaaaggggaggcaagtcgta
 a
->Gobius_cruentatus taxid=441897;
+>.EB102 Gobius_cruentatus taxid=441897;
 ccccgatgaacccaatacaataaataatgaaatcgcaaacactataggggagataagtcg
 taa
->Spicara_maena taxid=98823;
+>.EB103 Spicara_maena taxid=98823;
 ccccgagacttcgacttaaaattaactaaaatgccaagattatagaggggaggcaagtcg
 taa
->Sphyraena_sphyraena taxid=443726;
+>.EB104mf Sphyraena_sphyraena taxid=13692;
 cccccagtctaccaactcccccttaaataaagtgtcaatcttgcaaaggggaggaaagtc
 gtaa
->Dentex_dentex taxid=94951;
+>.EB105 Dentex_dentex taxid=94951;
 ccccgaaactttaccaaaacattaattaaaatgccaaaatcatagaggggaggcaagtcg
 taa
->Scorpaena_scrofa taxid=210004;
+>.EB106 Scorpaena_scrofa taxid=210004;
 ccccaaaaacatcaaccaatgtacataaaaactaagagctacagaggggaggcaagtcgt
 aa
->Salaria_pavo taxid=152553;
+>.EB107 Salaria_pavo taxid=152553;
 ctcttagctaaatgtaagcccatgcttacttaatatcaagggaggcaagtcgtaa
->Chelidonichthys_lucerna taxid=985092;
+>.EB109mf Chelidonichthys_lucerna taxid=2576622;
 ccccaagctcacaaattaattaattaaaaccctaaaatcgcaaaggggaggcaagtcgta
 a
->Pegusa_nasuta taxid=1003804;
+>.EB111mf Pegusa_nasuta taxid=1003804;
 ctcctgtataaccttatttttgtacataacacctaaaccataaccgaggagaggaaagtc
 gtaa
->Boops_boops taxid=36219;
+>.EB112total Boops_boops taxid=36219;
 ccccaaaaccctaactttacattaactaaaatgccaaaatcatagaggggaggcaagtcg
 taa
->Scorpaena_notata taxid=210003;
+>.EB113mf Scorpaena_notata taxid=210003;
 ccccgaaaacatcgacaaatctacttaaaaaactagaaccacagaggggaggcaagtcgt
 aa
->Syngnathus_typhle taxid=161592;
+>.EB115mf Syngnathus_typhle taxid=161592;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Chelidonichthys_lucerna taxid=985092;
+>.EB117total Chelidonichthys_lucerna taxid=2576622;
 ccccaagctcacaaattaattaattaaaaccctaaaatcgcaaaggggaggcaagtcgta
 a
->Sciaena_umbra taxid=1586296;
+>.EB118total Sciaena_umbra taxid=1586296;
 ccccaaactaattgaattcaattaaataaaaacccaccacagtgaaggggaggcaagtcg
 taa
->Uranoscopus_scaber taxid=210005;
+>.EB121 Uranoscopus_scaber taxid=210005;
 ccccaagactagcaaatagatttttctaaaccaccaatatagcagaggggaggcaagtcg
 taa
->Syngnathus_sp_cfr_taenionotus taxid=161591;
+>.EB126 Syngnathus_taenionotus taxid=161591;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Syngnathus_abaster taxid=161583;
+>.EB127 Syngnathus_abaster taxid=161583;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Syngnathus_abaster taxid=161583;
+>.EB128 Syngnathus_abaster taxid=161583;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Zosterisessor_ophiocephalus taxid=85428;
+>.EB130 Zosterisessor_ophiocephalus taxid=85428;
 ccccgatgaaccctagtaagataaataataacgcagcagacactaaggggaggtaagtcg
 taa
->Gobius_niger taxid 85417;
+>.EB131 Gobius_niger taxid=85417;
 ccccaaacgaccaataatcataattaatataacaccaaatactaaggggaggtaagtcgt
 aa
->Symphodus_cinereus taxid=202605;
+>.EB132 Symphodus_cinereus taxid=191724;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Symphodus_cinereus taxid=202605;
+>.EB133 Symphodus_cinereus taxid=191724;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Diplodus_vulgaris taxid=87756;
+>.EB134 Diplodus_vulgaris taxid=87756;
 ccccgagactttaaatctacattaattaaaatgccaaaatcacagaggggaggcaagtcg
 taa
->Sparus_aurata taxid=8175;
+>.EB135 Sparus_aurata taxid=8175;
 ccccgagaccttaacttacattaactaaaatgccagaatcatagaggggaggcaagtcgt
 aa
->Atherina_boyeri taxid=1482992;
+>.EB136 Atherina_boyeri taxid=87785;
 ccccaagccaccttaccactataattaaaaaaatttataagcaaaggggaggcaagtcgt
 aa
->Scyliorhinus_canicula taxid=7830;
+>.EB137 Scyliorhinus_canicula taxid=7830;
 cctcaataaatacacttatttttataaaaattttaccaaaacaagaggaggcaagtcgta
 a
->Pagellus_erythrinus taxid=50593;
+>.EB138 Pagellus_erythrinus taxid=50593;
 ccccgaaactttaataaaacattaattaaaatgccaaaatcctagaggggaggcaagtcg
 taa
->Diplodus_vulgaris taxid=87756;
+>.EB139 Diplodus_vulgaris taxid=87756;
 ccccgagactttaaatctacattaattaaaatgccaaaatcacagaggggaggcaagtcg
 taa
->Uranoscopus_scaber taxid=210005;
+>.EB141 Uranoscopus_scaber taxid=210005;
 ccccaagactagcaaatagatttttctaaaccaccaatatagcagaggggaggcaagtcg
 taa
->Umbrina_canariensis taxid=146147;
+>.EB142 Umbrina_canariensis taxid=146147;
 ccccaaactaattaaattcaattaaataaaaccccatcacagtgaaggggaggcaagtcg
 taa
->Scomber_scombrus taxid=13677;
+>.EB144 Scomber_scombrus taxid=13677;
 ctccaagctcacccacccattcaacataactaattacccataaactgcaaaggagaggca
 agtcgtaa
->Symphodus_tinca taxid=202600;
+>.EB146 Symphodus_tinca taxid=202600;
 ccccgagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Tripterygion_tripteronotum taxid=152555;
+>.EB147 Tripterygion_tripteronotum taxid=152555;
 cccctaacttgttcagtaacttaacttaaaaaattaaatttatgaaggggaggcaagtcg
 taa
->Gobius_bucchichi taxid=85416;
+>.EB148 Gobius_bucchichi taxid=85416;
 ccccgatggacctagtaatataattaataacgcaaaagacactaaggggaggtaagtcgt
 aa
->Tripterygion_delaisi taxid=259078;
+>.EB149 Tripterygion_delaisi taxid=57862;
 ccccaaacctgttcaaaagcttaacttaaaaaattagattaataaaggggaggcaagtcg
 taa
->Serranus_cabrilla taxid=94953;
+>.EB150 Serranus_cabrilla taxid=94953;
 ccccaaacccttacaaatacttttatataaagccctatagttcacaaggggaggcaagtc
 gtaa
->Symphodus_rostratus taxid=171737;
+>.EB151 Symphodus_rostratus taxid=171737;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Scorpaena_porcus taxid=338887;
+>.EB152 Scorpaena_porcus taxid=338887;
 ccccaaaaccatcgatcaacatacgtaaaaaatcagagctacaaaggggaggcaagtcgt
 aa
->Trigloporus_lastoviza taxid=426095;
+>.EB153 Trigloporus_lastoviza taxid=426095;
 ccccaagctcacaaattaattaactaaaaccctaaggtcgcaaaggggaggcaagtcgta
 a
->Trisopterus_capelanus taxid=1526409;
+>.EB154 Trisopterus_capelanus taxid=1526409;
 ctcctaataaaccctaaatattacctaaaatgctttttatcacaaggggaggcaagtcgt
 aa
->Chelidonichthys_lucerna taxid=985092;
+>.EB155 Chelidonichthys_lucerna taxid=2576622;
 ccccaagctcacaaattaattaattaaaaccctaaaatcgcaaaggggaggcaagtcgta
 a
->Symphodus_roissali taxid=191726;
+>.EB157 Symphodus_roissali taxid=191726;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Chromis_chromis taxid=997968;
+>.EB158 Chromis_chromis taxid=91607;
 ccccgagctaacaaaaactcattcctaaaaacctacatctgcaaaggggaggcaagtcgt
 aa
->Parablennius_pilicornis taxid=195081;
+>.EB159 Parablennius_pilicornis taxid=195081;
 ccccaagcgacacattaacataaataatcaagctaaacagcaaaggggaggcaagtcgta
 a
->Mullus_barbatus taxid=430080;
+>.EB16 Mullus_barbatus taxid=37007;
 ccccgaattagtcctgatgagtaattaacaccttgacgccacagaggggaggcaagtcgt
 aa
->Parablennius_pilicornis taxid=195081;
+>.EB160 Parablennius_pilicornis taxid=195081;
 ccccaagcgacacattaacataaataatcaagctaaacagcaaaggggaggcaagtcgta
 a
->Coris_julis taxid=317481;
+>.EB161 Coris_julis taxid=126330;
 ccccgagctaaactttattctattactaataaaccaaaactgtaaaggggaggcaagtcg
 taa
->Symphodus_ocellatus taxid=130472;
+>.EB162 Symphodus_ocellatus taxid=130472;
 ccccgagtctatgaattaacatatctaatacgctaaaactgcaaaggggaggcaagtcgt
->Symphodus_roissali taxid=191726;
+>.EB163 Symphodus_roissali taxid=191726;
 ccccaagtctatgaattaacatacctaataccctaaaactgcaaaggggaggcaagtcgt
 aa
->Spicara_maena taxid=98823;
+>.EB165 Spicara_maena taxid=98823;
 ccccgagacttcgacttaaaattaactaaaatgccaagattatagaggggaggcaagtcg
 taa
->Sardina_pilchardus taxid=27697;
+>.EB166 Sardina_pilchardus taxid=27697;
 ccccaacaactacctataaaaatgtaactaacacaatattcgccgcaaggggaggcaagt
 cgtaa
->Raja_asterias taxid=182852;
+>.EB167 Raja_asterias taxid=182852;
 cctcaacttacatcactccattttataaataactttttatcacaagaggaggcaagtcgt
 aa
->Solea_senegalensis taxid=28829;
+>.EB171 Solea_senegalensis taxid=28829;
 ctcctgtatttacctcatcttacgtatataacaccacgttcaaatcgaggagaggaaagt
 cgtaa
->Solea_solea taxid=90069;
+>.EB172 Solea_solea taxid=90069;
 ctcctgaatttaccttattttatgtatataacaccacatccaaatagaggagaggaaagt
 cgtaa
->Pegusa_nasuta taxid=1003804;
+>.EB173 Pegusa_nasuta taxid=1003804;
 ctcctgtataaccttatttttgtacataacacctaaaccataaccgaggagagaaaagtc
 gtaa
->Liza_aurata taxid=48191;
+>.EB174 Chelon_auratus taxid=48191;
 ccccgaaataagaatctcttatacctaattacccacacaaacataaggggaggcaagtcg
 taa
->Chelidonichthys_obscurus taxid=349663;
+>.EB175 Chelidonichthys_obscurus taxid=349663;
 ccccaagctcacaaattaattaactaaaaccctaaggtcgcaaaggggaggcaagtcgta
 a
->Chelidonichthys_obscurus taxid=349663;
+>.EB176 Chelidonichthys_obscurus taxid=349663;
 ccccaagctcacaaattaattaactaaaaccctaaggtcgaaaaggggaggcaagtcgta
 a
->Pomadasys_incisus taxid=349656;
+>.EB177 Pomadasys_incisus taxid=349656;
 cccccaatgcccatgaatcttgatgcataaatcctacaattataaaggggaggcaagtcg
 taa
->Scophthalmus_rhombus taxid=65125;
+>.EB178 Scophthalmus_rhombus taxid=65125;
 ccccaagctacaaagtcgacataactaaaacctcattattgcaaaggggaggaaagtcgt
 aa
->Serranus_hepatus taxid=357812;
+>.EB179 Serranus_hepatus taxid=357812;
 ccccaagcctatattaatatttttacataaaagtctacaatttttaaggggaggcaagtc
 gtaa
->Serranus_hepatus taxid=357812;
+>.EB180 Serranus_hepatus taxid=357812;
 ccccaagcctatattaatatttttacataaaagtctacaatttttaaggggaggcaagtc
 gtaa
->Scorpaena_notata taxid=210003;
+>.EB181 Scorpaena_notata taxid=210003;
 ccccgaaaacatcgacaaatctacttaaaaaactagaaccacagaggggaggcaagtcgt
 aa
->Trigla_lyra taxid=430084;
+>.EB182 Trigla_lyra taxid=430084;
 ccccaagctcacaaattaattaattaaaaccctagaatcgcaaaggggaggcaagtcgta
 a
->Phycis_blennoides taxid=163115;
+>.EB183 Phycis_blennoides taxid=163115;
 ctccaaataacaccccccccccccttcctaaaaacagagattaagaaggaaaggcaagtc
 gtaa
->Conger_conger taxid=7943;
+>.EB185 Conger_conger taxid=82655;
 cctcatggcacttaaatgacttaattctataaacacttaatttagccaacagagggggca
 agtcgtaa
->Spicara_flexuosa taxid=458843;
+>.EB186 Spicara_flexuosa taxid=458843;
 ccccgaaacctcaacttaaaattaattaaaatgctagaawtcatagaggggaggcaagtc
 gtaa
->Trisopterus_capelanus taxid=1526409;
+>.EB187 Trisopterus_capelanus taxid=1526409;
 ctcctaataaaccctaaatattacctaaaatgctttttatcacaaggggaggcaagtcgt
 aa
->Trisopterus_capelanus taxid=1526409;
+>.EB188 Trisopterus_capelanus taxid=1526409;
 ctcctaataaaccctaaatattacctaaaatgctttttatcacaaggggaggcaagtcgt
 aa
->Trigloporus_lastoviza taxid=426095;
+>.EB189 Trigloporus_lastoviza taxid=426095;
 ccccaagctcacaaattaattaactaaaaccctaaggtcgcaaaggggaggcaagtcgta
 a
->Dentex_dentex taxid=94951;
+>.EB190 Dentex_dentex taxid=94951;
 ccccgaaactttaccaaaacattaattaaaatgccaaaatcatagaggggaggcaagtcg
 taa
->Gobius_geniporus taxid=579944;
+>.EB191 Gobius_geniporus taxid=579944;
 cccccacagactacaaggataactaataacataataaatactaaggggaggtaagtcgta
 a
->Seriola_dumerili taxid=41447;
+>.EB192 Seriola_dumerili taxid=41447;
 ccccgagctccccggaccacctttaactaaagccctacaactgcaaaggagaggaaagtc
 gtaa
->Seriola_dumerili taxid=41447;
+>.EB193 Seriola_dumerili taxid=41447;
 ccccgagctccccggaccacctttaactaaagccctacaactgcaaaggagaggaaagtc
 gtaa
->Spondyliosoma_cantharus taxid=50595;
+>.EB194 Spondyliosoma_cantharus taxid=50595;
 ccccgaaacctcgaccttgcattaactaaaatactagaatcatagaggggaggcaagtcg
 taa
->Spondyliosoma_cantharus taxid=50595;
+>.EB195 Spondyliosoma_cantharus taxid=50595;
 ccccgaaacctcgaccttgcattaactaaaatactagaatcatagaggggaggcaagtcg
 taa
->Chromis_chromis taxid=997968;
+>.EB196 Chromis_chromis taxid=91607;
 ccccgagctaacaaaaactcattcctaaaaacctacatctgcaaaggggaggcaagtcgt
 aa
->Chromis_chromis taxid=997968;
+>.EB197 Chromis_chromis taxid=91607;
 ccccgagctaacaaaaactcattcctaaaaacctacatctgcaaaggggaggcaagtcgt
 aa
->Labrus_viridis taxid=202588;
+>.EB198 Labrus_viridis taxid=202588;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Epinephelus_marginatus taxid=179535;
+>.EB199 Epinephelus_marginatus taxid=179535;
 ccccaaatataccctaacactttaactttaaaaactttacatcagcaaaggggaggcaag
 tcgtaa
->Sardinella_aurita taxid=196071;
+>.EB200 Sardinella_aurita taxid=196071;
 ccccaacagcataacaactagttatttaacccaagaacagctacaaggggaggcaagtcg
 taa
->Labrus_merula taxid=202587;
+>.EB201 Labrus_merula taxid=202587;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Hippocampus_guttulatus taxid=109282;
+>.EB202 Hippocampus_guttulatus taxid=109282;
 ccccaataacataactacaattaattaaaacctaaatgaaatacaaggggaggcaagtcg
 taa
->Hippocampus_guttulatus taxid=109282;
+>.EB203 Hippocampus_guttulatus taxid=109282;
 ccccaataacataactacaattaattaaaacctaaatgaaatacaaggggaggcaagtcg
 taa
->Cheilopogon_heterurus taxid=546515;
+>.EB204 Cheilopogon_heterurus taxid=546515;
 ccccaaaacccctaaaaagactaaataaaaccattaatctaataaaggggaggcaagtcg
 taa
->Hippocampus_guttulatus taxid=109282;
+>.EB205 Hippocampus_guttulatus taxid=109282;
 ccccaataacataactacaattaattaaaacctaaatgaaatacaaggggaggcaagtcg
 taa
->Sciaena_umbra taxid=1586296;
+>.EB207 Sciaena_umbra taxid=1586296;
 ccccaaactaattgaattcaattaaataaaaacccaccacagtgaaggggaggcaagtcg
 taa
->Sciaena_umbra taxid=1586296;
+>.EB208 Sciaena_umbra taxid=1586296;
 ccccaaactaattgaattcaattaaataaaaacccaccacagtgaaggggaggcaagtcg
 taa
->Sciaena_umbra taxid=1586296;
+>.EB209 Sciaena_umbra taxid=1586296;
 ccccaaactaattgaattcaattaaataaaaacccaccacagtgaaggggaggcaagtcg
 taa
->Syngnathus_sp_cfr_taenionotus taxid=161591;
+>.EB210 Syngnathus_taenionotus taxid=161591;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Syngnathus_sp_cfr_taenionotus taxid=161591;
+>.EB211 Syngnathus_taenionotus taxid=161591;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Helicolenus_dactylopterus taxid=349675;
+>.EB212 Helicolenus_dactylopterus taxid=202727;
 ccccaagcttaccacttttaataattaaaaacccaaaaatcgcggaggggaggcaagtcg
 taa
->Uranoscopus_scaber taxid=210005;
+>.EB213 Uranoscopus_scaber taxid=210005;
 ccccaagactagcaaatagatttttctaaaccaccaatatagcagaggggaggcaagtcg
 taa
->Coelorinchus_caelorhincus taxid=630657;
+>.EB214 Coelorinchus_caelorhincus taxid=630657;
 ccccaaaataacccctttattcataataacttaaataaaataaggggaggtaagtcgtaa
->Coelorinchus_caelorhincus taxid=630657;
+>.EB215 Coelorinchus_caelorhincus taxid=630657;
 ccccaaaataacccctttattcataataacttaaataaaataaggggaggtaagtcgtaa
->Synchiropus_phaeton taxid=1176751;
+>.EB217 Synchiropus_phaeton taxid=1176751;
 ctccaaataacaacatttaactacttaaaatgacaaaacctttattacccggagagacaa
 gtcgtaa
->Parablennius_incognitus taxid=152546;
+>.EB218 Parablennius_incognitus taxid=152546;
 ccccaagcgaaatacacctataactaatcagataaaacagcaaaggggaggcaagtcgta
 a
->Merluccius_merluccius taxid=8063;
+>.EB219 Merluccius_merluccius taxid=8063;
 ccccaaataattataaatattacctaaaatgttttaccaaccaaggggaggcaagtcgta
 a
->Trachinus_araneus taxid=1426793;
+>.EB220 Trachinus_araneus taxid=1426793;
 ctccaagcccaataaacttgacataattaaaacctaaaatcagcaaaggggggacaagtc
 gtaa
->Trachinus_radiatus taxid=349662;
+>.EB221 Trachinus_radiatus taxid=349662;
 ctccaagcccgatgactttaacataaataaaacctaaaattagcgaaggggggacaagtc
 gtaa
->Prionace_glauca taxid=7815;
+>.EB223 Prionace_glauca taxid=7815;
 cctcaaaataatttaccctttttcataaatacatttctccaacaagaggaggcaagtcgt
 aa
->Labrus_viridis taxid=202588;
+>.EB224 Labrus_viridis taxid=202588;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Trachinus_araneus taxid=1426793;
+>.EB225 Trachinus_araneus taxid=1426793;
 ctccaagcccaataaacttgacataattaaaacctaaaatcagcaaaggggggacaagtc
 gtaa
->Balistes_capriscus taxid=303685;
+>.EB226 Balistes_capriscus taxid=303685;
 ccccaagcttcctttaacttaataactaatatattaaccctgctaaggggaggcaagtcg
 taa
->Alosa_fallax taxid=278165;
+>.EB227 Alosa_fallax taxid=278165;
 ccccaacaaccgcccacaccaaggtaaataacacaatacccgtcacaaggggaggcaagt
 cgtaa
->Gobius_niger taxid 85417;
+>.EB228 Gobius_niger taxid=85417;
 ccccgaacgaccaataatcataattaatataacaccaaatactaaggggaggtaagtcgt
 aa
->Callionymus_maculatus taxid=508551;
+>.EB229 Callionymus_maculatus taxid=508551;
 ccccgcccaattaaatttaacagatccctaaaacatctttattacctcaggggaggtaag
 tcgtaa
->Conger_conger taxid=7943;
+>.EB23 Conger_conger taxid=82655;
 cctcatggcacttaaatgacttaattctataaacacttaatttagccaacagagggggca
 agtcgtaa
->Chimaera_monstrosa taxid=7871;
+>.EB230 Chimaera_monstrosa taxid=7871;
 cctcaacaagataattaaatttataataaaaaactcctaacaagaggaggcaagtcgtaa
->Galeus_melastomus taxid=77914;
+>.EB231 Galeus_melastomus taxid=77914;
 cctcaaataaatttcatccatttatataaaataattaacttataaagaggaggcaagtcg
 taa
->Galeus_melastomus taxid=77914;
+>.EB232 Galeus_melastomus taxid=77914;
 cctcaaataaatttcatccgtttatataaaataattaacttataaagaggaggcaagtcg
 taa
->Macroramphosus_scolopax taxid=206124;
+>.EB235 Macroramphosus_scolopax taxid=206124;
 ccccagactactaactttaataactaataccttaagatctctaaggggaggcaagtcgta
 a
->Capros_aper taxid=206100;
+>.EB236 Capros_aper taxid=206100;
 ccccgagcaaaataactcaaattactaaaacactaaaactgtaaaggggaggcaagtcgt
 aa
->Synchiropus_phaeton taxid=1176751;
+>.EB238 Synchiropus_phaeton taxid=1176751;
 ctccaaataacaacatttaactacttaaaatgacaaaacctttattacccggagagacaa
 gtcgtaa
->Synchiropus_phaeton taxid=1176751;
+>.EB239 Synchiropus_phaeton taxid=1176751;
 ctccaaataacaacatttaactacttaaaatgacaaaacctttattacccggagagacaa
 gtcgtaa
->Helicolenus_dactylopterus taxid=349675;
+>.EB240 Helicolenus_dactylopterus taxid=202727;
 ccccaagcttaccacttttaataattaaaaacccaaaaatcgcggaggggaggcaagtcg
 taa
->Labrus_merula taxid=202587;
+>.EB241 Labrus_merula taxid=202587;
 ccccgagcttacgtatcttaatacttaatgccttataattgcaaaggggaggcaagtcgt
 aa
->Syngnathus_typhle_rondeleti taxid=161592;
+>.EB242 Syngnathus_typhle taxid=161592;
 cccctaatatctcataaatttaagtaaaacacctgaaaaattaaggggaggcaagtcgta
 a
->Lipophrys_trigloides taxid=122551;
+>.EB243 Lipophrys_trigloides taxid=122551;
 ccccgagctaacaacttttataattaattaatcaccacagcaaaggggaggcaagtcgta
 a
->Lipophrys_trigloides taxid=122551;
+>.EB244 Lipophrys_trigloides taxid=122551;
 ccccgagctaacaacttttataattaattaatcaccacagcaaaggggaggcaagtcgta
 a
->Xiphias_gladius taxid=8245;
+>.EB245 Xiphias_gladius taxid=8245;
 ccccgagccctaaactcacttaactaaaaccctataattgcgaaggggaggaaagtcgta
 a
->Solea_senegalensis taxid=28829;
+>.EB246 Solea_senegalensis taxid=28829;
 ctcctgtatttaccccatctcgcgtatataacatcacgttcaaatcgaggagaggaaagt
 cgtaa
->Siganus_rivulatus taxid=216359;
+>.EB247 Siganus_rivulatus taxid=216359;
 ccccgagcttacaaactcaactaactaaaacctaacaactgcaaaggggaggcaagtcgt
 aa
->Siganus_rivulatus taxid=216359;
+>.EB249 Siganus_rivulatus taxid=216359;
 ccccgagcttacaaactcaactaactaaaacctaacaactgcaaaggggaggcaagtcgt
 aa
->Chromis_chromis taxid=997968;
+>.EB250 Chromis_chromis taxid=91607;
 ccccgagctaacaaaaactcattcctaaaaacctacatctgcaaaggggaggcaagtcgt
 aa
->Apogon_imberbis taxid=357811;
+>.EB251 Apogon_imberbis taxid=357811;
 ccccaagttaaaaccctagtattaattaaacattaaaacctacaaaggggaggcaagtcg
 taa
->Siganus_luridus taxid=226939;
+>.EB252 Siganus_luridus taxid=226939;
 ccccgagcttacaaactcaactaactaaaacccaacaactgcaaaggggaggcaagtcgt
 aa
->Siganus_luridus taxid=226939;
+>.EB253 Siganus_luridus taxid=226939;
 ccccgagcttacaaactcaactaactaaaacccaacaactgcaaaggggaggcaagtcgt
 aa
->Siganus_luridus taxid=226939;
+>.EB254 Siganus_luridus taxid=226939;
 ccccgagcttacaaactcaactaactaaaacccaacaactgcaaaggggaggcaagtcgt
 aa
->Siganus_luridus taxid=226939;
+>.EB255 Siganus_luridus taxid=226939;
 ccccgagcttacaaactcaactaactaaaacccaacaactgcaaaggggaggcaagtcgt
 aa
->Diplodus_puntazzo taxid=48915;
+>.EB256 Diplodus_puntazzo taxid=48915;
 ccccgagacttcaaatttacattaactaaaatgccaagatcacagaggggaggcaagtcg
 taa
->Belone_belone taxid=129037;
+>.EB257 Belone_belone taxid=129037;
 ccccaagcgacaaattaaaataattaataaaccaaacaagcaaaggggaggcaagtcgta
 a
->Sparisoma_cretense taxid=69664;
+>.EB258 Sparisoma_cretense taxid=59664;
 ccccaagcagtcaatttaccctgttcctaaaagctaaactaacgctgaggggaggcaagt
 cgtaa
->Citharus_linguatula taxid=206151;
+>.EB96 Citharus_linguatula taxid=206151;
 ccccgaaccttaatataaaaatacctaataattaacccagcggaaaggggaggaaagtcg
 taa
