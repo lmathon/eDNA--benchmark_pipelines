@@ -90,8 +90,7 @@ do
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
   echo " /usr/bin/time $swarm -z -f -t 16 -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh
   echo "sed -i 's/;/; /g' "$clean_sequence_sample >> $sample_sh
-  echo "sed -i 's/:/: /g' "$clean_sequence_sample >> $sample_sh
-  echo "sed -i 's/SUB;/SUB/g' "$clean_sequence_sample >> $sample_sh
+  #echo "sed -i 's/:/: /g' "$clean_sequence_sample >> $sample_sh
   echo "sed -i 's/}/}; /g' "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh

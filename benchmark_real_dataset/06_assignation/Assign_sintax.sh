@@ -49,7 +49,7 @@ R2_fastq="$DATA_PATH"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir=`pwd`"/06_assignation/db_banyuls_sintax.fasta"
+refdb_dir=`pwd`"/benchmark_real_dataset/06_assignation/db_banyuls_sintax.fasta"
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/02_sintax/main"
 fin_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/02_sintax/final"
@@ -113,9 +113,9 @@ python3 06_assignation/unique_id_obifasta.py $all_sample_sequences_sort > $all_s
 all_sample_sequences_sort_uppercase="${all_sample_sequences_uniqid/.fasta/.uppercase.fasta}"
 awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $0}}' $all_sample_sequences_uniqid > $all_sample_sequences_sort_uppercase
 ## Taxonomic assignation
-all_sample_sequences_sintax_ann="${all_sample_sequences_sort/.fasta/.sintax_ann.csv}"
+all_sample_sequences_sintax_ann="${all_sample_sequences_sort_uppercase/.fasta/.sintax_ann.csv}"
 $usearch -sintax $all_sample_sequences_sort_uppercase -db $refdb_dir -sintax_cutoff 0.98 -threads 16 -strand plus -tabbedout $all_sample_sequences_sintax_ann
 ## Create final table
-python3 06_assignation/sintax2obitab.py -s $all_sample_sequences_sintax_ann -o $fin_dir/"$step".csv
+python3 benchmark_real_dataset/06_assignation/sintax2obitab.py -s $all_sample_sequences_sintax_ann -o $fin_dir/"$step".csv
 
 ################################################################################################

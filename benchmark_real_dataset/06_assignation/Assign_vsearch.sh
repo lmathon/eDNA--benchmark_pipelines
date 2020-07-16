@@ -45,7 +45,7 @@ R2_fastq="$DATA_PATH"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 # Chemin vers le fichier 'db_sim_teleo1.fasta'
-refdb_dir=`pwd`"/06_assignation/db_banyuls_vsearch.fasta"
+refdb_dir=`pwd`"/benchmark_real_dataset/06_assignation/db_banyuls_vsearch.fasta"
 ## path to outputs final and temporary (main)
 main_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/01_vsearch/main"
 fin_dir=`pwd`"/benchmark_real_dataset/06_assignation/Outputs/01_vsearch/final"
@@ -104,14 +104,11 @@ $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecou
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
-# unique ID for each sequence
-all_sample_sequences_uniqid="${all_sample_sequences_sort/.fasta/.uniqid.fasta}"
-python3 06_assignation/unique_id_obifasta.py $all_sample_sequences_sort > $all_sample_sequences_uniqid
 # Taxonomic assignation
-all_sample_sequences_vsearch_tag="${all_sample_sequences_uniqid/.fasta/.tag.fasta}"
-$vsearch --usearch_global $all_sample_sequences_uniqid --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
+all_sample_sequences_vsearch_tag="${all_sample_sequences_sort/.fasta/.tag.fasta}"
+$vsearch --usearch_global $all_sample_sequences_sort --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
-python3 06_assignation/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/"$pref".csv
+python3 benchmark_real_dataset/06_assignation/vsearch2obitab.py -a $all_sample_sequences_vsearch_tag -o $fin_dir/"$pref".csv
 
 ################################################################################################
 
