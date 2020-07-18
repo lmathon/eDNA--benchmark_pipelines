@@ -85,7 +85,7 @@ with open(sintaxFile,'r') as readFile:
     for ligne in readFile.readlines():     
         ligneSplit=ligne.split(";")
         thisLigne= Ligne("NA","NA","NA","NA","NA","NA","NA")
-        thisLigne.id_ligne=ligneSplit[0].split(" ")[0]
+        thisLigne.id_ligne=ligneSplit[0].split(" ")[0]        
         if thisLigne.id_ligne not in listOfIds:
             listOfIds.append(thisLigne.id_ligne)
             thisLigne.count=ligneSplit[0].split(" ")[1].split("=")[1]        
@@ -101,20 +101,28 @@ with open(sintaxFile,'r') as readFile:
                         else:
                             thisLigne.definition="."
                 else:
-                    elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
-                    for elemf in elemFormat:
-                        if elemf[0] =='f':
-                            thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
-                        elif elemf[0] == 'g':
-                            thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
-                        else:
-                            thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
+                    ## check if taxon field is not empty
+                    if 'f' in elem:
+                        elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
+                        for elemf in elemFormat:
+                            if elemf[0] =='f':
+                                thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
+                            elif elemf[0] == 'g':
+                                thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
+                            elif elemf[0] == 's':
+                                thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
+                            else:
+                                print("Error no taxon information at line %s.", thisLigne.id_ligne)
+                    else:
+                        thisLigne.family_name='NA'
+                        thisLigne.genus_name='NA'
+                        thisLigne.species_name='NA'
             listOfLignes.append(thisLigne)
         else:
             print("non")
             for i in range(len(listOfLignes)):
                 if listOfLignes[i].id_ligne == thisLigne.id_ligne:
-                    thisligne.definition="r"
+                    thisLigne.definition="r"
                     for elem in ligneSplit[1:]:
                         if "=" not in elem:
                             elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
