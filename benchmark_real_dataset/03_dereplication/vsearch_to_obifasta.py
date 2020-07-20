@@ -63,7 +63,7 @@ for seq_record in SeqIO.parse(vsearchFile, "fasta", alphabet=IUPAC.unambiguous_d
         else:
             local_id=local_id+";"+str(elem)
     local_id=local_id[1:]+" count="+sizeSeq+"; merged_sample={'"+sampleName+"': "+sizeSeq+"};"
-    local_seq=str(repr(seq_record.seq.lower().tostring())).replace("'","")
+    local_seq=str(seq_record.seq.lower()).replace("'","")
     local_record=SeqRecord(Seq(local_seq,IUPAC.unambiguous_dna), id=local_id,description="")
     mes_records.append(local_record)
 SeqIO.write(mes_records, outputFile, "fasta")

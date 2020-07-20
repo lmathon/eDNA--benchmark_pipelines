@@ -84,7 +84,7 @@ dereplicated_sample="${sample/.fasta/.uniq.fasta}"
 echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --threads 16 --minseqlength 20 --output "$dereplicated_sample > $sample_sh
 # Formate vsearch output to obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
-echo "$container_python2 03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
+echo "$container_python2 benchmark_real_dataset/03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
 ## Keep only sequences longer than 20pb with no N bases
 good_sequence_sample="${formated_sample/.fasta/.l20.fasta}"
 echo $obigrep" -s '^[ACGT]+$' -l 20 "$formated_sample" > "$good_sequence_sample >> $sample_sh
