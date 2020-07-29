@@ -108,7 +108,7 @@ all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count --uppercase -r $all_sample_sequences_ann > $all_sample_sequences_sort
 ## unique ID for each sequence
 all_sample_sequences_uniqid="${all_sample_sequences_sort/.fasta/.uniqid.fasta}"
-python3 06_assignation/unique_id_obifasta.py $all_sample_sequences_sort > $all_sample_sequences_uniqid
+python3 benchmark_real_dataset/06_assignation/unique_id_obifasta.py $all_sample_sequences_sort > $all_sample_sequences_uniqid
 ## converting lowercase letters to uppercase sequence ATGC letters in fasta file (usearch compatibility)
 all_sample_sequences_sort_uppercase="${all_sample_sequences_uniqid/.fasta/.uppercase.fasta}"
 awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $0}}' $all_sample_sequences_uniqid > $all_sample_sequences_sort_uppercase
@@ -116,6 +116,6 @@ awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $0}}' $all_sample_seque
 all_sample_sequences_sintax_ann="${all_sample_sequences_sort/.fasta/.sintax_ann.csv}"
 $usearch -sintax $all_sample_sequences_sort_uppercase -db $refdb_dir -sintax_cutoff 0.98 -threads 16 -strand plus -tabbedout $all_sample_sequences_sintax_ann
 ## Create final table
-python3 06_assignation/sintax2obitab.py -s $all_sample_sequences_sintax_ann -o $fin_dir/"$step".csv
+python3 benchmark_real_dataset/06_assignation/sintax2obitab.py -s $all_sample_sequences_sintax_ann -o $fin_dir/"$step".csv
 
 ################################################################################################

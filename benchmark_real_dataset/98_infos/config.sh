@@ -22,7 +22,6 @@ OBITOOLS_SIMG="/share/reservebenefit/utils/conteneurs/obitools.simg"
 ## Singularity exec command
 SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share" 
 
-
 ###############################################################################
 ## Input data
 
