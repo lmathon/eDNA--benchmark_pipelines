@@ -5,6 +5,7 @@
 CEFE - EPHE - BENCHMARK eDNA  2019
 mathon laetitia, guerin pierre-edouard
 
+fix 3 aout 2020
 
 description:
 
@@ -101,14 +102,22 @@ with open(sintaxFile,'r') as readFile:
                         else:
                             thisLigne.definition="."
                 else:
-                    elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
-                    for elemf in elemFormat:
-                        if elemf[0] =='f':
-                            thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
-                        elif elemf[0] == 'g':
-                            thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
-                        else:
-                            thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
+                    ## check if taxon field is not empty
+                    if 'f' in elem:
+                        elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
+                        for elemf in elemFormat:
+                            if elemf[0] =='f':
+                                thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
+                            elif elemf[0] == 'g':
+                                thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
+                            elif elemf[0] == 's':
+                                thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
+                            else:
+                                print("Error no taxon information at line %s.", thisLigne.id_ligne)
+                    else:
+                        thisLigne.family_name='NA'
+                        thisLigne.genus_name='NA'
+                        thisLigne.species_name='NA'
             listOfLignes.append(thisLigne)
         else:
             print("non")
