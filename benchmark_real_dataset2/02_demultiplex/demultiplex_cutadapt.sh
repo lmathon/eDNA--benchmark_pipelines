@@ -62,7 +62,7 @@ assembly=${main_dir}"/"${pref}".fastq"
 $illuminapairedend -r ${R2_fastq} ${R1_fastq} > ${assembly}
 ## Remove non-aligned reads
 assembly_ali="${assembly/.fastq/.ali.fastq}"
-$obigrep -p 'mode!="joined"' ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
+$obigrep -p 'mode!="joined"' --fasta-output ${main_dir}"/"${pref}".fastq" > ${assembly_ali}
 
 
 ## assign each sequence to a sample
