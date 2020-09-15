@@ -56,7 +56,7 @@ assembly=${main_dir}"/"${pref}".fasta"
 identified="${assembly/.fasta/.assigned.fasta}"
 unidentified="${assembly/.fasta/_unidentified.fasta}"
 /usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 16 -O 8 -o ${identified} \
---untrimmed-output ${unidentified} ${assembly_ali}
+--untrimmed-output ${unidentified} ${assembly}
 ## Remove primers
 trimmed1="${identified/.assigned.fasta/.assigned.trimmed1.fasta}"
 untrimmed1="${identified/.assigned.fasta/_untrimmed1.fasta}"
