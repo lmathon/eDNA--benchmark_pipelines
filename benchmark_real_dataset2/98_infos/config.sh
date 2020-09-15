@@ -27,7 +27,7 @@ SINGULARITY_EXEC_CMD="singularity exec --bind /share:/share"
 ## Input data
 
 ## path to folder of reads forward et reverse
-#DATA_PATH="/00_Input_data/forward_reverse_reads/"
+#DATA_PATH="/benchmark_real_dataset2/00_Input_data/forward_reverse_reads/"
 DATA_PATH="/share/reservebenefit/working/Input_data/"
 
 INPUT_DATA=`pwd`"/benchmark_real_dataset2/00_Input_data/"

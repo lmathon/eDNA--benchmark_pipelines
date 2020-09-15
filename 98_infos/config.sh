@@ -32,4 +32,4 @@ REFDB_PATH=`pwd`"/00_Input_data/reference_database"
 ###############################################################################
 
 ## number of available cores
-CORES=1
+CORES=16

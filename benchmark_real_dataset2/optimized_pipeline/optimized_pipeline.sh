@@ -29,10 +29,10 @@ swarm=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" swarm"
 container_python2=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" python2"
 
 # Prefix for all generated files
-pref="Banyuls"
+pref="Carry"
 # Path to forward and reverse fastq files
-R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq.gz
-R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
+R1_fastq="${DATA_PATH}"/"$pref"/"$pref"_R1.fastq
+R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
 Tags=`pwd`"/benchmark_real_dataset2/optimized_pipeline/Tags.fasta"
 # Path to file 'db_sim_teleo1.fasta'
