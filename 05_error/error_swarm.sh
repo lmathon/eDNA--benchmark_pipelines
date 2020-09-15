@@ -85,7 +85,7 @@ do
   echo "$obigrep -s '^[ACGT]+$' -l 20 "$dereplicated_sample" > "$good_sequence_sample >> $sample_sh
   # Format fasta file to process sequence with swarm
   formated_sequence_sample="${good_sequence_sample/.fasta/.formated.fasta}"
-  echo "$obiannotate -S 'size:count' "$good_sequence_sample" | $container_python2 benchmark_real_dataset/05_error/formate_header.py > "$formated_sequence_sample >> $sample_sh
+  echo "$obiannotate -S 'size:count' "$good_sequence_sample" | $container_python2 05_error/formate_header.py > "$formated_sequence_sample >> $sample_sh
   # Removal of PCR and sequencing errors (variants) with swarm
   clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
   echo " /usr/bin/time $swarm -z -f -t 16 -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh
