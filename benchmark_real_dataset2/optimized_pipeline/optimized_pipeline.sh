@@ -72,7 +72,7 @@ ${identified}
 
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
 cat ${trimmed1} ${trimmed2} > ${trimmed}
-
+sed -i 's/sample/ sample/g' $trimmed
 
 ## Split big file into one file per sample
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $trimmed
