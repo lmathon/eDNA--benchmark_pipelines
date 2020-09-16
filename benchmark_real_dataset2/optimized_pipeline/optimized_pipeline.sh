@@ -71,11 +71,16 @@ untrimmed2="${identified/.assigned.fasta/_untrimmed2.fasta}"
 ${identified}
 
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
-cat ${trimmed1} ${trimmed2} > ${trimmed}
-sed -i 's/sample/ sample/g' $trimmed
+/usr/bin/time cat ${trimmed1} ${trimmed2} > ${trimmed}
+/usr/bin/time sed -i 's/sample/ sample/g' ${trimmed}
+/usr/bin/time sed -i 's/ 1:N/_1:N/g' ${trimmed}
+
+annotate="${trimmed/.fasta/.ann.fasta}"
+$obiannotate -k sample --fasta-output ${trimmed} > ${annotate}
 
 ## Split big file into one file per sample
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $trimmed
+/usr/bin/time $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${annotate}
+
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh
