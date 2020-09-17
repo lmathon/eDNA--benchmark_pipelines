@@ -68,23 +68,14 @@ $obigrep -p 'mode!="joined"' --fasta-output ${main_dir}"/"${pref}".fastq" > ${as
 ## assign each sequence to a sample
 identified="${assembly_ali/.ali.fastq/.ali.assigned.fasta}"
 unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
-/usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 1 -O 8 -o ${identified} \
+/usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 1 -O 8 --revcomp -o ${identified} \
 --untrimmed-output ${unidentified} ${assembly_ali}
 ## Remove primers
-trimmed1="${identified/.assigned.fasta/.assigned.trimmed1.fasta}"
-untrimmed1="${identified/.assigned.fasta/_untrimmed1.fasta}"
-/usr/bin/time $cutadapt -g "cttccggtacacttaccatg...agagtgacgggcggtgt" \
--e 0.12 -j 16 -O 15 -o ${trimmed1} --untrimmed-output ${untrimmed1} \
-${identified}
-## Remove primers (other direction)
-trimmed2="${identified/.assigned.fasta/.assigned.trimmed2.fasta}"
-untrimmed2="${identified/.assigned.fasta/_untrimmed2.fasta}"
-/usr/bin/time $cutadapt -g "acaccgcccgtcactct...catggtaagtgtaccggaag" \
--e 0.12 -j 16 -O 15 -o ${trimmed2} --untrimmed-output ${untrimmed2} \
-${identified}
-
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
-cat ${trimmed1} ${trimmed2} > ${trimmed}
+untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
+/usr/bin/time $cutadapt -g "cttccggtacacttaccatg...agagtgacgggcggtgt" \
+-e 0.12 -j 16 -O 15 --revcomp -o ${trimmed1} --untrimmed-output ${untrimmed1} \
+${identified}
 
 
 # split global file into sample files
