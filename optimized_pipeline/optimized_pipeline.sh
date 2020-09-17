@@ -49,30 +49,21 @@ fin_dir=`pwd`"/optimized_pipeline/Outputs/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fasta"
-/usr/bin/time $vsearch --fastq_mergepairs $R1_fastq --reverse $R2_fastq --fastq_allowmergestagger  --fastaout ${assembly}
+/usr/bin/time $vsearch --fastq_mergepairs $R1_fastq --fastq_maxdiffpct 25 --reverse $R2_fastq --fastq_allowmergestagger  --fastaout ${assembly}
 
 
 ## assign each sequence to a sample
 identified="${assembly/.fasta/.assigned.fasta}"
 unidentified="${assembly/.fasta/_unidentified.fasta}"
-/usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 16 -O 8 -o ${identified} \
+/usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 16 -O 8 --revcomp -o ${identified} \
 --untrimmed-output ${unidentified} ${assembly}
 ## Remove primers
-trimmed1="${identified/.assigned.fasta/.assigned.trimmed1.fasta}"
-untrimmed1="${identified/.assigned.fasta/_untrimmed1.fasta}"
+trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
+untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
 /usr/bin/time $cutadapt -g "cttccggtacacttaccatg...agagtgacgggcggtgt" \
--e 0.12 -j 16 -O 15 -o ${trimmed1} --untrimmed-output ${untrimmed1} \
-${identified}
-## Remove primers (other direction)
-trimmed2="${identified/.assigned.fasta/.assigned.trimmed2.fasta}"
-untrimmed2="${identified/.assigned.fasta/_untrimmed2.fasta}"
-/usr/bin/time $cutadapt -g "acaccgcccgtcactct...catggtaagtgtaccggaag" \
--e 0.12 -j 16 -O 15 -o ${trimmed2} --untrimmed-output ${untrimmed2} \
+-e 0.12 -j 16 -O 15 --revcomp -o ${trimmed1} --untrimmed-output ${untrimmed1} \
 ${identified}
 
-trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
-cat ${trimmed1} ${trimmed2} > ${trimmed}
-sed -i 's/sample/ sample/g' $trimmed
 
 ## Split big file into one file per sample
 $obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta $trimmed
