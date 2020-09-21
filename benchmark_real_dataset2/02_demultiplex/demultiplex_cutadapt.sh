@@ -74,13 +74,15 @@ unidentified="${assembly_ali/.ali.fastq/_unidentified.fastq}"
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
 untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
 /usr/bin/time $cutadapt -g "cttccggtacacttaccatg...agagtgacgggcggtgt" \
--e 0.12 -j 16 -O 15 --revcomp -o ${trimmed1} --untrimmed-output ${untrimmed1} \
+-e 0.12 -j 16 -O 15 --revcomp -o ${trimmed} --untrimmed-output ${untrimmed} \
 ${identified}
 
+annotate="${trimmed/.fasta/.ann.fasta}"
+$obiannotate -k sample --fasta-output ${trimmed} > ${annotate}
 
 
 # split global file into sample files
-$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${trimmed}
+$obisplit -p $main_dir/"$pref"_sample_ -t sample --fasta ${annotate}
 
 all_samples_parallel_cmd_sh=$main_dir/"$pref"_sample_parallel_cmd.sh
 echo "" > $all_samples_parallel_cmd_sh

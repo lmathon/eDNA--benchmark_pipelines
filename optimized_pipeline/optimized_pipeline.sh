@@ -61,7 +61,7 @@ unidentified="${assembly/.fasta/_unidentified.fasta}"
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
 untrimmed="${identified/.assigned.fasta/_untrimmed.fasta}"
 /usr/bin/time $cutadapt -g "cttccggtacacttaccatg...agagtgacgggcggtgt" \
--e 0.12 -j 16 -O 15 --revcomp -o ${trimmed1} --untrimmed-output ${untrimmed1} \
+-e 0.12 -j 16 -O 15 --revcomp -o ${trimmed} --untrimmed-output ${untrimmed} \
 ${identified}
 
 
