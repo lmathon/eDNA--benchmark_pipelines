@@ -28,6 +28,7 @@ ngsfilter=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ngsfilter"
 obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
 obiuniq=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiuniq"
 obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
+obicomplement=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obicomplement"
 obiclean=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiclean"
 ecotag=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" ecotag"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
@@ -107,9 +108,12 @@ cat $main_dir/"$pref"_sample_*.uniq.l20.r005.clean.fasta > $all_sample_sequences
 ## Dereplicate in unique sequences
 all_sample_sequences_uniq="${all_sample_sequences_clean/.fasta/.uniq.fasta}"
 /usr/bin/time $obiuniq -m sample $all_sample_sequences_clean > $all_sample_sequences_uniq
+## Reverse-complement all sequences
+all_sample_sequence_RC="${all_sample_sequences_uniq/.fasta/.RC.fasta}"
+/usr/bin/time $obicomplement $all_sample_sequences_uniq > $all_sample_sequence_RC
 ## Taxonomic assignation
-all_sample_sequences_tag="${all_sample_sequences_uniq/.fasta/.tag.fasta}"
-/usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_uniq -m 0.98 > $all_sample_sequences_tag
+all_sample_sequences_tag="${all_sample_sequences_RC/.fasta/.tag.fasta}"
+/usr/bin/time $ecotag -d $base_dir/"${base_pref}" -R $refdb_dir $all_sample_sequences_RC -m 0.98 > $all_sample_sequences_tag
 ## Removal of useless attributes in header
 all_sample_sequences_ann="${all_sample_sequences_tag/.fasta/.ann.fasta}"
 $obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
