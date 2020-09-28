@@ -22,6 +22,7 @@ source benchmark_real_dataset2/98_infos/config.sh
 
 obisplit=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisplit"
 obiannotate=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obiannotate"
+obicomplement=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obicomplement"
 obisort=${SINGULARITY_EXEC_CMD}" "${OBITOOLS_SIMG}" obisort"
 vsearch=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" vsearch"
 cutadapt=${SINGULARITY_EXEC_CMD}" "${EDNATOOLS_SIMG}" cutadapt"
@@ -95,8 +96,6 @@ echo "$obiannotate -S 'size:count' "$good_sequence_sample" | $container_python2 
 clean_sequence_sample="${formated_sequence_sample/.fasta/.clean.fasta}"
 echo " /usr/bin/time $swarm -z -f -t 16 -w "$clean_sequence_sample" "$formated_sequence_sample >> $sample_sh
 echo "sed -i 's/;/; /g' "$clean_sequence_sample >> $sample_sh
-echo "sed -i 's/:/: /g' "$clean_sequence_sample >> $sample_sh
-echo "sed -i 's/SUB;/SUB/g' "$clean_sequence_sample >> $sample_sh
 echo "sed -i 's/}/}; /g' "$clean_sequence_sample >> $sample_sh
 done
 parallel < $all_samples_parallel_cmd_sh
@@ -105,28 +104,26 @@ all_sample_sequences_clean=$main_dir/"$pref"_all_sample_clean.fasta
 cat $main_dir/"$pref"_sample_*.uniq.formated.l20.formated.clean.fasta > $all_sample_sequences_clean
 # Removal of unnecessary attributes in sequence headers
 all_sample_sequences_ann="${all_sample_sequences_clean/.fasta/.ann.fasta}"
-$obiannotate  --delete-tag=scientific_name_by_db --delete-tag=obiclean_samplecount \
- --delete-tag=obiclean_count --delete-tag=obiclean_singletoncount \
- --delete-tag=obiclean_cluster --delete-tag=obiclean_internalcount \
- --delete-tag=obiclean_head  --delete-tag=obiclean_headcount \
- --delete-tag=id_status --delete-tag=rank_by_db --delete-tag=obiclean_status \
- --delete-tag=seq_length_ori --delete-tag=sminL --delete-tag=sminR \
- --delete-tag=reverse_score --delete-tag=reverse_primer --delete-tag=reverse_match --delete-tag=reverse_tag \
- --delete-tag=forward_tag --delete-tag=forward_score --delete-tag=forward_primer --delete-tag=forward_match \
- --delete-tag=tail_quality --delete-tag=mode --delete-tag=seq_a_single $all_sample_sequences_clean > $all_sample_sequences_ann
+$obiannotate  -k count -k size -k merged_sample $all_sample_sequences_clean > $all_sample_sequences_ann
 # Sort sequences by 'count'
 all_sample_sequences_sort="${all_sample_sequences_ann/.fasta/.sort.fasta}"
 $obisort -k count -r $all_sample_sequences_ann > $all_sample_sequences_sort
 # unique ID for each sequence
 all_sample_sequences_uniqid="${all_sample_sequences_sort/.fasta/.uniqid.fasta}"
 python3 /benchmark_real_dataset2/optimized_pipeline/unique_id_obifasta.py $all_sample_sequences_sort > $all_sample_sequences_uniqid
+# Reverse-complement all sequences
+all_sample_sequence_RC="${all_sample_sequences_uniqid/.fasta/.RC.fasta}"
+/usr/bin/time $obicomplement $all_sample_sequences_uniqid > $all_sample_sequence_RC
+
+
+
 # Taxonomic assignation
-all_sample_sequences_vsearch_tag="${all_sample_sequences_uniqid/.fasta/.tag.fasta}"
-$vsearch --usearch_global $all_sample_sequences_uniqid --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
+all_sample_sequences_vsearch_tag="${all_sample_sequences_RC/.fasta/.tag.fasta}"
+$vsearch --usearch_global $all_sample_sequences_RC --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
 ### preformat
 all_sample_sequences_vsearch_preformat="${all_sample_sequences_vsearch_tag/.fasta/.preformat.fasta}"
-tr "\t" ";" < $all_sample_sequences_vsearch_tag | sed 's/ merged_sample=/; merged_sample=/g' > $all_sample_sequences_vsearch_preformat
+tr "\t" ";" < $all_sample_sequences_vsearch_tag > $all_sample_sequences_vsearch_preformat
 python3 /benchmark_real_dataset2/optimized_pipeline/vsearch2obitab.py -a $all_sample_sequences_vsearch_preformat -o $fin_dir/opt_pipeline.csv
 
 
