@@ -56,7 +56,7 @@ assembly=${main_dir}"/"${pref}".fasta"
 ## assign each sequence to a sample
 identified="${assembly/.fasta/.assigned.fasta}"
 unidentified="${assembly/.fasta/_unidentified.fasta}"
-/usr/bin/time $cutadapt -g file:$Tags -y 'sample={name};' -e 0 -j 16 -O 8 --revcomp -o ${identified} \
+/usr/bin/time $cutadapt -g file:$Tags -y ' sample={name};' -e 0 -j 16 -O 8 --revcomp -o ${identified} \
 --untrimmed-output ${unidentified} ${assembly}
 ## Remove primers
 trimmed="${identified/.assigned.fasta/.assigned.trimmed.fasta}"
