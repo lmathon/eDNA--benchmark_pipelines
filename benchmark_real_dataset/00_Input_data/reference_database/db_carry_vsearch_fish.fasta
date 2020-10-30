@@ -6319,7 +6319,7 @@ TAA
 >EB076mf;family_name=Bothidae;genus_name=Bothus;species_name=Bothus podas;
 CACCAAGCCCCTAGATAACTGTAACTAACCCGCTTCTATGTAGCAAAGGGGAGGAAAGTC
 GTAA
->EB077;family_name=Labridae;genus_name=Symphodus;species_name=Symphodus melops;
+>EB077;family_name=Labridae;genus_name=Symphodus;species_name=Symphodus roissali;
 CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
 AA
 >EB080;family_name=Lophiidae;genus_name=Lophius;species_name=Lophius budegassa;
@@ -6349,7 +6349,7 @@ TAA
 >EB091;family_name=Scophthalmidae;genus_name=Lepidorhombus;species_name=Lepidorhombus boscii;
 CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGT
 AA
->EB092;family_name=Labridae;genus_name=Symphodus;species_name=Symphodus bailloni;
+>EB092;family_name=Labridae;genus_name=Symphodus;species_name=Symphodus melops;
 CCCCGAGTCTATGAATTATCATACCTAATACACTAAAACTGCAAAGGGGAGGCAAGTCGT
 AA
 >EB094;family_name=Carangidae;genus_name=Trachurus;species_name=Trachurus mediterraneus;

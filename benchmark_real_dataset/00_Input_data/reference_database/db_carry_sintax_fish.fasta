@@ -6319,7 +6319,7 @@ TAA
 >EB076mf;tax=f:Bothidae,g:Bothus,s:Bothus podas;
 CACCAAGCCCCTAGATAACTGTAACTAACCCGCTTCTATGTAGCAAAGGGGAGGAAAGTC
 GTAA
->EB077;tax=f:Labridae,g:Symphodus,s:Symphodus melops;
+>EB077;tax=f:Labridae,g:Symphodus,s:Symphodus roissali;
 CCCCAAGTCTATGAATTAACATACCTAATACCCTAAAACTGCAAAGGGGAGGCAAGTCGT
 AA
 >EB080;tax=f:Lophiidae,g:Lophius,s:Lophius budegassa;
@@ -6349,7 +6349,7 @@ TAA
 >EB091;tax=f:Scophthalmidae,g:Lepidorhombus,s:Lepidorhombus boscii;
 CCCCGAGCTACAAAGTCAATATAACTAAAACCCTATTACTGCAAAGGGGAGGAAAGTCGT
 AA
->EB092;tax=f:Labridae,g:Symphodus,s:Symphodus bailloni;
+>EB092;tax=f:Labridae,g:Symphodus,s:Symphodus melops;
 CCCCGAGTCTATGAATTATCATACCTAATACACTAAAACTGCAAAGGGGAGGCAAGTCGT
 AA
 >EB094;tax=f:Carangidae,g:Trachurus,s:Trachurus mediterraneus;
