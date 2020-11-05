@@ -46,7 +46,7 @@ R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq.gz
 ## path to 'sample_description_file.txt'
 sample_description_file=${INPUT_DATA}"/sample_description_file.txt"
 ## path to the file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_carry.fasta"
+refdb_dir=${REFDB_PATH}"/db_carry_all.fasta"
 ## Path to embl files of the reference database
 base_dir=${REFDB_PATH}
 ### remove '.' and  '_' from the prefix files

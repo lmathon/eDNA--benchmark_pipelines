@@ -37,7 +37,7 @@ R2_fastq="${DATA_PATH}"/"$pref"/"$pref"_R2.fastq
 ## path to 'tags.fasta'
 Tags=`pwd`"/benchmark_real_dataset/optimized_pipeline/Tags.fasta"
 # Path to file 'db_sim_teleo1.fasta'
-refdb_dir=${REFDB_PATH}"/db_carry_vsearch.fasta"
+refdb_dir=${REFDB_PATH}"/db_carry_vsearch_all.fasta"
 # Path to all files 'embl' of the reference database
 base_dir=${REFDB_PATH}
 ### Prefix of the ref database files must not contain "." ou "_"
