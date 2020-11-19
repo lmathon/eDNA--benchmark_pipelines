@@ -50,7 +50,7 @@ fin_dir=`pwd`"/benchmark_real_dataset/optimized_pipeline/Outputs/final"
 
 ## forward and reverse reads assembly
 assembly=${main_dir}"/"${pref}".fasta"
-/usr/bin/time $vsearch --fastq_mergepairs $R1_fastq --fast_maxdiffpct 25--reverse $R2_fastq --fastq_allowmergestagger  --fastaout ${assembly}
+/usr/bin/time $vsearch --fastq_mergepairs $R1_fastq --fastq_maxdiffpct 25 --reverse $R2_fastq --fastq_allowmergestagger  --fastaout ${assembly}
 
 
 ## assign each sequence to a sample
