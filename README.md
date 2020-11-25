@@ -59,22 +59,11 @@ singularity pull --name ednatools.simg shub://Grelot/bioinfo_singularity_recipes
 
 ## Input FASTQ files and Reference database
 
-The simulated dataset used for this study, containing forward and reverse reads from 12S mitochondrial gene fragment of fish, has been simulated with [Grinder](https://sourceforge.net/projects/biogrinder/). For the full simulation protocole, please visit https://github.com/lmathon/metabarcoding_data_simulation.
-
-The dataset is stored on MEGA. To dowload, uncrypt and unzip `forward_reverse_reads` from our [MEGA cloud](https://mega.nz/), run :
-
-```
-bash 99_utils/mega_download/download_input_data.sh
-```
-The `forward_reverse_reads` folder will be created at [benchmark_simulated_dataset/00_Input_data/forward_reverse_reads](benchmark_simulated_dataset/00_Input_data/forward_reverse_reads).
-
-The reference database files needed for the taxonomic assignment with OBITools are also stored on MEGA and will be downloaded at the same time as the input FASTQ files. These files will be stored in [benchmark_simulated_dataset/00_Input_data/reference_database](benchmark_simulated_dataset/00_Input_data/reference_database).
-
-The FASTQ inputs of the dataset from Carry-le-Rouet will be available on public databases upon publication. Reference databases used with this dataset are available [here](benchmark_real_dataset/00_Input_data/reference_database).
+Input FASTQ files for the simulated dataset and the real dataset along with the reference database files needed for assignment with OBITools, too heavy to be stored here, will be stored on Datadryad upon publication. Information will be given here. 
 
 ## Sample description file
 
-The sample description file, containing the primers and the tags associated to each sample, is available [here](benchmark_simulated_dataset/00_Input_data/sample_description_file.txt) for the simulated dataset, and [here](benchmark_real_dataset/00_Input_data/sample_description_file.txt).
+The sample description file, containing the primers and the tags associated to each sample, is available [here](benchmark_simulated_dataset/00_Input_data/sample_description_file.txt) for the simulated dataset, and [here](benchmark_real_dataset/00_Input_data/sample_description_file.txt) for the real dataset.
 
 ## Abundance data 
 
