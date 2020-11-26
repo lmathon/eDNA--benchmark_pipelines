@@ -103,20 +103,19 @@ with open(sintaxFile,'r') as readFile:
                 else:
                     ## check if taxon field is not empty
                     if 'f' in elem:
-                        elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
-                        for elemf in elemFormat:
-                            if elemf[0] =='f':
-                                thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
-                            elif elemf[0] == 'g':
-                                thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
-                            elif elemf[0] == 's':
-                                thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
-                            else:
-                                print("Error no taxon information at line %s.", thisLigne.id_ligne)
-                    else:
-                        thisLigne.family_name='NA'
-                        thisLigne.genus_name='NA'
-                        thisLigne.species_name='NA'
+                        elemFormatAll=elem.replace("\t","").replace("\n","").lstrip().split("+")                       
+                        if len(elemFormatAll) > 1:
+                            if len(elemFormatAll[1]) > 1:
+                                elemFormat = elemFormatAll[1].split(",")                            
+                                for elemf in elemFormat:
+                                    if elemf[0] =='f':
+                                        thisLigne.family_name=elemf.split(':')[1].split('(')[0] #family
+                                    elif elemf[0] == 'g':
+                                        thisLigne.genus_name=elemf.split(':')[1].split('(')[0] #genus
+                                    elif elemf[0] == 's':
+                                        thisLigne.species_name=elemf.split(':')[1].split('(')[0] #species
+                                    else:
+                                        print("Error no taxon information at line %s.", thisLigne.id_ligne)
             listOfLignes.append(thisLigne)
         else:
             print("non")
@@ -125,14 +124,17 @@ with open(sintaxFile,'r') as readFile:
                     thisLigne.definition="r"
                     for elem in ligneSplit[1:]:
                         if "=" not in elem:
-                            elemFormat=elem.replace("\t","").replace("\n","").lstrip().split(",")
-                            for elemf in elemFormat:
-                                if elemf[0] =='f':
-                                    listOfLignes[i].family_name=thisLigne.family_name+","+elemf.split(':')[1].split('(')[0] #family
-                                elif elemf[0] == 'g':
-                                    listOfLignes[i].genus_name=thisLigne.genus_name+","+elemf.split(':')[1].split('(')[0] #genus
-                                else:
-                                    listOfLignes[i].species_name=thisLigne.species_name+","+elemf.split(':')[1].split('(')[0] #species
+                            elemFormatAll=elem.replace("\t","").replace("\n","").lstrip().split("+")
+                            if len(elemFormatAll) > 1:
+                                if len(elemFormatAll[1]) > 1:
+                                    elemFormat = elemFormatAll[1].split(",")       
+                                    for elemf in elemFormat:
+                                        if elemf[0] =='f':
+                                            listOfLignes[i].family_name=thisLigne.family_name+","+elemf.split(':')[1].split('(')[0] #family
+                                        elif elemf[0] == 'g':
+                                            listOfLignes[i].genus_name=thisLigne.genus_name+","+elemf.split(':')[1].split('(')[0] #genus
+                                        else:
+                                            listOfLignes[i].species_name=thisLigne.species_name+","+elemf.split(':')[1].split('(')[0] #species
 
 
 ## get all keys of sample from merged_sample dic
