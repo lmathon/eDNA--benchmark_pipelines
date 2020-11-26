@@ -13,7 +13,7 @@ For each step, all the programs are compared, while the start and the end of the
 
 The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2 and BARQUE).
 
-The comparison is made first on simulated data ([benchmark_simulated_dataset]([benchmark_simulated_dataset)), to be able to assess the performance of each program to retrieve the samples taxonomic composition. The comparison is also verified on a real dataset ([benchmark_real_dataset]([benchmark_real_dataset)), composed of samples from Carry-le-Rouet reserve, France.
+The comparison is made first on simulated data ([benchmark_simulated_dataset](benchmark_simulated_dataset)), to be able to assess the performance of each program to retrieve the samples taxonomic composition. The comparison is also verified on a real dataset ([benchmark_real_dataset](benchmark_real_dataset)), composed of samples from Carry-le-Rouet reserve, France.
 
 # Dependencies
 
