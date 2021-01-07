@@ -82,7 +82,7 @@ sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 # Dereplicate reads into unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo /usr/bin/time $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --relabel_keep --minseqlength 20 --output "$dereplicated_sample > $sample_sh
+echo /usr/bin/time $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --relabel_keep --minseqlength 1 --output "$dereplicated_sample > $sample_sh
 # Formate vsearch output to obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
 echo "$container_python2 /benchmark_real_dataset/optimized_pipeline/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
@@ -119,7 +119,7 @@ all_sample_sequence_RC="${all_sample_sequences_uniqid/.fasta/.RC.fasta}"
 
 # Taxonomic assignation
 all_sample_sequences_vsearch_tag="${all_sample_sequences_RC/.fasta/.tag.fasta}"
-$vsearch --usearch_global $all_sample_sequences_RC --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 20 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
+$vsearch --usearch_global $all_sample_sequences_RC --db $refdb_dir --qmask none --dbmask none --notrunclabels --id 0.98 --top_hits_only --threads 16 --fasta_width 0 --maxaccepts 20 --maxrejects 20 --minseqlength 1 --maxhits 20 --query_cov 0.6 --blast6out $all_sample_sequences_vsearch_tag --dbmatched $main_dir/db_matched.fasta --matched $main_dir/query_matched.fasta
 ## Create final table
 ### preformat
 all_sample_sequences_vsearch_preformat="${all_sample_sequences_vsearch_tag/.fasta/.preformat.fasta}"

@@ -81,7 +81,7 @@ sample_sh="${sample/.fasta/_cmd.sh}"
 echo "bash "$sample_sh >> $all_samples_parallel_cmd_sh
 ## Dereplicate reads in unique sequences
 dereplicated_sample="${sample/.fasta/.uniq.fasta}"
-echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --threads 16 --minseqlength 20 --output "$dereplicated_sample > $sample_sh
+echo $vsearch" --derep_fulllength "$sample" --sizeout --fasta_width 0 --notrunclabels --threads 16 --minseqlength 1 --output "$dereplicated_sample > $sample_sh
 # Formate vsearch output to obifasta
 formated_sample="${dereplicated_sample/.fasta/.formated.fasta}"
 echo "$container_python2 benchmark_real_dataset/03_dereplication/vsearch_to_obifasta.py -f "$dereplicated_sample" -o "$formated_sample >> $sample_sh
