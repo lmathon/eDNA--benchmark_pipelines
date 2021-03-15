@@ -158,13 +158,13 @@ Time reports for each program compared are stored [here](99_utils/submitjob_sge_
 
 # Optimized pipeline
 
-The most performant programs for each step were assembled into a pipeline, and compared to the other complete pipelines. The scripts for this pipeline is in [benchmark_simulated_dataset/assembled_pipeline](benchmark_simulated_dataset/07_complete_pipeline/assembled_pipeline).
+The most performant programs for each step were assembled into a pipeline, and compared to the other complete pipelines. The scripts for this pipeline is in [benchmark_simulated_dataset/07_complete_pipelines/assembled_pipeline](benchmark_simulated_dataset/07_complete_pipelines/assembled_pipeline).
 
 # Comparison with complete pipelines
 
 The assembled pipeline built from the most perfomant individual programs is compared to other complete pipelines : BARQUE and QIIME2.
-The codes used to run BARQUE can be found here : [Barque-1.6.2](benchmark_simulated_dataset/07_complete_pipeline/Barque-1.6.2/) or at https://github.com/enormandeau/barque/releases/tag/v1.6.2.
-The codes used to run QIIME2 are available here : [QIIME2](benchmark_simulated_dataset/07_complete_pipeline/Qiime2/).
+The codes used to run BARQUE can be found here : [Barque-1.6.2](benchmark_simulated_dataset/07_complete_pipelines/Barque-1.6.2/) or at https://github.com/enormandeau/barque/releases/tag/v1.6.2.
+The codes used to run QIIME2 are available here : [QIIME2](benchmark_simulated_dataset/07_complete_pipelines/Qiime2/).
 
 # Real dataset
 
