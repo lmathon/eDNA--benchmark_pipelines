@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=80g
+#PBS -l walltime=03:00:00
+#PBS -N 04_TaxonomicAssignation
+#PBS -m bae
+
+# Working directory
+data=""
+work=""
+log=""
+summary=""
+mkdir -p ${summary}
+
+# Taxonomic database
+DATABASE=
+
+# Variable
+confidence="0.7"
+
+# Job
+time qiime feature-classifier classify-sklearn --p-n-jobs 16 --p-confidence ${confidence} --i-classifier ${DATABASE} --i-reads ${work}/data_rep_seqs.qza --o-classification ${work}/data_ASV_taxonomy.qza >& log_taxassign 2>&1
+
+time qiime metadata tabulate --m-input-file ${work}/data_ASV_taxonomy.qza --o-visualization ${summary}data_ASV_taxonomy.qzv >& log_summary 2>&1
+
+time qiime tools export --input-path ${summary}data_ASV_taxonomy.qzv --output-path ${summary} >& log_visu 2>&1

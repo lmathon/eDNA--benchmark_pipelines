@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=20g
+#PBS -l walltime=05:00:00
+#PBS -N 01_Import-Filter
+#PBS -m bae
+
+# Working directory
+data=""
+work=""
+log=""
+
+# Variables
+manifest=""
+primerF1="ACACCGCCCGTCACTCT"
+primerR1="CTTCCGGTACACTTACCATG"
+primerF2="CATGGTAAGTGTACCGGAAG"
+primerR2="AGAGTGACGGGCGGTGT"
+primer="0.12"
+overlap="16"
+length="20"
+
+# Job
+time qiime tools import --input-path ${manifest} --output-path ${work}/data.qza --type 'SampleData[PairedEndSequencesWithQuality]' --input-format PairedEndFastqManifestPhred33V2 >1 log_import 2>&1
+
+time qiime demux summarize --verbose --i-data ${work}/data.qza --o-visualization ${work}/data.qzv >& log_import_visu 2>&1
+
+time qiime tools export --input-path ${work}/data.qzv --output-path ${work}/import_data >& log_import_summary 2>&1
+
+time qiime cutadapt trim-paired --p-cores $NCPUS --verbose --i-demultiplexed-sequences ${work}/data.qza --p-front-f ${primerF1} --p-adapter-f ${primerF2} --p-front-r ${primerR1} --p-adapter-r ${primerR2} --p-error-rate ${primer} --p-overlap ${overlap} --p-discard-untrimmed --p-minimum-length ${length} --o-trimmed-sequences ${work}/data_trimmed.qza >& log_cutadapt_trim 2>&1
+
+time qiime demux summarize --verbose --i-data ${work}/data_trimmed.qza --output-dir ${work}/data_trimmed_summary >& log_trim_summary 2>&1
+
+time qiime tools export --input-path ${work}/data_trimmed_summary/visualization.qzv --output-path ${work}/data_trimmed_summary/ >& log_trim_visu 2>&1

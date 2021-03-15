@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=50g
+#PBS -l walltime=05:00:00
+#PBS -N 03_dbOTU
+#PBS -m bae
+
+# Working directory
+data=""
+work=""
+log=""
+table=""
+mkdir -p ${table}
+repseqs=""
+mkdir -p ${repseqs}
+metadata=""
+
+#Parameters
+gen_crit=0.1
+abund_crit=0
+pval_crit=0.005
+
+# Job
+
+time qiime dbotu-q2 call-otus --verbose --i-table ${work}/data_ASV_table.qza --i-sequences ${work}/data_rep_seqs.qza --p-gen-crit ${gen_crit} --p-abund-crit ${abund_crit} --p-pval-crit ${pval_crit} --o-representative-sequences ${work}/dbotu3_rep_seqs.qza --o-dbotu-table ${work}/dbotu3_table.qza > ${work}/dbotu3_details
+
+time qiime feature-table summarize --verbose --i-table ${work}/data_ASV_table.qza --o-visualization ${table}/dbotu3_table.qzv --m-sample-metadata-file ${metadata}
+
+time qiime feature-table tabulate-seqs --verbose --i-data ${work}/data_rep_seqs.qza --o-visualization ${repseqs}/dbotu3_rep_seqs.qzv
+
+time qiime tools export --input-path ${repseqs}/dbotu3_rep_seqs.qzv --output-path ${repseqs}
+
+time qiime tools export --input-path ${table}/dbotu3_table.qzv --output-path ${table}
+
+time qiime tools export --input-path ${work}/data_ASV_table.qza --output-path ${table}

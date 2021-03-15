@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=50g
+#PBS -l walltime=05:00:00
+#PBS -N 02_Dada2
+#PBS -m bae
+
+# Working directory
+data=""
+work=""
+log=""
+stats=""
+mkdir -p ${stats}
+table=""
+mkdir -p ${table}
+repseqs=""
+mkdir -p ${repseqs}
+
+# Job
+time qiime dada2 denoise-paired --i-demultiplexed-seqs ${work}/data_trimmed.qza --p-trunc-len-f 0 --p-trunc-len-r 0 --p-trim-left-f 0 --p-trim-left-r 0 --p-max-ee-f 2 --p-max-ee-r 2 --p-trunc-q 2 --p-chimera-method none --p-n-threads 16 --o-representative-sequences ${work}/data_rep_seqs.qza --o-table ${work}/data_ASV_table.qza --o-denoising-stats ${work}/stats_DADA2.qza >& log_DADA2 2>&1
+
+time qiime metadata tabulate --m-input-file ${work}/stats_DADA2.qza --o-visualization ${stats}stats_DADA2.qzv >& log_stats_summary 2>&1
+
+time qiime tools export --input-path ${stats}stats_DADA2.qzv --output-path ${stats} >& log_stats_visu 2>&1
+
+time qiime feature-table summarize --i-table ${work}/data_ASV_table.qza --o-visualization ${table}data_ASV_table.qzv --m-sample-metadata-file ${data}/sample_description_file.txt >& log_table_summary 2>&1
+
+time qiime tools export --input-path ${table}data_ASV_table.qzv --output-path ${table} >& log_table_visu 2>&1
+
+time qiime tools export --input-path ${work}/data_ASV_table.qza --output-path ${table} >& log_table_biom 2>&1
+
+time qiime feature-table tabulate-seqs --i-data ${work}/data_rep_seqs.qza --o-visualization ${repseqs}data_rep_seqs.qzv >& log_repseqs_summary 2>&1
+
+time qiime tools export --input-path ${repseqs}data_rep_seqs.qzv --output-path ${repseqs} >& log_repseqs_visu 2>&1

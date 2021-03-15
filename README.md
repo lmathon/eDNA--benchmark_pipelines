@@ -9,7 +9,7 @@ For each of these steps, different programs to compare were identified, as shown
 
 ![pipeline_schema](schema_protocole.PNG)
 
-For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([obitools_reference](benchmark_simulated_dataset/obitools_reference/total_obitools.sh)). This pipeline is based on [Obitools](https://git.metabarcoding.org/obitools/obitools/wikis/home), a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
+For each step, all the programs are compared, while the start and the end of the pipeline are standardized with a reference pipeline ([obitools_reference](benchmark_simulated_dataset/07_complete_pipelines/obitools_reference/total_obitools.sh)). This pipeline is based on [Obitools](https://git.metabarcoding.org/obitools/obitools/wikis/home), a set of python programs designed to analyse Next Generation Sequencer outputs (illumina) in the context of DNA Metabarcoding.
 
 The optimal pipeline obtained will be again compared to existant complete pipelines (QIIME2 and BARQUE).
 
@@ -158,7 +158,13 @@ Time reports for each program compared are stored [here](99_utils/submitjob_sge_
 
 # Optimized pipeline
 
-The most performant programs for each step were assembled into a pipeline, and compared to the other complete pipelines. The scripts for this pipeline is in [benchmark_simulated_dataset/optimized_pipeline](benchmark_simulated_dataset/optimized_pipeline).
+The most performant programs for each step were assembled into a pipeline, and compared to the other complete pipelines. The scripts for this pipeline is in [benchmark_simulated_dataset/assembled_pipeline](benchmark_simulated_dataset/07_complete_pipeline/assembled_pipeline).
+
+# Comparison with complete pipelines
+
+The assembled pipeline built from the most perfomant individual programs is compared to other complete pipelines : BARQUE and QIIME2.
+The codes used to run BARQUE can be found here : [Barque-1.6.2](benchmark_simulated_dataset/07_complete_pipeline/Barque-1.6.2/) or at https://github.com/enormandeau/barque/releases/tag/v1.6.2.
+The codes used to run QIIME2 are available here : [QIIME2](benchmark_simulated_dataset/07_complete_pipeline/Qiime2/).
 
 # Real dataset
 

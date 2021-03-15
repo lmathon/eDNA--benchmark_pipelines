@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#PBS -q sequentiel
+#PBS -l ncpus=1
+#PBS -l mem=30g
+#PBS -l walltime=00:10:00
+#PBS -N 05_FinalOutput
+#PBS -m bae
+
+# Repertoire courant
+data=""
+work=""
+log=""
+OUTPUT=""
+mkdir -p ${OUTPUT}
+rawtable=""
+tax=""
+
+# Formatting of taxonomic file
+time sed -i '1,2d' ${tax}
+time sed -i '1 i\#OTUID	taxonomy	confidence' ${tax}
+
+# Job 
+time biom add-metadata -i ${rawtable} -o ${OUTPUT}/table-with-taxonomy.biom --observation-metadata-fp ${tax} --sc-separated taxonomy >& log_biom 2>&1
+
+time biom convert -i ${OUTPUT}/table-with-taxonomy.biom -o ${OUTPUT}/table-with-taxonomy.tsv --to-tsv --header-key taxonomy >& log_tsv 2>&1
